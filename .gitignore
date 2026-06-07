@@ -1,0 +1,32 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Scraped HTML (large, regenerable from products.jsonl + re-scrape)
+data/categories/*/_raw/
+
+# Built indices (large, regenerable from products.jsonl)
+data/categories/*/index/embeddings.npy
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS
+.DS_Store
+
+# Tooling
+.idea/
+.vscode/
+
+# Result artifacts (keep summary JSONs, ignore raw transcripts to keep repo light)
+results/*/raw/
+
+# Eval outputs — generated locally per collaborator
+results/
+!results/.gitkeep

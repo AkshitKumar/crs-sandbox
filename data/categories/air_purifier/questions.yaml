@@ -1,0 +1,98 @@
+# Air purifier question bank.
+#
+# Tier 1 (openers): asked in this order for every user.
+# Tier 2 (followups): topic-tagged pool, picked adaptively after openers.
+
+openers:
+  - id: room_size
+    topic: room_size
+    text: "What size room will this be used in — a small bedroom, a medium living space, or a large open room?"
+
+  - id: primary_concern
+    topic: primary_concern
+    text: "What's the main thing you're trying to address — allergies, pets, smoke or odors, or general air quality?"
+
+  - id: budget
+    topic: budget
+    text: "What's your budget range? Are you open to spending more upfront for lower long-term filter costs, or trying to minimize the initial price?"
+
+followups:
+  - id: exact_sqft
+    topic: room_size
+    text: "Do you know roughly how many square feet the room is?"
+
+  - id: hepa_required
+    topic: filtration
+    text: "Do you specifically need HEPA filtration, or are you open to other technologies?"
+
+  - id: filter_cost
+    topic: filtration
+    text: "How much does ongoing filter replacement cost factor into your decision?"
+
+  - id: noise_level
+    topic: noise
+    text: "Where will this run — bedroom, living room, office — and how important is keeping it quiet, especially at night?"
+
+  - id: pets
+    topic: pets
+    text: "Do you have pets, and are pet dander or hair a primary concern?"
+
+  - id: specific_allergens
+    topic: allergies
+    text: "Are there specific allergens you're targeting — pollen, dust mites, mold spores?"
+
+  - id: smoke_odors
+    topic: smoke
+    text: "Are smoke or strong odors a concern — wildfire smoke, cooking smells, cigarette smoke?"
+
+  - id: vocs_chemicals
+    topic: vocs
+    text: "Do you want to filter VOCs or chemical fumes — from cleaning products, new furniture, etc?"
+
+  - id: smart_features
+    topic: smart
+    text: "Are smart features useful to you — app control, voice assistant integration, auto modes?"
+
+  - id: air_quality_sensor
+    topic: sensors
+    text: "Would a real-time air quality sensor that adjusts the fan automatically be valuable?"
+
+  - id: design_aesthetics
+    topic: design
+    text: "Does the appearance matter — small footprint, modern look, blending into the room?"
+
+  - id: energy_efficiency
+    topic: energy
+    text: "Is energy efficiency or Energy Star certification important to you?"
+
+  - id: brand
+    topic: brand
+    text: "Do you have any brand preferences — Coway, Levoit, Blueair, Dyson, others?"
+
+  - id: night_mode
+    topic: features
+    text: "Do you need a sleep or night mode with dimmed lights and quieter operation?"
+
+  - id: portability
+    topic: portability
+    text: "Do you need to move it between rooms, or will it stay in one place?"
+
+  - id: filter_indicator
+    topic: features
+    text: "Is a filter replacement indicator helpful, or is that not important?"
+
+  - id: ozone_avoidance
+    topic: filtration
+    text: "Are there technologies you specifically want to avoid — ozone generators, ionizers?"
+
+  - id: cadr_priority
+    topic: performance
+    text: "Are you familiar with CADR ratings, and is high cleaning speed a priority?"
+
+  - id: number_of_rooms
+    topic: room_size
+    text: "Are you looking to cover just one room, or do you need multiple units for different spaces?"
+
+  - id: medical
+    topic: allergies
+    text: "Is anyone in the household dealing with asthma or other respiratory conditions?"

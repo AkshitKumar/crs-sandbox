@@ -1,0 +1,26 @@
+category: air_purifier
+display_name: Air Purifier
+
+catalog_path: data/categories/air_purifier/products.jsonl
+questions_path: data/categories/air_purifier/questions.yaml
+index_dir: data/categories/air_purifier/index
+
+scrape:
+  seed_queries:
+    - "air purifier"
+    - "hepa air purifier"
+    - "air purifier for large rooms"
+    - "air purifier for bedroom"
+    - "air purifier for allergies"
+    - "air purifier for pets"
+  target_products: 300
+  reviews_per_product: 8
+
+ranking_defaults:
+  semantic_weight: 1.0
+  price_sensitivity: 0.0
+  rating_weight: 0.0
+  popularity_weight: 0.0
+  sponsored_slots: 0
+  niche_boost: 0.0
+  top_k: 3

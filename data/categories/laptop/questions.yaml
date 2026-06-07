@@ -1,0 +1,97 @@
+# Laptop question bank.
+#
+# Tier 1 (openers): asked in this order for every user. Each ATR(k) policy
+# means the CRS asks the first k openers before recommending.
+#
+# Tier 2 (followups): topic-tagged pool. After openers, the CRS LLM picks
+# which to ask next based on what's still unknown about the buyer's needs.
+
+openers:
+  - id: use_case
+    topic: use_case
+    text: "What will you mainly use this laptop for — work, school, gaming, creative work, or general everyday tasks?"
+
+  - id: budget
+    topic: budget
+    text: "What's your budget range? Is there a hard cap, or some flexibility for the right machine?"
+
+  - id: portability_vs_screen
+    topic: form_factor
+    text: "Do you prioritize portability and a smaller screen, or a larger display you'll mostly use at a desk?"
+
+followups:
+  - id: gpu_need
+    topic: gpu
+    text: "Do you need a dedicated graphics card — for gaming, 3D work, video editing, or ML?"
+
+  - id: ram
+    topic: memory
+    text: "How much RAM do you think you need? Light browsing is fine with 8GB, multitasking usually wants 16GB, and heavier workloads need 32GB+."
+
+  - id: storage
+    topic: storage
+    text: "How much storage do you need, and do you want everything on a fast SSD?"
+
+  - id: battery
+    topic: battery
+    text: "How important is battery life — do you need all-day unplugged use, or are you mostly near an outlet?"
+
+  - id: weight
+    topic: portability
+    text: "Is weight a major concern? Some people care about anything over 3 lbs, others don't mind 4–5 lbs."
+
+  - id: display_quality
+    topic: display
+    text: "Do you care about display quality — high resolution, color accuracy, OLED, that kind of thing?"
+
+  - id: refresh_rate
+    topic: display
+    text: "Is a high refresh rate (120Hz or higher) important to you, for gaming or smoother scrolling?"
+
+  - id: os_preference
+    topic: os
+    text: "Do you have an OS preference — Windows, macOS, ChromeOS, or no strong opinion?"
+
+  - id: ports
+    topic: ports
+    text: "Are there specific ports you need built in — USB-A, HDMI, SD card, Thunderbolt?"
+
+  - id: keyboard
+    topic: keyboard
+    text: "Anything specific about the keyboard — backlit, full-size with numpad, particular layout?"
+
+  - id: build_quality
+    topic: build
+    text: "How much does build quality matter — metal chassis, sturdy hinges, that sort of thing?"
+
+  - id: brand
+    topic: brand
+    text: "Do you have any brand preferences, or brands you'd rather avoid?"
+
+  - id: form_factor_2in1
+    topic: form_factor
+    text: "Would a 2-in-1 or touchscreen design be useful, or do you want a traditional clamshell?"
+
+  - id: fan_noise
+    topic: noise
+    text: "Is fan noise something you'd want to minimize — for quiet environments or recording?"
+
+  - id: webcam
+    topic: webcam
+    text: "How important is webcam and microphone quality for video calls?"
+
+  - id: ecosystem
+    topic: ecosystem
+    text: "Do you have other devices you'd like this to work well with — phone, tablet, existing accessories?"
+
+  - id: gaming_titles
+    topic: gpu
+    text: "If you're gaming, what kinds of titles — competitive esports, AAA at high settings, or casual?"
+
+  - id: creative_software
+    topic: performance
+    text: "If this is for creative work, which apps — Photoshop, Premiere, Blender, Logic, something else?"
+
+  - id: travel_frequency
+    topic: portability
+    text: "How often will you actually carry this laptop with you — daily, occasionally, rarely?"

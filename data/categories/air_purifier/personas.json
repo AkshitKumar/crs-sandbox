@@ -1,0 +1,1604 @@
+{
+  "personas": [
+    {
+      "id": "air purifier_001",
+      "gender": "male",
+      "background": "Lives in a small apartment bedroom with poor ventilation and spends most evenings working and sleeping in the same space.",
+      "ground_truth_need": "He wants an air purifier mainly to improve nighttime air quality in his bedroom, where dust and stale air trigger throat irritation. His top priority is effective particulate removal for a small room, especially lint and fine dust, since comfort while sleeping matters most. He has a moderate budget, aiming around $200 with a hard cap of $250, but is willing to pay slightly more for proven performance. Noise should be low at night, ozone is a dealbreaker, and filter replacements should be reasonably priced. Extra features like smart controls are nice but not essential.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier for my bedroom.",
+        "My main concern is [[actually cleaning dust and fine particles effectively]] since the air feels stale when I wake up.",
+        "I need it to be [[quiet enough to run overnight]] because I\u2019ll be sleeping with it on.",
+        "I can\u2019t deal with anything that [[produces ozone or irritates my throat]] at all.",
+        "I\u2019m aiming for [[around $200 and definitely under $250]] for the purifier.",
+        "I\u2019d prefer [[filters that aren\u2019t expensive to replace]] over time.",
+        "The unit should be [[appropriately sized for a small bedroom]] rather than whole-house.",
+        "Smart features would be [[nice but not necessary]] if performance is solid."
+      ]
+    },
+    {
+      "id": "air purifier_002",
+      "gender": "female",
+      "background": "Shares an apartment with a cat and keeps the litter box in a small enclosed area near her living space.",
+      "ground_truth_need": "She needs an air purifier focused on pet-related odors and dander near a litter box. Odor reduction is the primary driver, followed closely by durability since she wants something that lasts several years. Budget is constrained, targeting about $250 with a firm maximum of $300. The purifier only needs to cover a very small area, so size efficiency matters more than raw power. Noise tolerance is moderate, ozone is unacceptable, and she prefers proven HEPA filtration over experimental technologies.",
+      "context_trail": [
+        "I need an air purifier for my apartment.",
+        "The biggest thing I need is [[strong odor control from a cat litter box]].",
+        "It has to be [[durable and reliable for daily use]] since I don\u2019t want to replace it soon.",
+        "I\u2019m working with [[a budget around $250 and max $300]].",
+        "It only needs to [[handle a very small area]] near the litter box.",
+        "I won\u2019t use anything that [[produces ozone or strong byproducts]].",
+        "I expect [[true HEPA-style filtration]] rather than gimmicks.",
+        "Moderate fan noise is [[acceptable if odors are reduced]] effectively."
+      ]
+    },
+    {
+      "id": "air purifier_003",
+      "gender": "unspecified",
+      "background": "Lives in a dry condo environment with frequent dust buildup and generally quiet surroundings.",
+      "ground_truth_need": "They are looking for an efficient air purifier to reduce dust in a condo where dryness worsens air quality. The top priority is low operating noise since the unit will run most of the day. Dust removal efficiency is next, while a humidifying feature is a secondary nice-to-have, not a requirement. Budget is flexible, targeting around $300 with a soft cap near $400. The unit should be compact, energy-efficient, and safe for continuous use without ozone emissions.",
+      "context_trail": [
+        "I\u2019m interested in buying an air purifier for my condo.",
+        "My top priority is [[very low noise during operation]] since I\u2019m home a lot.",
+        "I mainly want it to [[reduce dust buildup]] throughout the space.",
+        "I\u2019m comfortable spending [[around $300, possibly up to $400]] if it\u2019s worth it.",
+        "A [[humidifying option would be a bonus]] but not required.",
+        "I prefer [[compact and efficient units]] over bulky ones.",
+        "It needs to be [[safe for continuous daily use]] without concerns.",
+        "I want to avoid [[any ozone-producing technologies]] entirely."
+      ]
+    },
+    {
+      "id": "air purifier_004",
+      "gender": "male",
+      "background": "Uses a small home office to display collectibles and wants to minimize cleaning effort.",
+      "ground_truth_need": "He wants an air purifier mainly to reduce dust accumulation on shelves in a small study room. The most important factor is lowering visible dust so cleaning frequency drops. He spends limited time in the room, so noise and advanced features matter less. Budget is modest, aiming near $150 with a hard limit of $200. The purifier should be easy to maintain, compatible with local availability, and reasonably durable, though not necessarily buy-it-for-life.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier for a small room.",
+        "What matters most is [[cutting down visible dust on shelves]].",
+        "I only use the room briefly, so [[noise isn\u2019t a big concern]].",
+        "I\u2019d like to stay [[around $150 and under $200]] total.",
+        "It should be [[easy to maintain without much hassle]].",
+        "I need something [[available from common local brands]].",
+        "Long-term durability is [[nice but not critical]] for me.",
+        "Extra smart features are [[unnecessary for my use case]]."
+      ]
+    },
+    {
+      "id": "air purifier_005",
+      "gender": "female",
+      "background": "Lives in a small bedroom and manages allergies following medical advice.",
+      "ground_truth_need": "She needs an air purifier to help manage allergies in a 200 sq ft bedroom after simpler solutions failed. Allergen reduction is the primary concern, especially dust and pollen. Budget sensitivity is high, targeting $200 with a maximum of $250. The unit must be appropriately sized for a small room and safe for respiratory health, meaning no ozone. Noise should be reasonable for sleep, and ongoing filter costs should remain manageable.",
+      "context_trail": [
+        "I want to buy an air purifier for my room.",
+        "The most important thing is [[relief from dust and pollen allergies]].",
+        "I need to keep it [[under $250, ideally closer to $200]].",
+        "It should be [[properly sized for a small bedroom]].",
+        "I can\u2019t risk [[anything that emits ozone]] because of allergies.",
+        "It should be [[quiet enough to sleep with]] at night.",
+        "I care about [[reasonable filter replacement costs]].",
+        "Design and looks are [[not important at all]] to me."
+      ]
+    },
+    {
+      "id": "air purifier_006",
+      "gender": "male",
+      "background": "Cooks frequently in an apartment with limited ventilation and few usable windows.",
+      "ground_truth_need": "He wants an air purifier specifically to reduce lingering cooking smells in his apartment. Odor removal performance is the clear top priority, outweighing allergen filtration. Budget is mid-range, aiming around $250 with flexibility up to $350 if results are significantly better. The unit should work well in shared living spaces, tolerate continuous use, and not rely on opening windows. Noise is acceptable as long as it sounds like airflow rather than mechanical rattling.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier for my apartment.",
+        "My main goal is [[removing strong cooking odors]] quickly.",
+        "I\u2019m okay spending [[around $250, up to $350 for better results]].",
+        "It needs to [[work well without opening windows]].",
+        "I want something [[reliable for frequent daily use]].",
+        "Airflow noise is [[fine as long as it\u2019s not mechanical]].",
+        "It should cover [[a medium-sized living area]].",
+        "Allergy filtration is [[secondary to odor control]] for me."
+      ]
+    },
+    {
+      "id": "air purifier_007",
+      "gender": "female",
+      "background": "Shares a bedroom with a pet rabbit and has long-standing allergies.",
+      "ground_truth_need": "She is looking for a high-quality air purifier focused on cleaning thick, dusty air caused by pet dander and litter in a large bedroom with high ceilings. Cleaning performance and longevity are the most important factors. Price is not a major constraint; she is willing to pay a premium if it truly lasts. Ozone is a strict dealbreaker, while noise and aesthetics do not matter. The unit should handle larger room volumes effectively.",
+      "context_trail": [
+        "I need an air purifier for my bedroom.",
+        "What matters most is [[powerful air cleaning for pet dander]].",
+        "I\u2019m willing to [[pay more for long-term durability]].",
+        "It absolutely must [[not produce ozone]] of any kind.",
+        "Noise levels are [[not important to me at all]].",
+        "It should handle [[large rooms with high ceilings]].",
+        "I don\u2019t care about [[color or design aesthetics]].",
+        "Extra germ-killing features are [[not a priority]] for me."
+      ]
+    },
+    {
+      "id": "air purifier_008",
+      "gender": "unspecified",
+      "background": "Sensitive to smells and concerned about chemical off-gassing in household products.",
+      "ground_truth_need": "They want a HEPA air purifier that does not emit plastic or chemical smells during operation. The top priority is material safety and neutral odor output. Allergy relief is secondary but still important. Budget is moderate, targeting around $300 with some flexibility. The purifier should be well-reviewed for build quality, safe for continuous indoor use, and free from ozone or ionizer-related concerns.",
+      "context_trail": [
+        "I\u2019m searching for a new air purifier.",
+        "My biggest concern is [[no chemical or plastic smell from the unit]].",
+        "I still want [[effective HEPA filtration for allergies]].",
+        "I\u2019m planning to spend [[around $300, with some flexibility]].",
+        "It needs to be [[safe for constant indoor use]].",
+        "I want to avoid [[ionizers or similar technologies]].",
+        "Solid build quality is [[important for peace of mind]].",
+        "Smart features are [[not necessary]] for me."
+      ]
+    },
+    {
+      "id": "air purifier_009",
+      "gender": "male",
+      "background": "Lives in a highly allergenic city and cleans his small room frequently due to dust.",
+      "ground_truth_need": "He wants an affordable air purifier to reduce dust and allergy symptoms in a small bedroom. Budget is the dominant constraint, with a strict limit under $100 and an ideal target closer to $70. Dust reduction is the main performance need, while noise and aesthetics are secondary. He understands performance may be limited at this price but wants the best value possible with cheap replacement filters.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier for a small room.",
+        "I need it to be [[very affordable, under $100 ideally]].",
+        "The main reason is [[reducing dust buildup]] in my room.",
+        "I accept [[limited performance at this price point]].",
+        "Replacement filters should be [[cheap and easy to find]].",
+        "Noise levels are [[not a major concern]] for me.",
+        "It only needs to [[cover a small bedroom]].",
+        "Build quality just needs to be [[good enough for the price]]."
+      ]
+    },
+    {
+      "id": "air purifier_010",
+      "gender": "female",
+      "background": "Drives daily in a new car and wants to keep the interior air clean.",
+      "ground_truth_need": "She is looking for a compact air purifier suitable for use inside a car. The main priority is effectiveness against smoke, dust, and pollen in a closed-vent environment. Size and compatibility with a vehicle interior are critical. Budget is secondary, with a target around $150 and flexibility upward. The unit must be safe for enclosed use, low-maintenance, and not produce ozone.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier for my car.",
+        "It must be [[effective against smoke, dust, and pollen]].",
+        "The purifier has to be [[compact enough for a vehicle]].",
+        "I\u2019m budgeting [[around $150, with some flexibility]].",
+        "It should be [[safe for enclosed spaces]] like a car.",
+        "I always drive with vents closed, so [[independent circulation matters]].",
+        "Maintenance should be [[minimal and simple]].",
+        "Ozone production is [[not acceptable]] at all."
+      ]
+    },
+    {
+      "id": "air purifier_011",
+      "gender": "male",
+      "background": "Lives in the UK and is shopping on a tight budget for a basic purifier.",
+      "ground_truth_need": "He wants an entry-level air purifier available in the UK with acceptable performance for general air quality. Budget is the primary constraint, capped around \u00a3100. He is comparing similarly priced models and wants the best value rather than premium features. The purifier should be safe, reasonably effective for dust, and not rely heavily on gimmicky features like ionizers if they compromise air safety.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier in the UK.",
+        "My biggest limitation is [[a budget of about \u00a3100]].",
+        "I want the [[best value among similarly priced models]].",
+        "It should handle [[basic dust and air quality issues]].",
+        "I\u2019m cautious about [[ionizers and safety concerns]].",
+        "Fancy extras like remotes are [[not very important]].",
+        "Availability from [[UK retailers matters]].",
+        "Long warranties are [[a small bonus]] but not required."
+      ]
+    },
+    {
+      "id": "air purifier_012",
+      "gender": "female",
+      "background": "Suffers from indoor dust mite allergies and wants better sleep quality.",
+      "ground_truth_need": "She is searching for a mid-range air purifier primarily for dust mite allergies in her bedroom. Allergen filtration effectiveness is the top priority. Budget is flexible around $400, but she wants clear value over cheap alternatives. Noise should be moderate for nighttime use, and the purifier should have a strong reputation rather than mass-market branding.",
+      "context_trail": [
+        "I\u2019m looking to buy an air purifier.",
+        "My main focus is [[relief from dust mite allergies]].",
+        "I\u2019m comfortable spending [[around $400 for quality]].",
+        "I want to avoid [[cheap, ineffective models]].",
+        "It should be [[quiet enough for bedroom use]].",
+        "Brand reputation is [[important to me]].",
+        "I don\u2019t need it to [[cover the entire home]].",
+        "Smart features are [[optional, not required]]."
+      ]
+    },
+    {
+      "id": "air purifier_013",
+      "gender": "male",
+      "background": "Lives with multiple dogs and maintains a compact bedroom full of electronics.",
+      "ground_truth_need": "He needs an air purifier that can handle pet hair, dander, and odors in a small bedroom. The primary concern is capturing larger particles like fur while also reducing smell. Budget is limited to $250. Durability is important, though it does not need to last forever. The unit should be compact, effective, and able to run frequently without mechanical issues.",
+      "context_trail": [
+        "I need an air purifier for my bedroom.",
+        "The biggest requirement is [[handling pet hair and dander]].",
+        "Odor reduction is [[almost as important]] as particle capture.",
+        "I need to keep it [[under $250]] total.",
+        "It should be [[compact enough for a small room]].",
+        "I want something [[durable for frequent use]].",
+        "Whole-house coverage is [[not necessary]] for me.",
+        "I\u2019m okay with [[some fan noise]] if it works well."
+      ]
+    },
+    {
+      "id": "air purifier_014",
+      "gender": "female",
+      "background": "Struggles with persistent dust in a shared bedroom despite regular cleaning.",
+      "ground_truth_need": "She is looking for a buy-it-for-life style air purifier mainly to control dust in a bedroom. Long-term reliability and consistent dust reduction are the top priorities. Budget is secondary, with willingness to spend more upfront to avoid replacements. Noise should be low, ozone-free operation is required, and the unit should be simple to operate without constant adjustments.",
+      "context_trail": [
+        "I\u2019m interested in an air purifier for dust.",
+        "I want something [[reliable for long-term dust control]].",
+        "I\u2019m willing to [[pay more upfront for longevity]].",
+        "It must be [[ozone-free and safe]] to run daily.",
+        "I prefer [[simple controls without constant tweaking]].",
+        "Quiet operation is [[important for a bedroom]].",
+        "I don\u2019t need [[extra odor or smoke features]].",
+        "Design and size just need to be [[practical]]."
+      ]
+    },
+    {
+      "id": "air purifier_015",
+      "gender": "male",
+      "background": "Lives in a multi-story townhouse and wants whole-home air improvement.",
+      "ground_truth_need": "He wants an air purifier solution for a three-story townhouse and is unsure whether one large unit can handle it. The main priority is effective coverage across floors. Budget is flexible but he prefers a simpler, centralized solution if possible. Noise and aesthetics are secondary. If one unit cannot work, he is open to buying multiple coordinated units.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier for my home.",
+        "My main concern is [[effective coverage across multiple floors]].",
+        "I\u2019d prefer [[one simple solution over many units]].",
+        "Budget is [[flexible for the right setup]].",
+        "If needed, I\u2019m open to [[buying multiple purifiers]].",
+        "Noise levels are [[not a big issue]] for me.",
+        "I care more about [[performance than design]].",
+        "Ease of placement in [[different rooms matters]]."
+      ]
+    },
+    {
+      "id": "air purifier_016",
+      "gender": "female",
+      "background": "Lives in an apartment affected by neighbors\u2019 cooking smells.",
+      "ground_truth_need": "She is seeking an air purifier mainly to combat odors drifting into her bedroom from nearby apartments. Odor reduction effectiveness is the primary factor. Budget is mid-range, around $300, but she wants clear justification if spending more. The purifier should be quiet enough for nighttime use and effective even when windows are closed.",
+      "context_trail": [
+        "I\u2019m searching for an air purifier.",
+        "The most important thing is [[reducing strong external odors]].",
+        "It needs to [[work well in a closed bedroom]].",
+        "I\u2019m aiming to spend [[around $300]] on it.",
+        "Quiet operation is [[important at night]].",
+        "I want something [[more effective than basic models]].",
+        "Allergy filtration is [[secondary for me]].",
+        "I don\u2019t need [[whole-apartment coverage]]."
+      ]
+    },
+    {
+      "id": "air purifier_017",
+      "gender": "unspecified",
+      "background": "Recently returned a noisy purifier and enjoys consistent white noise.",
+      "ground_truth_need": "They want an air purifier under $200 that excels at odor reduction while producing steady white noise. Odor control is the top priority, followed closely by sound quality rather than silence. Budget is firm under $200. The unit should be durable enough for 24/7 use and suitable for a combined living room and kitchen space.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The key thing I need is [[strong odor reduction]].",
+        "I actually want [[consistent white noise from airflow]].",
+        "I need to stay [[under $200]] for this purchase.",
+        "It should handle [[a medium living area]].",
+        "I want it to be [[reliable for 24/7 use]].",
+        "I\u2019m not concerned about [[pet-specific features]].",
+        "Smart controls are [[not necessary]] for me."
+      ]
+    },
+    {
+      "id": "air purifier_018",
+      "gender": "male",
+      "background": "Lives with depression and is trying to improve his home environment quality.",
+      "ground_truth_need": "He is looking for two air purifiers to address dust and allergy issues in a bedroom and computer room. The main priority is overall improvement in air quality to support well-being. Budget is capped at $500 total for both units. He values unbiased reliability, moderate noise, and consistent performance over flashy marketing claims.",
+      "context_trail": [
+        "I\u2019m looking for air purifiers.",
+        "My main goal is [[improving overall air quality at home]].",
+        "I need [[two units within a $500 total budget]].",
+        "Dust and allergy control are [[important for daily comfort]].",
+        "I want [[reliable performance, not marketing hype]].",
+        "Noise should be [[moderate and tolerable]].",
+        "I plan to use them in [[a bedroom and computer room]].",
+        "Extra smart features are [[not a priority]]."
+      ]
+    },
+    {
+      "id": "air purifier_019",
+      "gender": "female",
+      "background": "Lives with a cat in a mid-sized apartment and likes connected devices.",
+      "ground_truth_need": "She needs a HEPA air purifier that can handle cat allergens across most of a 650 sq ft apartment. Effectiveness against pet allergies is the top concern. Smart features like air quality indicators are strongly preferred. Budget is mid-to-high range, around $400. The purifier should be reliable, relatively quiet, and capable of covering large open spaces.",
+      "context_trail": [
+        "I\u2019m looking for a new air purifier.",
+        "My biggest priority is [[controlling cat-related allergens]].",
+        "I really want [[smart features like air quality indicators]].",
+        "I\u2019m expecting to spend [[around $400]] for this.",
+        "It should cover [[most of a medium-sized apartment]].",
+        "Quiet operation is [[important for daily use]].",
+        "I want something [[clearly more effective than entry-level units]].",
+        "Design is [[a minor consideration]] for me."
+      ]
+    },
+    {
+      "id": "air purifier_020",
+      "gender": "unspecified",
+      "background": "Shares a home with pets and wants an affordable improvement in air quality.",
+      "ground_truth_need": "They are looking for a good, affordable air purifier to help with general air quality in a pet-owning household. Budget sensitivity is high, targeting under $200. The main goals are reducing pet dander and improving freshness rather than medical-grade filtration. The purifier should be easy to use, reasonably durable, and widely available.",
+      "context_trail": [
+        "I\u2019m looking for a good air purifier.",
+        "I need something [[affordable and under $200]].",
+        "It should help with [[pet dander and general air quality]].",
+        "I don\u2019t need [[medical-grade filtration]].",
+        "Ease of use is [[important for everyday living]].",
+        "It should be [[reasonably durable for the price]].",
+        "I want something [[easy to buy and replace parts for]].",
+        "Extra features are [[not necessary]] for my needs."
+      ]
+    },
+    {
+      "id": "air purifier_021",
+      "gender": "female",
+      "background": "Works from home in a dusty older house and wants cleaner air without constant cleaning between video calls.",
+      "ground_truth_need": "She wants an air purifier primarily for dust control in a home office that gets visibly dusty fast. Her top priority is strong particulate performance (fine dust and lint), because it affects comfort and the amount of cleaning she has to do. Second priority is low ongoing maintenance cost, since she plans to run it most weekdays. Budget is moderate: target $180 with a hard cap of $230. Noise should be moderate and not distracting during calls. Ozone/ionizers are a dealbreaker. She prefers simple controls and reliable build quality over flashy smart features.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My top priority is [[noticeable reduction in dust and lint]] in the room.",
+        "I want [[replacement filters to stay affordable]] since I\u2019ll run it often.",
+        "I\u2019m aiming for [[about $180 and no more than $230]].",
+        "It should be [[not too loud during work calls]].",
+        "I need [[no ozone or ionizer output]] at all.",
+        "I prefer [[simple controls over complicated apps]].",
+        "Build quality should feel [[reliable for everyday use]]."
+      ]
+    },
+    {
+      "id": "air purifier_022",
+      "gender": "male",
+      "background": "Lives in a studio apartment and is sensitive to smells from neighboring units through shared vents.",
+      "ground_truth_need": "He needs an air purifier mainly for odor control from neighboring cooking smells and occasional smoke drifting in. The most important requirement is effective VOC/odor reduction using substantial activated carbon, because the smell lingers for days. Second is running it continuously without developing rattles or motor whine. Budget is mid-range, targeting $250 with a hard cap of $325. Noise is acceptable if it sounds like steady airflow. He will not use ozone generators or anything marketed as ozone-producing.",
+      "context_trail": [
+        "I need an air purifier.",
+        "My main goal is [[serious odor reduction from neighboring smells]].",
+        "It must be [[good for continuous 24/7 operation]] without issues.",
+        "I can spend [[around $250, max $325]] if it actually works.",
+        "I prefer a [[real carbon filter for odors]] rather than gimmicks.",
+        "I\u2019m fine with [[steady fan noise]] if it helps.",
+        "It cannot use [[ozone-producing approaches]] under any circumstances.",
+        "Coverage should match [[a small-to-medium studio space]]."
+      ]
+    },
+    {
+      "id": "air purifier_023",
+      "gender": "non-binary",
+      "background": "Keeps birds indoors for rehab and spends most nights in a poorly ventilated apartment.",
+      "ground_truth_need": "They want an air purifier to reduce airborne bird dander and fine dust in a large living room area. The top priority is strong HEPA-grade particle capture and high CADR to meaningfully reduce symptoms, since cleaning alone isn\u2019t enough. Second priority is scaling coverage\u2014either one powerful unit or multiple units\u2014without creating ozone. Budget is planned as a setup: target $450 total with a hard maximum of $600. Noise is acceptable during the day but should be manageable at night. They prefer readily available replacement filters.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The most important thing is [[reducing bird dander and fine dust]] in the air.",
+        "I need [[high airflow/CADR for a larger room]] to feel a difference.",
+        "I can budget [[about $450 total, up to $600 max]].",
+        "It must be [[ozone-free and safe]] for indoor use.",
+        "I\u2019m open to [[using multiple units if needed]] for coverage.",
+        "Filter availability should be [[easy to source regularly]].",
+        "I\u2019d like nighttime operation to be [[not unbearably loud]]."
+      ]
+    },
+    {
+      "id": "air purifier_024",
+      "gender": "female",
+      "background": "Lives in a high-pollution city and sleeps lightly, so noise and particle filtration both affect her day.",
+      "ground_truth_need": "She needs an air purifier for protection from outdoor pollution infiltrating her apartment, especially PM2.5 and PM10. The top priority is measurable fine-particle filtration performance, ideally with an air quality sensor she can trust. Second is low noise at night, since she\u2019s a light sleeper and will run it continuously. Budget is moderate-high: target $300 with a hard cap of $450. She dislikes units that only feel effective on loud modes. Ozone is a strict no, and she values consistent performance across fan speeds.",
+      "context_trail": [
+        "I want an air purifier for my apartment.",
+        "My top need is [[strong filtration for PM2.5/PM10 pollution]].",
+        "I need it to be [[quiet enough for sleep]] on usable settings.",
+        "I can spend [[around $300, with $450 as a hard cap]].",
+        "I\u2019d like [[a trustworthy air quality sensor]] to track changes.",
+        "It must stay [[effective without only using the loudest mode]].",
+        "I won\u2019t accept [[ozone or ionizer output]] at all.",
+        "I prefer a unit with [[stable performance across fan speeds]]."
+      ]
+    },
+    {
+      "id": "air purifier_025",
+      "gender": "male",
+      "background": "Shares a small home with a partner who has asthma and reacts to seasonal pollen and dust indoors.",
+      "ground_truth_need": "He wants an air purifier for a living room to help reduce pollen and dust that trigger asthma symptoms. The most important factor is asthma-safe operation with proven HEPA filtration and no ozone, because safety outweighs all else. Second is reliable allergy reduction for a mid-sized room. Budget is constrained: target $180 with a hard maximum of $250. Noise should be moderate since it will run during the day and sometimes overnight. He prefers devices with readily available filters and avoids units with strong chemical odors.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The most important requirement is [[asthma-safe operation with no ozone]].",
+        "I need [[real HEPA-level filtration for pollen and dust]].",
+        "I\u2019m trying to keep it [[around $180 and under $250]].",
+        "It should work well in [[a medium living room]].",
+        "I\u2019d like [[filters that are easy to buy]] locally or online.",
+        "I want to avoid [[units that smell like plastic or chemicals]].",
+        "Noise should be [[tolerable for daily use]] without being distracting."
+      ]
+    },
+    {
+      "id": "air purifier_026",
+      "gender": "female",
+      "background": "Moves between a bedroom and living room depending on guests and wants one portable unit to do both jobs.",
+      "ground_truth_need": "She wants an air purifier that can be moved between a small bedroom and a larger living room when friends visit. The primary priority is portability and ease of moving/setting up, since it must serve two spaces. Second is effectiveness for cat allergy mitigation during visits, including dander and dust. Budget target is $220 with a hard cap of $300. She prefers quiet operation in the bedroom, ozone-free operation, and simple maintenance. She\u2019s skeptical of premium \u201cfan-only\u201d branding and wants real filtration.",
+      "context_trail": [
+        "I need an air purifier.",
+        "My biggest need is [[easy portability between rooms]].",
+        "It should help most with [[cat allergy symptoms when guests visit]].",
+        "I want to spend [[around $220 and not exceed $300]].",
+        "It should be [[quiet enough for a bedroom]] at night.",
+        "I need [[ozone-free operation]] to feel safe using it.",
+        "Maintenance should be [[simple and not messy]].",
+        "I prefer [[real filtration over \u201cjust a fan\u201d products]]."
+      ]
+    },
+    {
+      "id": "air purifier_027",
+      "gender": "male",
+      "background": "Lives with a heavy indoor smoker and is trying to keep his room and clothes from absorbing smoke odor.",
+      "ground_truth_need": "He needs an air purifier primarily to reduce cigarette smoke smell and related particles in a bedroom. The top priority is smoke and odor reduction, so substantial activated carbon and strong airflow are critical. Second is safety\u2014no ozone, no harsh byproducts\u2014since it will run for long periods. Budget is tight: target $150 with a hard cap of $200. He prefers washable pre-filters to catch larger particles and wants replacement filters to be affordable. Noise is acceptable if it means better smoke control.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main priority is [[reducing cigarette smoke smell]] in my room.",
+        "It has to be [[safe to run for long periods]] without ozone risks.",
+        "I need to keep it [[under $200, ideally near $150]].",
+        "I\u2019d like [[strong carbon filtration]] for odor control.",
+        "A washable [[pre-filter would help]] with larger particles.",
+        "Replacement filters should be [[reasonably priced]] over time.",
+        "I can tolerate [[some fan noise]] if it improves smoke removal."
+      ]
+    },
+    {
+      "id": "air purifier_028",
+      "gender": "unspecified",
+      "background": "Has a small bathroom that traps odors and wants a safe, compact device for that specific space.",
+      "ground_truth_need": "They want a compact air purifier for a small bathroom to reduce lingering odors while remaining safe in a humid environment. The top priority is safety and suitability for bathroom use (moisture tolerance and electrical safety). Second is odor reduction performance in a tiny enclosed space. Budget is modest: target $120 with a hard cap of $180. They want simple controls and easy cleaning, and they prefer avoiding ozone/ionizer tech. Noise is less important given short usage.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "It must be [[safe to use in a small bathroom]] environment.",
+        "The main purpose is [[reducing bathroom odors]] quickly.",
+        "I\u2019m hoping to spend [[about $120 and no more than $180]].",
+        "It should be [[compact for a tight space]].",
+        "I prefer [[simple controls and easy cleaning]].",
+        "I want to avoid [[ozone/ionizer features]] entirely.",
+        "Noise level is [[not a major factor]] for short bathroom runs."
+      ]
+    },
+    {
+      "id": "air purifier_029",
+      "gender": "female",
+      "background": "Lives in an older rental with frequent dampness and worries indoor mold may be contributing to recurring coughs.",
+      "ground_truth_need": "She wants multiple air purifiers to help reduce airborne irritants in a larger home where mold may be present. The top priority is filtration suitable for mold spores and general particulates, with true HEPA performance. Second is scaling to a large total area with multiple units while keeping ongoing costs manageable. Budget is planned as a phased purchase: target $600 total for the first two units with a hard cap of $900 over time. Ozone is a dealbreaker due to respiratory concerns. Noise should be reasonable for bedrooms.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My biggest concern is [[filtering possible mold spores and irritants]].",
+        "I\u2019ll likely need [[multiple units for a larger home]].",
+        "I\u2019m planning [[around $600 for two units, up to $900 total]].",
+        "It must be [[true HEPA-level filtration]] rather than vague claims.",
+        "Ongoing costs should be [[manageable over time]].",
+        "I need [[no ozone emissions]] because breathing comfort matters.",
+        "It should be [[quiet enough for bedrooms]] at night."
+      ]
+    },
+    {
+      "id": "air purifier_030",
+      "gender": "male",
+      "background": "Runs a gaming PC in a tiny bedroom and notices dust buildup damaging performance and requiring frequent cleaning.",
+      "ground_truth_need": "He wants an air purifier mainly to reduce dust accumulation in a small bedroom to protect electronics. The top priority is high dust capture and good airflow for a small room, since he wants to reduce the need to clean his PC weekly. Second is filter cost and availability because he expects frequent use. Budget is limited: target $140 with a hard cap of $200. Noise is acceptable as white noise, but he wants to avoid motor whining. He also prefers ozone-free operation.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier for my room.",
+        "The main goal is [[reducing dust to protect my electronics]].",
+        "It should have [[strong airflow for a small bedroom]] to make a difference.",
+        "I want to keep it [[around $140 and under $200]].",
+        "Replacement filters need to be [[easy to find and affordable]].",
+        "Fan noise is [[fine as white noise]] if it\u2019s smooth.",
+        "I want to avoid [[motor whine or rattling]] over time.",
+        "It must be [[ozone-free]] for peace of mind."
+      ]
+    },
+    {
+      "id": "air purifier_031",
+      "gender": "female",
+      "background": "Lives in a compact bedroom and wants a purifier that can run all night without disturbing sleep.",
+      "ground_truth_need": "She needs an air purifier for a small bedroom primarily due to dust and mild allergies. The top priority is very quiet operation on a useful setting, since she is sensitive to noise at night. Second priority is effective dust filtration for a small area. Budget is moderate: target $160 with a hard cap of $230. She prefers a compact footprint, ozone-free operation, and low vibration. Smart features are not important.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier for my bedroom.",
+        "My top priority is [[very quiet operation overnight]].",
+        "I need it to [[reduce dust noticeably]] in the room.",
+        "I\u2019m budgeting [[around $160 and no more than $230]].",
+        "I\u2019d like a [[compact size]] that doesn\u2019t take much space.",
+        "It should be [[ozone-free]] since I\u2019m cautious about air safety.",
+        "I want [[low vibration]] so it doesn\u2019t rattle on furniture.",
+        "I don\u2019t care about [[apps or smart controls]] for this."
+      ]
+    },
+    {
+      "id": "air purifier_032",
+      "gender": "male",
+      "background": "Has a large open living area and wants one strong unit rather than several smaller ones.",
+      "ground_truth_need": "He wants an air purifier for a space over 600 square feet, mainly for general dust and freshness. The top priority is coverage and high clean air delivery for a large room, because he dislikes buying multiple devices. Second is durability for long daily runs. Budget is flexible: target $450 with a hard cap of $650. Noise is not a dealbreaker, but he prefers steady airflow sound. Ozone is a no, and he wants straightforward filter replacement.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The main requirement is [[strong coverage for a 600+ sq ft space]].",
+        "I\u2019d prefer [[one powerful unit instead of multiple]] if possible.",
+        "I\u2019m prepared to spend [[around $450, up to $650 max]].",
+        "It should be [[durable for long daily runtimes]].",
+        "I want [[simple filter replacements]] without complicated upkeep.",
+        "I won\u2019t use anything with [[ozone or ionizer output]].",
+        "Noise is [[acceptable if it\u2019s mostly airflow]] and not mechanical."
+      ]
+    },
+    {
+      "id": "air purifier_033",
+      "gender": "unspecified",
+      "background": "Is skeptical of marketing claims and wants measurable performance rather than influencer-style recommendations.",
+      "ground_truth_need": "They want an air purifier for dust and allergies but are mainly concerned about trustworthy performance claims. The top priority is verified filtration effectiveness (HEPA-grade) and credible CADR specs. Second is long-term reliability, because they don\u2019t want it degrading quickly. Budget is moderate: target $220 with a hard cap of $320. Noise should be reasonable, ozone/ionizers are not acceptable, and they prefer a brand with transparent specs and readily available filters.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main priority is [[verified performance and credible CADR specs]].",
+        "I want [[true HEPA-grade filtration]] for dust and allergens.",
+        "I\u2019m trying to stay [[around $220, with $320 as a hard cap]].",
+        "Reliability matters because I need [[consistent performance over years]].",
+        "I want to avoid [[ozone/ionizer technologies]] entirely.",
+        "Noise should be [[reasonable for daily use]].",
+        "Filters should be [[easy to purchase]] without hunting for rare parts."
+      ]
+    },
+    {
+      "id": "air purifier_034",
+      "gender": "female",
+      "background": "Lives with two cats and hosts friends who are highly allergic, so she wants quick cleanup before visits.",
+      "ground_truth_need": "She needs an air purifier that can quickly reduce cat dander in a living room before guests arrive. The top priority is fast allergen reduction with high airflow for a larger room, not just a small bedroom device. Second is portability so she can move it between rooms when prepping for visits. Budget is moderate-high: target $300 with a hard cap of $400. She insists on ozone-free operation and prefers quiet-to-moderate noise. Easy maintenance and a decent pre-filter for hair are bonuses.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My biggest need is [[fast reduction of cat dander for guests]].",
+        "It should have [[strong airflow for a larger living room]].",
+        "I can spend [[around $300, but not more than $400]].",
+        "I want it to be [[portable between rooms]] when needed.",
+        "I need [[ozone-free operation]] since guests are sensitive.",
+        "A [[pre-filter that catches hair]] would be helpful.",
+        "Noise should be [[quiet to moderate]] so it\u2019s not annoying."
+      ]
+    },
+    {
+      "id": "air purifier_035",
+      "gender": "male",
+      "background": "Lives alone in a small bedroom and is extremely cost-conscious about both purchase price and recurring filter costs.",
+      "ground_truth_need": "He wants a basic air purifier for dust in a small room because dust gives him headaches. The dominant constraint is cost: target $60 with a hard cap of $90. Second priority is cheap, easily available replacement filters, since he can\u2019t afford high ongoing maintenance. Performance expectations are realistic\u2014he mainly wants noticeable dust reduction near his bed. Noise and aesthetics don\u2019t matter much. He avoids anything involving ozone or strong smells from plastics.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "I need it to be [[very cheap, ideally under $90]].",
+        "I also need [[replacement filters to be inexpensive]] long-term.",
+        "The main problem I\u2019m trying to fix is [[dust in my room]] causing headaches.",
+        "It only needs to work for [[a small bedroom]] setup.",
+        "Noise is [[not a big deal]] at this price point.",
+        "I want to avoid [[any ozone or ionizer features]].",
+        "I\u2019d rather not have [[plastic or chemical odors]] from the unit."
+      ]
+    },
+    {
+      "id": "air purifier_036",
+      "gender": "female",
+      "background": "Lives in a dry climate and wants a combined device to reduce dust while making the air feel less harsh.",
+      "ground_truth_need": "She wants an air purifier that also helps with dryness, ideally via an integrated humidifying function, because her apartment air feels harsh. The top priority is a dependable humidifying option that doesn\u2019t create mess or require constant babysitting. Second is solid dust filtration for everyday cleanliness. Budget is moderate-high: target $350 with a hard cap of $500. Noise should be low for bedtime use. She insists on safe operation without ozone and prefers easy cleaning to prevent mold or buildup.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main priority is [[a built-in humidifying option]] to help with dryness.",
+        "I also need [[good dust filtration]] for everyday air quality.",
+        "I\u2019m budgeting [[around $350 and no more than $500]].",
+        "It should be [[quiet enough for nighttime use]].",
+        "Cleaning should be [[easy to prevent buildup]] in the humidifier parts.",
+        "I need [[ozone-free operation]] for safety.",
+        "I\u2019d like [[low-maintenance refilling routines]] rather than constant attention."
+      ]
+    },
+    {
+      "id": "air purifier_037",
+      "gender": "male",
+      "background": "Owns a small apartment with minimal ventilation and wants a purifier that also functions as a decent fan.",
+      "ground_truth_need": "He wants an air purifier that doubles as a fan because his new apartment has poor air circulation. The top priority is airflow and fan usefulness for comfort, while still providing meaningful filtration. Second is durability for several years of regular use. Budget is mid-range: target $250 with a hard cap of $350. He prefers quiet-medium noise, ozone-free operation, and filters that are not overly expensive. He doesn\u2019t need app control, but simple speed settings and a stable base matter.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main priority is [[strong airflow so it works well as a fan]].",
+        "I want [[solid filtration]] so it\u2019s not just circulating air.",
+        "I\u2019m aiming for [[about $250, max $350]].",
+        "It should be [[durable for several years]] of regular use.",
+        "I need [[ozone-free operation]] since it will run often indoors.",
+        "Noise should be [[comfortable, not harsh]] when used daily.",
+        "Filters should be [[reasonably priced]] to replace."
+      ]
+    },
+    {
+      "id": "air purifier_038",
+      "gender": "unspecified",
+      "background": "Lives in a shared household and wants a premium \u201cone-and-done\u201d purchase for long-term peace of mind.",
+      "ground_truth_need": "They want a top-tier air purifier intended as a long-term purchase, focusing on overall air cleaning rather than a single allergen. The top priority is robust cleaning performance and high build quality that feels genuinely durable. Second priority is low fuss\u2014simple operation with predictable maintenance intervals. Budget is high: target $800 with a hard cap of $1200. Noise and aesthetics are secondary. They will not accept ozone emissions and prefer reputable brands with readily available filters.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "I want [[top-tier cleaning performance and build quality]] as a one-and-done purchase.",
+        "I prefer [[low-fuss operation]] with straightforward controls.",
+        "My budget is [[around $800, with $1200 as a hard maximum]].",
+        "It must be [[ozone-free]] for safe long-term use.",
+        "I want [[predictable maintenance intervals]] rather than constant upkeep.",
+        "Noise and looks are [[not major priorities]] for me.",
+        "I\u2019d like [[filters that stay available]] for years to come."
+      ]
+    },
+    {
+      "id": "air purifier_039",
+      "gender": "female",
+      "background": "Lives in a small bedroom with odd smells and wants quick relief without buying a whole-home system.",
+      "ground_truth_need": "She needs a small air purifier for a bedroom where allergies flare up and occasional odors appear. The top priority is bedroom-appropriate sizing and effective dust filtration, since she doesn\u2019t want to overbuy for the entire home. Second is low noise at night. Budget is constrained: target $150 with a hard cap of $220. She wants ozone-free operation and dislikes units that cost a lot to maintain. She prefers simple operation and compact design.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier for my bedroom.",
+        "I mainly need [[effective dust filtration for a small bedroom]].",
+        "It should be [[quiet at night]] so I can sleep.",
+        "I\u2019m trying to spend [[around $150 and not exceed $220]].",
+        "I prefer [[a compact unit]] rather than a big whole-home model.",
+        "It has to be [[ozone-free]] for peace of mind.",
+        "Maintenance should be [[reasonably priced]] over time.",
+        "I want [[simple controls]] without complicated settings."
+      ]
+    },
+    {
+      "id": "air purifier_040",
+      "gender": "male",
+      "background": "Lives above smokers in a multi-unit building and keeps windows closed to avoid smoke intrusion.",
+      "ground_truth_need": "He wants an air purifier primarily for cigarette smoke particles and VOC-related odors entering his apartment from neighbors. The top priority is smoke mitigation using both strong particle filtration and meaningful carbon media. Second is minimizing exposure concerns by running it continuously in a bedroom. Budget is moderate: target $350 with a hard cap of $500. He needs ozone-free operation. Noise should be acceptable for sleep, and he prefers a unit known for durability since it will run many hours daily.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main priority is [[reducing cigarette smoke particles and VOC odors]].",
+        "I need [[substantial carbon filtration]] to help with the smell.",
+        "I can spend [[around $350, with $500 as a hard cap]].",
+        "It must be [[safe for continuous bedroom use]] every day.",
+        "I won\u2019t consider [[anything that produces ozone]].",
+        "It should be [[quiet enough for sleep]] most nights.",
+        "I want [[durable performance]] since it will run many hours daily."
+      ]
+    },
+    {
+      "id": "air purifier_041",
+      "gender": "female",
+      "background": "Rents a small apartment in a polluted urban area and keeps windows closed most of the year.",
+      "ground_truth_need": "She wants an air purifier mainly to protect against outdoor pollution entering her apartment, especially fine particles. Her top priority is effective PM2.5 filtration she can trust, since city air quality directly affects her breathing. Second is running it continuously without excessive noise. Budget is mid-range: target $280 with a hard cap of $400. She prefers a compact unit suitable for an apartment living room, ozone-free operation, and consistent performance without needing to run only on the loudest setting. Smart features are a bonus but not required.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main concern is [[filtering fine outdoor pollution particles]].",
+        "I need it to [[run continuously without being too loud]].",
+        "I\u2019m aiming for [[around $280, with $400 as a hard limit]].",
+        "It should be [[sized for an apartment living room]].",
+        "I won\u2019t use anything with [[ozone or ionizer output]].",
+        "I want [[consistent performance on normal fan speeds]].",
+        "Smart features would be [[nice but optional]]."
+      ]
+    },
+    {
+      "id": "air purifier_042",
+      "gender": "male",
+      "background": "Lives in a rural home where pollen and dust are constant problems during most seasons.",
+      "ground_truth_need": "He is looking for an air purifier to reduce heavy pollen and dust that worsen his allergies at home. The top priority is strong allergen filtration for a bedroom-sized space. Second is low ongoing cost, since he expects to replace filters often during pollen season. Budget is limited: target $160 with a hard cap of $220. Noise should be moderate for nighttime use, ozone is unacceptable, and the unit should be easy to maintain without complicated settings.",
+      "context_trail": [
+        "I need an air purifier.",
+        "The most important thing is [[reducing pollen and dust allergies]].",
+        "I want [[affordable filter replacements]] for seasonal use.",
+        "I\u2019m trying to stay [[around $160 and under $220]].",
+        "It should work well in [[a bedroom-sized room]].",
+        "I need [[ozone-free operation]] because of allergies.",
+        "Noise should be [[reasonable for sleeping]].",
+        "I prefer [[simple maintenance]] over extra features."
+      ]
+    },
+    {
+      "id": "air purifier_043",
+      "gender": "unspecified",
+      "background": "Lives in a shared apartment and is very sensitive to artificial smells and off-gassing.",
+      "ground_truth_need": "They want an air purifier that improves air quality without introducing new smells. The top priority is neutral operation with no plastic, chemical, or electrical odors from the unit itself. Second is effective dust and allergen filtration. Budget is moderate: target $300 with a hard cap of $450. They insist on ozone-free technology, solid build materials, and predictable performance. Noise should be low to moderate, as the purifier will run most of the day.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My biggest concern is [[no plastic or chemical smell from the unit]].",
+        "I still want [[effective dust and allergen filtration]].",
+        "I can spend [[around $300, up to $450 max]].",
+        "It must be [[ozone-free]] for safety.",
+        "I\u2019d like [[good build materials]] that don\u2019t off-gas.",
+        "Noise should be [[low to moderate]] during the day.",
+        "I prefer [[predictable, consistent performance]]."
+      ]
+    },
+    {
+      "id": "air purifier_044",
+      "gender": "female",
+      "background": "Works night shifts and sleeps during the day in a small, quiet bedroom.",
+      "ground_truth_need": "She needs an air purifier that can run while she sleeps during daylight hours without disturbing her. The top priority is extremely quiet operation on a setting that still provides meaningful filtration. Second is dust reduction to keep the bedroom clean. Budget is moderate: target $200 with a hard cap of $300. She wants ozone-free operation, minimal vibration, and a compact design suitable for a small bedroom. Smart features are not important.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier for my bedroom.",
+        "My top priority is [[very quiet operation while sleeping]].",
+        "I need [[real dust reduction]] even on low settings.",
+        "I\u2019m planning to spend [[around $200, max $300]].",
+        "It should be [[compact for a small bedroom]].",
+        "I won\u2019t use [[anything that produces ozone]].",
+        "I want [[low vibration]] so it doesn\u2019t buzz.",
+        "Extra features are [[not important]] to me."
+      ]
+    },
+    {
+      "id": "air purifier_045",
+      "gender": "male",
+      "background": "Lives in a townhouse with pets and wants to improve air quality floor by floor.",
+      "ground_truth_need": "He wants air purifiers for a multi-level home with dogs and cats. The top priority is scalable coverage\u2014being able to add multiple units that work consistently across floors. Second is effective pet dander and hair capture. Budget is planned per unit: target $250 each with a hard cap of $350. Noise is acceptable, but ozone is a dealbreaker. He prefers units with washable pre-filters to handle fur and reduce maintenance costs.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main concern is [[scaling coverage across multiple floors]].",
+        "It needs to [[handle pet dander and hair]] effectively.",
+        "I\u2019m budgeting [[around $250 per unit, up to $350]].",
+        "I\u2019d like [[washable pre-filters]] to manage fur.",
+        "It must be [[ozone-free]] for household safety.",
+        "Noise is [[not a major issue]] in most rooms.",
+        "I want [[consistent performance between units]]."
+      ]
+    },
+    {
+      "id": "air purifier_046",
+      "gender": "female",
+      "background": "Lives with asthma and is cautious about anything that could worsen breathing indoors.",
+      "ground_truth_need": "She is looking for an air purifier to support asthma management at home. The top priority is respiratory safety, meaning no ozone, no ionizers, and proven HEPA filtration. Second is reliable reduction of dust and pollen. Budget is moderate: target $220 with a hard cap of $300. Noise should be low enough for nighttime use. She values clear documentation and avoids models with vague or exaggerated claims.",
+      "context_trail": [
+        "I need an air purifier.",
+        "The most important thing is [[asthma-safe, ozone-free operation]].",
+        "I want [[true HEPA filtration]] for dust and pollen.",
+        "I\u2019m aiming for [[around $220, max $300]].",
+        "It should be [[quiet enough for night use]].",
+        "I prefer [[clear, honest specifications]] from the brand.",
+        "It should work well in [[a bedroom-sized room]].",
+        "I don\u2019t care about [[extra smart features]]."
+      ]
+    },
+    {
+      "id": "air purifier_047",
+      "gender": "male",
+      "background": "Lives in a tiny studio and wants one device to handle both dust and lingering food smells.",
+      "ground_truth_need": "He wants an air purifier for a studio apartment that can manage both everyday dust and cooking odors. The top priority is balanced performance across particles and smells, rather than excelling at only one. Second is compact size, since space is limited. Budget is constrained: target $200 with a hard cap of $280. Noise should be tolerable for sleeping, ozone is unacceptable, and he wants filters that don\u2019t need constant replacement.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "I need [[balanced dust and odor reduction]] in one unit.",
+        "It has to be [[compact for a small studio]].",
+        "I\u2019m trying to stay [[around $200, under $280]].",
+        "It should be [[quiet enough to sleep with]].",
+        "I want [[ozone-free operation]] only.",
+        "Filters should be [[long-lasting]] if possible.",
+        "I don\u2019t need [[whole-house coverage]]."
+      ]
+    },
+    {
+      "id": "air purifier_048",
+      "gender": "unspecified",
+      "background": "Has a home office filled with books and fabrics that collect dust easily.",
+      "ground_truth_need": "They want an air purifier to significantly reduce dust accumulation in a fabric-heavy home office. The top priority is strong fine-particle filtration to slow visible dust buildup. Second is steady operation during work hours without being distracting. Budget is moderate: target $190 with a hard cap of $260. They prefer ozone-free designs, simple controls, and reliable airflow rather than advanced connectivity features.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main goal is [[reducing dust buildup in my office]].",
+        "It should [[run steadily during work hours]] without distraction.",
+        "I\u2019m budgeting [[around $190, max $260]].",
+        "I need [[ozone-free operation]] for daily use.",
+        "Simple controls are [[better than apps]] for me.",
+        "It should fit a [[home office-sized room]].",
+        "I value [[reliable airflow]] over extra features."
+      ]
+    },
+    {
+      "id": "air purifier_049",
+      "gender": "female",
+      "background": "Lives in an older building with poor airflow and occasional musty smells.",
+      "ground_truth_need": "She wants an air purifier to improve general air freshness and reduce musty odors in an older apartment. The top priority is odor control using real filtration rather than masking smells. Second is improving overall air circulation in a stale space. Budget is mid-range: target $240 with a hard cap of $350. Noise is acceptable during the day but should be lower at night. She insists on ozone-free operation and prefers sturdy construction.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main concern is [[reducing musty and stale odors]].",
+        "I want [[better air circulation]] in the apartment.",
+        "I can spend [[around $240, up to $350]].",
+        "It should be [[quieter at night]] if possible.",
+        "I won\u2019t use [[ozone-producing technologies]].",
+        "I prefer [[solid, sturdy construction]].",
+        "It only needs to cover [[one main room]]."
+      ]
+    },
+    {
+      "id": "air purifier_050",
+      "gender": "male",
+      "background": "Spends most of his time in a basement room with limited airflow and high dust levels.",
+      "ground_truth_need": "He needs an air purifier for a basement room that feels heavy and dusty. The top priority is moving and cleaning enough air to make the space feel fresher. Second is durability, since basements can be harder on electronics. Budget is moderate: target $260 with a hard cap of $380. Noise is acceptable, ozone is not, and he wants a unit that can handle continuous use without overheating or frequent maintenance.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The main thing I need is [[making the air feel fresher]] in my basement room.",
+        "It should have [[strong airflow and dust filtration]].",
+        "I\u2019m budgeting [[around $260, max $380]].",
+        "I want [[durable construction]] for basement conditions.",
+        "It must be [[safe for continuous operation]].",
+        "I won\u2019t consider [[ozone or ionizer features]].",
+        "Maintenance should be [[straightforward]] and not frequent."
+      ]
+    },
+    {
+      "id": "air purifier_051",
+      "gender": "female",
+      "background": "Lives with seasonal allergies and wants one purifier to test before buying more units.",
+      "ground_truth_need": "She wants to buy a single air purifier for her bedroom to test whether it improves allergy symptoms before purchasing more. The top priority is noticeable allergy relief from dust and pollen. Second is reasonable upfront cost so expansion later is affordable. Budget is limited: target $170 with a hard cap of $240. Noise should be low for sleep, ozone-free operation is required, and she wants consistent filter availability.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The main goal is [[noticeable allergy relief]] from dust and pollen.",
+        "I want to [[start with one affordable unit]] before buying more.",
+        "I\u2019m aiming for [[around $170, max $240]].",
+        "It should be [[quiet enough for sleep]].",
+        "I need [[ozone-free operation]] for safety.",
+        "Filters should be [[easy to find later]].",
+        "It only needs to cover [[a bedroom for now]]."
+      ]
+    },
+    {
+      "id": "air purifier_052",
+      "gender": "male",
+      "background": "Lives in a hot climate and runs air conditioning constantly with windows closed.",
+      "ground_truth_need": "He wants an air purifier to improve indoor air quality while keeping windows closed most of the year. The top priority is effective filtration that works well alongside AC systems. Second is not adding too much heat or resistance to airflow. Budget is moderate: target $300 with a hard cap of $450. Noise should be acceptable for living spaces, ozone is unacceptable, and he prefers efficient designs that don\u2019t spike energy use.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main concern is [[effective filtration with windows closed]].",
+        "It should [[work well alongside air conditioning]].",
+        "I can spend [[around $300, up to $450]].",
+        "I want [[efficient airflow without adding heat]].",
+        "I won\u2019t use [[ozone-producing models]].",
+        "Noise should be [[reasonable for common areas]].",
+        "Energy efficiency is [[important for long runtimes]]."
+      ]
+    },
+    {
+      "id": "air purifier_053",
+      "gender": "unspecified",
+      "background": "Lives in a shared home and wants to reduce general dust without disturbing others.",
+      "ground_truth_need": "They want an air purifier for shared spaces where dust accumulates but noise sensitivity varies between roommates. The top priority is low-noise operation that still meaningfully reduces dust. Second is affordability, since the cost is being split. Budget target is $200 with a hard cap of $280. Ozone-free operation is required, and the unit should be easy for anyone to operate without confusion.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The most important thing is [[low-noise dust reduction]] in shared areas.",
+        "It needs to be [[easy for anyone to use]].",
+        "We\u2019re budgeting [[around $200, max $280]].",
+        "It should be [[ozone-free]] for shared safety.",
+        "It only needs to cover [[one common room]].",
+        "Maintenance should be [[simple and infrequent]].",
+        "Extra features aren\u2019t [[worth paying more]] for us."
+      ]
+    },
+    {
+      "id": "air purifier_054",
+      "gender": "female",
+      "background": "Lives in a damp climate and worries about mold-related smells in her bedroom.",
+      "ground_truth_need": "She wants an air purifier to help with mold-related odors and airborne particles in a bedroom. The top priority is filtration capable of capturing mold spores and reducing musty smells. Second is safe continuous operation without producing ozone. Budget is moderate: target $260 with a hard cap of $380. Noise should be low at night, and she prefers models with straightforward maintenance and good documentation.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My biggest concern is [[reducing mold-related odors and spores]].",
+        "It needs to be [[safe for continuous bedroom use]].",
+        "I\u2019m aiming for [[around $260, max $380]].",
+        "Noise should be [[low enough for sleep]].",
+        "I won\u2019t accept [[ozone or ionizer features]].",
+        "Maintenance should be [[clear and straightforward]].",
+        "It only needs to work in [[one bedroom]]."
+      ]
+    },
+    {
+      "id": "air purifier_055",
+      "gender": "male",
+      "background": "Lives in a compact apartment and wants the quietest possible purifier for nighttime use.",
+      "ground_truth_need": "He wants an air purifier mainly for nighttime use in a small bedroom. The top priority is near-silent operation on a setting that still cleans air. Second is compact size, as floor space is limited. Budget is moderate: target $210 with a hard cap of $300. He wants ozone-free operation, low vibration, and minimal indicator lights that won\u2019t disturb sleep.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My top priority is [[near-silent nighttime operation]].",
+        "It needs to [[actually clean air even on low speed]].",
+        "I\u2019m budgeting [[around $210, up to $300]].",
+        "A [[compact footprint]] is important for my room.",
+        "It must be [[ozone-free]] for safety.",
+        "I want [[minimal lights or displays]] at night.",
+        "Vibration should be [[very low]] on furniture."
+      ]
+    },
+    {
+      "id": "air purifier_056",
+      "gender": "female",
+      "background": "Hosts frequent gatherings and wants better air freshness in her main living space.",
+      "ground_truth_need": "She wants an air purifier for a main living area to keep air feeling fresh when guests visit. The top priority is high airflow to quickly refresh the space. Second is odor reduction from food and people. Budget is mid-range: target $320 with a hard cap of $450. Noise is acceptable during gatherings but should be manageable otherwise. She insists on ozone-free designs and prefers durable construction.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The main thing I need is [[fast air refreshing for guests]].",
+        "It should help with [[odors from food and people]].",
+        "I can spend [[around $320, up to $450]].",
+        "Noise is [[acceptable during use]] when entertaining.",
+        "I won\u2019t use [[ozone-producing technology]].",
+        "It needs to cover [[a large living area]].",
+        "I want [[durable build quality]] for long-term use."
+      ]
+    },
+    {
+      "id": "air purifier_057",
+      "gender": "unspecified",
+      "background": "Lives alone and wants the simplest possible solution to reduce everyday dust.",
+      "ground_truth_need": "They want a no-frills air purifier to reduce everyday dust in a small apartment. The top priority is simplicity\u2014turn it on and forget it. Second is affordability. Budget is limited: target $140 with a hard cap of $200. Noise is not a big concern, ozone is unacceptable, and they prefer a model with minimal settings and straightforward filter changes.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The most important thing is [[simple, no-fuss operation]].",
+        "I want [[basic dust reduction]] without complexity.",
+        "I\u2019m trying to stay [[around $140, max $200]].",
+        "It should be [[easy to turn on and forget]].",
+        "I need [[ozone-free operation]] only.",
+        "Filter changes should be [[straightforward]].",
+        "I don\u2019t care about [[extra features or apps]]."
+      ]
+    },
+    {
+      "id": "air purifier_058",
+      "gender": "male",
+      "background": "Lives with multiple roommates who cook frequently and generate strong food odors.",
+      "ground_truth_need": "He wants an air purifier for a shared kitchen/living area to manage strong cooking odors. The top priority is odor reduction performance using real filtration rather than masking smells. Second is durability, since it will run often. Budget is moderate: target $280 with a hard cap of $400. Noise is acceptable during the day, ozone is not, and he wants something that can handle frequent use without degrading quickly.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main priority is [[reducing strong cooking odors]].",
+        "It needs to be [[durable for frequent daily use]].",
+        "I can spend [[around $280, up to $400]].",
+        "It should work well in [[a shared kitchen/living area]].",
+        "I won\u2019t accept [[ozone or ionizer output]].",
+        "Noise is [[fine during the day]].",
+        "I want [[consistent odor control]] over time."
+      ]
+    },
+    {
+      "id": "air purifier_059",
+      "gender": "female",
+      "background": "Has pets and allergies but lives in a very small bedroom with limited floor space.",
+      "ground_truth_need": "She wants an air purifier for a tiny bedroom to help with pet dander and allergies. The top priority is effective allergen filtration in a small footprint. Second is quiet operation at night. Budget is constrained: target $180 with a hard cap of $260. Ozone-free operation is required, and she wants filters that don\u2019t need replacing too often. Design matters less than performance per size.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The main thing I need is [[allergen reduction in a very small room]].",
+        "It should be [[quiet enough for sleeping]] at night.",
+        "I\u2019m budgeting [[around $180, max $260]].",
+        "A [[small footprint]] is really important.",
+        "I need [[ozone-free operation]] for safety.",
+        "Filters should be [[long-lasting]] if possible.",
+        "Looks are [[less important than performance]]."
+      ]
+    },
+    {
+      "id": "air purifier_060",
+      "gender": "male",
+      "background": "Lives in a busy city center and wants data-driven insight into his indoor air quality.",
+      "ground_truth_need": "He wants an air purifier that not only cleans air but also provides feedback on air quality. The top priority is accurate air quality sensing and reporting so he can see when pollution levels change. Second is strong filtration for city dust and particulates. Budget is moderate-high: target $350 with a hard cap of $500. Noise should be reasonable, ozone is unacceptable, and he prefers a reliable app rather than gimmicky features.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My top priority is [[accurate air quality sensing and feedback]].",
+        "I need [[strong filtration for city dust and pollution]].",
+        "I can spend [[around $350, up to $500]].",
+        "I want [[useful data rather than gimmicks]].",
+        "Noise should be [[reasonable for daily living]].",
+        "I won\u2019t use [[ozone-producing technologies]].",
+        "I prefer [[a stable, reliable app]] over flashy features."
+      ]
+    },
+    {
+      "id": "air purifier_061",
+      "gender": "female",
+      "background": "Lives in a small apartment near a busy road and keeps windows closed most of the time.",
+      "ground_truth_need": "She wants an air purifier to reduce traffic-related pollution and dust entering her apartment. The top priority is fine-particle filtration that can meaningfully reduce PM2.5 from nearby traffic. Second is quiet operation during evenings and sleep. Budget is mid-range, targeting $260 with a hard cap of $380. She insists on ozone-free operation, prefers a compact unit for a living room, and wants consistent performance without needing to run the highest fan setting constantly.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My biggest concern is [[filtering traffic-related fine particles]].",
+        "It needs to be [[quiet enough for evenings and sleep]].",
+        "I\u2019m aiming for [[around $260, with $380 as a hard cap]].",
+        "It should be [[compact for an apartment living room]].",
+        "I won\u2019t accept [[ozone or ionizer output]].",
+        "I want [[consistent performance without maxing the fan]].",
+        "Simple controls are [[preferable to complex apps]]."
+      ]
+    },
+    {
+      "id": "air purifier_062",
+      "gender": "male",
+      "background": "Lives with a dog in a small home office that doubles as a guest room.",
+      "ground_truth_need": "He wants an air purifier mainly to reduce dog dander and hair in a small office/guest room. The top priority is capturing pet dander effectively so guests with allergies are more comfortable. Second is a washable pre-filter to handle hair and reduce filter costs. Budget is constrained, targeting $190 with a hard cap of $260. Noise is acceptable during the day, ozone is unacceptable, and he prefers easy maintenance over advanced features.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main need is [[reducing dog dander for allergic guests]].",
+        "I\u2019d really like [[a washable pre-filter for hair]].",
+        "I\u2019m trying to stay [[around $190, max $260]].",
+        "It only needs to cover [[a small office-sized room]].",
+        "I need [[ozone-free operation]] for safety.",
+        "Noise is [[fine during daytime use]].",
+        "I prefer [[easy maintenance over extra features]]."
+      ]
+    },
+    {
+      "id": "air purifier_063",
+      "gender": "unspecified",
+      "background": "Works long hours from home and is sensitive to stale indoor air buildup.",
+      "ground_truth_need": "They want an air purifier to keep indoor air feeling fresh during long work-from-home days. The top priority is steady air circulation combined with effective filtration, so the space never feels stuffy. Second is reliability for long daily runtimes. Budget is moderate: target $240 with a hard cap of $350. Noise should be unobtrusive, ozone-free operation is required, and they prefer simple fan-speed controls rather than complex automation.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main goal is [[keeping the air from feeling stale]] during the day.",
+        "It should be [[reliable for long daily runtimes]].",
+        "I\u2019m budgeting [[around $240, up to $350]].",
+        "Noise should be [[unobtrusive while working]].",
+        "I need [[ozone-free operation]] only.",
+        "I prefer [[simple speed controls]] instead of automation.",
+        "It should fit [[a home office-sized space]]."
+      ]
+    },
+    {
+      "id": "air purifier_064",
+      "gender": "female",
+      "background": "Lives in a very dry climate and wakes up with throat irritation most mornings.",
+      "ground_truth_need": "She wants an air purifier primarily to reduce dust that worsens throat irritation, with secondary interest in mild humidification. The top priority is effective dust filtration near her bed. Second is compatibility with a humidifier or built-in moisture support that doesn\u2019t create mess. Budget is mid-range: target $300 with a hard cap of $450. Noise must be low for sleep, ozone is unacceptable, and easy cleaning matters.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My biggest concern is [[reducing dust that irritates my throat]].",
+        "I\u2019d like [[some help with dryness or humidification]].",
+        "I\u2019m planning to spend [[around $300, max $450]].",
+        "It needs to be [[quiet enough for sleeping]].",
+        "I won\u2019t use [[ozone or ionizer features]].",
+        "Cleaning and upkeep should be [[easy and low-mess]].",
+        "It will mainly be used [[near my bed]]."
+      ]
+    },
+    {
+      "id": "air purifier_065",
+      "gender": "male",
+      "background": "Lives in a small basement apartment that traps odors and dust easily.",
+      "ground_truth_need": "He wants an air purifier to improve air quality in a basement apartment where odors linger and dust builds up. The top priority is strong airflow and filtration to make the space feel fresher. Second is durability, since basement conditions can be tough on electronics. Budget is moderate: target $280 with a hard cap of $400. Noise is acceptable, ozone is not, and he prefers straightforward maintenance.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The main thing I need is [[making my basement air feel fresher]].",
+        "It should have [[strong airflow and filtration]].",
+        "I can spend [[around $280, up to $400]].",
+        "I want [[durable construction]] for basement use.",
+        "It must be [[safe for continuous operation]].",
+        "I won\u2019t accept [[ozone-producing features]].",
+        "Maintenance should be [[simple and predictable]]."
+      ]
+    },
+    {
+      "id": "air purifier_066",
+      "gender": "female",
+      "background": "Has mild asthma and is cautious about adding new devices to her bedroom.",
+      "ground_truth_need": "She wants an air purifier for a bedroom to help manage asthma triggers. The top priority is respiratory safety, meaning no ozone, no ionizers, and certified HEPA filtration. Second is quiet operation that won\u2019t disturb sleep. Budget is moderate: target $230 with a hard cap of $320. She values clear safety documentation, reliable performance, and a compact design suitable for a bedroom.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The most important thing is [[asthma-safe, ozone-free operation]].",
+        "I need [[true HEPA filtration]] for triggers.",
+        "I\u2019m aiming for [[around $230, max $320]].",
+        "It should be [[quiet enough for sleep]].",
+        "I prefer [[clear safety documentation]].",
+        "A [[compact bedroom-friendly size]] matters.",
+        "Extra smart features are [[not necessary]]."
+      ]
+    },
+    {
+      "id": "air purifier_067",
+      "gender": "unspecified",
+      "background": "Lives in a shared apartment where roommates cook strong-smelling food daily.",
+      "ground_truth_need": "They want an air purifier mainly to reduce strong cooking odors in a shared apartment. The top priority is odor reduction using effective carbon filtration. Second is affordability since the cost is being shared. Budget target is $220 with a hard cap of $300. Noise is acceptable during the day, ozone is unacceptable, and the unit should be simple enough that any roommate can operate it.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main goal is [[reducing strong cooking odors]].",
+        "It needs to be [[affordable since we\u2019re splitting the cost]].",
+        "We\u2019re aiming for [[around $220, max $300]].",
+        "It should use [[real carbon filtration]] for smells.",
+        "I won\u2019t accept [[ozone or ionizer output]].",
+        "Noise is [[fine during daytime use]].",
+        "Controls should be [[simple for everyone]]."
+      ]
+    },
+    {
+      "id": "air purifier_068",
+      "gender": "male",
+      "background": "Spends most evenings gaming in a dusty bedroom filled with electronics.",
+      "ground_truth_need": "He wants an air purifier to reduce dust buildup around electronics in his bedroom. The top priority is fine dust capture to slow down accumulation on his PC and consoles. Second is affordable filter replacement since he plans to run it often. Budget is constrained: target $150 with a hard cap of $220. Noise is acceptable as white noise, ozone is unacceptable, and he wants a unit that doesn\u2019t vibrate or rattle.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main priority is [[reducing fine dust around electronics]].",
+        "I need [[affordable replacement filters]] long-term.",
+        "I\u2019m trying to stay [[around $150, max $220]].",
+        "Noise is [[fine as white noise]] while gaming.",
+        "I want to avoid [[vibration or rattling]].",
+        "It must be [[ozone-free]] for safety.",
+        "It only needs to cover [[a small bedroom]]."
+      ]
+    },
+    {
+      "id": "air purifier_069",
+      "gender": "female",
+      "background": "Lives in a high-rise apartment and worries about wildfire smoke during summer.",
+      "ground_truth_need": "She wants an air purifier to protect against wildfire smoke events when outdoor air quality drops. The top priority is smoke particle filtration that works well with windows closed. Second is strong airflow to clean air quickly during smoke days. Budget is moderate-high: target $350 with a hard cap of $500. Noise should be tolerable, ozone is unacceptable, and she prefers a unit with dependable performance under heavy load.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My biggest concern is [[filtering wildfire smoke particles]].",
+        "It should have [[strong airflow for quick cleanup]].",
+        "I can spend [[around $350, up to $500]].",
+        "It needs to work [[with windows closed]] effectively.",
+        "I won\u2019t consider [[ozone-producing technologies]].",
+        "Noise should be [[tolerable during heavy use]].",
+        "I want [[reliable performance during smoke events]]."
+      ]
+    },
+    {
+      "id": "air purifier_070",
+      "gender": "male",
+      "background": "Lives in a small home with frequent dust buildup and minimal interest in smart tech.",
+      "ground_truth_need": "He wants a basic air purifier to reduce everyday dust in his home. The top priority is simple dust reduction without unnecessary features. Second is affordability. Budget is limited: target $170 with a hard cap of $240. Noise is not a big concern, ozone is unacceptable, and he wants easy filter changes without complicated maintenance.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The main thing I need is [[basic dust reduction]].",
+        "I want [[simple operation without smart features]].",
+        "I\u2019m budgeting [[around $170, max $240]].",
+        "Noise is [[not a major concern]] for me.",
+        "It must be [[ozone-free]] for safety.",
+        "Filter changes should be [[easy and straightforward]].",
+        "It only needs to work [[for everyday use]]."
+      ]
+    },
+    {
+      "id": "air purifier_071",
+      "gender": "female",
+      "background": "Lives with a partner who smokes indoors and wants to limit odor exposure.",
+      "ground_truth_need": "She wants an air purifier to reduce cigarette smoke smell in a bedroom. The top priority is odor reduction using substantial carbon filtration. Second is safety for overnight use without ozone or harsh byproducts. Budget is moderate: target $260 with a hard cap of $380. Noise should be low enough for sleep, and she prefers durable construction since it will run nightly.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My biggest priority is [[reducing cigarette smoke odor]].",
+        "It must be [[safe for overnight bedroom use]].",
+        "I\u2019m aiming for [[around $260, max $380]].",
+        "I want [[substantial carbon filtration]] for smells.",
+        "Noise should be [[low enough for sleep]].",
+        "I won\u2019t accept [[ozone or ionizer features]].",
+        "It should feel [[durable for nightly operation]]."
+      ]
+    },
+    {
+      "id": "air purifier_072",
+      "gender": "unspecified",
+      "background": "Lives in a dusty older home and wants to reduce how often they have to clean.",
+      "ground_truth_need": "They want an air purifier mainly to reduce visible dust accumulation in an older home. The top priority is slowing dust buildup on surfaces. Second is steady operation during the day without being distracting. Budget is moderate: target $210 with a hard cap of $300. Noise should be moderate, ozone is unacceptable, and they prefer reliable airflow over fancy features.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main goal is [[reducing visible dust buildup]].",
+        "It should [[run steadily during the day]].",
+        "I\u2019m budgeting [[around $210, max $300]].",
+        "Noise should be [[moderate and tolerable]].",
+        "I need [[ozone-free operation]] only.",
+        "I prefer [[reliable airflow]] over extras.",
+        "It will be used [[in an older home]]."
+      ]
+    },
+    {
+      "id": "air purifier_073",
+      "gender": "male",
+      "background": "Lives in a small apartment and wants cleaner air for general health reasons.",
+      "ground_truth_need": "He wants an air purifier to generally improve indoor air quality and peace of mind. The top priority is overall filtration performance rather than targeting one specific pollutant. Second is long-term reliability. Budget is moderate: target $250 with a hard cap of $350. Noise is acceptable, ozone is unacceptable, and he prefers a well-reviewed, no-nonsense model.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The main thing I want is [[overall improvement in indoor air quality]].",
+        "I care about [[long-term reliable performance]].",
+        "I can spend [[around $250, up to $350]].",
+        "Noise is [[acceptable]] if performance is good.",
+        "I won\u2019t use [[ozone-producing models]].",
+        "I prefer [[well-reviewed, simple designs]].",
+        "It should work [[for a small apartment]]."
+      ]
+    },
+    {
+      "id": "air purifier_074",
+      "gender": "female",
+      "background": "Lives in a compact studio and wants a quiet purifier for sleep and work.",
+      "ground_truth_need": "She wants an air purifier for a studio apartment that won\u2019t disturb sleep or work. The top priority is low noise on a usable filtration setting. Second is compact size for limited floor space. Budget is moderate: target $200 with a hard cap of $280. Ozone-free operation is required, and she prefers minimal lighting and vibration.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My top priority is [[low noise on useful settings]].",
+        "It needs to be [[compact for a studio apartment]].",
+        "I\u2019m aiming for [[around $200, max $280]].",
+        "I want [[minimal lights at night]].",
+        "It must be [[ozone-free]] for safety.",
+        "Vibration should be [[very low]].",
+        "It only needs to cover [[one open space]]."
+      ]
+    },
+    {
+      "id": "air purifier_075",
+      "gender": "male",
+      "background": "Lives in a multi-story house and wants to test one purifier before scaling up.",
+      "ground_truth_need": "He wants to buy one air purifier to test performance before buying more for other floors. The top priority is strong performance in a single medium-sized room. Second is reasonable price so scaling later is affordable. Budget is moderate: target $230 with a hard cap of $320. Noise is acceptable, ozone is unacceptable, and he wants filters that won\u2019t be too costly if he buys multiple units later.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main goal is [[strong performance in one room]].",
+        "I want [[a reasonable price so I can scale later]].",
+        "I\u2019m budgeting [[around $230, max $320]].",
+        "It should be [[suitable for a medium-sized room]].",
+        "I won\u2019t accept [[ozone or ionizer features]].",
+        "Noise is [[not a big concern]].",
+        "Filter costs should be [[manageable if I buy more]]."
+      ]
+    },
+    {
+      "id": "air purifier_076",
+      "gender": "unspecified",
+      "background": "Lives with pets and has mild seasonal allergies that flare up indoors.",
+      "ground_truth_need": "They want an air purifier to help with pet dander and seasonal allergies in a living room. The top priority is effective allergen filtration. Second is affordability. Budget is constrained: target $180 with a hard cap of $260. Noise should be tolerable, ozone is unacceptable, and they prefer a unit with straightforward maintenance.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The most important thing is [[reducing pet dander and allergens]].",
+        "I want [[something affordable]] that still works.",
+        "I\u2019m aiming for [[around $180, max $260]].",
+        "It should work in [[a living room-sized space]].",
+        "I need [[ozone-free operation]] only.",
+        "Noise should be [[tolerable]] for daily use.",
+        "Maintenance should be [[simple and clear]]."
+      ]
+    },
+    {
+      "id": "air purifier_077",
+      "gender": "female",
+      "background": "Lives near construction sites and notices heavy dust settling indoors.",
+      "ground_truth_need": "She wants an air purifier to combat heavy dust from nearby construction. The top priority is strong particulate filtration that can handle large dust loads. Second is durability, since filters may clog faster in her environment. Budget is moderate: target $300 with a hard cap of $450. Noise is acceptable, ozone is unacceptable, and she wants clear guidance on filter replacement intervals.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My biggest concern is [[heavy dust from nearby construction]].",
+        "It needs [[strong particulate filtration]] to keep up.",
+        "I can spend [[around $300, up to $450]].",
+        "I want [[durable performance]] in dusty conditions.",
+        "I won\u2019t use [[ozone or ionizer features]].",
+        "Noise is [[acceptable]] if it works well.",
+        "I\u2019d like [[clear filter replacement guidance]]."
+      ]
+    },
+    {
+      "id": "air purifier_078",
+      "gender": "male",
+      "background": "Lives alone and wants a long-lasting purifier he won\u2019t have to think about much.",
+      "ground_truth_need": "He wants an air purifier as a long-term purchase with minimal fuss. The top priority is durability and long service life. Second is consistent filtration for everyday dust and allergens. Budget is high: target $500 with a hard cap of $750. Noise and looks are secondary, ozone is unacceptable, and he prefers predictable maintenance schedules.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main priority is [[long-term durability and lifespan]].",
+        "I want [[consistent filtration]] without constant adjustment.",
+        "I\u2019m budgeting [[around $500, max $750]].",
+        "It must be [[ozone-free]] for safety.",
+        "Noise and appearance are [[not major concerns]].",
+        "I prefer [[predictable maintenance schedules]].",
+        "It should work well [[for everyday indoor air]]."
+      ]
+    },
+    {
+      "id": "air purifier_079",
+      "gender": "unspecified",
+      "background": "Lives in a compact bedroom with limited outlets and little floor space.",
+      "ground_truth_need": "They want an air purifier for a tiny bedroom where space and outlets are limited. The top priority is compact size and placement flexibility. Second is quiet operation for sleep. Budget is constrained: target $160 with a hard cap of $230. Ozone-free operation is required, and they prefer low power draw and simple controls.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My biggest need is [[a very compact size for a tiny room]].",
+        "It should be [[quiet enough for sleeping]].",
+        "I\u2019m budgeting [[around $160, max $230]].",
+        "Power use should be [[low for limited outlets]].",
+        "I need [[ozone-free operation]] only.",
+        "Controls should be [[simple and minimal]].",
+        "It only needs to cover [[a very small bedroom]]."
+      ]
+    },
+    {
+      "id": "air purifier_080",
+      "gender": "female",
+      "background": "Lives in an older house and wants to improve indoor air for overall wellness.",
+      "ground_truth_need": "She wants an air purifier to generally improve air quality and wellness in an older house. The top priority is balanced filtration for dust, allergens, and everyday pollutants. Second is reliable performance without constant tweaking. Budget is moderate: target $270 with a hard cap of $380. Noise should be acceptable, ozone is unacceptable, and she prefers a reputable brand with easy-to-find filters.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main goal is [[overall improvement in indoor air quality]].",
+        "I want [[balanced filtration for dust and allergens]].",
+        "I\u2019m aiming for [[around $270, max $380]].",
+        "It should have [[reliable performance without constant tweaking]].",
+        "I won\u2019t accept [[ozone-producing technologies]].",
+        "Noise is [[acceptable]] for everyday use.",
+        "I prefer [[brands with easy-to-find filters]]."
+      ]
+    },
+    {
+      "id": "air purifier_081",
+      "gender": "male",
+      "background": "Lives in a 650 sq ft apartment with a cat and wants one main unit that can run daily without fuss.",
+      "ground_truth_need": "He needs an air purifier primarily to reduce cat dander and dust across most of his apartment to help a partner with allergies. The top priority is strong allergen filtration with enough airflow to matter beyond a single bedroom. Second is trustworthy air-quality feedback (sensor/app) so he can confirm it\u2019s working. Budget is mid-to-high: target $420 with a hard cap of $550. He insists on ozone-free operation, prefers stable performance on mid speeds, and wants replacement filters that are easy to source.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main priority is [[strong cat allergen and dander reduction]].",
+        "I\u2019d really like [[air quality sensing or an app]] to see what\u2019s happening.",
+        "I\u2019m planning for [[around $420, with $550 as a hard max]].",
+        "It should cover [[most of a medium apartment]] rather than one corner.",
+        "I won\u2019t use [[anything that emits ozone]] at all.",
+        "I want [[good performance on medium fan speeds]] without living on turbo.",
+        "Filters should be [[easy to buy regularly]] without hunting for them."
+      ]
+    },
+    {
+      "id": "air purifier_082",
+      "gender": "female",
+      "background": "Shares a home with someone who smokes indoors and is trying to keep her bedroom from smelling like smoke.",
+      "ground_truth_need": "She wants an air purifier mainly for cigarette smoke odor and particles in a medium bedroom where she sleeps. The top priority is meaningful smoke and odor reduction using substantial carbon media, not just a thin sheet. Second is safety for overnight use\u2014no ozone and no irritating byproducts. Budget is constrained: target $220 with a hard cap of $300. Noise should be low enough to sleep, and she prefers sturdy construction because it will run nightly.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The main thing I need is [[reducing cigarette smoke smell and particles]].",
+        "It has to be [[safe to run overnight]] with no questionable outputs.",
+        "I need to keep it [[around $220 and under $300]].",
+        "I want [[substantial carbon filtration]] for odor control.",
+        "It should be [[quiet enough for sleep]] most nights.",
+        "I won\u2019t consider [[ozone or ionizer features]] at all.",
+        "I\u2019d prefer [[durable build quality]] since it will run constantly."
+      ]
+    },
+    {
+      "id": "air purifier_083",
+      "gender": "unspecified",
+      "background": "Lives in a small, dusty bedroom and is very cost-conscious about both the device and ongoing filters.",
+      "ground_truth_need": "They want a basic air purifier for dust in a small bedroom because dust buildup causes headaches and constant cleaning. The top priority is a low upfront price, since they\u2019re on a tight budget. Second priority is cheap, widely available replacement filters to avoid high ongoing costs. Budget target is $75 with a hard cap of $110. Performance expectations are modest but they need noticeable dust reduction near the bed. They avoid ozone/ionizers and don\u2019t care about smart features or aesthetics.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The biggest constraint is [[keeping it under $110, ideally much less]].",
+        "I also need [[replacement filters to be cheap]] over time.",
+        "The main issue I\u2019m trying to solve is [[dust buildup in my bedroom]].",
+        "It only needs to work for [[a small room]] setup.",
+        "I want to avoid [[ozone or ionizer tech]] completely.",
+        "Noise and looks are [[not important]] for this purchase.",
+        "I just want [[noticeable improvement near my bed]] rather than whole-home coverage."
+      ]
+    },
+    {
+      "id": "air purifier_084",
+      "gender": "female",
+      "background": "Lives in a townhouse with recurring dampness concerns and wants a plan to cover multiple rooms over time.",
+      "ground_truth_need": "She wants true HEPA air purifiers to reduce airborne irritants in a larger rented townhome where mold and dampness may be contributing to coughing. The top priority is filtration suitable for mold spores and general particulates with ozone-free operation. Second is an affordable multi-unit plan, since she likely needs several purifiers. Budget is staged: target $500 for the first two units, with a hard cap of $900 total as she scales. Noise should be acceptable in bedrooms, and filter costs must remain manageable.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main concern is [[filtering possible mold spores and irritants]].",
+        "I\u2019ll likely need [[multiple units for a larger home]].",
+        "I\u2019m budgeting [[about $500 for two now, up to $900 total]].",
+        "It must be [[ozone-free for respiratory safety]] all the time.",
+        "I want [[true HEPA-level filtration]] rather than vague claims.",
+        "Ongoing filter costs should be [[manageable if I buy several]].",
+        "It should be [[quiet enough for bedrooms]] without being disruptive."
+      ]
+    },
+    {
+      "id": "air purifier_085",
+      "gender": "male",
+      "background": "Cooks frequently in a small apartment with weak kitchen ventilation and lingering food smells.",
+      "ground_truth_need": "He wants an air purifier primarily for cooking odors that linger for days in his apartment. The top priority is odor reduction performance with meaningful activated carbon capacity. Second is covering a connected living room/kitchen area, not just a tiny corner. Budget is moderate: target $260 with a hard cap of $380. Noise is acceptable as long as it\u2019s airflow rather than motor whine. He insists on ozone-free operation and prefers easy-to-replace filters.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main goal is [[reducing lingering cooking odors]].",
+        "I want [[real activated carbon capacity]] for smells.",
+        "I\u2019m aiming for [[around $260, with $380 as a hard cap]].",
+        "It should cover [[a connected living room and kitchen]] area.",
+        "I\u2019m okay with [[steady airflow noise]] if it helps.",
+        "I won\u2019t use [[ozone-producing tech]] at all.",
+        "Filter replacement should be [[straightforward and accessible]]."
+      ]
+    },
+    {
+      "id": "air purifier_086",
+      "gender": "female",
+      "background": "Has a small bathroom that traps odors and wants the most effective solution regardless of price.",
+      "ground_truth_need": "She wants an air purifier focused on bathroom odor removal in a small enclosed bathroom. The top priority is maximum odor control using strong carbon media, since ordinary ventilation doesn\u2019t clear smells well. Second is safety and suitability for humid environments. Budget is high and not very sensitive: target $900 with a hard cap of $1400. Noise is not a big concern. She insists on ozone-free operation and wants robust build quality for long-term use.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The main priority is [[maximum bathroom odor removal]].",
+        "I want [[substantial carbon filtration]] specifically for smells.",
+        "Budget is [[around $900, with $1400 as my hard max]].",
+        "It needs to be [[safe in a humid bathroom]] environment.",
+        "I won\u2019t accept [[any ozone output]] at all.",
+        "Noise is [[not a major concern]] for this use.",
+        "I prefer [[very durable construction]] for a long service life."
+      ]
+    },
+    {
+      "id": "air purifier_087",
+      "gender": "unspecified",
+      "background": "Lives in a tiny bedroom and has become very sensitive to appliance noise over time.",
+      "ground_truth_need": "They need an air purifier for a small bedroom mainly due to dust and mild allergies. The top priority is ultra-quiet operation at night on a setting that still provides meaningful filtration. Second is minimizing vibration and mechanical motor noise, since that\u2019s what bothers them most. Budget is moderate: target $230 with a hard cap of $320. Ozone is unacceptable, and they prefer a compact unit with minimal lights and easy filter replacements.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier for my bedroom.",
+        "My main priority is [[ultra-quiet operation at night]].",
+        "I can\u2019t deal with [[motor whine or rattling]] over time.",
+        "I\u2019m budgeting [[around $230, max $320]].",
+        "It still needs [[meaningful dust filtration]] on low settings.",
+        "I won\u2019t use [[ozone or ionizer features]] at all.",
+        "I want [[minimal lights]] while sleeping.",
+        "Filters should be [[easy to replace]] without hassle."
+      ]
+    },
+    {
+      "id": "air purifier_088",
+      "gender": "male",
+      "background": "Lives in a three-story townhouse and wants the simplest approach to improve overall air quality.",
+      "ground_truth_need": "He wants an air purifier solution for a multi-story home for general dust and freshness. The top priority is effective whole-home coverage across floors, since he\u2019s unsure one big unit will work. Second is simplicity\u2014he prefers fewer devices and straightforward placement. Budget is moderate-high: target $600 total with a hard cap of $900. Ozone-free operation is required, and noise is not a major concern. He\u2019s open to multiple units if that\u2019s the only effective route.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main concern is [[effective coverage across multiple floors]].",
+        "I\u2019d prefer [[a simple setup with fewer devices]] if possible.",
+        "I can budget [[around $600 total, up to $900 max]].",
+        "If needed, I\u2019m open to [[buying multiple units]].",
+        "I need [[ozone-free operation]] for safety.",
+        "Noise levels are [[not a big issue]] for me.",
+        "I want [[easy placement and operation]] without complicated tuning."
+      ]
+    },
+    {
+      "id": "air purifier_089",
+      "gender": "female",
+      "background": "Rescues small animals indoors and is trying to reduce airborne dander without relying on harsh technologies.",
+      "ground_truth_need": "She wants an air purifier to reduce animal dander and fine dust in a living room where she keeps rescue animals. The top priority is strong HEPA-grade particle capture with high airflow to make a noticeable difference. Second is avoiding ozone and harsh byproducts, because animals and humans share the same space. Budget is mid-range: target $340 with a hard cap of $480. Noise is acceptable during the day but should be manageable at night. She prefers filters that are easy to source.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The main thing I need is [[strong dander and fine dust filtration]].",
+        "I need [[high airflow for a larger living room]] to feel results.",
+        "I\u2019m aiming for [[around $340, with $480 as a hard cap]].",
+        "It must be [[safe to run around animals]] daily.",
+        "I won\u2019t use [[ozone/ionizer tech]] at all.",
+        "Nighttime use should be [[not unbearably loud]].",
+        "Filters should be [[easy to source regularly]]."
+      ]
+    },
+    {
+      "id": "air purifier_090",
+      "gender": "unspecified",
+      "background": "Lives in a shared apartment and wants a reliable mid-priced purifier without influencer-style hype.",
+      "ground_truth_need": "They want an air purifier for dust and allergies, but the top priority is trustworthy specs and proven performance, not marketing. Second is durability so it doesn\u2019t get noisy or fail quickly. Budget is moderate: target $240 with a hard cap of $360. Noise should be reasonable, ozone is unacceptable, and they want readily available replacement filters. They prefer simple controls and a model known for consistent CADR rather than gimmicks.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main priority is [[trustworthy specs and proven performance]].",
+        "I want [[reliable durability over time]] without weird issues.",
+        "I\u2019m budgeting [[around $240, max $360]].",
+        "It should help with [[dust and allergy symptoms]].",
+        "I won\u2019t accept [[ozone or ionizer output]] at all.",
+        "Filters need to be [[easy to buy]] when replacements are due.",
+        "I prefer [[simple controls]] rather than a complicated app."
+      ]
+    },
+    {
+      "id": "air purifier_091",
+      "gender": "male",
+      "background": "Owns a small car and wants a compact solution to reduce pollen and smoke exposure during commutes.",
+      "ground_truth_need": "He wants a car air purifier to reduce pollen and occasional smoke smell during commuting with windows up. The top priority is effectiveness in a vehicle cabin, meaning it must circulate and filter air in a small enclosed space. Second is safety\u2014no ozone or irritants\u2014since he\u2019ll be in close proximity. Budget is moderate: target $140 with a hard cap of $220. Size must be compact and stable, and maintenance should be minimal.",
+      "context_trail": [
+        "I\u2019m looking for a car air purifier.",
+        "The main thing I need is [[effective filtration in a vehicle cabin]].",
+        "It must be [[ozone-free and safe in close quarters]].",
+        "I\u2019m aiming for [[around $140, with $220 as my hard max]].",
+        "It should be [[compact and stable]] in the car.",
+        "I want help with [[pollen exposure]] during commutes.",
+        "Maintenance should be [[minimal]] for day-to-day use.",
+        "It would be nice if it also reduces [[occasional smoke smells]]."
+      ]
+    },
+    {
+      "id": "air purifier_092",
+      "gender": "female",
+      "background": "Lives in a small condo and wants a quieter upgrade from an older, loud purifier.",
+      "ground_truth_need": "She wants to upgrade to an air purifier that reduces dust effectively without the loud, intrusive noise of her current unit. The top priority is quiet operation at settings that still clean air well. Second is strong dust capture for a condo living area. Budget is moderate: target $260 with a hard cap of $380. Ozone-free operation is required, and she prefers energy-efficient models that can run for long periods. A humidifying option would be a bonus but not required.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My biggest requirement is [[quiet operation that still cleans well]].",
+        "I mainly need [[better dust reduction]] in my condo.",
+        "I\u2019m budgeting [[around $260, max $380]].",
+        "I need [[ozone-free operation]] for peace of mind.",
+        "I\u2019d like [[energy-efficient long runtimes]] without worry.",
+        "A humidifying feature would be [[a nice bonus]] if it\u2019s easy.",
+        "I prefer [[simple controls]] rather than complicated automation."
+      ]
+    },
+    {
+      "id": "air purifier_093",
+      "gender": "male",
+      "background": "Lives in a small bedroom where dust and occasional strange smells make his allergies worse.",
+      "ground_truth_need": "He wants a small air purifier for a bedroom to help with dust-related allergies and occasional odor issues. The top priority is effective particulate filtration for a bedroom-sized space. Second is low noise at night since he sleeps lightly. Budget is constrained: target $180 with a hard cap of $240. He insists on ozone-free operation, wants filters that aren\u2019t expensive, and prefers a compact unit rather than a whole-home device.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier for my bedroom.",
+        "My main priority is [[effective dust and allergen filtration]] in the room.",
+        "It needs to be [[quiet enough for sleep]].",
+        "I\u2019m aiming for [[around $180, with $240 as a hard cap]].",
+        "I\u2019d like [[a compact unit]] rather than something huge.",
+        "I won\u2019t accept [[ozone or ionizer tech]] at all.",
+        "Filters should be [[reasonably priced]] to replace.",
+        "Odor control is [[a secondary bonus]] if it helps occasionally."
+      ]
+    },
+    {
+      "id": "air purifier_094",
+      "gender": "unspecified",
+      "background": "Lives in a large open-plan space and wants one strong unit that prioritizes air changes per hour.",
+      "ground_truth_need": "They want an air purifier for a large open room and care most about high air changes per hour and strong CADR. The top priority is moving enough clean air to meaningfully reduce dust and allergens. Second is avoiding excessive noise while still achieving that throughput. Budget is moderate-high: target $480 with a hard cap of $650. Ozone-free operation is required, and they prefer straightforward performance metrics and easy filter replacement.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main priority is [[high air changes per hour / strong CADR]].",
+        "It needs to cover [[a large open-plan room]] effectively.",
+        "I\u2019m budgeting [[around $480, max $650]].",
+        "I want [[reasonable noise for the amount of airflow]] it provides.",
+        "I need [[ozone-free operation]] only.",
+        "I prefer [[clear performance metrics]] over vague marketing.",
+        "Filter swaps should be [[easy and predictable]]."
+      ]
+    },
+    {
+      "id": "air purifier_095",
+      "gender": "female",
+      "background": "Lives with a rabbit in the living room and is focused on allergy relief for a family member with asthma.",
+      "ground_truth_need": "She wants an air purifier for a living room to reduce pollen and pet-related allergens that aggravate asthma. The top priority is asthma-safe, ozone-free operation with true HEPA filtration. Second is handling pet fur and dander from a rabbit, ideally with a pre-filter that\u2019s easy to clean. Budget is constrained: target $190 with a hard cap of $260. Noise should be tolerable for daily living, and she wants a unit that remains reliable over years.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The most important thing is [[asthma-safe, ozone-free operation]].",
+        "I need [[true HEPA filtration]] for allergens.",
+        "I\u2019m trying to stay [[around $190, max $260]].",
+        "It should help with [[rabbit fur and dander]] in the room.",
+        "A washable [[pre-filter would be helpful]] for hair.",
+        "Noise should be [[tolerable for everyday use]].",
+        "I want [[long-term reliability]] rather than something disposable."
+      ]
+    },
+    {
+      "id": "air purifier_096",
+      "gender": "male",
+      "background": "Lives in a small apartment and wants a purifier that doesn\u2019t create new odors or off-gas.",
+      "ground_truth_need": "He wants an air purifier mainly for allergies, but his biggest worry is buying a unit that smells like plastic or chemicals and never fully airs out. The top priority is neutral odor output and low off-gassing materials. Second is solid HEPA-grade particle filtration for dust and allergens. Budget is moderate: target $260 with a hard cap of $400. Ozone/ionizers are unacceptable. Noise should be reasonable for a bedroom, and filters must be available long-term.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My biggest concern is [[no chemical or plastic smell from the purifier]].",
+        "I still need [[strong HEPA-style filtration]] for allergies.",
+        "I\u2019m aiming for [[around $260, with $400 as a hard cap]].",
+        "I won\u2019t accept [[ozone or ionizer features]] at all.",
+        "It should be [[quiet enough for a bedroom]].",
+        "I want [[materials that don\u2019t off-gas]] noticeably.",
+        "Filters should remain [[available for years]]."
+      ]
+    },
+    {
+      "id": "air purifier_097",
+      "gender": "unspecified",
+      "background": "Lives in a small home and prefers a steady airflow sound as white noise while sleeping.",
+      "ground_truth_need": "They want an air purifier primarily to reduce odors drifting from the kitchen into the living room and to provide soothing white noise. The top priority is odor reduction in a connected living/kitchen space. Second is airflow sound quality\u2014steady fan noise is preferred over silence or mechanical buzzing. Budget is constrained: target $170 with a hard cap of $230. Ozone is unacceptable, and they want a unit that can run for long periods without developing motor noise.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The most important thing is [[reducing odors in my living space]].",
+        "I actually want [[steady airflow noise as white noise]].",
+        "I need to keep it [[around $170 and under $230]].",
+        "It should cover [[a connected kitchen and living area]].",
+        "I won\u2019t accept [[ozone-producing features]].",
+        "I want it to [[run for long hours]] without trouble.",
+        "It shouldn\u2019t develop [[motor buzzing or vibration]] over time."
+      ]
+    },
+    {
+      "id": "air purifier_098",
+      "gender": "female",
+      "background": "Lives in a small bedroom and wants the least maintenance possible because she travels frequently.",
+      "ground_truth_need": "She wants an air purifier for a small bedroom mainly for dust and allergy control, but she travels a lot and can\u2019t manage frequent upkeep. The top priority is low-maintenance operation with long filter life or clear, infrequent replacement needs. Second is effective particulate filtration for a small room. Budget is moderate: target $240 with a hard cap of $330. Noise should be low at night, ozone is unacceptable, and she prefers simple controls with no need to tinker.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My main priority is [[low-maintenance use with infrequent upkeep]].",
+        "I still need [[effective dust and allergen filtration]] in my bedroom.",
+        "I\u2019m budgeting [[around $240, max $330]].",
+        "It should be [[quiet enough for sleep]] when I\u2019m home.",
+        "I won\u2019t accept [[ozone or ionizer tech]] at all.",
+        "I prefer [[simple controls]] without constant adjustments.",
+        "Filter replacement should be [[clear and not frequent]]."
+      ]
+    },
+    {
+      "id": "air purifier_099",
+      "gender": "male",
+      "background": "Lives in a large bedroom with high ceilings and wants maximum cleaning power, not aesthetics.",
+      "ground_truth_need": "He wants a powerful air purifier for a large bedroom with high ceilings where the air feels thick and dusty. The top priority is maximum cleaning performance and high airflow for a large room volume. Second is long-term durability because he expects to run it heavily. Budget is high: target $700 with a hard cap of $1000. Noise and design don\u2019t matter much. He insists on ozone-free operation and prefers easily sourced filters.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "My top priority is [[maximum cleaning power for a large room]].",
+        "It needs [[high airflow for high ceilings]] to be worthwhile.",
+        "I can spend [[around $700, with $1000 as a hard max]].",
+        "I want [[durability for heavy use]] over the years.",
+        "I won\u2019t accept [[ozone-producing features]] at all.",
+        "Noise and looks are [[not important]] to me.",
+        "Filters should be [[easy to source]] when replacements are due."
+      ]
+    },
+    {
+      "id": "air purifier_100",
+      "gender": "female",
+      "background": "Lives in a small apartment and wants a well-rounded purifier that\u2019s safe, quiet, and effective without feeling overpriced.",
+      "ground_truth_need": "She wants an air purifier for general use to reduce dust and occasional odors in a small apartment. The top priority is a noticeable improvement in air cleanliness from dust and allergens, since she feels the air is stale. Second is quiet operation because she uses the same space for sleeping and relaxing. Budget is moderate: target $220 with a hard cap of $320. She insists on ozone-free operation, prefers straightforward controls, and wants replacement filters that won\u2019t be excessively expensive.",
+      "context_trail": [
+        "I\u2019m looking for an air purifier.",
+        "The main thing I want is [[noticeable dust and allergen reduction]].",
+        "It should be [[quiet enough for a small apartment]] where I sleep.",
+        "I\u2019m aiming for [[around $220, with $320 as a hard cap]].",
+        "I won\u2019t accept [[ozone or ionizer output]] at all.",
+        "I prefer [[straightforward controls]] without complicated settings.",
+        "Filter costs should be [[reasonable over time]].",
+        "Some odor control is [[a nice bonus]] but not the main reason."
+      ]
+    }
+  ]
+}

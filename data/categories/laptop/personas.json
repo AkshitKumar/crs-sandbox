@@ -1,0 +1,1604 @@
+{
+  "personas": [
+    {
+      "id": "laptop_001",
+      "gender": "male",
+      "background": "A commuting college senior splits time between classes, a part-time job, and evening gaming sessions in a small apartment.",
+      "ground_truth_need": "Needs a 14\u201315.6inch laptop that can handle schoolwork plus modern games smoothly, with reliable thermals as the top priority because prior devices throttled and got uncomfortably hot. Second priority is a strong GPU/CPU combo for consistent frame rates; third is staying within budget. Target spend is $950 with a hard max of $1,100, preferably during sales. Wants at least 16GB RAM, 1TB SSD, a 144Hz-ish display, and sturdy hinges; dislikes loud fan whine and flimsy plastic. Ports for USB-A and HDMI are preferred; weight is a minor concern.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[strong cooling so it doesn\u2019t overheat or throttle]] during gaming sessions.",
+        "Next, I need [[enough graphics power for modern AAA titles at decent settings]].",
+        "After that, I want to keep it to [[around $950 with a hard cap of $1,100]].",
+        "I also require [[at least 16GB of RAM]].",
+        "And I\u2019d like [[about 1TB of SSD storage]].",
+        "If possible, include [[USB-A and HDMI ports]].",
+        "Lastly, I prefer [[a solid hinge and durable chassis]]."
+      ]
+    },
+    {
+      "id": "laptop_002",
+      "gender": "female",
+      "background": "A graduate student records lectures, writes papers, and studies in caf\u00e9s while traveling between campus buildings daily.",
+      "ground_truth_need": "Wants a lightweight 13\u201314\" laptop optimized for quiet note-taking and lecture recording, where battery life is the dealbreaker because she\u2019s often away from outlets. Second priority is low fan noise and a good mic/webcam for classes; third is portability under about 3.0 lb. Budget target is $800 with a hard max of $1,000, but she\u2019ll stretch only if battery and quiet operation are excellent. Prefers a comfortable keyboard, a matte display, and at least 16GB RAM/512GB SSD. Avoids flashy gamer styling and hates unreliable sleep/wake behavior.",
+      "context_trail": [
+        "I need a laptop.",
+        "The top thing I care about is [[all-day battery life for campus days]].",
+        "Second, I really want [[quiet fans during lectures and studying]].",
+        "I also need it to be [[lightweight for commuting between buildings]].",
+        "My budget is [[about $800, and I can\u2019t go over $1,000]].",
+        "I require [[a comfortable keyboard for long writing sessions]].",
+        "Please include [[a solid webcam and microphone]].",
+        "I\u2019d like [[at least 16GB RAM]]."
+      ]
+    },
+    {
+      "id": "laptop_003",
+      "gender": "male",
+      "background": "A remote software engineer works from home and occasionally at coworking spaces, switching between Linux tools and video calls.",
+      "ground_truth_need": "Seeks a 13\u201314\" laptop with excellent Linux compatibility as the key requirement: reliable Wi-Fi, sleep, trackpad gestures, and no driver headaches. Second priority is a great keyboard for coding; third is strong build quality for years of daily use. Budget target is $1,200 with a hard max of $1,500, justified by longevity and fewer compatibility issues. Prefers 32GB RAM and 1TB SSD (or upgradeable), USB-C charging, and multiple USB ports; dislikes glossy screens and soldered-only storage. Battery life is nice but not above compatibility and typing feel.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My number-one requirement is [[excellent Linux support with stable drivers]].",
+        "Next, I need [[a great keyboard for programming]].",
+        "I also want [[a durable, long-lasting build]].",
+        "I\u2019m aiming for [[around $1,200 and won\u2019t exceed $1,500]].",
+        "I\u2019d like [[32GB of RAM]].",
+        "Ideally it has [[USB-C charging]].",
+        "I prefer [[upgradeable storage if possible]]."
+      ]
+    },
+    {
+      "id": "laptop_004",
+      "gender": "female",
+      "background": "A traveling sales manager lives out of a carry-on, moving between hotels, client offices, and airports most weeks.",
+      "ground_truth_need": "Needs a business-focused 14\" laptop built to survive frequent travel; durability is the dealbreaker due to past hinge and chassis failures. Second priority is reliable docking/port flexibility for quick desk setup; third is security features (fingerprint/IR) for client data. Budget target is $1,400 with a hard max of $1,800, preferably with a strong warranty. Wants 16GB RAM minimum, 512GB+ SSD, a bright screen for meeting rooms, and excellent Wi-Fi. Dislikes bulky gaming laptops and fragile glossy lids; battery should cover cross-country flights but is secondary to ruggedness and ports.",
+      "context_trail": [
+        "I want to buy a laptop.",
+        "The most important thing is [[durability for constant travel and rough handling]].",
+        "Next, I need [[easy docking and lots of connectivity for office setups]].",
+        "I also require [[strong security like fingerprint or IR login]].",
+        "My budget is [[around $1,400 with a hard max of $1,800]].",
+        "I need [[at least 16GB RAM]].",
+        "I\u2019d like [[a bright display for conference rooms]].",
+        "Please prioritize [[reliable Wi-Fi performance]]."
+      ]
+    },
+    {
+      "id": "laptop_005",
+      "gender": "male",
+      "background": "A parent helps kids with homework, streams shows, and manages photos and documents on weekends.",
+      "ground_truth_need": "Wants a simple, dependable laptop for web browsing, documents, and photo viewing, with longevity and low maintenance as the top priority since the previous computer slowed down and felt unreliable. Second priority is a comfortable screen and keyboard for everyday use; third is staying within a modest budget. Target is $450 with a hard max of $600, preferring value and a reputable brand/service network. Needs 8\u201316GB RAM, 256\u2013512GB SSD, and fast boot. Dislikes noisy fans and cheap-feeling trackpads. Doesn\u2019t need discrete graphics, but wants smooth video playback and decent speakers.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[reliability that will last for years without issues]].",
+        "Next, I want [[a comfortable screen for browsing and photos]].",
+        "My budget is [[about $450 and I can\u2019t go above $600]].",
+        "I need [[an SSD so it boots and opens apps quickly]].",
+        "I\u2019d like [[a good keyboard for everyday typing]].",
+        "Please avoid [[loud fan noise during basic use]].",
+        "I want [[decent speakers for streaming]]."
+      ]
+    },
+    {
+      "id": "laptop_006",
+      "gender": "non-binary",
+      "background": "A freelance designer alternates between client meetings and long creative sessions using Adobe apps and 3D mockups.",
+      "ground_truth_need": "Needs a laptop for graphic design and light 3D work where color-accurate display is the dealbreaker because client deliverables must match across devices. Second priority is strong CPU/GPU performance without thermal throttling; third is adequate memory for large files. Budget target is $1,600 with a hard max of $2,000, but only if the screen quality is excellent. Prefers a 15\u201316\" high-gamut panel, 32GB RAM, and 1TB SSD. Dislikes glossy reflections and weak cooling. Port needs include USB-C and an SD reader if possible; portability matters but is secondary to display and performance stability.",
+      "context_trail": [
+        "I need a laptop.",
+        "The most important thing is [[a color-accurate display for design work]].",
+        "Next, I need [[strong performance for Adobe apps and light 3D]].",
+        "I also require [[cooling that prevents throttling under load]].",
+        "My budget is [[around $1,600 with a hard cap of $2,000]].",
+        "I want [[32GB of RAM]].",
+        "I\u2019d like [[at least 1TB of SSD storage]].",
+        "Ideally it includes [[an SD card reader]]."
+      ]
+    },
+    {
+      "id": "laptop_007",
+      "gender": "female",
+      "background": "A field technician moves between job sites, takes notes, outdoors, and sometimes works in damp conditions.",
+      "ground_truth_need": "Seeks a rugged laptop that can handle knocks and occasional rain exposure; durability is the dealbreaker after a previous laptop died from water and drops. Second priority is a screen readable in bright environments; third is sufficient battery for a full shift. Budget target is $1,100 with a hard max of $1,500, willing to pay more for proven rugged lines and warranty. Prefers 14\" for portability, 16GB RAM, 512GB SSD, and a keyboard that can handle spills. Dislikes fragile ultrathin designs and glossy panels. Performance needs are moderate\u2014browser, documents, and light diagnostics\u2014so ruggedness and usability matter most.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[rugged durability against drops and rough handling]].",
+        "Next, I need [[some water resistance or spill tolerance]].",
+        "I also want [[a screen that stays readable in bright light]].",
+        "I need [[battery life that can cover a full work shift]].",
+        "My budget is [[around $1,100 and I won\u2019t exceed $1,500]].",
+        "I\u2019d like [[a 14-inch size for portability]].",
+        "I require [[at least 16GB RAM]]."
+      ]
+    },
+    {
+      "id": "laptop_008",
+      "gender": "male",
+      "background": "A home-office worker uses a laptop as a daily desktop replacement with a mechanical keyboard, monitor, and peripherals.",
+      "ground_truth_need": "Wants a laptop that behaves well in a docked setup; connectivity is the dealbreaker because he needs stable external displays and peripherals without fuss. Second priority is quiet, cool operation for all-day office use; third is a strong CPU for multitasking. Budget target is $900 with a hard max of $1,200. Prefers USB-C with DisplayPort/Thunderbolt support, multiple USB-A ports, and reliable Wi-Fi/Ethernet (or adapter). Wants 16\u201332GB RAM and 512GB+ SSD. Dislikes wobbly builds and devices that run hot when closed-lid. Screen quality is secondary since he uses an external monitor most of the time.",
+      "context_trail": [
+        "I want a laptop.",
+        "The biggest priority is [[easy, reliable connectivity for a docked desk setup]].",
+        "Next, I want [[quiet operation during all-day work]].",
+        "I also need [[a strong CPU for heavy multitasking]].",
+        "My budget is [[around $900 with a hard max of $1,200]].",
+        "I need [[USB-C that can drive an external monitor]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I prefer [[a sturdy chassis with minimal flex]]."
+      ]
+    },
+    {
+      "id": "laptop_009",
+      "gender": "female",
+      "background": "A frequent flyer writes reports on planes and in hotels, often relying on spotty airport Wi-Fi and mobile hotspots.",
+      "ground_truth_need": "Needs a laptop with exceptional battery life as the dealbreaker for long travel days, plus strong Wi-Fi reliability for working on the go. Second priority is a lightweight 13\u201314\" form factor; third is a comfortable keyboard/trackpad for hours of writing. Budget target is $1,000 with a hard max of $1,400, justified if battery and portability are truly best-in-class. Wants 16GB RAM, 512GB SSD, and USB-C charging. Dislikes reflective screens and loud fans. Performance needs are moderate\u2014office apps, browser tabs, and video calls\u2014so endurance, portability, and input quality dominate.",
+      "context_trail": [
+        "I need a laptop.",
+        "My top priority is [[excellent battery life for long travel days]].",
+        "Next, I need [[reliable Wi-Fi that doesn\u2019t constantly drop]].",
+        "I also want [[a lightweight 13\u201314 inch size]].",
+        "My budget is [[around $1,000 with a hard cap of $1,400]].",
+        "I\u2019d like [[a very comfortable keyboard]].",
+        "Please include [[USB-C charging]].",
+        "I prefer [[a matte screen to reduce glare]]."
+      ]
+    },
+    {
+      "id": "laptop_010",
+      "gender": "unspecified",
+      "background": "A budget-conscious student shares a small dorm room and needs a single device for coursework and casual games.",
+      "ground_truth_need": "Wants the best-value laptop possible where budget is the dealbreaker because they can\u2019t stretch beyond a strict cap. Second priority is enough performance for light gaming and productivity; third is durability to survive daily backpack carry. Target is $600 with a hard max of $700, ideally closer to $550. Prefers 14\u201315\" screen, 16GB RAM if possible, and a 512GB SSD. Dislikes overheating and slow boot times. Doesn\u2019t care about premium materials, but wants a keyboard that won\u2019t feel mushy and a battery that lasts through classes. Brand is flexible; refurb is acceptable if warranty is solid.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main constraint is [[staying under $700, ideally closer to $600]].",
+        "Next, I need [[enough performance for schoolwork and light gaming]].",
+        "I also want [[something durable for daily backpack use]].",
+        "I\u2019d like [[a 512GB SSD if possible]].",
+        "I prefer [[16GB of RAM]].",
+        "Please avoid [[overheating during longer sessions]].",
+        "I want [[a decent keyboard feel]]."
+      ]
+    },
+    {
+      "id": "laptop_011",
+      "gender": "male",
+      "background": "A small-business owner runs spreadsheets, invoicing, and video calls, often multitasking while moving between home and office.",
+      "ground_truth_need": "Needs a business laptop that feels \u201cbuilt to last,\u201d with reliability and serviceability as the dealbreaker since downtime is costly. Second priority is a solid keyboard/trackpad for daily admin work; third is performance for many browser tabs and office apps. Budget target is $850 with a hard max of $1,100, preferring strong warranty and proven business lines. Wants 16GB RAM, 512GB SSD, and a 14\" screen for portability. Dislikes cheap hinges, noisy fans, and flimsy charging ports. Security features (TPM, fingerprint) are a plus but secondary to reliability; doesn\u2019t need discrete graphics.",
+      "context_trail": [
+        "I want to buy a laptop.",
+        "My top priority is [[long-term reliability with minimal downtime]].",
+        "Next, I want [[a high-quality keyboard and trackpad]].",
+        "I also need [[smooth multitasking for lots of tabs and spreadsheets]].",
+        "My budget is [[around $850 with a hard max of $1,100]].",
+        "I need [[at least 16GB RAM]].",
+        "I\u2019d like [[a 14-inch screen for portability]].",
+        "I prefer [[a strong warranty or easy servicing]]."
+      ]
+    },
+    {
+      "id": "laptop_012",
+      "gender": "female",
+      "background": "A creator edits photos and short videos after work and wants a device that feels premium without being flashy.",
+      "ground_truth_need": "Seeks a laptop with a high-quality display as the dealbreaker\u2014good brightness and color for photo/video edits. Second priority is a strong CPU for editing timelines; third is storage speed/capacity for media. Budget target is $1,300 with a hard max of $1,700, but she\u2019ll only stretch if the screen is genuinely great. Prefers 15\u201316\" screen, 16\u201332GB RAM, and 1TB SSD. Dislikes loud fans, weak speakers, and cheap plastics. Wants a good trackpad and a webcam that isn\u2019t terrible for calls. Battery life matters somewhat, but display and performance dominate.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[a really good display for photo and video editing]].",
+        "Next, I need [[a strong CPU for editing performance]].",
+        "I also want [[fast, spacious storage for media files]].",
+        "My budget is [[around $1,300 with a hard cap of $1,700]].",
+        "I\u2019d like [[at least 16GB of RAM]].",
+        "Please prioritize [[good speakers for previewing audio]].",
+        "I prefer [[a premium-feeling trackpad]]."
+      ]
+    },
+    {
+      "id": "laptop_013",
+      "gender": "male",
+      "background": "A hobbyist tinkerer upgrades hardware over time and prefers machines that can be repaired rather than replaced.",
+      "ground_truth_need": "Wants a laptop with upgradability and repairability as the dealbreaker, motivated by frustration with sealed devices and planned obsolescence. Second priority is a sturdy chassis and hinge that can handle years of opening/closing; third is reasonable performance for everyday work and light development. Budget target is $900 with a hard max of $1,300, willing to pay more for modularity and parts availability. Prefers 14\" class, socketed/replaceable SSD, and ideally replaceable RAM. Dislikes soldered-only configurations and proprietary chargers. Battery life is secondary; ports and longevity matter more.",
+      "context_trail": [
+        "I need a laptop.",
+        "The biggest requirement is [[easy repairability and upgrade options]].",
+        "Next, I want [[a sturdy hinge and durable build]].",
+        "I also need [[decent performance for everyday work]].",
+        "My budget is [[around $900 with a hard max of $1,300]].",
+        "I prefer [[replaceable RAM instead of soldered-only]].",
+        "I want [[standard, non-proprietary charging]].",
+        "Ideally it has [[plenty of ports without dongles]]."
+      ]
+    },
+    {
+      "id": "laptop_014",
+      "gender": "female",
+      "background": "A teacher runs presentations, video conferencing, and grading software, often in classrooms with unreliable outlets and variable lighting.",
+      "ground_truth_need": "Needs a dependable laptop where a bright, readable screen is the dealbreaker for classrooms and projectors. Second priority is strong battery life for teaching days; third is reliable video conferencing (camera/mic) for remote meetings. Budget target is $700 with a hard max of $950, preferring something simple and sturdy over flashy. Wants 16GB RAM if possible, 512GB SSD, and an HDMI port for classroom displays. Dislikes heavy devices and loud fans. Performance should be smooth for many browser tabs, office apps, and occasional light editing. A comfortable keyboard is important but below screen and battery.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[a bright screen that\u2019s easy to read in classrooms]].",
+        "Next, I need [[battery life that lasts through a school day]].",
+        "I also want [[a good webcam and mic for meetings]].",
+        "My budget is [[around $700 with a hard cap of $950]].",
+        "I need [[an HDMI port for classroom projectors]].",
+        "I\u2019d like [[a comfortable keyboard for grading and emails]].",
+        "I prefer [[not too heavy to carry between rooms]]."
+      ]
+    },
+    {
+      "id": "laptop_015",
+      "gender": "male",
+      "background": "A frequent commuter bikes to work and carries a laptop daily, prioritizing compact gear and weather preparedness.",
+      "ground_truth_need": "Wants a compact laptop where portability is the dealbreaker: under 3 lb and small enough for a tight backpack. Second priority is durability against daily bumps; third is water resistance in case of rain during commutes. Budget target is $1,000 with a hard max of $1,300, but he\u2019ll pay more only if weight is genuinely low. Prefers 13\u201314\" screen, 16GB RAM, 512GB SSD, and USB-C charging. Dislikes flimsy lids and loose ports. Performance needs are moderate (documents, coding, light photo edits), so weight and travel robustness outrank raw speed.",
+      "context_trail": [
+        "I need a laptop.",
+        "My main priority is [[being very lightweight and easy to carry daily]].",
+        "Next, I want [[a durable build for constant commuting]].",
+        "I also need [[some protection against rain or moisture]].",
+        "My budget is [[around $1,000 with a hard max of $1,300]].",
+        "I prefer [[a 13\u201314 inch screen size]].",
+        "I\u2019d like [[USB-C charging]].",
+        "I need [[at least 16GB RAM]]."
+      ]
+    },
+    {
+      "id": "laptop_016",
+      "gender": "unspecified",
+      "background": "A music listener uses a laptop for streaming, light audio work, and casual entertainment in a shared living space.",
+      "ground_truth_need": "Needs a laptop that sounds good without external speakers; audio quality is the dealbreaker because tinny speakers ruin music and videos. Second priority is quiet operation so fan noise doesn\u2019t compete with audio; third is a reliable headphone jack/latency-free wired listening. Budget target is $900 with a hard max of $1,200. Performance needs are moderate\u2014streaming, office tasks, light audio editing\u2014so premium audio components matter more than GPU. Prefers a 14\u201315\" screen, 16GB RAM, and 512GB SSD. Dislikes excessive bass distortion and rattling chassis. Battery is a nice-to-have, but speakers and quietness come first.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "The most important thing is [[good built-in speakers for music and videos]].",
+        "Next, I want [[quiet fans so it doesn\u2019t distract while listening]].",
+        "I also need [[a reliable 3.5mm headphone jack]].",
+        "My budget is [[around $900 with a hard cap of $1,200]].",
+        "I\u2019d like [[a 14\u201315 inch screen]].",
+        "I need [[at least 16GB RAM]].",
+        "I prefer [[solid build so it doesn\u2019t rattle at volume]]."
+      ]
+    },
+    {
+      "id": "laptop_017",
+      "gender": "female",
+      "background": "A nonprofit coordinator works in shared offices and coffee shops, juggling calls, documents, and light design tasks on tight funding.",
+      "ground_truth_need": "Wants the most reliable laptop possible within a strict budget; budget is the dealbreaker because purchases must be justified and predictable. Second priority is longevity and build quality; third is a good webcam/mic for frequent calls. Target is $550 with a hard max of $650, open to certified refurbished if warranty is strong. Prefers 14\" screen, 16GB RAM if feasible, and 512GB SSD. Dislikes slow, storage-starved machines and fragile hinges. Needs smooth multitasking for many tabs and office apps; doesn\u2019t need discrete graphics. Battery should be decent, but cost and reliability come first.",
+      "context_trail": [
+        "I need a laptop.",
+        "My biggest constraint is [[keeping it under $650, ideally around $550]].",
+        "Next, I need [[something reliable that won\u2019t need repairs soon]].",
+        "I also want [[a good webcam and mic for lots of calls]].",
+        "I\u2019d like [[a 14-inch screen size]].",
+        "I prefer [[a 512GB SSD]].",
+        "I want [[enough RAM for multitasking]].",
+        "I\u2019d accept [[refurbished if the warranty is strong]]."
+      ]
+    },
+    {
+      "id": "laptop_018",
+      "gender": "male",
+      "background": "A casual gamer prefers a laptop that can double as a work machine without looking like a gaming rig.",
+      "ground_truth_need": "Needs a laptop that balances gaming capability with understated aesthetics; non-gamer styling is the dealbreaker because he uses it in professional settings. Second priority is gaming performance for popular titles without stutter; third is thermals that stay comfortable. Budget target is $1,100 with a hard max of $1,500. Prefers a 15\u201316\" display with high refresh, 16GB+ RAM, and 1TB SSD. Dislikes RGB-heavy designs, loud fans, and bulky power bricks. Wants a decent webcam for meetings and ports that minimize dongles. Battery life is not critical, but build quality should feel solid.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[a professional look without flashy gaming styling]].",
+        "Next, I need [[good gaming performance for popular titles]].",
+        "I also want [[cooling that keeps it from running uncomfortably hot]].",
+        "My budget is [[around $1,100 with a hard cap of $1,500]].",
+        "I\u2019d like [[a high-refresh display]].",
+        "I prefer [[about 1TB of SSD storage]].",
+        "I want [[ports that reduce dongle use]]."
+      ]
+    },
+    {
+      "id": "laptop_019",
+      "gender": "female",
+      "background": "A part-time MBA student attends night classes, takes notes, and occasionally connects to classroom projectors.",
+      "ground_truth_need": "Wants a dependable laptop for coursework where a comfortable keyboard is the dealbreaker because she types constantly during lectures. Second priority is portability for commuting after work; third is battery life for evening classes. Budget target is $900 with a hard max of $1,200, preferring strong value and a reputable support network. Prefers 13\u201314\" size, 16GB RAM, 512GB SSD, and a matte screen. Needs HDMI or easy display output for presentations. Dislikes loud fans and unstable sleep/wake. Performance needs are moderate (office apps, web research, video calls), so input comfort and portability matter most.",
+      "context_trail": [
+        "I want to buy a laptop.",
+        "My main priority is [[a comfortable keyboard for lots of typing]].",
+        "Next, I need [[a portable size for commuting to class]].",
+        "I also want [[battery life that covers evening sessions]].",
+        "My budget is [[around $900 with a hard max of $1,200]].",
+        "I need [[easy display output for presentations]].",
+        "I prefer [[a matte screen to reduce glare]].",
+        "I\u2019d like [[at least 16GB RAM]]."
+      ]
+    },
+    {
+      "id": "laptop_020",
+      "gender": "male",
+      "background": "A retiree uses a laptop mainly for social media, streaming dramas, and keeping in touch with family via video calls.",
+      "ground_truth_need": "Needs a straightforward laptop that feels sturdy and lasts many years; simplicity and durability are the dealbreakers because he doesn\u2019t want frequent upgrades or troubleshooting. Second priority is an easy-to-see display; third is a good webcam for family calls. Budget target is $500 with a hard max of $700. Prefers a 15\" class screen, comfortable keyboard, and an SSD for speed. Dislikes tiny trackpads, confusing bloatware, and loud fans. Performance requirements are basic, but he wants smooth streaming and quick wake from sleep. Warranty and easy service matter, but he won\u2019t pay premium prices for features he won\u2019t use.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "The most important thing is [[a durable laptop that will last for years]].",
+        "Next, I want [[an easy-to-read screen for browsing and videos]].",
+        "I also need [[a good webcam for video calls]].",
+        "My budget is [[around $500 with a hard cap of $700]].",
+        "I want [[an SSD so it feels fast and responsive]].",
+        "I prefer [[a comfortable keyboard]].",
+        "Please avoid [[loud fan noise during simple tasks]]."
+      ]
+    },
+    {
+      "id": "laptop_021",
+      "gender": "male",
+      "background": "A junior IT analyst sets up laptops for a small office and occasionally works from home on spreadsheets and admin tools.",
+      "ground_truth_need": "Needs an \u201centerprise-leaning\u201d laptop under a tight cap, prioritizing reliability and serviceability above all because deployments can\u2019t fail mid-quarter. The dealbreaker is proven business-class durability (hinges, keyboard, ports) and stable performance over years. Second priority is staying within budget; third is good port selection for peripherals. Target is $520 with a hard max of $600, ideally with warranty coverage. Prefers 14-inch, 16GB RAM, 512GB SSD, and Windows Pro or easy upgrade path. Dislikes fragile consumer models and soldered-only storage.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[business-class reliability that won\u2019t die early]].",
+        "I also need [[to keep it under $600]].",
+        "Next, I want [[plenty of ports for office peripherals]].",
+        "I prefer [[a 14-inch screen size]].",
+        "I\u2019d like [[16GB of RAM]].",
+        "I want [[at least a 512GB SSD]].",
+        "Ideally it has [[a good warranty or easy servicing]]."
+      ]
+    },
+    {
+      "id": "laptop_022",
+      "gender": "female",
+      "background": "A data science student uses Linux daily for coursework and takes her laptop to labs and libraries across campus.",
+      "ground_truth_need": "Wants a compact laptop where Linux compatibility is the dealbreaker because she relies on stable Wi-Fi, sleep, and trackpad support without driver hacks. Second priority is portability under 14 inches; third is enough RAM for notebooks and light model training. Budget target is $900 with a hard max of $1,200, but she won\u2019t pay extra for fancy design. Prefers 14-inch or smaller, 16\u201332GB RAM, and 1TB SSD or upgradeable storage. Dislikes glossy screens and soldered-only configurations; battery is nice but below compatibility and portability.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker for me is [[excellent Linux support with minimal driver issues]].",
+        "Next, I need [[a size under 14 inches]].",
+        "I also want [[enough RAM for heavy multitasking]].",
+        "My budget is [[around $900 with a hard cap of $1,200]].",
+        "I\u2019d like [[upgradeable storage if possible]].",
+        "I prefer [[a matte screen to avoid glare]].",
+        "I want [[solid Wi-Fi reliability]]."
+      ]
+    },
+    {
+      "id": "laptop_023",
+      "gender": "unspecified",
+      "background": "A long-time Mac user works remotely, writing documents and joining video calls while traveling between family homes.",
+      "ground_truth_need": "Needs a MacBook replacement with \u201cbuy-it-for-life\u201d build quality as the top priority because they\u2019re tired of frequent upgrades. The dealbreaker is long-term durability and reliable support, even if it costs more. Second priority is battery life for travel days; third is a quiet, cool machine for calls. Budget target is $1,500 with a hard max of $2,000, justified only if longevity is clear. Prefers 14-inch class, 16GB+ RAM, 512GB\u20131TB SSD, and a great trackpad. Dislikes noisy fans and fragile screens.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[a long-lasting, premium build that feels buy-it-for-life]].",
+        "Next, I need [[strong battery life for travel days]].",
+        "I also want [[quiet operation during calls and writing]].",
+        "My budget is [[around $1,500 with a hard cap of $2,000]].",
+        "I prefer [[a 14-inch size]].",
+        "I want [[at least 16GB of RAM]].",
+        "I\u2019d like [[a great trackpad and keyboard feel]]."
+      ]
+    },
+    {
+      "id": "laptop_024",
+      "gender": "male",
+      "background": "A high school esports club member shares a family desktop and wants a portable system for matches and homework.",
+      "ground_truth_need": "Needs an affordable gaming-capable laptop where price is the dealbreaker because the purchase is parent-funded and must be reasonable. Second priority is strong performance for competitive shooters; third is longevity since it should last several school years. Target is $850 with a hard max of $950, preferably on sale. Prefers 15\u201316 inches, 16GB RAM, 512GB+ SSD, and a high-refresh display. Dislikes overheating and loud, high-pitched fan noise. Battery is not critical, but a sturdy hinge and decent keyboard matter for daily carry and typing.",
+      "context_trail": [
+        "I want a laptop.",
+        "My main constraint is [[keeping it around $850 and under $950]].",
+        "Next, I need [[good performance for competitive games]].",
+        "I also want [[something that will last for several years]].",
+        "I\u2019d like [[a high-refresh screen]].",
+        "I need [[at least 16GB RAM]].",
+        "Please avoid [[overheating during longer sessions]].",
+        "I prefer [[a sturdy hinge and solid build]]."
+      ]
+    },
+    {
+      "id": "laptop_025",
+      "gender": "female",
+      "background": "A graphic design freelancer runs Adobe apps at home and occasionally brings her laptop to client reviews in caf\u00e9s.",
+      "ground_truth_need": "Needs a laptop for InDesign and Photoshop with thermal stability as the dealbreaker because she previously had a machine that ran painfully hot and slowed down under load. Second priority is strong CPU/GPU performance for smooth editing; third is a color-accurate display for client deliverables. Budget target is $1,250 with a hard max of $1,600, but she\u2019s willing to stretch only if cooling and screen quality are excellent. Prefers 16GB\u201332GB RAM and 1TB SSD. Dislikes loud fans and flimsy plastic builds; ports for SD/USB-C are a plus.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My biggest priority is [[cooling that prevents overheating and slowdowns]].",
+        "Next, I need [[strong performance for Adobe apps]].",
+        "I also want [[a color-accurate display]].",
+        "My budget is [[about $1,250 with a hard max of $1,600]].",
+        "I\u2019d like [[at least 16GB of RAM]].",
+        "I prefer [[about 1TB of SSD storage]].",
+        "Ideally it includes [[USB-C and useful creator ports]]."
+      ]
+    },
+    {
+      "id": "laptop_026",
+      "gender": "male",
+      "background": "A middle-aged parent mainly browses news, streams videos, and manages household finances on a laptop at the kitchen table.",
+      "ground_truth_need": "Needs a straightforward laptop that will last at least five years; longevity is the dealbreaker because he doesn\u2019t want to shop again soon. Second priority is staying near a modest budget; third is fast, snappy everyday performance for web and office documents. Target is $500 with a hard max of $650. Prefers a 15-inch class screen, 8\u201316GB RAM, and an SSD for quick boot. Dislikes bloatware, noisy fans, and cheap hinges. Doesn\u2019t need gaming graphics, but wants smooth streaming and a decent keyboard.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[it lasting at least five years without major issues]].",
+        "Next, I need [[to keep it around $500, max $650]].",
+        "I also want [[fast everyday performance for browsing and office tasks]].",
+        "I prefer [[a 15-inch screen]].",
+        "I want [[an SSD for quick boot and loading]].",
+        "Please avoid [[cheap, wobbly hinges]].",
+        "I\u2019d like [[a comfortable keyboard]]."
+      ]
+    },
+    {
+      "id": "laptop_027",
+      "gender": "female",
+      "background": "A caregiver buys tech for her mother, who uses a laptop for social media and watching dramas in the evenings.",
+      "ground_truth_need": "Shopping for a simple laptop where durability is the dealbreaker, aiming for a business-style machine that can run for years with minimal fuss. Second priority is ease of use for basic tasks; third is a comfortable, easy-to-read screen. Budget target is $650 with a hard max of $900, willing to pay for proven reliability and good support. Prefers Windows, 14\u201315 inches, 16GB RAM if possible, and 512GB SSD. Dislikes noisy fans and confusing preinstalled junk. Performance needs are basic; stability and build quality matter most.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[durability and reliability for years of simple use]].",
+        "Next, I want [[something easy to use for basic tasks]].",
+        "I also need [[a screen that\u2019s easy to read]].",
+        "My budget is [[around $650 with a hard cap of $900]].",
+        "I\u2019d like [[a 512GB SSD]].",
+        "I prefer [[at least 16GB of RAM if possible]].",
+        "Please avoid [[noisy fan behavior]]."
+      ]
+    },
+    {
+      "id": "laptop_028",
+      "gender": "non-binary",
+      "background": "A desk minimalist uses a laptop as a semi-permanent workstation while writing and managing projects in a small apartment.",
+      "ground_truth_need": "Needs a laptop that works great in a desk setup; external display support is the dealbreaker because they rely on one-cable monitor + peripherals daily. Second priority is port selection to reduce dongles; third is stable thermals during closed-lid use. Budget target is $1,000 with a hard max of $1,400. Prefers USB-C with strong display output, at least one USB-A, 16GB+ RAM, and 512GB+ SSD. Dislikes flaky docking, dropped monitors, and hot running laptops. Screen quality on the built-in panel is secondary since an external monitor is used most of the time.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[reliable support for an external monitor setup]].",
+        "Next, I want [[enough ports to avoid a pile of dongles]].",
+        "I also need [[stable thermals even when used closed-lid]].",
+        "My budget is [[around $1,000 with a hard cap of $1,400]].",
+        "I\u2019d like [[USB-C charging and display output]].",
+        "I need [[at least 16GB RAM]].",
+        "I prefer [[at least 512GB SSD storage]]."
+      ]
+    },
+    {
+      "id": "laptop_029",
+      "gender": "male",
+      "background": "A traveler frequently works from trains and airports, often typing reports while balancing a laptop on tight tray tables.",
+      "ground_truth_need": "Needs a small, travel-friendly laptop where portability is the dealbreaker because he\u2019s constantly on the move and hates bulky gear. Second priority is battery life for long transit days; third is a rigid chassis that doesn\u2019t flex in cramped spaces. Budget target is $1,100 with a hard max of $1,500. Prefers 13\u201314 inches, under ~3 pounds, 16GB RAM, and 512GB SSD. Dislikes glossy screens and loud fans in quiet cabins. Performance needs are moderate, but Wi-Fi stability and comfortable typing matter for work sessions.",
+      "context_trail": [
+        "I need a laptop.",
+        "My main priority is [[a compact, lightweight laptop for constant travel]].",
+        "Next, I need [[battery life that lasts through long transit days]].",
+        "I also want [[a rigid build that won\u2019t flex on tray tables]].",
+        "My budget is [[around $1,100 with a hard max of $1,500]].",
+        "I prefer [[a 13\u201314 inch screen]].",
+        "I\u2019d like [[a comfortable keyboard for long typing]].",
+        "I need [[reliable Wi-Fi]]."
+      ]
+    },
+    {
+      "id": "laptop_030",
+      "gender": "female",
+      "background": "A part-time photographer edits batches of photos on weekends and wants dependable performance without a bulky gaming aesthetic.",
+      "ground_truth_need": "Needs a laptop with a high-quality screen as the dealbreaker because accurate colors and brightness are essential for photo edits. Second priority is enough performance to handle large RAW catalogs smoothly; third is ample fast storage for files. Budget target is $1,200 with a hard max of $1,600, but only if the display is excellent. Prefers 15\u201316 inches, 16\u201332GB RAM, and 1TB SSD. Dislikes loud fans and oversaturated \u201cgamer\u201d looks. Wants good I/O like USB-C and an SD reader if possible; battery is secondary to screen and performance.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "The dealbreaker is [[a great, color-accurate display for photo work]].",
+        "Next, I need [[smooth performance with large photo libraries]].",
+        "I also want [[fast, roomy storage for my files]].",
+        "My budget is [[around $1,200 with a hard cap of $1,600]].",
+        "I\u2019d like [[a 15\u201316 inch screen size]].",
+        "I prefer [[at least 16GB of RAM]].",
+        "Ideally it includes [[an SD card reader]]."
+      ]
+    },
+    {
+      "id": "laptop_031",
+      "gender": "male",
+      "background": "A hobbyist believes in repairing gear and wants a laptop that can be kept running through upgrades rather than replacement.",
+      "ground_truth_need": "Needs a laptop where repairability is the dealbreaker, aiming for a machine with accessible internals and replaceable parts to avoid planned-obsolescence frustration. Second priority is durability of the chassis and hinges; third is reasonable price-to-performance for everyday work. Budget target is $950 with a hard max of $1,400, with extra spend justified only by modularity and parts availability. Prefers 14-inch, upgradeable RAM, replaceable SSD, and standard USB-C charging. Dislikes glued batteries and soldered-only storage. Battery life is nice but secondary to repairability and build quality.",
+      "context_trail": [
+        "I need a laptop.",
+        "My main priority is [[easy repairability and access to replaceable parts]].",
+        "Next, I want [[a tough build with a reliable hinge]].",
+        "I also need [[good everyday performance without paying for gimmicks]].",
+        "My budget is [[around $950 with a hard max of $1,400]].",
+        "I prefer [[upgradeable RAM]].",
+        "I want [[a replaceable SSD]].",
+        "I\u2019d like [[standard USB-C charging]]."
+      ]
+    },
+    {
+      "id": "laptop_032",
+      "gender": "female",
+      "background": "A nursing student records lectures, carries her laptop to clinical rotations, and studies in noisy common areas.",
+      "ground_truth_need": "Needs a laptop suited for school where a good microphone/webcam setup is the dealbreaker because she records lectures and joins remote review sessions. Second priority is portability for carrying between classes; third is battery life for long study days. Budget target is $750 with a hard max of $1,000. Prefers 13\u201314 inches, 16GB RAM, and 512GB SSD for lots of documents. Dislikes loud fans and poor sleep/wake reliability. Performance needs are moderate, but a comfortable keyboard and clear audio capture matter more than high-end graphics.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "The most important thing is [[a good mic and webcam for lectures and calls]].",
+        "Next, I need [[a portable size for carrying around campus]].",
+        "I also want [[battery life that lasts through long days]].",
+        "My budget is [[around $750 with a hard cap of $1,000]].",
+        "I\u2019d like [[a comfortable keyboard for notes]].",
+        "I need [[at least 16GB RAM]].",
+        "I prefer [[quiet fan noise during studying]]."
+      ]
+    },
+    {
+      "id": "laptop_033",
+      "gender": "male",
+      "background": "A gamer with a heat-prone old laptop wants an upgrade that can handle longer sessions without becoming uncomfortable to use.",
+      "ground_truth_need": "Needs a gaming-friendly laptop where cooling is the dealbreaker after dealing with vents that became painfully hot and performance that slowed over time. Second priority is strong GPU performance for recent titles; third is a reasonable price since he\u2019s value-focused. Budget target is $1,000 with a hard max of $1,300. Prefers 15\u201316 inches, 16GB RAM, 1TB SSD, and a high-refresh display. Dislikes loud fan whine and cheap chassis flex. Battery isn\u2019t critical, but build quality and stable frame rates matter for long sessions.",
+      "context_trail": [
+        "I want a laptop.",
+        "My biggest priority is [[cooling that keeps it from getting painfully hot]].",
+        "Next, I need [[strong graphics performance for newer games]].",
+        "I also want [[good value rather than an overpriced model]].",
+        "My budget is [[around $1,000 with a hard cap of $1,300]].",
+        "I\u2019d like [[a high-refresh screen]].",
+        "I need [[at least 16GB RAM]].",
+        "I prefer [[about 1TB of SSD storage]]."
+      ]
+    },
+    {
+      "id": "laptop_034",
+      "gender": "female",
+      "background": "A writer spends hours drafting in caf\u00e9s and libraries and is easily distracted by noisy machines.",
+      "ground_truth_need": "Needs a laptop for writing where quiet operation is the dealbreaker because fan noise ruins concentration in quiet spaces. Second priority is a great keyboard for long typing sessions; third is battery life so she can write without hunting for outlets. Budget target is $900 with a hard max of $1,200. Prefers 13\u201314 inches, 16GB RAM, and 512GB SSD. Dislikes glossy screens, sharp palm rests, and unreliable sleep. Performance needs are modest; she values comfort, silence, and portability over raw power.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[a quiet laptop with minimal fan noise]].",
+        "Next, I need [[an excellent keyboard for long writing sessions]].",
+        "I also want [[battery life that lasts for hours in caf\u00e9s]].",
+        "My budget is [[around $900 with a hard cap of $1,200]].",
+        "I prefer [[a 13\u201314 inch size]].",
+        "I\u2019d like [[a matte screen to reduce glare]].",
+        "I need [[at least 16GB RAM]]."
+      ]
+    },
+    {
+      "id": "laptop_035",
+      "gender": "unspecified",
+      "background": "A home user wants to replace an aging machine that feels sluggish for everyday browsing, documents, and watching videos.",
+      "ground_truth_need": "Needs a durable, simple laptop where reliability is the dealbreaker, aiming for years of trouble-free basic use. Second priority is responsiveness for everyday tasks; third is a comfortable viewing experience for videos and photos. Budget target is $600 with a hard max of $800, preferring proven models over flashy specs. Wants an SSD, 8\u201316GB RAM, and a 15-inch class screen. Dislikes bloatware, slow boot, and creaky plastic. Doesn\u2019t need discrete graphics; values smooth streaming and stable Wi-Fi more than top-end performance.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[overall reliability for years of basic use]].",
+        "Next, I want [[a fast, responsive feel for everyday tasks]].",
+        "I also prefer [[a comfortable screen for videos and photos]].",
+        "My budget is [[around $600 with a hard cap of $800]].",
+        "I need [[an SSD rather than a slow hard drive]].",
+        "I\u2019d like [[at least 8\u201316GB of RAM]].",
+        "I want [[stable Wi-Fi performance]]."
+      ]
+    },
+    {
+      "id": "laptop_036",
+      "gender": "male",
+      "background": "A consultant carries a laptop in a bag daily and frequently plugs into conference room TVs and projectors for presentations.",
+      "ground_truth_need": "Needs a work laptop where port convenience is the dealbreaker because he can\u2019t risk adapter chaos during client presentations. Second priority is sturdy build for daily transport; third is a bright screen for varied lighting. Budget target is $1,050 with a hard max of $1,400. Prefers 14-inch, 16GB RAM, 512GB SSD, and strong Wi-Fi. Wants HDMI or dependable USB-C display output plus USB-A. Dislikes fragile ultrathin builds and loose charging ports. Performance needs are moderate (office apps, calls), so connectivity and durability dominate.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[built-in connectivity that works without adapters]].",
+        "Next, I need [[a durable build for daily carrying]].",
+        "I also want [[a bright screen for different rooms]].",
+        "My budget is [[around $1,050 with a hard cap of $1,400]].",
+        "I prefer [[a 14-inch size]].",
+        "I need [[at least 16GB of RAM]].",
+        "I want [[reliable Wi-Fi]]."
+      ]
+    },
+    {
+      "id": "laptop_037",
+      "gender": "female",
+      "background": "A student who walks to class in all weather wants a laptop that won\u2019t panic her if she gets caught in rain again.",
+      "ground_truth_need": "Needs a laptop that can survive commuting mishaps, with spill and moisture resilience as the dealbreaker after a previous device failed following a downpour. Second priority is durability for daily backpack life; third is keeping costs reasonable. Budget target is $750 with a hard max of $1,000. Prefers 14\u201315 inches, 16GB RAM, and 512GB SSD. Dislikes flimsy lids and exposed vents that suck in moisture easily. Performance is standard for schoolwork, browsing, and streaming; battery life should be decent but below weather resilience and durability.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker for me is [[better resistance to spills or unexpected rain]].",
+        "Next, I want [[a durable build for daily commuting]].",
+        "I also need [[a reasonable price rather than premium luxury]].",
+        "My budget is [[around $750 with a hard cap of $1,000]].",
+        "I\u2019d like [[at least 16GB of RAM]].",
+        "I prefer [[a 512GB SSD]].",
+        "I want [[decent battery life for classes]]."
+      ]
+    },
+    {
+      "id": "laptop_038",
+      "gender": "male",
+      "background": "A metal music fan watches live sets and listens at his desk, wanting better audio than typical thin laptops provide.",
+      "ground_truth_need": "Needs a laptop with strong built-in audio as the dealbreaker because he hates tinny speakers for music and videos. Second priority is a clean wired audio path; third is quiet fans so sound isn\u2019t masked. Budget target is $1,000 with a hard max of $1,300. Performance needs are moderate\u2014streaming, browsing, light editing\u2014so audio and acoustics matter more than GPU. Prefers 14\u201316 inches, 16GB RAM, and 512GB SSD. Dislikes speaker rattles and distorted highs. Battery is nice-to-have but secondary.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[excellent built-in speakers for music]].",
+        "Next, I need [[a reliable headphone jack for wired listening]].",
+        "I also want [[quiet fans so audio isn\u2019t drowned out]].",
+        "My budget is [[around $1,000 with a hard cap of $1,300]].",
+        "I prefer [[a 14\u201316 inch screen]].",
+        "I need [[at least 16GB RAM]].",
+        "I\u2019d like [[a 512GB SSD]]."
+      ]
+    },
+    {
+      "id": "laptop_039",
+      "gender": "female",
+      "background": "A corporate assistant takes frequent calls, types meeting notes, and hates dealing with slow machines while multitasking.",
+      "ground_truth_need": "Needs a laptop for heavy office multitasking where responsiveness is the dealbreaker because she regularly has dozens of tabs, documents, and calls running at once. Second priority is a comfortable keyboard; third is a stable webcam/mic for meetings. Budget target is $800 with a hard max of $1,050. Prefers 14-inch, 16GB RAM minimum, and 512GB SSD. Dislikes noisy fans and devices that lag when waking from sleep. Doesn\u2019t need discrete graphics, but wants reliable Wi-Fi and enough ports for mouse and occasional external display.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[snappy multitasking with lots of tabs and apps]].",
+        "Next, I want [[a comfortable keyboard for nonstop typing]].",
+        "I also need [[a dependable webcam and mic for meetings]].",
+        "My budget is [[around $800 with a hard cap of $1,050]].",
+        "I require [[at least 16GB of RAM]].",
+        "I\u2019d like [[a 512GB SSD]].",
+        "I want [[reliable Wi-Fi]]."
+      ]
+    },
+    {
+      "id": "laptop_040",
+      "gender": "non-binary",
+      "background": "A minimalist shopper wants one \u2018forever\u2019 laptop and feels annoyed by fragile, disposable electronics and constant upgrading cycles.",
+      "ground_truth_need": "Needs the most durable laptop possible where build longevity is the dealbreaker, prioritizing sturdy chassis, strong hinges, and dependable thermals for many years. Second priority is repairability to avoid replacing the whole device; third is overall value within a reasonable spend. Budget target is $1,200 with a hard max of $1,700, but only if durability and repair options are clear. Prefers 14\u201316 inches, 16\u201332GB RAM, and 1TB SSD. Dislikes ultra-thin flexy designs and soldered-only storage. Battery and aesthetics are secondary to longevity and serviceability.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[maximum durability so it lasts many years]].",
+        "Next, I want [[repairability instead of a sealed, disposable design]].",
+        "I also care about [[getting strong value for the money]].",
+        "My budget is [[around $1,200 with a hard cap of $1,700]].",
+        "I prefer [[16\u201332GB of RAM]].",
+        "I\u2019d like [[about 1TB of SSD storage]].",
+        "I want [[reliable thermals under sustained use]]."
+      ]
+    },
+    {
+      "id": "laptop_041",
+      "gender": "female",
+      "background": "A marketing associate creates presentations, edits short videos, and works from both home and shared office spaces.",
+      "ground_truth_need": "Needs a laptop that feels responsive for creative multitasking, with performance as the dealbreaker because lag disrupts deadlines. Second priority is a high-quality display for presentations and light video edits; third is portability for commuting days. Budget target is $1,100 with a hard max of $1,400, but she will only stretch if performance gains are clear. Prefers 14\u201315 inches, 16GB RAM, and 1TB SSD. Dislikes loud fans and cheap-feeling builds. Battery should last a workday, but speed and screen quality matter more.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[fast, lag-free performance for multitasking]].",
+        "Next, I need [[a good display for presentations and light editing]].",
+        "I also want [[a portable size for commuting]].",
+        "My budget is [[around $1,100 with a hard cap of $1,400]].",
+        "I\u2019d like [[at least 16GB of RAM]].",
+        "I prefer [[about 1TB of SSD storage]].",
+        "Please avoid [[excessive fan noise]]."
+      ]
+    },
+    {
+      "id": "laptop_042",
+      "gender": "male",
+      "background": "A civil engineering student runs CAD software and carries a laptop between classes and study rooms all day.",
+      "ground_truth_need": "Needs a laptop that can handle CAD workloads, with CPU performance as the dealbreaker because slow renders derail coursework. Second priority is sufficient RAM for large projects; third is portability since he carries it daily. Budget target is $1,200 with a hard max of $1,500, justified by academic use. Prefers 15\u201316 inches, 32GB RAM if possible, and 1TB SSD. Dislikes overheating and short battery life. GPU is helpful but secondary to CPU and memory; build quality should survive backpack use.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[strong CPU performance for CAD work]].",
+        "Next, I need [[plenty of RAM for large projects]].",
+        "I also want [[something portable enough to carry daily]].",
+        "My budget is [[around $1,200 with a hard cap of $1,500]].",
+        "I\u2019d like [[about 1TB of SSD storage]].",
+        "Please avoid [[thermal throttling under load]].",
+        "I prefer [[a durable chassis]]."
+      ]
+    },
+    {
+      "id": "laptop_043",
+      "gender": "female",
+      "background": "A retiree writes emails, shops online, and video chats with family several times a week from home.",
+      "ground_truth_need": "Needs a simple, dependable laptop where ease of use is the dealbreaker because she doesn\u2019t want to troubleshoot issues. Second priority is a clear, easy-to-read display; third is reliability over many years. Budget target is $450 with a hard max of $650. Prefers a 15-inch class screen, comfortable keyboard, and SSD for speed. Dislikes loud fans and cluttered software. Performance needs are basic, but she wants smooth video calls and quick startup.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[something easy to use without constant issues]].",
+        "Next, I need [[a clear, easy-to-read screen]].",
+        "I also want [[long-term reliability]].",
+        "My budget is [[around $450 with a hard cap of $650]].",
+        "I\u2019d like [[an SSD for faster startup]].",
+        "I prefer [[a comfortable keyboard]].",
+        "Please avoid [[loud fan noise]]."
+      ]
+    },
+    {
+      "id": "laptop_044",
+      "gender": "male",
+      "background": "A startup founder juggles calls, spreadsheets, and coding while moving between meetings and co-working spaces.",
+      "ground_truth_need": "Needs a laptop that feels premium and dependable, with build quality as the dealbreaker because it\u2019s used constantly. Second priority is strong multitasking performance; third is battery life for long days without outlets. Budget target is $1,600 with a hard max of $2,000. Prefers 14-inch class, 16\u201332GB RAM, and 1TB SSD. Dislikes flimsy designs and poor keyboards. Wants a good webcam and ports for presentations; aesthetics matter but less than durability and performance.",
+      "context_trail": [
+        "I need a laptop.",
+        "My top priority is [[a premium, durable build for daily use]].",
+        "Next, I need [[strong multitasking performance]].",
+        "I also want [[battery life that lasts most of the day]].",
+        "My budget is [[around $1,600 with a hard cap of $2,000]].",
+        "I\u2019d like [[at least 16GB of RAM]].",
+        "I prefer [[about 1TB of SSD storage]].",
+        "I want [[a solid webcam for calls]]."
+      ]
+    },
+    {
+      "id": "laptop_045",
+      "gender": "female",
+      "background": "A college freshman lives in a dorm and needs a single device for classes, streaming, and casual gaming.",
+      "ground_truth_need": "Needs a versatile laptop where affordability is the dealbreaker because funds are limited. Second priority is balanced performance for schoolwork and light games; third is battery life for classes. Budget target is $650 with a hard max of $800. Prefers 14\u201315 inches, 16GB RAM if possible, and 512GB SSD. Dislikes overheating and poor keyboards. Doesn\u2019t care about premium materials but wants something reliable and reasonably portable.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main constraint is [[keeping the price affordable for a student]].",
+        "Next, I need [[balanced performance for school and light gaming]].",
+        "I also want [[battery life that gets me through classes]].",
+        "My budget is [[around $650 with a hard cap of $800]].",
+        "I\u2019d like [[a 512GB SSD]].",
+        "I prefer [[a comfortable keyboard]].",
+        "Please avoid [[overheating during use]]."
+      ]
+    },
+    {
+      "id": "laptop_046",
+      "gender": "male",
+      "background": "A photographer travels for shoots and needs a laptop to review and lightly edit photos on location.",
+      "ground_truth_need": "Needs a laptop with a bright, color-accurate screen as the dealbreaker because on-site review requires accurate previews. Second priority is portability for travel; third is fast storage for photo imports. Budget target is $1,300 with a hard max of $1,700. Prefers 14\u201315 inches, 16\u201332GB RAM, and 1TB SSD. Dislikes glossy screens and slow card transfers. Performance needs are moderate, but screen quality and portability dominate.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[a bright, color-accurate display]].",
+        "Next, I want [[a portable form factor for travel]].",
+        "I also need [[fast storage for photo files]].",
+        "My budget is [[around $1,300 with a hard cap of $1,700]].",
+        "I\u2019d like [[at least 16GB of RAM]].",
+        "I prefer [[a matte screen finish]].",
+        "Ideally it includes [[an SD card reader]]."
+      ]
+    },
+    {
+      "id": "laptop_047",
+      "gender": "female",
+      "background": "A nonprofit grant writer works long hours drafting proposals from home and shared offices.",
+      "ground_truth_need": "Needs a laptop optimized for writing, with keyboard comfort as the dealbreaker because she types for hours daily. Second priority is quiet operation; third is reliability to avoid interruptions. Budget target is $850 with a hard max of $1,100. Prefers 13\u201314 inches, 16GB RAM, and 512GB SSD. Dislikes glossy screens and noisy fans. Performance needs are modest, but comfort and silence matter most.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[a very comfortable keyboard for long typing]].",
+        "Next, I need [[quiet operation without fan noise]].",
+        "I also want [[reliable performance without crashes]].",
+        "My budget is [[around $850 with a hard cap of $1,100]].",
+        "I prefer [[a 13\u201314 inch size]].",
+        "I\u2019d like [[a matte display]].",
+        "I need [[at least 16GB RAM]]."
+      ]
+    },
+    {
+      "id": "laptop_048",
+      "gender": "male",
+      "background": "A casual streamer wants a laptop that can handle streaming software and games in a small bedroom setup.",
+      "ground_truth_need": "Needs a laptop with stable performance under load, with thermals as the dealbreaker because previous systems overheated while streaming. Second priority is GPU performance; third is price-to-performance value. Budget target is $1,100 with a hard max of $1,400. Prefers 15\u201316 inches, 16GB RAM, and 1TB SSD. Dislikes loud fans and bulky designs. Battery life is secondary to cooling and performance stability.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[cooling that stays stable during streaming]].",
+        "Next, I need [[strong GPU performance]].",
+        "I also want [[good value for the price]].",
+        "My budget is [[around $1,100 with a hard cap of $1,400]].",
+        "I\u2019d like [[a 1TB SSD]].",
+        "I prefer [[at least 16GB of RAM]].",
+        "Please avoid [[excessively loud fans]]."
+      ]
+    },
+    {
+      "id": "laptop_049",
+      "gender": "female",
+      "background": "A remote HR manager runs video meetings all day and values professionalism in shared work environments.",
+      "ground_truth_need": "Needs a laptop with excellent video conferencing quality as the dealbreaker because calls are constant. Second priority is quiet operation; third is portability between rooms. Budget target is $1,000 with a hard max of $1,300. Prefers 14 inches, 16GB RAM, and 512GB SSD. Dislikes poor webcams and unstable connections. Performance needs are moderate, but audio, camera quality, and reliability dominate.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[a high-quality webcam and microphone]].",
+        "Next, I need [[quiet operation during calls]].",
+        "I also want [[easy portability around the house]].",
+        "My budget is [[around $1,000 with a hard cap of $1,300]].",
+        "I\u2019d like [[a 14-inch size]].",
+        "I need [[at least 16GB of RAM]].",
+        "I want [[reliable Wi-Fi]]."
+      ]
+    },
+    {
+      "id": "laptop_050",
+      "gender": "male",
+      "background": "A long-time Windows user wants to switch to a simpler setup without giving up familiar workflows.",
+      "ground_truth_need": "Needs a laptop that feels familiar and stable, with reliability as the dealbreaker because he dislikes frequent troubleshooting. Second priority is responsive performance for office tasks; third is build quality. Budget target is $900 with a hard max of $1,200. Prefers 14\u201315 inches, 16GB RAM, and 512GB SSD. Dislikes bloatware and flimsy plastics. Battery life matters, but not above stability and performance.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[a stable, reliable everyday experience]].",
+        "Next, I want [[responsive performance for office work]].",
+        "I also need [[a solid, well-built chassis]].",
+        "My budget is [[around $900 with a hard cap of $1,200]].",
+        "I prefer [[a 14\u201315 inch screen]].",
+        "I\u2019d like [[a 512GB SSD]].",
+        "I want [[good battery life]]."
+      ]
+    },
+    {
+      "id": "laptop_051",
+      "gender": "female",
+      "background": "A UX designer prototypes interfaces and frequently switches between design tools and browser-based research.",
+      "ground_truth_need": "Needs a laptop with smooth multitasking performance as the dealbreaker because design tools and browsers are used simultaneously. Second priority is a high-quality display for interface work; third is portability. Budget target is $1,400 with a hard max of $1,800. Prefers 14\u201315 inches, 32GB RAM, and 1TB SSD. Dislikes noisy fans and inaccurate colors. Battery is secondary to performance and display quality.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[smooth multitasking across design tools]].",
+        "Next, I need [[a high-quality display for UX work]].",
+        "I also want [[portability for moving between spaces]].",
+        "My budget is [[around $1,400 with a hard cap of $1,800]].",
+        "I\u2019d like [[32GB of RAM]].",
+        "I prefer [[about 1TB of SSD storage]].",
+        "Please avoid [[loud fan noise]]."
+      ]
+    },
+    {
+      "id": "laptop_052",
+      "gender": "male",
+      "background": "A home hobbyist uses a laptop mainly docked to a TV for browsing, streaming, and light gaming.",
+      "ground_truth_need": "Needs a laptop with reliable external display output as the dealbreaker because it\u2019s often connected to a TV. Second priority is quiet operation in a living room; third is reasonable gaming capability. Budget target is $850 with a hard max of $1,100. Prefers HDMI or stable USB-C display, 16GB RAM, and 512GB SSD. Dislikes connection drops and loud fans. Built-in screen quality is secondary to external output reliability.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[reliable connection to an external TV]].",
+        "Next, I want [[quiet operation in a living room]].",
+        "I also need [[enough power for light gaming]].",
+        "My budget is [[around $850 with a hard cap of $1,100]].",
+        "I\u2019d like [[an HDMI or strong USB-C output]].",
+        "I need [[at least 16GB RAM]].",
+        "I prefer [[a 512GB SSD]]."
+      ]
+    },
+    {
+      "id": "laptop_053",
+      "gender": "female",
+      "background": "A traveling consultant values fast setup and teardown when moving between hotels, offices, and client sites.",
+      "ground_truth_need": "Needs a laptop that wakes instantly and works reliably, with sleep/wake stability as the dealbreaker after past frustrations. Second priority is portability; third is battery life. Budget target is $1,200 with a hard max of $1,600. Prefers 14 inches, 16GB RAM, and 512GB SSD. Dislikes flaky power behavior and slow startups. Performance needs are moderate, but reliability and convenience dominate.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[reliable sleep and instant wake behavior]].",
+        "Next, I need [[a portable size for frequent travel]].",
+        "I also want [[battery life that lasts most of a workday]].",
+        "My budget is [[around $1,200 with a hard cap of $1,600]].",
+        "I prefer [[a 14-inch screen]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I want [[fast SSD performance]]."
+      ]
+    },
+    {
+      "id": "laptop_054",
+      "gender": "male",
+      "background": "A student filmmaker edits short films and wants a laptop that doesn\u2019t choke on timelines and exports.",
+      "ground_truth_need": "Needs a laptop with strong sustained performance as the dealbreaker because video exports previously took forever. Second priority is a color-accurate display; third is storage capacity. Budget target is $1,300 with a hard max of $1,700. Prefers 15\u201316 inches, 32GB RAM, and 1TB SSD. Dislikes overheating and noisy fans. Battery is secondary to performance stability and screen quality.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[strong sustained performance for video editing]].",
+        "Next, I need [[a color-accurate display]].",
+        "I also want [[plenty of storage for footage]].",
+        "My budget is [[around $1,300 with a hard cap of $1,700]].",
+        "I\u2019d like [[32GB of RAM]].",
+        "I prefer [[a 15\u201316 inch screen]].",
+        "Please avoid [[overheating during exports]]."
+      ]
+    },
+    {
+      "id": "laptop_055",
+      "gender": "female",
+      "background": "A commuter spends hours on public transit and wants a laptop that\u2019s easy to use in cramped seating.",
+      "ground_truth_need": "Needs a compact laptop where portability is the dealbreaker because space is limited on trains. Second priority is battery life; third is a sturdy hinge that works well in tight spaces. Budget target is $900 with a hard max of $1,200. Prefers 13\u201314 inches, 16GB RAM, and 512GB SSD. Dislikes flimsy screens and loud fans. Performance needs are moderate; comfort and portability dominate.",
+      "context_trail": [
+        "I need a laptop.",
+        "My main priority is [[a compact size that works on public transit]].",
+        "Next, I want [[battery life for long commutes]].",
+        "I also need [[a sturdy hinge for cramped spaces]].",
+        "My budget is [[around $900 with a hard cap of $1,200]].",
+        "I prefer [[a 13\u201314 inch screen]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I want [[quiet fan behavior]]."
+      ]
+    },
+    {
+      "id": "laptop_056",
+      "gender": "male",
+      "background": "A retired engineer enjoys tinkering, spreadsheets, and keeping detailed personal records on his computer.",
+      "ground_truth_need": "Needs a laptop that can be upgraded over time, with repairability as the dealbreaker because he dislikes sealed devices. Second priority is reliability; third is a clear, sharp display for spreadsheets. Budget target is $800 with a hard max of $1,100. Prefers 14\u201315 inches, upgradeable RAM, and replaceable SSD. Dislikes glued components and proprietary chargers. Performance needs are moderate but stability and longevity matter.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[easy repairability and upgradability]].",
+        "Next, I need [[reliable, stable performance]].",
+        "I also want [[a sharp display for spreadsheets]].",
+        "My budget is [[around $800 with a hard cap of $1,100]].",
+        "I prefer [[upgradeable RAM]].",
+        "I\u2019d like [[a replaceable SSD]].",
+        "I want [[standard USB-C charging]]."
+      ]
+    },
+    {
+      "id": "laptop_057",
+      "gender": "female",
+      "background": "A graduate student attends hybrid classes and often switches between note-taking, reading, and video calls.",
+      "ground_truth_need": "Needs a laptop with reliable video conferencing as the dealbreaker because classes frequently move online. Second priority is portability for carrying around campus; third is battery life. Budget target is $850 with a hard max of $1,100. Prefers 13\u201314 inches, 16GB RAM, and 512GB SSD. Dislikes poor webcams and noisy fans. Performance needs are moderate; stability and convenience matter most.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[reliable video calling quality]].",
+        "Next, I want [[a portable size for campus use]].",
+        "I also need [[battery life that lasts through classes]].",
+        "My budget is [[around $850 with a hard cap of $1,100]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I prefer [[a matte screen]].",
+        "I want [[quiet fan noise]]."
+      ]
+    },
+    {
+      "id": "laptop_058",
+      "gender": "male",
+      "background": "A hobby gamer wants a secondary laptop for travel that can still run favorite titles at reasonable settings.",
+      "ground_truth_need": "Needs a travel-friendly gaming laptop where portability is the dealbreaker because it\u2019s carried frequently. Second priority is gaming performance for older and mid-range titles; third is thermal comfort. Budget target is $1,000 with a hard max of $1,300. Prefers 14\u201315 inches, 16GB RAM, and 1TB SSD. Dislikes bulky designs and loud fans. Battery life is secondary to size and performance balance.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[a portable size for travel]].",
+        "Next, I need [[decent gaming performance]].",
+        "I also want [[cooling that stays comfortable]].",
+        "My budget is [[around $1,000 with a hard cap of $1,300]].",
+        "I\u2019d like [[about 1TB of SSD storage]].",
+        "I need [[at least 16GB RAM]].",
+        "I prefer [[not too bulky a design]]."
+      ]
+    },
+    {
+      "id": "laptop_059",
+      "gender": "female",
+      "background": "A social media manager juggles content scheduling, analytics dashboards, and frequent messaging throughout the day.",
+      "ground_truth_need": "Needs a laptop that feels instantly responsive, with multitasking speed as the dealbreaker because delays slow work. Second priority is a good display for reviewing media; third is portability. Budget target is $950 with a hard max of $1,200. Prefers 14\u201315 inches, 16GB RAM, and 512GB SSD. Dislikes laggy performance and dim screens. Battery life is helpful but secondary to responsiveness.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[fast, responsive multitasking]].",
+        "Next, I want [[a good display for reviewing media]].",
+        "I also need [[a portable form factor]].",
+        "My budget is [[around $950 with a hard cap of $1,200]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I prefer [[a 512GB SSD]].",
+        "I want [[decent battery life]]."
+      ]
+    },
+    {
+      "id": "laptop_060",
+      "gender": "unspecified",
+      "background": "A careful shopper wants a single laptop purchase to last many years and avoids trendy but fragile designs.",
+      "ground_truth_need": "Needs a laptop focused on longevity, with build durability as the dealbreaker because they dislike frequent replacements. Second priority is reliability of everyday performance; third is reasonable value. Budget target is $1,000 with a hard max of $1,400. Prefers 14\u201316 inches, 16GB RAM, and 1TB SSD. Dislikes ultra-thin flexy designs and sealed-only internals. Battery and aesthetics are secondary to durability and long-term usefulness.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[a durable build that lasts many years]].",
+        "Next, I need [[reliable everyday performance]].",
+        "I also care about [[good long-term value]].",
+        "My budget is [[around $1,000 with a hard cap of $1,400]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I prefer [[about 1TB of SSD storage]].",
+        "I want [[solid thermals under regular use]]."
+      ]
+    },
+    {
+      "id": "laptop_061",
+      "gender": "male",
+      "background": "A financial analyst works with large spreadsheets and dashboards from home and occasionally at client offices.",
+      "ground_truth_need": "Needs a laptop that handles large spreadsheets smoothly, with responsiveness as the dealbreaker because lag interrupts analysis. Second priority is a clear, high-resolution display for dense data; third is reliability for daily work. Budget target is $1,100 with a hard max of $1,400. Prefers 14\u201315 inches, 16\u201332GB RAM, and 1TB SSD. Dislikes slow wake-from-sleep and noisy fans. GPU is unnecessary; CPU speed and memory matter most. Battery life is useful but secondary to performance and screen clarity.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[snappy performance with large spreadsheets]].",
+        "Next, I need [[a sharp display for dense data]].",
+        "I also want [[reliable day-to-day operation]].",
+        "My budget is [[around $1,100 with a hard cap of $1,400]].",
+        "I\u2019d like [[at least 16GB of RAM]].",
+        "I prefer [[about 1TB of SSD storage]].",
+        "Please avoid [[loud fan noise]]."
+      ]
+    },
+    {
+      "id": "laptop_062",
+      "gender": "female",
+      "background": "A yoga instructor manages bookings, streams classes, and edits short clips from home between sessions.",
+      "ground_truth_need": "Needs a quiet, reliable laptop where low fan noise is the dealbreaker because background noise affects streamed classes. Second priority is a good webcam and mic; third is stable performance for streaming software. Budget target is $900 with a hard max of $1,200. Prefers 14-inch, 16GB RAM, and 512GB SSD. Dislikes overheating and distracting LEDs. Screen quality should be decent, but silence and call quality matter more.",
+      "context_trail": [
+        "I need a laptop.",
+        "My main priority is [[very quiet operation during streaming]].",
+        "Next, I need [[a good webcam and microphone]].",
+        "I also want [[stable performance for streaming apps]].",
+        "My budget is [[around $900 with a hard cap of $1,200]].",
+        "I\u2019d like [[a 14-inch size]].",
+        "I prefer [[at least 16GB RAM]].",
+        "I want [[reliable Wi-Fi]]."
+      ]
+    },
+    {
+      "id": "laptop_063",
+      "gender": "unspecified",
+      "background": "A public policy researcher reads long PDFs, writes reports, and frequently works in libraries and archives.",
+      "ground_truth_need": "Needs a laptop optimized for reading and writing, with a comfortable screen as the dealbreaker because of hours spent on documents. Second priority is battery life for library days; third is a good keyboard. Budget target is $850 with a hard max of $1,100. Prefers 13\u201314 inches, matte display, 16GB RAM, and 512GB SSD. Dislikes glossy glare and loud fans. Performance needs are moderate; comfort and endurance matter most.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "The dealbreaker is [[a comfortable, easy-on-the-eyes screen]].",
+        "Next, I need [[battery life for long library sessions]].",
+        "I also want [[a good keyboard for writing]].",
+        "My budget is [[around $850 with a hard cap of $1,100]].",
+        "I prefer [[a matte display]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "Please avoid [[noisy fans]]."
+      ]
+    },
+    {
+      "id": "laptop_064",
+      "gender": "male",
+      "background": "A warehouse supervisor uses a laptop for scheduling, inventory checks, and occasional on-site reporting.",
+      "ground_truth_need": "Needs a sturdy laptop that can handle rough handling, with durability as the dealbreaker due to dusty and busy environments. Second priority is a bright screen for varied lighting; third is decent battery life for shifts. Budget target is $950 with a hard max of $1,300. Prefers 14\u201315 inches, 16GB RAM, and 512GB SSD. Dislikes flimsy plastics and weak hinges. Performance needs are basic; toughness and usability dominate.",
+      "context_trail": [
+        "I need a laptop.",
+        "My top priority is [[durability for rough work environments]].",
+        "Next, I want [[a bright screen for different lighting]].",
+        "I also need [[battery life for long shifts]].",
+        "My budget is [[around $950 with a hard cap of $1,300]].",
+        "I\u2019d like [[a 14\u201315 inch size]].",
+        "I prefer [[at least 16GB RAM]].",
+        "I want [[a sturdy hinge]]."
+      ]
+    },
+    {
+      "id": "laptop_065",
+      "gender": "female",
+      "background": "A digital nomad alternates between coworking spaces and caf\u00e9s while working on content and email.",
+      "ground_truth_need": "Needs a travel-friendly laptop where portability is the dealbreaker because she moves locations daily. Second priority is battery life; third is reliable Wi-Fi connectivity. Budget target is $1,000 with a hard max of $1,300. Prefers 13\u201314 inches, under 3 pounds, 16GB RAM, and 512GB SSD. Dislikes bulky chargers and loud fans. Performance needs are moderate; mobility and endurance matter most.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[a lightweight, easy-to-carry design]].",
+        "Next, I need [[battery life for all-day mobility]].",
+        "I also want [[reliable Wi-Fi in shared spaces]].",
+        "My budget is [[around $1,000 with a hard cap of $1,300]].",
+        "I prefer [[a 13\u201314 inch screen]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "Please avoid [[bulky chargers]]."
+      ]
+    },
+    {
+      "id": "laptop_066",
+      "gender": "male",
+      "background": "A music producer records demos and edits audio tracks in a small home studio setup.",
+      "ground_truth_need": "Needs a laptop that stays quiet under load, with low fan noise as the dealbreaker because it interferes with recording. Second priority is strong CPU performance for audio plugins; third is sufficient RAM. Budget target is $1,200 with a hard max of $1,600. Prefers 14\u201316 inches, 32GB RAM if possible, and 1TB SSD. Dislikes coil whine and unstable latency. GPU is unnecessary; acoustics and CPU stability matter most.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[very quiet operation for audio recording]].",
+        "Next, I need [[strong CPU performance for plugins]].",
+        "I also want [[enough RAM for large sessions]].",
+        "My budget is [[around $1,200 with a hard cap of $1,600]].",
+        "I\u2019d like [[about 1TB of SSD storage]].",
+        "I prefer [[stable low-latency performance]].",
+        "Please avoid [[coil whine or electrical noise]]."
+      ]
+    },
+    {
+      "id": "laptop_067",
+      "gender": "female",
+      "background": "A community organizer coordinates volunteers and runs video meetings from shared spaces and home.",
+      "ground_truth_need": "Needs a laptop with dependable video calling, with webcam and mic quality as the dealbreaker because meetings are constant. Second priority is portability; third is reliability without crashes. Budget target is $800 with a hard max of $1,050. Prefers 14 inches, 16GB RAM, and 512GB SSD. Dislikes unstable connections and noisy fans. Performance needs are moderate; communication quality matters most.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[clear webcam and microphone quality]].",
+        "Next, I need [[a portable size for moving around]].",
+        "I also want [[reliable, crash-free operation]].",
+        "My budget is [[around $800 with a hard cap of $1,050]].",
+        "I\u2019d like [[a 14-inch screen]].",
+        "I prefer [[at least 16GB RAM]].",
+        "I want [[quiet fan behavior]]."
+      ]
+    },
+    {
+      "id": "laptop_068",
+      "gender": "male",
+      "background": "A home office worker replaces an old laptop that struggles with multiple monitors and peripherals.",
+      "ground_truth_need": "Needs a laptop with strong external display support, with docking reliability as the dealbreaker because he uses multiple monitors daily. Second priority is port selection; third is stable thermals during long workdays. Budget target is $1,050 with a hard max of $1,400. Prefers USB-C/Thunderbolt, 16\u201332GB RAM, and 1TB SSD. Dislikes flaky monitor connections and overheating. Built-in screen quality is secondary.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[reliable support for multiple external monitors]].",
+        "Next, I want [[good port selection without dongles]].",
+        "I also need [[stable thermals for long workdays]].",
+        "My budget is [[around $1,050 with a hard cap of $1,400]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I prefer [[about 1TB of SSD storage]].",
+        "I want [[USB-C or Thunderbolt docking]]."
+      ]
+    },
+    {
+      "id": "laptop_069",
+      "gender": "female",
+      "background": "A language tutor teaches online and prepares lessons with many tabs and video tools open.",
+      "ground_truth_need": "Needs a laptop optimized for online teaching, with stable video calls as the dealbreaker due to constant live sessions. Second priority is a comfortable keyboard; third is battery life for flexibility around the house. Budget target is $900 with a hard max of $1,200. Prefers 14 inches, 16GB RAM, and 512GB SSD. Dislikes dropped calls and loud fans. Performance needs are moderate; communication reliability dominates.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[stable video calling without drops]].",
+        "Next, I need [[a comfortable keyboard for lesson prep]].",
+        "I also want [[battery life for moving around]].",
+        "My budget is [[around $900 with a hard cap of $1,200]].",
+        "I\u2019d like [[a 14-inch screen]].",
+        "I prefer [[at least 16GB RAM]].",
+        "I want [[quiet operation]]."
+      ]
+    },
+    {
+      "id": "laptop_070",
+      "gender": "male",
+      "background": "A hobby programmer codes personal projects at night and values a distraction-free setup.",
+      "ground_truth_need": "Needs a laptop with an excellent keyboard as the dealbreaker because coding sessions are long. Second priority is a crisp display for reading code; third is quiet operation. Budget target is $1,000 with a hard max of $1,300. Prefers 14 inches, 16\u201332GB RAM, and 1TB SSD. Dislikes mushy keys and fan spikes. Performance needs are moderate; comfort and focus matter most.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[an excellent keyboard for coding]].",
+        "Next, I need [[a crisp screen for reading code]].",
+        "I also want [[quiet operation at night]].",
+        "My budget is [[around $1,000 with a hard cap of $1,300]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I prefer [[about 1TB of SSD storage]].",
+        "I want [[stable sleep and wake behavior]]."
+      ]
+    },
+    {
+      "id": "laptop_071",
+      "gender": "female",
+      "background": "A museum guide uses a laptop for research, scheduling, and occasional presentations in exhibit spaces.",
+      "ground_truth_need": "Needs a laptop with a bright, readable screen as the dealbreaker because lighting varies widely. Second priority is portability for moving between spaces; third is reliable connectivity for presentations. Budget target is $850 with a hard max of $1,100. Prefers 14 inches, 16GB RAM, and 512GB SSD. Dislikes dim displays and loose ports. Performance needs are modest; visibility and mobility matter most.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[a bright screen that works in varied lighting]].",
+        "Next, I need [[a portable size for moving around]].",
+        "I also want [[reliable connectivity for presentations]].",
+        "My budget is [[around $850 with a hard cap of $1,100]].",
+        "I\u2019d like [[a 14-inch screen]].",
+        "I prefer [[at least 16GB RAM]].",
+        "I want [[solid port build quality]]."
+      ]
+    },
+    {
+      "id": "laptop_072",
+      "gender": "male",
+      "background": "A gamer-parent needs a shared family laptop that can handle games after kids\u2019 bedtime.",
+      "ground_truth_need": "Needs a laptop that balances gaming and family use, with value as the dealbreaker due to shared household budget. Second priority is gaming performance; third is durability. Budget target is $1,000 with a hard max of $1,300. Prefers 15\u201316 inches, 16GB RAM, and 1TB SSD. Dislikes loud fans and flashy RGB. Battery is secondary; versatility and value dominate.",
+      "context_trail": [
+        "I need a laptop.",
+        "My main priority is [[getting strong value for the money]].",
+        "Next, I need [[good gaming performance]].",
+        "I also want [[a durable build for family use]].",
+        "My budget is [[around $1,000 with a hard cap of $1,300]].",
+        "I\u2019d like [[about 1TB of SSD storage]].",
+        "I prefer [[at least 16GB RAM]].",
+        "Please avoid [[flashy RGB styling]]."
+      ]
+    },
+    {
+      "id": "laptop_073",
+      "gender": "female",
+      "background": "A doctoral student reads research papers and annotates PDFs for many hours each day.",
+      "ground_truth_need": "Needs a laptop that\u2019s comfortable for reading, with screen quality as the dealbreaker because eye strain is an issue. Second priority is battery life; third is a lightweight form factor. Budget target is $900 with a hard max of $1,200. Prefers 13\u201314 inches, high-resolution matte display, 16GB RAM, and 512GB SSD. Dislikes glare and noisy fans. Performance needs are moderate; comfort and endurance dominate.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "The dealbreaker is [[a high-quality screen that reduces eye strain]].",
+        "Next, I need [[battery life for long study days]].",
+        "I also want [[a lightweight design]].",
+        "My budget is [[around $900 with a hard cap of $1,200]].",
+        "I\u2019d like [[a matte display finish]].",
+        "I prefer [[at least 16GB RAM]].",
+        "I want [[quiet fan behavior]]."
+      ]
+    },
+    {
+      "id": "laptop_074",
+      "gender": "male",
+      "background": "A startup intern travels between office and home, learning development tools on a personal laptop.",
+      "ground_truth_need": "Needs a laptop with good all-around performance, with budget as the dealbreaker due to limited income. Second priority is portability; third is enough power for coding tools. Budget target is $700 with a hard max of $900. Prefers 14 inches, 16GB RAM, and 512GB SSD. Dislikes slow compile times and flimsy builds. Battery life matters, but affordability comes first.",
+      "context_trail": [
+        "I need a laptop.",
+        "My main constraint is [[keeping it affordable on an intern budget]].",
+        "Next, I want [[a portable size for commuting]].",
+        "I also need [[enough performance for coding tools]].",
+        "My budget is [[around $700 with a hard cap of $900]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I prefer [[a 512GB SSD]].",
+        "I want [[a sturdy build]]."
+      ]
+    },
+    {
+      "id": "laptop_075",
+      "gender": "female",
+      "background": "A home baker manages orders, recipes, and photos from a kitchen counter.",
+      "ground_truth_need": "Needs a laptop that handles light splashes and crumbs, with durability as the dealbreaker because it\u2019s used in the kitchen. Second priority is easy cleaning; third is responsiveness for browsing and photo uploads. Budget target is $650 with a hard max of $900. Prefers 14\u201315 inches, 16GB RAM, and 512GB SSD. Dislikes exposed vents and fragile keyboards. Performance needs are basic; toughness and usability matter most.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "The dealbreaker is [[durability for occasional kitchen use]].",
+        "Next, I need [[a keyboard that\u2019s easy to clean]].",
+        "I also want [[snappy everyday performance]].",
+        "My budget is [[around $650 with a hard cap of $900]].",
+        "I\u2019d like [[a 14\u201315 inch screen]].",
+        "I prefer [[at least 16GB RAM]].",
+        "I want [[a solid hinge]]."
+      ]
+    },
+    {
+      "id": "laptop_076",
+      "gender": "male",
+      "background": "A consultant replaces an aging ultrabook that overheats during long presentation prep sessions.",
+      "ground_truth_need": "Needs a laptop with better thermals, with cooling as the dealbreaker after overheating issues. Second priority is portability; third is a bright display for slides. Budget target is $1,200 with a hard max of $1,500. Prefers 14 inches, 16GB RAM, and 1TB SSD. Dislikes hot palm rests and fan spikes. Performance needs are moderate; thermal comfort dominates.",
+      "context_trail": [
+        "I need a laptop.",
+        "My top priority is [[cooling that prevents overheating]].",
+        "Next, I want [[a portable, slim form factor]].",
+        "I also need [[a bright display for presentations]].",
+        "My budget is [[around $1,200 with a hard cap of $1,500]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I prefer [[about 1TB of SSD storage]].",
+        "Please avoid [[hot palm rests]]."
+      ]
+    },
+    {
+      "id": "laptop_077",
+      "gender": "female",
+      "background": "A language student practices transcription and audio playback while studying abroad.",
+      "ground_truth_need": "Needs a laptop with clear audio output, with speaker quality as the dealbreaker for language practice. Second priority is portability for travel; third is battery life. Budget target is $850 with a hard max of $1,100. Prefers 13\u201314 inches, 16GB RAM, and 512GB SSD. Dislikes muffled speakers and weak volume. Performance needs are modest; audio clarity matters most.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "The dealbreaker is [[clear, loud built-in speakers]].",
+        "Next, I need [[a portable size for travel]].",
+        "I also want [[battery life for study sessions]].",
+        "My budget is [[around $850 with a hard cap of $1,100]].",
+        "I\u2019d like [[a 13\u201314 inch screen]].",
+        "I prefer [[at least 16GB RAM]].",
+        "I want [[a reliable headphone jack]]."
+      ]
+    },
+    {
+      "id": "laptop_078",
+      "gender": "male",
+      "background": "A small business owner manages inventory, accounting software, and remote meetings.",
+      "ground_truth_need": "Needs a reliable workhorse laptop, with stability as the dealbreaker because downtime impacts operations. Second priority is multitasking performance; third is good port selection. Budget target is $950 with a hard max of $1,300. Prefers 14\u201315 inches, 16GB RAM, and 1TB SSD. Dislikes crashes and flimsy builds. Battery life is useful but secondary to reliability.",
+      "context_trail": [
+        "I need a laptop.",
+        "My main priority is [[rock-solid stability with no crashes]].",
+        "Next, I need [[smooth multitasking performance]].",
+        "I also want [[useful built-in ports]].",
+        "My budget is [[around $950 with a hard cap of $1,300]].",
+        "I\u2019d like [[about 1TB of SSD storage]].",
+        "I prefer [[at least 16GB RAM]].",
+        "I want [[a durable chassis]]."
+      ]
+    },
+    {
+      "id": "laptop_079",
+      "gender": "female",
+      "background": "A commuter journalist writes articles on trains and files stories on tight deadlines.",
+      "ground_truth_need": "Needs a laptop that wakes instantly, with sleep reliability as the dealbreaker because she opens and closes it constantly. Second priority is portability; third is a comfortable keyboard. Budget target is $1,100 with a hard max of $1,400. Prefers 13\u201314 inches, 16GB RAM, and 512GB SSD. Dislikes slow boot times and unstable sleep. Performance needs are moderate; convenience and speed of access dominate.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "The dealbreaker is [[instant wake without glitches]].",
+        "Next, I need [[a portable size for commuting]].",
+        "I also want [[a comfortable keyboard for writing]].",
+        "My budget is [[around $1,100 with a hard cap of $1,400]].",
+        "I\u2019d like [[a 13\u201314 inch screen]].",
+        "I prefer [[at least 16GB RAM]].",
+        "I want [[quiet operation]]."
+      ]
+    },
+    {
+      "id": "laptop_080",
+      "gender": "unspecified",
+      "background": "A cautious buyer wants a dependable laptop purchase without paying for unnecessary premium features.",
+      "ground_truth_need": "Needs a sensible, long-lasting laptop where reliability is the dealbreaker, prioritizing proven components over flashy specs. Second priority is value for money; third is everyday performance. Budget target is $800 with a hard max of $1,100. Prefers 14\u201315 inches, 16GB RAM, and 512GB SSD. Dislikes gimmicks and fragile designs. Battery life and aesthetics are secondary to stability and cost-effectiveness.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[reliable performance with no gimmicks]].",
+        "Next, I want [[good value for the money]].",
+        "I also need [[smooth everyday performance]].",
+        "My budget is [[around $800 with a hard cap of $1,100]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I prefer [[a 512GB SSD]].",
+        "I want [[a durable build]]."
+      ]
+    },
+    {
+      "id": "laptop_081",
+      "gender": "male",
+      "background": "A night-shift security supervisor reviews camera footage and writes reports during long, quiet hours.",
+      "ground_truth_need": "Needs a laptop that stays cool and quiet overnight, with silent operation as the dealbreaker because fan noise is distracting in quiet rooms. Second priority is a clear display for viewing footage; third is reliability for long unattended sessions. Budget target is $900 with a hard max of $1,200. Prefers 14\u201315 inches, 16GB RAM, and 512GB SSD. Dislikes coil whine and sudden fan spikes. Performance needs are moderate; stability and acoustics matter most.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[very quiet operation in silent environments]].",
+        "Next, I need [[a clear display for reviewing footage]].",
+        "I also want [[reliable performance during long sessions]].",
+        "My budget is [[around $900 with a hard cap of $1,200]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I prefer [[a 14\u201315 inch screen]].",
+        "Please avoid [[fan spikes or coil whine]]."
+      ]
+    },
+    {
+      "id": "laptop_082",
+      "gender": "female",
+      "background": "A real estate agent prepares listings, edits photos, and presents slides to clients on the go.",
+      "ground_truth_need": "Needs a laptop with a bright, appealing display as the dealbreaker because visuals matter for listings. Second priority is portability between showings; third is quick responsiveness for edits. Budget target is $1,100 with a hard max of $1,400. Prefers 14 inches, 16GB RAM, and 1TB SSD. Dislikes dim screens and sluggish wake times. Battery should last a workday, but screen quality leads.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "The dealbreaker is [[a bright, attractive screen for listings]].",
+        "Next, I need [[easy portability between appointments]].",
+        "I also want [[snappy responsiveness for quick edits]].",
+        "My budget is [[around $1,100 with a hard cap of $1,400]].",
+        "I\u2019d like [[about 1TB of SSD storage]].",
+        "I prefer [[at least 16GB RAM]].",
+        "I want [[reliable all-day battery life]]."
+      ]
+    },
+    {
+      "id": "laptop_083",
+      "gender": "male",
+      "background": "A statistics graduate student runs simulations and analyzes datasets while studying in shared labs.",
+      "ground_truth_need": "Needs a laptop with strong sustained CPU performance as the dealbreaker because simulations can run for hours. Second priority is sufficient RAM for datasets; third is thermal stability. Budget target is $1,200 with a hard max of $1,600. Prefers 14\u201315 inches, 32GB RAM if possible, and 1TB SSD. Dislikes throttling and loud fans. GPU is secondary to CPU and memory.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[strong sustained CPU performance]].",
+        "Next, I need [[plenty of RAM for datasets]].",
+        "I also want [[stable thermals during long runs]].",
+        "My budget is [[around $1,200 with a hard cap of $1,600]].",
+        "I\u2019d like [[about 1TB of SSD storage]].",
+        "I prefer [[a 14\u201315 inch screen]].",
+        "Please avoid [[excessive fan noise]]."
+      ]
+    },
+    {
+      "id": "laptop_084",
+      "gender": "female",
+      "background": "A travel blogger writes posts, uploads photos, and manages social media from caf\u00e9s worldwide.",
+      "ground_truth_need": "Needs a lightweight laptop with excellent battery life as the dealbreaker because outlets aren\u2019t guaranteed. Second priority is reliable Wi-Fi; third is a comfortable keyboard for writing. Budget target is $1,000 with a hard max of $1,300. Prefers 13\u201314 inches, 16GB RAM, and 512GB SSD. Dislikes bulky chargers and glossy screens.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[long battery life away from outlets]].",
+        "Next, I need [[reliable Wi-Fi in caf\u00e9s]].",
+        "I also want [[a comfortable keyboard for writing]].",
+        "My budget is [[around $1,000 with a hard cap of $1,300]].",
+        "I prefer [[a 13\u201314 inch size]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I want [[a matte display]]."
+      ]
+    },
+    {
+      "id": "laptop_085",
+      "gender": "male",
+      "background": "A warehouse analyst uses Excel and inventory systems at a standing desk with gloves on frequently.",
+      "ground_truth_need": "Needs a laptop with a sturdy keyboard and ports as the dealbreaker because he plugs devices frequently. Second priority is durability; third is screen visibility under bright lights. Budget target is $850 with a hard max of $1,100. Prefers 14\u201315 inches, 16GB RAM, and 512GB SSD. Dislikes flimsy ports and dim displays.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[durable ports and a sturdy keyboard]].",
+        "Next, I want [[overall durability for daily use]].",
+        "I also need [[a screen visible under bright lighting]].",
+        "My budget is [[around $850 with a hard cap of $1,100]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I prefer [[a 14\u201315 inch screen]].",
+        "I want [[a 512GB SSD]]."
+      ]
+    },
+    {
+      "id": "laptop_086",
+      "gender": "female",
+      "background": "A UX researcher conducts interviews, records sessions, and analyzes notes across devices.",
+      "ground_truth_need": "Needs a laptop with excellent webcam and mic as the dealbreaker because interviews are recorded. Second priority is quiet operation; third is multitasking performance. Budget target is $1,200 with a hard max of $1,500. Prefers 14 inches, 16\u201332GB RAM, and 512GB\u20131TB SSD. Dislikes fan noise and unstable video.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[high-quality webcam and microphone]].",
+        "Next, I need [[quiet operation during interviews]].",
+        "I also want [[smooth multitasking performance]].",
+        "My budget is [[around $1,200 with a hard cap of $1,500]].",
+        "I prefer [[a 14-inch size]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I want [[reliable video stability]]."
+      ]
+    },
+    {
+      "id": "laptop_087",
+      "gender": "male",
+      "background": "A college athlete balances coursework, travel, and media consumption between practices.",
+      "ground_truth_need": "Needs a durable, portable laptop as the dealbreaker because it\u2019s carried daily and travels often. Second priority is battery life; third is adequate performance for school tasks. Budget target is $800 with a hard max of $1,050. Prefers 14 inches, 16GB RAM, and 512GB SSD. Dislikes flimsy hinges.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[durability for daily carry and travel]].",
+        "Next, I need [[battery life for long days]].",
+        "I also want [[smooth performance for schoolwork]].",
+        "My budget is [[around $800 with a hard cap of $1,050]].",
+        "I prefer [[a 14-inch screen]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I want [[a solid hinge]]."
+      ]
+    },
+    {
+      "id": "laptop_088",
+      "gender": "female",
+      "background": "A legal assistant manages case files, scans documents, and attends virtual hearings.",
+      "ground_truth_need": "Needs a laptop with reliable multitasking as the dealbreaker because many documents are open simultaneously. Second priority is a sharp display for reading text; third is quiet operation. Budget target is $950 with a hard max of $1,200. Prefers 14 inches, 16GB RAM, and 1TB SSD. Dislikes lag and loud fans.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[smooth multitasking with many documents]].",
+        "Next, I need [[a sharp display for reading text]].",
+        "I also want [[quiet operation during hearings]].",
+        "My budget is [[around $950 with a hard cap of $1,200]].",
+        "I\u2019d like [[about 1TB of SSD storage]].",
+        "I prefer [[a 14-inch screen]].",
+        "I want [[reliable video calling]]."
+      ]
+    },
+    {
+      "id": "laptop_089",
+      "gender": "male",
+      "background": "A hobbyist video editor creates travel montages and uploads content on weekends.",
+      "ground_truth_need": "Needs a laptop with fast exports as the dealbreaker because waiting kills motivation. Second priority is color-accurate display; third is storage capacity. Budget target is $1,400 with a hard max of $1,800. Prefers 15\u201316 inches, 32GB RAM, and 1TB SSD. Dislikes overheating.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[fast export times for video projects]].",
+        "Next, I need [[a color-accurate display]].",
+        "I also want [[plenty of storage for footage]].",
+        "My budget is [[around $1,400 with a hard cap of $1,800]].",
+        "I\u2019d like [[32GB of RAM]].",
+        "I prefer [[a 15\u201316 inch screen]].",
+        "Please avoid [[thermal throttling]]."
+      ]
+    },
+    {
+      "id": "laptop_090",
+      "gender": "female",
+      "background": "A freelance translator works with multiple language tools and dictionaries simultaneously.",
+      "ground_truth_need": "Needs a laptop with a great keyboard as the dealbreaker because typing accuracy matters. Second priority is screen clarity; third is quiet operation. Budget target is $900 with a hard max of $1,200. Prefers 14 inches, 16GB RAM, and 512GB SSD. Dislikes mushy keys.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[an accurate, comfortable keyboard]].",
+        "Next, I need [[a clear screen for reading text]].",
+        "I also want [[quiet fan behavior]].",
+        "My budget is [[around $900 with a hard cap of $1,200]].",
+        "I prefer [[a 14-inch size]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I want [[reliable multitasking]]."
+      ]
+    },
+    {
+      "id": "laptop_091",
+      "gender": "male",
+      "background": "A home automation enthusiast monitors dashboards and scripts from a laptop near networking gear.",
+      "ground_truth_need": "Needs a laptop with stable networking as the dealbreaker because connectivity issues disrupt monitoring. Second priority is quiet operation; third is port availability. Budget target is $850 with a hard max of $1,100. Prefers 14\u201315 inches, 16GB RAM, and 512GB SSD.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[rock-solid networking reliability]].",
+        "Next, I want [[quiet operation near networking gear]].",
+        "I also need [[useful built-in ports]].",
+        "My budget is [[around $850 with a hard cap of $1,100]].",
+        "I prefer [[a 14\u201315 inch screen]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I want [[a 512GB SSD]]."
+      ]
+    },
+    {
+      "id": "laptop_092",
+      "gender": "female",
+      "background": "A remote therapist conducts confidential video sessions from a home office.",
+      "ground_truth_need": "Needs a laptop with excellent webcam and privacy features as the dealbreaker due to sensitive sessions. Second priority is quiet operation; third is reliability. Budget target is $1,100 with a hard max of $1,400. Prefers 14 inches, 16GB RAM, and 512GB SSD.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[high-quality, private video calls]].",
+        "Next, I need [[very quiet operation]].",
+        "I also want [[reliable, crash-free performance]].",
+        "My budget is [[around $1,100 with a hard cap of $1,400]].",
+        "I prefer [[a 14-inch screen]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I want [[a physical camera shutter]]."
+      ]
+    },
+    {
+      "id": "laptop_093",
+      "gender": "male",
+      "background": "A budget-focused gamer replaces a failing console with a laptop for versatility.",
+      "ground_truth_need": "Needs the best gaming value as the dealbreaker because budget is tight. Second priority is cooling; third is storage capacity. Budget target is $900 with a hard max of $1,100. Prefers 15\u201316 inches, 16GB RAM, and 1TB SSD.",
+      "context_trail": [
+        "I need a laptop.",
+        "My main priority is [[maximum gaming value for the price]].",
+        "Next, I need [[cooling that can handle gaming]].",
+        "I also want [[enough storage for games]].",
+        "My budget is [[around $900 with a hard cap of $1,100]].",
+        "I\u2019d like [[a 15\u201316 inch screen]].",
+        "I prefer [[at least 16GB RAM]].",
+        "Please avoid [[flashy gamer aesthetics]]."
+      ]
+    },
+    {
+      "id": "laptop_094",
+      "gender": "female",
+      "background": "A teacher records lessons and grades assignments while moving between classrooms.",
+      "ground_truth_need": "Needs a laptop with dependable audio recording as the dealbreaker because lessons are recorded often. Second priority is portability; third is battery life. Budget target is $800 with a hard max of $1,050. Prefers 14 inches, 16GB RAM, and 512GB SSD.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "The dealbreaker is [[clear audio recording quality]].",
+        "Next, I need [[a portable size for classrooms]].",
+        "I also want [[battery life for a school day]].",
+        "My budget is [[around $800 with a hard cap of $1,050]].",
+        "I prefer [[a 14-inch screen]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I want [[quiet fan behavior]]."
+      ]
+    },
+    {
+      "id": "laptop_095",
+      "gender": "male",
+      "background": "A retiree enjoys genealogy research, scanning documents, and organizing family archives.",
+      "ground_truth_need": "Needs a reliable, easy-to-use laptop as the dealbreaker because complexity causes frustration. Second priority is a clear display; third is storage for scans. Budget target is $600 with a hard max of $850. Prefers 15 inches, 16GB RAM, and 1TB SSD.",
+      "context_trail": [
+        "I need a laptop.",
+        "My main priority is [[simple, frustration-free operation]].",
+        "Next, I want [[a clear screen for reading documents]].",
+        "I also need [[ample storage for scanned files]].",
+        "My budget is [[around $600 with a hard cap of $850]].",
+        "I prefer [[a 15-inch screen]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I want [[reliable long-term use]]."
+      ]
+    },
+    {
+      "id": "laptop_096",
+      "gender": "female",
+      "background": "A sustainability consultant values long product lifespans and ethical consumption.",
+      "ground_truth_need": "Needs a laptop designed to last and be repaired as the dealbreaker because replacements conflict with values. Second priority is energy efficiency; third is performance for office work. Budget target is $1,100 with a hard max of $1,500.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My top priority is [[long lifespan with repair options]].",
+        "Next, I want [[good energy efficiency]].",
+        "I also need [[solid performance for office tasks]].",
+        "My budget is [[around $1,100 with a hard cap of $1,500]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I prefer [[about 1TB of SSD storage]].",
+        "I want [[a durable chassis]]."
+      ]
+    },
+    {
+      "id": "laptop_097",
+      "gender": "male",
+      "background": "A field researcher collects notes outdoors and occasionally uploads data from remote locations.",
+      "ground_truth_need": "Needs a laptop with screen visibility outdoors as the dealbreaker because work happens in sunlight. Second priority is durability; third is battery life. Budget target is $1,000 with a hard max of $1,300.",
+      "context_trail": [
+        "I need a laptop.",
+        "The dealbreaker is [[a screen readable in sunlight]].",
+        "Next, I need [[durability for field conditions]].",
+        "I also want [[battery life for remote work]].",
+        "My budget is [[around $1,000 with a hard cap of $1,300]].",
+        "I prefer [[a 14-inch size]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I want [[a sturdy hinge]]."
+      ]
+    },
+    {
+      "id": "laptop_098",
+      "gender": "female",
+      "background": "A fashion buyer reviews lookbooks, manages spreadsheets, and travels between showrooms.",
+      "ground_truth_need": "Needs a laptop with an excellent display as the dealbreaker because color presentation matters. Second priority is portability; third is responsiveness. Budget target is $1,300 with a hard max of $1,600.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[a high-quality display for color accuracy]].",
+        "Next, I need [[a portable design for travel]].",
+        "I also want [[snappy performance]].",
+        "My budget is [[around $1,300 with a hard cap of $1,600]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I prefer [[about 1TB of SSD storage]].",
+        "I want [[reliable battery life]]."
+      ]
+    },
+    {
+      "id": "laptop_099",
+      "gender": "male",
+      "background": "A student teacher prepares lesson plans and practices presentations late into the night.",
+      "ground_truth_need": "Needs a laptop that stays quiet and reliable as the dealbreaker because late-night work requires minimal distractions. Second priority is a comfortable keyboard; third is affordability. Budget target is $700 with a hard max of $950.",
+      "context_trail": [
+        "I need a laptop.",
+        "My top priority is [[quiet operation for late-night work]].",
+        "Next, I need [[a comfortable keyboard for planning]].",
+        "I also want [[an affordable price]].",
+        "My budget is [[around $700 with a hard cap of $950]].",
+        "I\u2019d like [[a 14-inch screen]].",
+        "I prefer [[at least 16GB RAM]].",
+        "I want [[reliable everyday performance]]."
+      ]
+    },
+    {
+      "id": "laptop_100",
+      "gender": "unspecified",
+      "background": "A pragmatic buyer wants one dependable laptop for mixed personal and work use over many years.",
+      "ground_truth_need": "Needs a well-rounded, durable laptop as the dealbreaker because frequent replacements are undesirable. Second priority is balanced performance; third is value. Budget target is $1,000 with a hard max of $1,400.",
+      "context_trail": [
+        "I\u2019m looking for a laptop.",
+        "My main priority is [[long-term durability and reliability]].",
+        "Next, I want [[balanced performance for mixed use]].",
+        "I also care about [[good value for the money]].",
+        "My budget is [[around $1,000 with a hard cap of $1,400]].",
+        "I\u2019d like [[at least 16GB RAM]].",
+        "I prefer [[about 1TB of SSD storage]].",
+        "I want [[stable thermals under regular use]]."
+      ]
+    }
+  ]
+}

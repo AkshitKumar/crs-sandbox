@@ -1,0 +1,27 @@
+category: laptop
+display_name: Laptop
+
+catalog_path: data/categories/laptop/products.jsonl
+questions_path: data/categories/laptop/questions.yaml
+index_dir: data/categories/laptop/index
+
+scrape:
+  seed_queries:
+    - "laptop"
+    - "gaming laptop"
+    - "laptop for work"
+    - "laptop for students"
+    - "ultrabook"
+    - "2 in 1 laptop"
+  target_products: 300
+  reviews_per_product: 8
+
+# Default ranking knobs (overridden per experiment)
+ranking_defaults:
+  semantic_weight: 1.0
+  price_sensitivity: 0.0
+  rating_weight: 0.0
+  popularity_weight: 0.0
+  sponsored_slots: 0
+  niche_boost: 0.0
+  top_k: 3
