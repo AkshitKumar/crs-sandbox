@@ -8,6 +8,8 @@ Usage:
     python scripts/run_buyer_eval.py laptop --n-personas 10
     python scripts/run_buyer_eval.py air_purifier --n-personas 20 --eta 0.05
     python scripts/run_buyer_eval.py laptop --persona-ids laptop_001,laptop_002
+    python scripts/run_buyer_eval.py laptop --policy rec
+    python scripts/run_buyer_eval.py laptop --policy atr --numquestions 3
 
 Cost rough estimate: ~$0.15–0.30 per conversation. 10 personas ≈ $2–3.
 """
@@ -29,6 +31,7 @@ from sandbox.env import load_env  # noqa: E402
 
 load_env()
 
+from sandbox.elicitation_policy import ElicitationPolicy, make_policy  # noqa: E402
 from sandbox.orchestrator.sim_conversation import SimConversation, SimOutcome  # noqa: E402
 
 
@@ -43,13 +46,21 @@ def _load_personas(category: str) -> list[dict]:
     return data.get("personas", data)
 
 
-def _run_one(persona: dict, category: str, max_turns: int, eta: float, seed: int) -> SimOutcome:
+def _run_one(
+    persona: dict,
+    category: str,
+    max_turns: int,
+    eta: float,
+    seed: int,
+    elicitation_policy: ElicitationPolicy | None,
+) -> SimOutcome:
     sim = SimConversation(
         persona=persona,
         category=category,
         max_turns=max_turns,
         eta=eta,
         seed=seed,
+        elicitation_policy=elicitation_policy,
     )
     return sim.run()
 
@@ -100,11 +111,32 @@ def main() -> int:
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--parallel", type=int, default=4, help="max concurrent conversations")
     parser.add_argument(
+        "--policy",
+        choices=["rec", "atr"],
+        default=None,
+        help="optional fixed elicitation policy; omit to keep the current adaptive behavior",
+    )
+    parser.add_argument(
+        "--numquestions",
+        type=int,
+        default=None,
+        help="number of clarifying questions for --policy atr",
+    )
+    parser.add_argument(
         "--out-dir",
         default=None,
         help="directory to write transcripts + summary (default: results/eval_<category>_<ts>/)",
     )
     args = parser.parse_args()
+
+    elicitation_policy = None
+    if args.policy is not None:
+        try:
+            elicitation_policy = make_policy(args.policy, args.numquestions)
+        except ValueError as e:
+            parser.error(str(e))
+    elif args.numquestions is not None:
+        parser.error("--numquestions requires --policy atr")
 
     personas = _load_personas(args.category)
     if args.persona_ids:
@@ -121,6 +153,8 @@ def main() -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
     print(f"Running {len(personas)} personas against {args.category}")
     print(f"  parallel={args.parallel}  eta={args.eta}  max_turns={args.max_turns}")
+    if elicitation_policy is not None:
+        print(f"  policy={elicitation_policy.name}  numquestions={elicitation_policy.target_asks}")
     print(f"  output: {out_dir}")
 
     transcripts_path = out_dir / "transcripts.jsonl"
@@ -132,7 +166,15 @@ def main() -> int:
 
     with ThreadPoolExecutor(max_workers=max(1, args.parallel)) as pool:
         futures = {
-            pool.submit(_run_one, p, args.category, args.max_turns, args.eta, args.seed + i): p
+            pool.submit(
+                _run_one,
+                p,
+                args.category,
+                args.max_turns,
+                args.eta,
+                args.seed + i,
+                elicitation_policy,
+            ): p
             for i, p in enumerate(personas)
         }
         with transcripts_path.open("a") as out_f:
@@ -147,6 +189,8 @@ def main() -> int:
                         outcome="ERROR",
                         turns_used=0,
                         asks=0,
+                        policy=elicitation_policy.name if elicitation_policy else None,
+                        numquestions=elicitation_policy.target_asks if elicitation_policy else None,
                         error=f"{type(e).__name__}: {e}",
                     )
                 outcomes.append(out)
@@ -162,6 +206,9 @@ def main() -> int:
     summary["category"] = args.category
     summary["max_turns"] = args.max_turns
     summary["eta"] = args.eta
+    if elicitation_policy is not None:
+        summary["policy"] = elicitation_policy.name
+        summary["numquestions"] = elicitation_policy.target_asks
     summary["wall_clock_s"] = round(elapsed, 1)
     summary["transcripts_path"] = str(transcripts_path.relative_to(REPO_ROOT))
 

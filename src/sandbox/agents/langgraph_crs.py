@@ -29,6 +29,7 @@ from langgraph.errors import GraphRecursionError
 from langgraph.prebuilt import create_react_agent
 
 from sandbox.catalog import load_catalog, load_config
+from sandbox.elicitation_policy import ElicitationPolicy
 from sandbox.tools.candidate_bus import CandidateBus
 from sandbox.tools.feasibility_tool import (
     check_category_supported as _check_category_supported,
@@ -128,6 +129,27 @@ Typical flow (use judgment, this is not a script):
 """
 
 
+def _policy_prompt(policy: ElicitationPolicy) -> str:
+    if policy.name == "rec":
+        return """
+
+# Fixed elicitation policy for this run
+
+You are running policy REC. Ask zero clarifying questions. Use the customer's
+initial request to search, filter, rank, and recommend immediately.
+"""
+
+    return f"""
+
+# Fixed elicitation policy for this run
+
+You are running policy ATR-{policy.target_asks}. Ask exactly {policy.target_asks}
+clarifying question(s) before recommending. After the customer answers the
+{policy.target_asks}th question, recommend. Do not ask more than
+{policy.target_asks} question(s).
+"""
+
+
 @dataclass
 class CRSAgentSession:
     """One conversation. Holds the live bus + tool state.
@@ -146,6 +168,7 @@ class CRSAgentSession:
     tool_log: list = field(default_factory=list)
     model: str = DEFAULT_MODEL
     reasoning_effort: str = DEFAULT_REASONING
+    elicitation_policy: Optional[ElicitationPolicy] = None
 
     # The compiled LangGraph agent (lazily built once self exists).
     _agent: Any = None
@@ -222,6 +245,8 @@ class CRSAgentSession:
         prompt = SYSTEM_PROMPT.format(
             available_categories=", ".join(list_available_categories()) or "(none indexed)"
         )
+        if self.elicitation_policy is not None:
+            prompt += _policy_prompt(self.elicitation_policy)
         self._checkpointer = InMemorySaver()
         return create_react_agent(
             model=llm,
@@ -478,6 +503,16 @@ class CRSAgentSession:
             returns the next opener question (or any unasked followup if openers are
             done). With a `topic`, returns a followup on that topic.
             You must ASK this question to the customer — the tool returns the text."""
+            if s.elicitation_policy is not None and s.asks_so_far >= s.elicitation_policy.target_asks:
+                s._record(
+                    "ask_question",
+                    {"topic": topic},
+                    f"policy limit reached at {s.asks_so_far}/{s.elicitation_policy.target_asks}",
+                )
+                return (
+                    "POLICY_LIMIT_REACHED: do not ask another clarifying question. "
+                    "Recommend now using the current conversation and candidate set."
+                )
             qtool = s._ensure_qtool()
             r = qtool.ask(topic=topic)
             if r.get("question_text"):
@@ -506,6 +541,18 @@ class CRSAgentSession:
             with a slightly broader query.
 
             `justification`: a short note about why these items were chosen."""
+            if s.elicitation_policy is not None and s.asks_so_far < s.elicitation_policy.target_asks:
+                remaining = s.elicitation_policy.target_asks - s.asks_so_far
+                s._record(
+                    "recommend",
+                    {"top_k": top_k, "justification": justification},
+                    f"blocked by policy: {s.asks_so_far}/{s.elicitation_policy.target_asks} asks",
+                )
+                return (
+                    f"POLICY_REQUIRES_MORE_QUESTIONS: ask {remaining} more "
+                    f"clarifying question(s) before recommending."
+                )
+
             bus = s._ensure_bus()
             available = bus.size()
 

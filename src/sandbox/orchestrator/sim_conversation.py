@@ -21,6 +21,7 @@ from typing import Any, Iterator, Optional
 
 from sandbox.agents.buyer import BuyerAgent
 from sandbox.agents.langgraph_crs import CRSAgentSession
+from sandbox.elicitation_policy import ElicitationPolicy
 
 
 @dataclass
@@ -41,10 +42,16 @@ class SimOutcome:
     crs_recommendations: Optional[list] = None
     crs_tool_calls_per_turn: list = field(default_factory=list)
     buyer_decision_raw: Optional[dict] = None
+    policy: Optional[str] = None
+    numquestions: Optional[int] = None
     error: Optional[str] = None
 
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        data = asdict(self)
+        if self.policy is None:
+            data.pop("policy")
+            data.pop("numquestions")
+        return data
 
 
 @dataclass
@@ -61,6 +68,7 @@ class SimConversation:
     max_turns: int = 16
     eta: float = 0.0
     seed: int = 0
+    elicitation_policy: Optional[ElicitationPolicy] = None
 
     # Allow caller to pass pre-constructed agents for testing/customization.
     buyer: Optional[BuyerAgent] = None
@@ -70,10 +78,18 @@ class SimConversation:
         if self.buyer is None:
             self.buyer = BuyerAgent(persona=self.persona, category=self.category)
         if self.crs is None:
-            self.crs = CRSAgentSession()
+            self.crs = CRSAgentSession(elicitation_policy=self.elicitation_policy)
         self._rng = random.Random(self.seed)
 
     # ------------------------------------------------------------------
+
+    def _policy_fields(self) -> dict[str, Any]:
+        if self.elicitation_policy is None:
+            return {}
+        return {
+            "policy": self.elicitation_policy.name,
+            "numquestions": self.elicitation_policy.target_asks,
+        }
 
     def _build_opener(self) -> str:
         """First buyer utterance — generic, mimics how real shoppers start."""
@@ -125,6 +141,7 @@ class SimConversation:
                 turns_used=0,
                 asks=0,
                 dialogue=dialogue,
+                **self._policy_fields(),
                 error=f"crs.chat(opener): {type(e).__name__}: {e}",
             )}
             return
@@ -158,6 +175,7 @@ class SimConversation:
                     abandoned_at_turn=turn,
                     dialogue=dialogue,
                     crs_tool_calls_per_turn=tool_log,
+                    **self._policy_fields(),
                 )}
                 return
 
@@ -174,6 +192,7 @@ class SimConversation:
                     asks=ask_count,
                     dialogue=dialogue,
                     crs_tool_calls_per_turn=tool_log,
+                    **self._policy_fields(),
                     error=f"buyer.respond: {type(e).__name__}: {e}",
                 )}
                 return
@@ -193,6 +212,7 @@ class SimConversation:
                     asks=ask_count,
                     dialogue=dialogue,
                     crs_tool_calls_per_turn=tool_log,
+                    **self._policy_fields(),
                     error=f"crs.chat: {type(e).__name__}: {e}",
                 )}
                 return
@@ -219,6 +239,7 @@ class SimConversation:
                 asks=ask_count,
                 dialogue=dialogue,
                 crs_tool_calls_per_turn=tool_log,
+                **self._policy_fields(),
                 error="max_turns_reached_without_recommendation",
             )}
             return
@@ -237,6 +258,7 @@ class SimConversation:
                 crs_recommendations=recs,
                 dialogue=dialogue,
                 crs_tool_calls_per_turn=tool_log,
+                **self._policy_fields(),
                 error=f"buyer.decide: {type(e).__name__}: {e}",
             )}
             return
@@ -287,4 +309,5 @@ class SimConversation:
             crs_recommendations=recs,
             crs_tool_calls_per_turn=tool_log,
             buyer_decision_raw=decision,
+            **self._policy_fields(),
         )}
