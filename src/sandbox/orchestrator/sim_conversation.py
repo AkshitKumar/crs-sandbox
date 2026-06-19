@@ -91,6 +91,15 @@ class SimConversation:
             "numquestions": self.elicitation_policy.target_asks,
         }
 
+    def _recommendations_are_terminal(self, crs_out: dict[str, Any]) -> bool:
+        if not crs_out.get("recommendations"):
+            return False
+        if self.elicitation_policy is None:
+            return True
+        if not self.elicitation_policy.allows_early_recommendations:
+            return True
+        return crs_out.get("asks_so_far", 0) >= self.elicitation_policy.target_asks
+
     def _build_opener(self) -> str:
         """First buyer utterance — generic, mimics how real shoppers start."""
         cat = self.category.replace("_", " ")
@@ -161,7 +170,70 @@ class SimConversation:
         for turn in range(2, self.max_turns + 1):
             if crs_out.get("recommendations"):
                 yield {"type": "recommendations", "items": crs_out["recommendations"]}
-                break
+                if self._recommendations_are_terminal(crs_out):
+                    break
+                if self.elicitation_policy and self.elicitation_policy.allows_early_recommendations:
+                    recs = crs_out["recommendations"]
+                    try:
+                        decision = self.buyer.decide(recs)
+                    except Exception as e:
+                        yield {"type": "error", "where": "buyer.decide", "error": f"{type(e).__name__}: {e}"}
+                        yield {"type": "outcome", "outcome": SimOutcome(
+                            persona_id=self.persona.get("id", ""),
+                            category=self.category,
+                            outcome="ERROR",
+                            turns_used=len(dialogue) // 2,
+                            asks=ask_count,
+                            crs_recommendations=recs,
+                            dialogue=dialogue,
+                            crs_tool_calls_per_turn=tool_log,
+                            **self._policy_fields(),
+                            error=f"buyer.decide: {type(e).__name__}: {e}",
+                        )}
+                        return
+                    if decision.get("decision") == "PURCHASE":
+                        chosen = decision.get("asin")
+                        if not chosen:
+                            pn = decision.get("product_number")
+                            if isinstance(pn, int) and 1 <= pn <= len(recs):
+                                chosen = recs[pn - 1]["asin"]
+                        purchased_asin = chosen
+                        actual_price = None
+                        if purchased_asin:
+                            for r in recs:
+                                if r.get("asin") == purchased_asin:
+                                    actual_price = r.get("price")
+                                    break
+                        wtp = decision.get("willingness_to_pay")
+                        consumer_surplus = None
+                        if wtp is not None and actual_price is not None:
+                            try:
+                                consumer_surplus = float(wtp) - float(actual_price)
+                            except (TypeError, ValueError):
+                                consumer_surplus = None
+
+                        reason = decision.get("reasoning") or ""
+                        dialogue.append({"role": "user", "content": f"{reason} [PURCHASE]".strip()})
+                        yield {"type": "decision", "decision": decision, "outcome_label": "PURCHASE",
+                               "purchased_asin": purchased_asin, "actual_price": actual_price,
+                               "wtp": wtp, "consumer_surplus": consumer_surplus}
+                        yield {"type": "outcome", "outcome": SimOutcome(
+                            persona_id=self.persona.get("id", ""),
+                            category=self.category,
+                            outcome="PURCHASE",
+                            turns_used=len(dialogue) // 2,
+                            asks=ask_count,
+                            purchased_asin=purchased_asin,
+                            wtp=wtp,
+                            actual_price=actual_price,
+                            consumer_surplus=consumer_surplus,
+                            dialogue=dialogue,
+                            crs_recommendations=recs,
+                            crs_tool_calls_per_turn=tool_log,
+                            buyer_decision_raw=decision,
+                            **self._policy_fields(),
+                        )}
+                        return
 
             # Abandonment hazard.
             if self.eta > 0 and self._rng.random() < self.eta:
@@ -229,8 +301,8 @@ class SimConversation:
             }
 
         # ---- terminal ----
-        if not crs_out.get("recommendations"):
-            # Ran out of turns without a recommendation.
+        if not self._recommendations_are_terminal(crs_out):
+            # Ran out of turns without a terminal recommendation.
             yield {"type": "outcome", "outcome": SimOutcome(
                 persona_id=self.persona.get("id", ""),
                 category=self.category,
@@ -240,7 +312,7 @@ class SimConversation:
                 dialogue=dialogue,
                 crs_tool_calls_per_turn=tool_log,
                 **self._policy_fields(),
-                error="max_turns_reached_without_recommendation",
+                error="max_turns_reached_without_final_recommendation",
             )}
             return
 

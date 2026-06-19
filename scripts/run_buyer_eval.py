@@ -10,6 +10,7 @@ Usage:
     python scripts/run_buyer_eval.py laptop --persona-ids laptop_001,laptop_002
     python scripts/run_buyer_eval.py laptop --policy rec
     python scripts/run_buyer_eval.py laptop --policy atr --numquestions 3
+    python scripts/run_buyer_eval.py laptop --policy atr_recs --numquestions 3
 
 Cost rough estimate: ~$0.15–0.30 per conversation. 10 personas ≈ $2–3.
 """
@@ -112,7 +113,7 @@ def main() -> int:
     parser.add_argument("--parallel", type=int, default=4, help="max concurrent conversations")
     parser.add_argument(
         "--policy",
-        choices=["rec", "atr"],
+        choices=["rec", "atr", "atr_recs"],
         default=None,
         help="optional fixed elicitation policy; omit to keep the current adaptive behavior",
     )
@@ -120,7 +121,7 @@ def main() -> int:
         "--numquestions",
         type=int,
         default=None,
-        help="number of clarifying questions for --policy atr",
+        help="number of clarifying questions for --policy atr or atr_recs",
     )
     parser.add_argument(
         "--out-dir",
@@ -136,7 +137,7 @@ def main() -> int:
         except ValueError as e:
             parser.error(str(e))
     elif args.numquestions is not None:
-        parser.error("--numquestions requires --policy atr")
+        parser.error("--numquestions requires --policy atr or atr_recs")
 
     personas = _load_personas(args.category)
     if args.persona_ids:

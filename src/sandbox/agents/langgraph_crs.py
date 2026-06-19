@@ -83,7 +83,8 @@ Typical flow (use judgment, this is not a script):
      what the catalog actually contains (price range, brands, filterable specs).
   3. Ask the FIRST opener question via `ask_question()` (no topic argument).
      Always ask the openers in their canonical order — they cover the broadest
-     attributes (use case, budget, form factor).
+     attributes (use case, budget, form factor). Then, use ask_question()
+     whenever you ask follow-up question.
   4. After each customer answer, decide: ASK or RECOMMEND.
      - Call `compute_uncertainty` to get an entropy/diversity reading on the
        current bus. Low entropy = ready to recommend. High entropy = ask more.
@@ -139,14 +140,32 @@ You are running policy REC. Ask zero clarifying questions. Use the customer's
 initial request to search, filter, rank, and recommend immediately.
 """
 
+    if policy.name == "atr_recs":
+        return f"""
+
+# Fixed elicitation policy for this run
+
+You are running policy ATR-RECS-{policy.target_asks}. Ask exactly
+{policy.target_asks} clarifying question(s) before ending the conversation.
+You may recommend at any turn before or during those {policy.target_asks}
+questions, and early recommendations do not end the conversation. If you
+recommend before the {policy.target_asks}th question has been answered, also
+ask the next clarifying question in the same customer-facing reply so the
+conversation can continue. After the customer answers the
+{policy.target_asks}th question, make a final recommendation and end.
+Your goal is to provide the best possible recommendation with the information
+from {policy.target_asks} questions.
+"""
+
     return f"""
 
 # Fixed elicitation policy for this run
 
 You are running policy ATR-{policy.target_asks}. Ask exactly {policy.target_asks}
 clarifying question(s) before recommending. After the customer answers the
-{policy.target_asks}th question, recommend. Do not ask more than
-{policy.target_asks} question(s).
+{policy.target_asks}th question, recommend. Your goal is to provide the best
+possible recommendation with the information from {policy.target_asks}
+questions.
 """
 
 
@@ -502,7 +521,8 @@ class CRSAgentSession:
             """Get the next clarifying question to ask the customer. Without `topic`,
             returns the next opener question (or any unasked followup if openers are
             done). With a `topic`, returns a followup on that topic.
-            You must ASK this question to the customer — the tool returns the text."""
+            You must ASK this question to the customer — the tool returns the text.
+            You must use this tool to ask any question."""
             if s.elicitation_policy is not None and s.asks_so_far >= s.elicitation_policy.target_asks:
                 s._record(
                     "ask_question",
@@ -541,7 +561,11 @@ class CRSAgentSession:
             with a slightly broader query.
 
             `justification`: a short note about why these items were chosen."""
-            if s.elicitation_policy is not None and s.asks_so_far < s.elicitation_policy.target_asks:
+            if (
+                s.elicitation_policy is not None
+                and not s.elicitation_policy.allows_early_recommendations
+                and s.asks_so_far < s.elicitation_policy.target_asks
+            ):
                 remaining = s.elicitation_policy.target_asks - s.asks_so_far
                 s._record(
                     "recommend",

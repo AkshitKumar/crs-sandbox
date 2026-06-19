@@ -141,9 +141,13 @@ def apply_filter(bus: CandidateBus, constraints: dict[str, Any]) -> CandidateBus
 
     if (sc := constraints.get("spec_contains")):
         for field, substr in sc.items():
-            substr_lower = substr.lower()
+            substrings = substr if isinstance(substr, list) else [substr]
+            substrings_lower = [str(s).lower() for s in substrings]
             preds.append(
-                lambda p, f=field, s=substr_lower: (p.get("spec_table") or {}).get(f, "").lower().find(s) >= 0
+                lambda p, f=field, ss=substrings_lower: any(
+                    s in str((p.get("spec_table") or {}).get(f, "")).lower()
+                    for s in ss
+                )
             )
     if (se := constraints.get("spec_equals")):
         for field, value in se.items():
