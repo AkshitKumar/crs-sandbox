@@ -21,14 +21,18 @@ import os
 from dataclasses import dataclass, field
 from typing import Any
 
+import openai._base_client as openai_base_client
 from openai import OpenAI
 
 
 DEFAULT_MODEL = "gpt-5-mini"
+OPENAI_MAX_RETRIES = 6
 
 
 def _client() -> OpenAI:
-    return OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+    openai_base_client.INITIAL_RETRY_DELAY = 2.0
+    openai_base_client.MAX_RETRY_DELAY = 64.0
+    return OpenAI(api_key=os.environ.get("OPENAI_API_KEY"), max_retries=OPENAI_MAX_RETRIES)
 
 
 BUYER_SYSTEM_PROMPT = """You are a customer shopping for a {category} on Amazon. \

@@ -21,6 +21,7 @@ import os
 from pathlib import Path
 from typing import Any
 
+import openai._base_client as openai_base_client
 from openai import OpenAI
 
 from sandbox.catalog import REPO_ROOT, load_catalog, get_product, load_config
@@ -29,10 +30,13 @@ from sandbox.tools.candidate_bus import CandidateBus
 
 MODEL = "gpt-5-mini"
 REASONING = "minimal"
+OPENAI_MAX_RETRIES = 6
 
 
 def _client() -> OpenAI:
-    return OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+    openai_base_client.INITIAL_RETRY_DELAY = 2.0
+    openai_base_client.MAX_RETRY_DELAY = 64.0
+    return OpenAI(api_key=os.environ.get("OPENAI_API_KEY"), max_retries=OPENAI_MAX_RETRIES)
 
 
 def _cache_path(category: str) -> Path:

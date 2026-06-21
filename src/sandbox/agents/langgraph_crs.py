@@ -22,6 +22,7 @@ import uuid
 from dataclasses import dataclass, field
 from typing import Any, Optional
 
+import openai._base_client as openai_base_client
 from langchain_core.tools import tool
 from langchain_openai import ChatOpenAI
 from langgraph.checkpoint.memory import InMemorySaver
@@ -51,6 +52,7 @@ from sandbox.tools.uncertainty_tool import compute_uncertainty, suggest_next_act
 
 DEFAULT_MODEL = "gpt-5-mini"
 DEFAULT_REASONING = "medium"
+OPENAI_MAX_RETRIES = 6
 
 
 SYSTEM_PROMPT = """You are a shopping assistant on Amazon helping a customer pick the right product.
@@ -257,9 +259,12 @@ class CRSAgentSession:
     def _build_agent(self) -> Any:
         # `reasoning_effort` is a top-level kwarg on ChatOpenAI in
         # langchain-openai >= 0.3.x; passing via model_kwargs raises a warning.
+        openai_base_client.INITIAL_RETRY_DELAY = 2.0
+        openai_base_client.MAX_RETRY_DELAY = 64.0
         llm = ChatOpenAI(
             model=self.model,
             reasoning_effort=self.reasoning_effort,
+            max_retries=OPENAI_MAX_RETRIES,
         )
         prompt = SYSTEM_PROMPT.format(
             available_categories=", ".join(list_available_categories()) or "(none indexed)"
