@@ -192,11 +192,14 @@ class SimConversation:
                         )}
                         return
                     if decision.get("decision") == "PURCHASE":
-                        chosen = decision.get("asin")
-                        if not chosen:
-                            pn = decision.get("product_number")
-                            if isinstance(pn, int) and 1 <= pn <= len(recs):
-                                chosen = recs[pn - 1]["asin"]
+                        chosen = None
+                        pn = decision.get("product_number")
+                        if isinstance(pn, int) and 1 <= pn <= len(recs):
+                            chosen = recs[pn - 1]["asin"]
+                        else:
+                            raw_asin = decision.get("asin")
+                            if raw_asin and any(r.get("asin") == raw_asin for r in recs):
+                                chosen = raw_asin
                         purchased_asin = chosen
                         actual_price = None
                         if purchased_asin:
@@ -339,11 +342,14 @@ class SimConversation:
         actual_price = None
         wtp = decision.get("willingness_to_pay")
         if decision.get("decision") == "PURCHASE":
-            chosen = decision.get("asin")
-            if not chosen:
-                pn = decision.get("product_number")
-                if isinstance(pn, int) and 1 <= pn <= len(recs):
-                    chosen = recs[pn - 1]["asin"]
+            chosen = None
+            pn = decision.get("product_number")
+            if isinstance(pn, int) and 1 <= pn <= len(recs):
+                chosen = recs[pn - 1]["asin"]
+            else:
+                raw_asin = decision.get("asin")
+                if raw_asin and any(r.get("asin") == raw_asin for r in recs):
+                    chosen = raw_asin
             purchased_asin = chosen
             if purchased_asin:
                 for r in recs:
