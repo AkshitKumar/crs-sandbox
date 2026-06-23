@@ -79,7 +79,7 @@ yourself; each tool's return value reports the current bus size.
 Typical flow (use judgment, this is not a script):
 
   1. If the customer's initial message is ambiguous about the product type,
-     call `check_category_supported` first. If supported, set the category
+     call `check_category_supported` first. If supported, then set the category
      by calling `set_category`. From then on every tool acts on that category.
   2. Call `catalog_overview` and/or `available_filters` once early to know
      what the catalog actually contains (price range, brands, filterable specs).
@@ -100,7 +100,9 @@ Typical flow (use judgment, this is not a script):
      If they say "under $1000", filter ONLY on price — do NOT also add
      "dedicated GPU", "16GB RAM", or any other constraint you inferred.
      Each filter strips items; stacking inferred filters quickly leaves the
-     bus too small to make a useful recommendation.
+     bus too small to make a useful recommendation. If the user provides many
+     constraints, you may want to incorporate these into the semantic search
+     query to re-rank products rather than filtering.
 
      If after filtering the bus has fewer than 5 products, either ask the
      customer to confirm an inferred preference (turning it into a stated
@@ -126,7 +128,7 @@ Typical flow (use judgment, this is not a script):
 # Failure modes to avoid
 
 - Recommending without elicitation when the user has only said vague things.
-- Asking 6+ questions when the bus is already concentrated. Trust low-entropy
+- Asking too many questions when the bus is already concentrated. Trust low-entropy
   signals — once the candidate set has clearly converged, recommend.
 - Inventing product attributes you didn't see in tool output.
 """
@@ -147,16 +149,14 @@ initial request to search, filter, rank, and recommend immediately.
 
 # Fixed elicitation policy for this run
 
-You are running policy ATR-RECS-{policy.target_asks}. Ask exactly
+You are running policy ATR-RECS-{policy.target_asks}. Ask at most
 {policy.target_asks} clarifying question(s) before ending the conversation.
 You may recommend at any turn before or during those {policy.target_asks}
-questions, and early recommendations do not end the conversation. If you
-recommend before the {policy.target_asks}th question has been answered, also
-ask the next clarifying question in the same customer-facing reply so the
-conversation can continue. After the customer answers the
-{policy.target_asks}th question, make a final recommendation and end.
-Your goal is to provide the best possible recommendation with the information
-from {policy.target_asks} questions.
+questions, and early recommendations without a purchase do not end the 
+conversation. After the customer answers the {policy.target_asks}th question, 
+make a final recommendation and end. Your goal is to provide the best 
+possible recommendation with the information from {policy.target_asks}
+questions.
 """
 
     return f"""
@@ -165,7 +165,7 @@ from {policy.target_asks} questions.
 
 You are running policy ATR-{policy.target_asks}. Ask exactly {policy.target_asks}
 clarifying question(s) before recommending. After the customer answers the
-{policy.target_asks}th question, recommend. Your goal is to provide the best
+{policy.target_asks}th question, you must recommend. Your goal is to provide the best
 possible recommendation with the information from {policy.target_asks}
 questions.
 """
@@ -527,7 +527,7 @@ class CRSAgentSession:
             returns the next opener question (or any unasked followup if openers are
             done). With a `topic`, returns a followup on that topic.
             You must ASK this question to the customer — the tool returns the text.
-            You must use this tool to ask any question."""
+            You must use this tool to ask any question, and ask only one question per turn."""
             if s.elicitation_policy is not None and s.asks_so_far >= s.elicitation_policy.target_asks:
                 s._record(
                     "ask_question",
