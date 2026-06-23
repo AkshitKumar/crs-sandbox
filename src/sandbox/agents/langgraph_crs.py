@@ -36,7 +36,7 @@ from sandbox.tools.feasibility_tool import (
     check_category_supported as _check_category_supported,
     list_available_categories,
 )
-from sandbox.tools.filter_tool import apply_filter, available_filters
+from sandbox.tools.filter_tool import apply_filter, available_filters, preview_filter as _preview_filter
 from sandbox.tools.inspect_tool import catalog_overview, compare, get_product_details
 from sandbox.tools.question_bank import QuestionBank, QuestionTool
 from sandbox.tools.ranking_tool import (
@@ -94,7 +94,10 @@ Typical flow (use judgment, this is not a script):
   5. Use `filter_products` for HARD constraints (price ceiling, must-have
      features, brand preferences). Filter FIRST when the user expresses a
      hard constraint, then narrow_search within what survives — not the
-     other way around.
+     other way around. Use `preview_filter` before applying a restrictive or uncertain filter;
+     if preview shows zero survivors, do not apply that filter. If after filtering the bus has fewer than 5 products, either ask the
+     customer to confirm an inferred preference (turning it into a stated
+     one), or RELAX the most recent filter.
 
      CRITICAL: Filter ONLY on attributes the customer has explicitly stated.
      If they say "under $1000", filter ONLY on price — do NOT also add
@@ -103,10 +106,7 @@ Typical flow (use judgment, this is not a script):
      bus too small to make a useful recommendation. If the user provides many
      constraints, you may want to incorporate these into the semantic search
      query to re-rank products rather than filtering.
-
-     If after filtering the bus has fewer than 5 products, either ask the
-     customer to confirm an inferred preference (turning it into a stated
-     one), or RELAX the most recent filter.
+     
   6. Use `semantic_search` to seed the bus from a natural-language description
      of what the user wants. Use `narrow_search` to re-rank within the current
      bus contents after a filter.
@@ -372,6 +372,46 @@ class CRSAgentSession:
             )
 
         @tool
+        def preview_filter(
+            price_max: Optional[float] = None,
+            price_min: Optional[float] = None,
+            rating_min: Optional[float] = None,
+            min_reviews: Optional[int] = None,
+            brand_in: Optional[list] = None,
+            brand_not_in: Optional[list] = None,
+            spec_contains: Optional[dict] = None,
+        ) -> str:
+            """Preview HARD constraints without changing the candidate bus.
+            Use this before `filter_products` when a constraint may be too
+            restrictive. The schema is identical to `filter_products`."""
+            constraints = {
+                k: v for k, v in {
+                    "price_max": price_max, "price_min": price_min,
+                    "rating_min": rating_min, "min_reviews": min_reviews,
+                    "brand_in": brand_in, "brand_not_in": brand_not_in,
+                    "spec_contains": spec_contains,
+                }.items() if v is not None
+            }
+            bus = s._ensure_bus()
+            result = _preview_filter(bus, constraints)
+            s._record(
+                "preview_filter",
+                constraints,
+                f"{result['before']} → {result['after']} (no change)",
+            )
+            if result["after"] == 0:
+                return (
+                    f"preview only: {result['before']} → 0 products. "
+                    f"Do not apply this filter as-is; it would empty the candidate bus. "
+                    f"{result['note']}"
+                )
+            return (
+                f"preview only: {result['before']} → {result['after']} products "
+                f"({result['dropped']} would be dropped). Candidate bus unchanged. "
+                f"{result['note']}"
+            )
+
+        @tool
         def filter_products(
             price_max: Optional[float] = None,
             price_min: Optional[float] = None,
@@ -615,6 +655,7 @@ class CRSAgentSession:
             set_category,
             catalog_overview_tool,
             available_filters_tool,
+            preview_filter,
             filter_products,
             reset_bus_to_full_catalog,
             semantic_search_full,

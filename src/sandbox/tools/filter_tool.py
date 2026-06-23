@@ -6,8 +6,9 @@ to a manageable candidate set before semantic search runs.
 Two surfaces:
     - `available_filters(category)` — what attributes are filterable, and
       what values they take. The agent calls this first to know its options.
-    - `apply_filter(bus, constraints, catalog)` — restrict the bus by hard
-      constraints.
+    - `preview_filter(bus, constraints)` — count survivors without changing
+      the bus.
+    - `apply_filter(bus, constraints)` — restrict the bus by hard constraints.
 
 Constraint schema:
     {
@@ -110,6 +111,26 @@ def _range_summary(xs: list[float]) -> dict[str, float | None]:
 
 def apply_filter(bus: CandidateBus, constraints: dict[str, Any]) -> CandidateBus:
     """Narrow the bus by hard constraints. Returns the same bus, mutated."""
+    kept = _matching_asins(bus, constraints)
+    note = "filter(" + ", ".join(_describe_constraints(constraints)) + ")"
+    return bus.restrict(kept, note=note)
+
+
+def preview_filter(bus: CandidateBus, constraints: dict[str, Any]) -> dict[str, Any]:
+    """Return filter impact without mutating the bus."""
+    kept = _matching_asins(bus, constraints)
+    return {
+        "before": bus.size(),
+        "after": len(kept),
+        "dropped": bus.size() - len(kept),
+        "constraints": constraints,
+        "note": "filter(" + ", ".join(_describe_constraints(constraints)) + ")",
+        "sample_asins": kept[:5],
+    }
+
+
+def _matching_asins(bus: CandidateBus, constraints: dict[str, Any]) -> list[str]:
+    """Compute matching ASINs for constraints over the current bus."""
     catalog = load_catalog(bus.category)
     by_asin = {p["asin"]: p for p in catalog if p.get("asin")}
 
@@ -162,9 +183,7 @@ def apply_filter(bus: CandidateBus, constraints: dict[str, Any]) -> CandidateBus
         p = by_asin.get(asin)
         if p and all(pred(p) for pred in preds):
             kept.append(asin)
-
-    note = "filter(" + ", ".join(_describe_constraints(constraints)) + ")"
-    return bus.restrict(kept, note=note)
+    return kept
 
 
 def _describe_constraints(c: dict[str, Any]) -> list[str]:
