@@ -211,7 +211,12 @@ def main() -> int:
         summary["policy"] = elicitation_policy.name
         summary["numquestions"] = elicitation_policy.target_asks
     summary["wall_clock_s"] = round(elapsed, 1)
-    summary["transcripts_path"] = str(transcripts_path.relative_to(REPO_ROOT))
+    try:
+        summary["transcripts_path"] = str(
+            transcripts_path.resolve().relative_to(REPO_ROOT.resolve())
+        )
+    except ValueError:
+        summary["transcripts_path"] = str(transcripts_path)
 
     summary_path.write_text(json.dumps(summary, indent=2))
 
