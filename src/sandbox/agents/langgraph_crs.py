@@ -190,6 +190,7 @@ class CRSAgentSession:
     bus: Optional[CandidateBus] = None
     qtool: Optional[QuestionTool] = None
     asks_so_far: int = 0
+    asked_question_this_turn: bool = False
     recommendations: Optional[list] = None
     tool_log: list = field(default_factory=list)
     model: str = DEFAULT_MODEL
@@ -218,6 +219,7 @@ class CRSAgentSession:
         if self._agent is None:
             self._agent = self._build_agent()
 
+        self.asked_question_this_turn = False
         before_recs = self.recommendations
         config = {
             "configurable": {"thread_id": self._thread_id},
@@ -251,6 +253,7 @@ class CRSAgentSession:
         self.bus = None
         self.qtool = None
         self.asks_so_far = 0
+        self.asked_question_this_turn = False
         self.recommendations = None
         self.tool_log = []
         self._agent = None
@@ -574,6 +577,14 @@ class CRSAgentSession:
             done). With a `topic`, returns a followup on that topic.
             You must ASK this question to the customer — the tool returns the text.
             You must use this tool to ask any question, you cannot use it more than once in a turn."""
+            if s.asked_question_this_turn:
+                msg = (
+                    "You have already called ask_question() this turn. Send the previous question "
+                    "to the buyer; you may ask again once the buyer answers."
+                )
+                s._record("ask_question", {"topic": topic}, msg)
+                return msg
+
             if s.elicitation_policy is not None and s.asks_so_far >= s.elicitation_policy.target_asks:
                 s._record(
                     "ask_question",
@@ -588,6 +599,7 @@ class CRSAgentSession:
             r = qtool.ask(topic=topic)
             if r.get("question_text"):
                 s.asks_so_far += 1
+                s.asked_question_this_turn = True
                 s._record("ask_question", {"topic": topic},
                           f"tier={r['tier']} q={r['question_id']}")
                 return (

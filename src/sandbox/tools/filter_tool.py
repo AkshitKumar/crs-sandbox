@@ -192,24 +192,20 @@ def _matching_asins(bus: CandidateBus, constraints: dict[str, Any]) -> list[str]
                 text = utils.default_process(raw_text) or ""
                 spec_text = utils.default_process(spec_value) or ""
 
-                # Keep fuzzy matching from changing numeric specs like 4050 -> 3050.
-                text_nums = set(_NUM_RE.findall(text))
                 for s, raw_substr in ss:
                     s_nums = set(_NUM_RE.findall(s))
-                    if s_nums and not s_nums.issubset(text_nums):
-                        continue
-
-                    numeric_only = bool(s_nums) and s == " ".join(s_nums)
-                    if s in text or s in raw_text:
-                        if (
-                            not numeric_only
-                            or raw_substr in raw_text
-                            or s_nums == set(_NUM_RE.findall(spec_text))
-                        ):
+                    # Numeric spec filters must match the named structured field
+                    # only; otherwise "14" can match unrelated prose on a 16" item.
+                    if s_nums:
+                        spec_nums = set(_NUM_RE.findall(spec_text))
+                        if s_nums.issubset(spec_nums):
                             return True
                         continue
 
-                    if not numeric_only and fuzz.partial_ratio(s, text) >= SPEC_FUZZY_THRESHOLD:
+                    if s in text or s in raw_text:
+                        return True
+
+                    if fuzz.partial_ratio(s, text) >= SPEC_FUZZY_THRESHOLD:
                         return True
 
                 return False
