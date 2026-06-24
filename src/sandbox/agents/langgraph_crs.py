@@ -167,11 +167,11 @@ questions.
 # Fixed elicitation policy for this run
 
 You are running policy ATR-{policy.target_asks}. Ask exactly {policy.target_asks}
-clarifying question(s) before recommending. After the customer answers the
-{policy.target_asks}th question, you must recommend. The ask question tool 
-will give indication when you need to recommend. Your goal is to provide the best
-possible recommendation with the information from {policy.target_asks}
-questions.
+clarifying question(s) over the course of the conversation before recommending. 
+After the customer answers the {policy.target_asks}th question, you must recommend
+with recommend(). The ask question tool will give an indication when you need to 
+recommend. Your goal is to provide the best possible recommendation with the 
+information from {policy.target_asks} questions.
 """
 
 
