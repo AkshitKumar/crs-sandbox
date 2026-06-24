@@ -168,11 +168,11 @@ questions.
 # Fixed elicitation policy for this run
 
 You are running policy ATR-{policy.target_asks}. Ask exactly {policy.target_asks}
-clarifying question(s) over the course of the conversation before recommending. 
-After the customer answers the {policy.target_asks}th question, you must recommend
-with recommend(). The ask question tool will give an indication when you need to 
-recommend. Your goal is to provide the best possible recommendation with the 
-information from {policy.target_asks} questions.
+clarifying question(s) over the course of the conversation, one-at-a-time, before 
+recommending. After the customer answers the {policy.target_asks}th question, you 
+must recommend with recommend(). The ask question tool will give an indication 
+when you need to recommend. Your goal is to provide the best possible 
+recommendation with the information from {policy.target_asks} questions.
 """
 
 
@@ -573,7 +573,7 @@ class CRSAgentSession:
             returns the next opener question (or any unasked followup if openers are
             done). With a `topic`, returns a followup on that topic.
             You must ASK this question to the customer — the tool returns the text.
-            You must use this tool to ask any question, and at most once per turn."""
+            You must use this tool to ask any question, you cannot use it more than once in a turn."""
             if s.elicitation_policy is not None and s.asks_so_far >= s.elicitation_policy.target_asks:
                 s._record(
                     "ask_question",
