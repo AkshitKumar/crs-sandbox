@@ -32,8 +32,14 @@ import re
 from collections import Counter
 from typing import Any
 
+from rapidfuzz import fuzz, utils
+
 from sandbox.catalog import load_catalog
 from sandbox.tools.candidate_bus import CandidateBus
+
+
+SPEC_FUZZY_THRESHOLD = 95
+_NUM_RE = re.compile(r"\d+(?:\.\d+)?")
 
 
 # ---------------------------------------------------------------------------
@@ -162,14 +168,53 @@ def _matching_asins(bus: CandidateBus, constraints: dict[str, Any]) -> list[str]
 
     if (sc := constraints.get("spec_contains")):
         for field, substr in sc.items():
-            substrings = substr if isinstance(substr, list) else [substr]
-            substrings_lower = [str(s).lower() for s in substrings]
-            preds.append(
-                lambda p, f=field, ss=substrings_lower: any(
-                    s in str((p.get("spec_table") or {}).get(f, "")).lower()
-                    for s in ss
-                )
-            )
+            # Split list values and pipe-delimited strings into OR alternatives.
+            substrings = [
+                (s, part.strip().lower())
+                for value in (substr if isinstance(substr, list) else [substr])
+                for part in str(value).split("|")
+                if (s := utils.default_process(part))
+            ]
+
+            def matches_spec_contains(p, f=field, ss=substrings):
+                # Match against the structured spec plus visible product prose.
+                bullets = p.get("bullets") or []
+                if not isinstance(bullets, list):
+                    bullets = [bullets]
+
+                spec_value = str((p.get("spec_table") or {}).get(f, ""))
+                raw_text = "\n".join([
+                    spec_value,
+                    str(p.get("title") or ""),
+                    " | ".join(str(b) for b in bullets),
+                    str(p.get("description") or ""),
+                ]).lower()
+                text = utils.default_process(raw_text) or ""
+                spec_text = utils.default_process(spec_value) or ""
+
+                # Keep fuzzy matching from changing numeric specs like 4050 -> 3050.
+                text_nums = set(_NUM_RE.findall(text))
+                for s, raw_substr in ss:
+                    s_nums = set(_NUM_RE.findall(s))
+                    if s_nums and not s_nums.issubset(text_nums):
+                        continue
+
+                    numeric_only = bool(s_nums) and s == " ".join(s_nums)
+                    if s in text or s in raw_text:
+                        if (
+                            not numeric_only
+                            or raw_substr in raw_text
+                            or s_nums == set(_NUM_RE.findall(spec_text))
+                        ):
+                            return True
+                        continue
+
+                    if not numeric_only and fuzz.partial_ratio(s, text) >= SPEC_FUZZY_THRESHOLD:
+                        return True
+
+                return False
+
+            preds.append(matches_spec_contains)
     if (se := constraints.get("spec_equals")):
         for field, value in se.items():
             value_lower = value.lower()

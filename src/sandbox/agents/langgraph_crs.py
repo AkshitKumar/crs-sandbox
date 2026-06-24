@@ -86,7 +86,7 @@ Typical flow (use judgment, this is not a script):
   3. Ask the FIRST opener question via `ask_question()` (no topic argument).
      Always ask the openers in their canonical order — they cover the broadest
      attributes (use case, budget, form factor). Then, use ask_question()
-     whenever you ask follow-up question.
+     whenever you ask follow-up questions.
   4. After each customer answer, decide: ASK or RECOMMEND.
      - Call `compute_uncertainty` to get an entropy/diversity reading on the
        current bus. Low entropy = ready to recommend. High entropy = ask more.
@@ -95,9 +95,9 @@ Typical flow (use judgment, this is not a script):
      features, brand preferences). Filter FIRST when the user expresses a
      hard constraint, then narrow_search within what survives — not the
      other way around. Use `preview_filter` before applying a restrictive or uncertain filter;
-     if preview shows zero survivors, do not apply that filter. If after filtering the bus has fewer than 5 products, either ask the
-     customer to confirm an inferred preference (turning it into a stated
-     one), or RELAX the most recent filter.
+     if preview shows zero survivors, do not apply that filter. If after filtering the bus has 
+     fewer than 5 products, either ask the customer to confirm an inferred preference 
+     (turning it into a stated one), or RELAX the most recent filter.
 
      CRITICAL: Filter ONLY on attributes the customer has explicitly stated.
      If they say "under $1000", filter ONLY on price — do NOT also add
@@ -127,10 +127,13 @@ Typical flow (use judgment, this is not a script):
 
 # Failure modes to avoid
 
+- Avoid treating all stated preferences as hard constraints - the user may be flexible, 
+  so you should prioritize reranking products with an updated query rather than filtering each time.
 - Recommending without elicitation when the user has only said vague things.
 - Asking too many questions when the bus is already concentrated. Trust low-entropy
   signals — once the candidate set has clearly converged, recommend.
 - Inventing product attributes you didn't see in tool output.
+- Sending intermediate messages when running tool calls — only send the complete response.
 """
 
 
@@ -165,7 +168,8 @@ questions.
 
 You are running policy ATR-{policy.target_asks}. Ask exactly {policy.target_asks}
 clarifying question(s) before recommending. After the customer answers the
-{policy.target_asks}th question, you must recommend. Your goal is to provide the best
+{policy.target_asks}th question, you must recommend. The ask question tool 
+will give indication when you need to recommend. Your goal is to provide the best
 possible recommendation with the information from {policy.target_asks}
 questions.
 """
@@ -424,7 +428,8 @@ class CRSAgentSession:
             """Apply HARD constraints to the candidate bus. Use this when the user
             states a non-negotiable like 'under $1000' or 'has to have HEPA filter'.
             spec_contains is a dict mapping a spec-table field name to a substring
-            that the value must contain, e.g. {"Graphics Description": "Dedicated"}.
+            that the value must contain, e.g. {"Graphics Description": "Dedicated"};
+            you can use | to indicate OR conditions for the values, e.g. {"Processor": "Intel|AMD"}.
             Call `available_filters` first to see what fields exist."""
             constraints = {
                 k: v for k, v in {
@@ -567,7 +572,7 @@ class CRSAgentSession:
             returns the next opener question (or any unasked followup if openers are
             done). With a `topic`, returns a followup on that topic.
             You must ASK this question to the customer — the tool returns the text.
-            You must use this tool to ask any question, and ask only one question per turn."""
+            You must use this tool to ask any question, and at most once per turn."""
             if s.elicitation_policy is not None and s.asks_so_far >= s.elicitation_policy.target_asks:
                 s._record(
                     "ask_question",
@@ -597,7 +602,8 @@ class CRSAgentSession:
             """FINALIZE the recommendation by taking the top-K of the current bus.
             After calling this you should write a customer-facing message explaining
             why each item fits. The chat UI renders the recommendation cards from
-            the bus's top-K automatically.
+            the bus's top-K automatically. You must use this tool if you are recommending
+            any products.
 
             IMPORTANT: if the bus has fewer than `top_k` products, this tool will
             REFUSE and tell you to widen first. Do not work around this — the
