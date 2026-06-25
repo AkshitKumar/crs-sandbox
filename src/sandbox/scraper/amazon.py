@@ -111,7 +111,7 @@ def resolve_fetch_mode(
     return "direct", {}
 
 
-async def _new_context(browser: Browser) -> BrowserContext:
+async def _new_context(browser: Browser, via_proxy: bool = False) -> BrowserContext:
     ctx = await browser.new_context(
         user_agent=DEFAULT_UA,
         viewport={"width": 1440, "height": 900},
