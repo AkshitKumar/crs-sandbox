@@ -13,6 +13,13 @@ scrape:
     - "laptop for students"
     - "ultrabook"
     - "2 in 1 laptop"
+    - "business laptop"
+    - "durable laptops"
+    - "lightweight laptops"
+    - "upgradable laptop"
+    - "enthusiast laptop"
+    - "linux laptop"
+    - "quiet laptop"
   target_products: 300
   reviews_per_product: 8
 

@@ -13,6 +13,12 @@ scrape:
     - "air purifier for bedroom"
     - "air purifier for allergies"
     - "air purifier for pets"
+    - "ozone free air purifier"
+    - "quiet air purifier"
+    - "air purifier for asthma"
+    - "smart air purifier"
+    - "air purifier for smoke"
+    - "multi room air purifier"
   target_products: 300
   reviews_per_product: 8
 
