@@ -26,7 +26,7 @@ from openai import OpenAI
 
 
 DEFAULT_MODEL = "gpt-5-mini"
-OPENAI_MAX_RETRIES = 6
+OPENAI_MAX_RETRIES = 7
 
 
 def _client() -> OpenAI:

@@ -52,7 +52,7 @@ from sandbox.tools.uncertainty_tool import compute_uncertainty, suggest_next_act
 
 DEFAULT_MODEL = "gpt-5-mini"
 DEFAULT_REASONING = "medium"
-OPENAI_MAX_RETRIES = 6
+OPENAI_MAX_RETRIES = 7
 
 
 SYSTEM_PROMPT = """You are a shopping assistant on Amazon helping a customer pick the right product.

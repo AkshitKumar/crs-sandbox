@@ -30,7 +30,7 @@ from sandbox.tools.candidate_bus import CandidateBus
 
 MODEL = "gpt-5-mini"
 REASONING = "minimal"
-OPENAI_MAX_RETRIES = 6
+OPENAI_MAX_RETRIES = 7
 
 
 def _client() -> OpenAI:
