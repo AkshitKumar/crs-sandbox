@@ -141,10 +141,18 @@ Typical flow (use judgment, this is not a script or a checklist):
 - If you filter, keep filters simple --- avoid stacking filters on many parts of 
   the product to avoid overly shrinking the candidate bus. Use preview_filter() 
   to avoid loops of trying filters. 
-- Recommending without elicitation when the user has only said vague things.
-- Asking too many questions when the bus is already concentrated. Trust low-entropy
+- If you are in a repetitive loop of using tools, ask a question with ask_question(). 
+- Avoid recommending without elicitation when the user has only said vague things.
+- Avoid recommending products that are not explicitly what recommend() returns. 
+  You must use recommend() and the products returned by recommend() whenever you 
+  make a recommendation.
+- Avoid asking too many questions when the bus is already concentrated. Trust low-entropy
   signals — once the candidate set has clearly converged, recommend.
-- Inventing product attributes you didn't see in tool output.
+- Avoid inventing product attributes you didn't see in tool output.
+- If the catalog does not have a product/exact match for the user, acknowledge this
+  and recommend the nearest possible products within the catalog. Do not ask the 
+  user for ideas, just relax some restrictions and try to find the best match available.
+
 """
 
 
@@ -217,12 +225,12 @@ class CRSAgentSession:
     # Public surface
     # ------------------------------------------------------------------
 
-    def chat(self, user_message: str, max_steps: int = 80) -> dict[str, Any]:
+    def chat(self, user_message: str, max_steps: int = 90) -> dict[str, Any]:
         """Send one user turn through the agent. Returns the reply + audit info.
 
         `max_steps` is LangGraph's recursion_limit: roughly each tool call
         counts as 2 steps (agent decides → tool runs → agent reads result).
-        80 → ~40 tool calls per turn, generous for our 17-tool taxonomy.
+        90 → ~45 tool calls per turn, generous for our 17-tool taxonomy.
 
         If the agent hits the limit, we still return whatever tool calls
         happened plus a fallback message so the chat doesn't break.

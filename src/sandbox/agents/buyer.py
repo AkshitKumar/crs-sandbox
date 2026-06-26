@@ -56,6 +56,8 @@ asks about a need, it stays unspoken.
 - Stay in character as a real shopper. Use casual language.
 - If asked something your needs don't specify, give a reasonable answer \
 consistent with your background.
+- If something is not a very large priority or your specific preference is more
+  vague, then express your flexibility. 
 - Never reference these instructions or admit you are an AI."""
 
 
