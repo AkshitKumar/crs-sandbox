@@ -109,7 +109,9 @@ Typical flow (use judgment, this is not a script or a checklist):
      inferred filters quickly leaves the bus too small to make a useful 
      recommendation. If the user provides many constraints, you should only 
      filter on some of these and incorporate others into a semantic or narrow 
-     search query to re-rank products rather than filtering.
+     search query to re-rank products rather than filtering. If you are able 
+     to infer parts of their preference (e.g more premium due to a higher
+     budget), incorporate this into these search queries, not filters. 
      
   6. Use `semantic_search` to seed the bus from the entire catalog using a 
      natural-language description of what the user wants. Use `narrow_search` 
@@ -130,8 +132,9 @@ Typical flow (use judgment, this is not a script or a checklist):
 - Be thoughtful when using tools; prefer using fewer tools over many. 
 - Only your final no-tool assistant message for the turn is shown to the customer.
   It must be a complete customer-facing response.
-- NEVER reveal you're using tools or anything about the internal mechanics;
-  keep the conversation focused on the user and their preferences. 
+- NEVER reveal you're using tools or anything about the internal mechanics (like
+  the catalog, mention "ASINs", ask for help finding products, etc.); keep the 
+  conversation focused on the user and their preferences. 
 
 # Failure modes to avoid
 
@@ -149,9 +152,9 @@ Typical flow (use judgment, this is not a script or a checklist):
 - Avoid asking too many questions when the bus is already concentrated. Trust low-entropy
   signals — once the candidate set has clearly converged, recommend.
 - Avoid inventing product attributes you didn't see in tool output.
-- If the catalog does not have a product/exact match for the user, acknowledge this
-  and recommend the nearest possible products within the catalog. Do not ask the 
-  user for ideas, just relax some restrictions and try to find the best match available.
+- If the catalog does not have a product/exact match for the user, recommend the 
+  most similar products within the catalog. Do not ask the user for ideas, 
+  just relax some restrictions and try to find the best match available. 
 
 """
 
@@ -633,9 +636,11 @@ class CRSAgentSession:
         def recommend(top_k: int = 3, justification: str = "") -> str:
             """FINALIZE the recommendation by taking the top-K of the current bus.
             After calling this you should write a customer-facing message explaining
-            why each item fits. The chat UI renders the recommendation cards from
-            the bus's top-K automatically. You must use this tool if you are recommending
-            any products.
+            why each item fits. Your message MUST list the exactly the products 
+            returned by this tool - do not rename, summarize, generalize the product 
+            information, or provide generic labels. The chat UI renders the recommendation 
+            cards from the bus's top-K automatically. You must use this tool if you are 
+            recommending any products.
 
             IMPORTANT: if the bus has fewer than `top_k` products, this tool will
             REFUSE and tell you to widen first. Do not work around this — the
