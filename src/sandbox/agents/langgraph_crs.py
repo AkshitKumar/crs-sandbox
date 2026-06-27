@@ -50,7 +50,7 @@ from sandbox.tools.search_tool import narrow_search, semantic_search
 from sandbox.tools.uncertainty_tool import compute_uncertainty, suggest_next_action
 
 
-DEFAULT_MODEL = "gpt-5-mini"
+DEFAULT_MODEL = "gpt-5.4-nano"
 DEFAULT_REASONING = "medium"
 OPENAI_MAX_RETRIES = 7
 
@@ -93,25 +93,33 @@ Typical flow (use judgment, this is not a script or a checklist):
      - Call `compute_uncertainty` to get an entropy/diversity reading on the
        current bus. Low entropy = ready to recommend. High entropy = ask more.
      - You can also call `suggest_next_action` which composites this for you.
-  5. Use `filter_products` for HARD constraints (price ceiling, must-have
-     features, brand preferences). Don't filter too aggressively --- some 
-     preferences are less important, and should be used for ranking with
-     narrow_search within the filtered set instead. Use 'preview_filter' 
-     before applying any restrictive or uncertain filter to see how many
-     products remain. If after filtering the bus has fewer than 5 products, 
-     either ask the customer to confirm an inferred preference (turning it 
-     into a stated one), or relax the most recent filter.
+  5. Use `filter_products` only for HARD constraints: explicit dealbreakers,
+     safety/compatibility requirements, and true ceilings/floors such as
+     "must be under $1000", "has to fit a 500 sq ft room", "only Dyson", or
+     "cannot be HP".
+
+     Do not filter for ordinary, less strong preferences e.g "prefer", "ideally",
+     "would be nice", or inferred needs. Put those into
+     `semantic_search_full`, `narrow_search`, `rank_by_match`, or the final
+     recommendation justification.
+
+     Classification rule:
+     - HARD = must, need, required, hard cap, etc..
+     - SOFT = prefer, ideally, looking for, good for, nice to have, important,
+       better, premium, etc.
+     - When unsure, treat it as SOFT unless it is an explicit price ceiling/floor.
      
-     CRITICAL: Filter ONLY on attributes the customer has explicitly stated
-     that are important for their preference. If they say "under $1000", 
-     filter ONLY on price — do NOT also add "dedicated GPU", "16GB RAM", or 
-     any other constraint you inferred. Each filter strips items; stacking 
-     inferred filters quickly leaves the bus too small to make a useful 
-     recommendation. If the user provides many constraints, you should only 
-     filter on some of these and incorporate others into a semantic or narrow 
-     search query to re-rank products rather than filtering. If you are able 
-     to infer parts of their preference (e.g more premium due to a higher
-     budget), incorporate this into these search queries, not filters. 
+     CRITICAL: Filter ONLY on attributes the customer explicitly states as
+     hard requirements. If they say "under $1000", filter ONLY on price — do
+     NOT also add "dedicated GPU", "16GB RAM", or other inferred constraints. Each filter strips items;
+     stacking inferred filters quickly leaves the bus too small to make a
+     useful recommendation. You should apply few filters, and use the rest of the stated preference in semantic/narrow search queries and ranking the products rather than filtering. In general, if unsure, you should err on the side of not filtering for a specific preference unless it is clearly expressed as a priority.
+
+     Before using `filter_products`, call `preview_filter` unless the filter is
+     exactly one simple, explicit hard constraint such as a price ceiling. Always
+     preview multi-constraint, spec-based, brand-based, rating/review-based,
+     inferred, or already-filtered constraints. If preview leaves fewer than 5
+     products, do not apply the filter; rank/search instead.
      
   6. Use `semantic_search` to seed the bus from the entire catalog using a 
      natural-language description of what the user wants. Use `narrow_search` 
@@ -214,6 +222,7 @@ class CRSAgentSession:
     asks_so_far: int = 0
     asked_question_this_turn: bool = False
     recommendations: Optional[list] = None
+    best_candidate_snapshots: list[dict[str, Any]] = field(default_factory=list)
     tool_log: list = field(default_factory=list)
     model: str = DEFAULT_MODEL
     reasoning_effort: str = DEFAULT_REASONING
@@ -259,6 +268,7 @@ class CRSAgentSession:
                 "Let me try a simpler approach. Could you restate what you're looking for "
                 "in one or two sentences?"
             )
+        self._snapshot_best_candidates()
         new_recs = self.recommendations if self.recommendations is not before_recs else None
         return {
             "reply": reply,
@@ -277,6 +287,7 @@ class CRSAgentSession:
         self.asks_so_far = 0
         self.asked_question_this_turn = False
         self.recommendations = None
+        self.best_candidate_snapshots = []
         self.tool_log = []
         self._agent = None
         self._checkpointer = None
@@ -335,6 +346,36 @@ class CRSAgentSession:
             from sandbox.catalog import REPO_ROOT
             self.qtool = QuestionTool(bank=QuestionBank.load(REPO_ROOT / config["questions_path"]))
         return self.qtool
+
+    def _snapshot_best_candidates(self, top_k: int = 3) -> None:
+        """Save the current best product(s) at the end of each CRS turn."""
+        if self.bus is None or self.bus.size() == 0:
+            return
+        asins = self.bus.top(min(top_k, self.bus.size()))
+        if not asins:
+            return
+        if self.best_candidate_snapshots and self.best_candidate_snapshots[-1]["asins"] == asins:
+            return
+        snapshot = {
+            "asks_so_far": self.asks_so_far,
+            "bus_size": self.bus.size(),
+            "asins": asins,
+            "bus_notes": self.bus.notes[-3:],
+        }
+        self.best_candidate_snapshots.append(snapshot)
+
+    def _best_so_far_asins(self, limit: int = 6) -> list[str]:
+        """Return recent saved candidates, deduped, without mutating the bus."""
+        out: list[str] = []
+        seen: set[str] = set()
+        for snapshot in reversed(self.best_candidate_snapshots):
+            for asin in snapshot["asins"]:
+                if asin not in seen:
+                    out.append(asin)
+                    seen.add(asin)
+                    if len(out) >= limit:
+                        return out
+        return out
 
     # ------------------------------------------------------------------
     # Tool wrappers (closures over self)
@@ -533,6 +574,30 @@ class CRSAgentSession:
             return f"bus sorted by price ({'asc' if ascending else 'desc'})."
 
         @tool
+        def restore_best_so_far_candidates(top_k: int = 6) -> str:
+            """Restore saved best-so-far products into the candidate bus.
+            Use this only when earlier saved candidates look more promising than
+            the current bus after later filters/searches. This does not happen
+            automatically; compare the tradeoffs, then call `recommend` again if
+            these saved products better satisfy the customer's hard requirements."""
+            asins = s._best_so_far_asins(limit=top_k)
+            if not asins:
+                return "No best-so-far candidates have been saved yet."
+            s.bus = CandidateBus.from_asins(
+                s._ensure_category(),
+                asins,
+                note="restore_best_so_far_candidates",
+            )
+            details = [get_product_details(s._ensure_category(), asin) for asin in asins[:top_k]]
+            details = [d for d in details if d]
+            s._record("restore_best_so_far_candidates", {"top_k": top_k}, f"restored {len(asins)} products")
+            summary = "\n".join(
+                f"  #{i+1} ${d['price']} ★{d['avg_rating']} — {d['title'][:80]}"
+                for i, d in enumerate(details)
+            )
+            return f"restored {len(asins)} best-so-far candidate(s) into the bus:\n{summary}"
+
+        @tool
         def get_product_details_tool(asin: str) -> str:
             """Full structured details on one specific product."""
             d = get_product_details(s._ensure_category(), asin)
@@ -691,6 +756,24 @@ class CRSAgentSession:
                 f"  #{i+1} ${d['price']} ★{d['avg_rating']} — {d['title'][:80]}"
                 for i, d in enumerate(details)
             )
+            best_so_far = [asin for asin in s._best_so_far_asins(limit=6) if asin not in top]
+            if best_so_far:
+                best_details = [get_product_details(s._ensure_category(), asin) for asin in best_so_far[:3]]
+                best_details = [d for d in best_details if d]
+                if best_details:
+                    alternatives = "\n".join(
+                        f"  #{i+1} ${d['price']} ★{d['avg_rating']} — {d['title'][:80]}"
+                        for i, d in enumerate(best_details)
+                    )
+                    return (
+                        f"recommendation finalized ({len(details)} products):\n{summary}\n\n"
+                        "Best-so-far candidates from earlier turns, not automatically recommended:\n"
+                        f"{alternatives}\n"
+                        "If any best-so-far candidate better satisfies the customer's hard requirements, "
+                        "call restore_best_so_far_candidates and then recommend again. Otherwise, proceed "
+                        "with the finalized recommendations above."
+                    )
+
             return f"recommendation finalized ({len(details)} products):\n{summary}"
 
         return [
@@ -706,6 +789,7 @@ class CRSAgentSession:
             rank_by_match_tool,
             rank_by_commission_tool,
             rank_by_price_tool,
+            restore_best_so_far_candidates,
             get_product_details_tool,
             compare_products,
             summarize_reviews_tool,

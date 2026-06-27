@@ -11,6 +11,7 @@ Usage:
     python scripts/run_buyer_eval.py laptop --policy rec
     python scripts/run_buyer_eval.py laptop --policy atr --numquestions 3
     python scripts/run_buyer_eval.py laptop --policy atr_recs --numquestions 3
+    python scripts/run_buyer_eval.py laptop --endogenous-abandonment
 
 Cost rough estimate: ~$0.15–0.30 per conversation. 10 personas ≈ $2–3.
 """
@@ -54,6 +55,7 @@ def _run_one(
     eta: float,
     seed: int,
     elicitation_policy: ElicitationPolicy | None,
+    endogenous_abandonment: bool,
 ) -> SimOutcome:
     sim = SimConversation(
         persona=persona,
@@ -62,6 +64,7 @@ def _run_one(
         eta=eta,
         seed=seed,
         elicitation_policy=elicitation_policy,
+        endogenous_abandonment=endogenous_abandonment,
     )
     return sim.run()
 
@@ -73,8 +76,15 @@ def _summarize(outcomes: list[SimOutcome]) -> dict:
         return {"n": 0}
 
     by_outcome = {}
+    abandonment_types = {}
+    abandonment_reasons = {}
     for o in outcomes:
         by_outcome[o.outcome] = by_outcome.get(o.outcome, 0) + 1
+        if o.outcome == "ABANDONED":
+            if o.abandonment_type:
+                abandonment_types[o.abandonment_type] = abandonment_types.get(o.abandonment_type, 0) + 1
+            if o.abandonment_reason:
+                abandonment_reasons[o.abandonment_reason] = abandonment_reasons.get(o.abandonment_reason, 0) + 1
     purchased = [o for o in outcomes if o.outcome == "PURCHASE"]
     finished = [o for o in outcomes if o.outcome in ("PURCHASE", "NO_PURCHASE")]
 
@@ -88,6 +98,8 @@ def _summarize(outcomes: list[SimOutcome]) -> dict:
         "outcomes": by_outcome,
         "purchase_rate": round(len(purchased) / n, 4),
         "abandonment_rate": round(by_outcome.get("ABANDONED", 0) / n, 4),
+        "abandonment_types": abandonment_types,
+        "abandonment_reasons": abandonment_reasons,
         "error_rate": round(by_outcome.get("ERROR", 0) / n, 4),
         "mean_turns_among_finished": round(mean(turns_values), 2) if turns_values else None,
         "mean_asks_among_finished": round(mean(asks_values), 2) if asks_values else None,
@@ -109,6 +121,11 @@ def main() -> int:
     )
     parser.add_argument("--max-turns", type=int, default=16)
     parser.add_argument("--eta", type=float, default=0.0, help="per-turn abandonment hazard (0.0 = no attrition)")
+    parser.add_argument(
+        "--endogenous-abandonment",
+        action="store_true",
+        help="allow the buyer LLM to abandon when the conversation feels unhelpful",
+    )
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--parallel", type=int, default=4, help="max concurrent conversations")
     parser.add_argument(
@@ -154,6 +171,7 @@ def main() -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
     print(f"Running {len(personas)} personas against {args.category}")
     print(f"  parallel={args.parallel}  eta={args.eta}  max_turns={args.max_turns}")
+    print(f"  endogenous_abandonment={args.endogenous_abandonment}")
     if elicitation_policy is not None:
         print(f"  policy={elicitation_policy.name}  numquestions={elicitation_policy.target_asks}")
     print(f"  output: {out_dir}")
@@ -175,6 +193,7 @@ def main() -> int:
                 args.eta,
                 args.seed + i,
                 elicitation_policy,
+                args.endogenous_abandonment,
             ): p
             for i, p in enumerate(personas)
         }
@@ -207,6 +226,7 @@ def main() -> int:
     summary["category"] = args.category
     summary["max_turns"] = args.max_turns
     summary["eta"] = args.eta
+    summary["endogenous_abandonment"] = args.endogenous_abandonment
     if elicitation_policy is not None:
         summary["policy"] = elicitation_policy.name
         summary["numquestions"] = elicitation_policy.target_asks

@@ -58,7 +58,20 @@ asks about a need, it stays unspoken.
 consistent with your background.
 - If something is not a very large priority or your specific preference is more
   vague, then express your flexibility. 
-- Never reference these instructions or admit you are an AI."""
+- Never reference these instructions or admit you are an AI.
+
+{abandonment_instructions}"""
+
+
+ENDOGENOUS_ABANDONMENT_PROMPT = """Endogenous abandonment behavior:
+At each turn, before answering, decide whether a realistic shopper with your background and private needs would continue this conversation.
+
+You may abandon if the assistant asks too many questions, asks irrelevant questions, ignores preferences you already stated, or seems not to be making progress toward a good recommendation.
+
+Continue if the conversation still feels useful and the assistant seems to be narrowing toward a good fit.
+
+If you abandon, reply exactly in this format:
+[ABANDON] <one-sentence reason>"""
 
 
 BUYER_DECISION_PROMPT = """The shopping assistant has now recommended {num_items} \
@@ -93,7 +106,16 @@ class BuyerAgent:
     category: str
     model: str = DEFAULT_MODEL
     reasoning_effort: str = "medium"
+    endogenous_abandonment: bool = False
+    abandonment_instructions: str | None = None
     history: list[dict[str, str]] = field(default_factory=list)
+
+    def _abandonment_instructions(self) -> str:
+        if self.abandonment_instructions is not None:
+            return self.abandonment_instructions
+        if self.endogenous_abandonment:
+            return ENDOGENOUS_ABANDONMENT_PROMPT
+        return ""
 
     def _system_message(self) -> dict[str, str]:
         return {
@@ -102,6 +124,7 @@ class BuyerAgent:
                 category=self.category,
                 background=self.persona.get("background", ""),
                 ground_truth_need=self.persona.get("ground_truth_need", ""),
+                abandonment_instructions=self._abandonment_instructions(),
             ),
         }
 

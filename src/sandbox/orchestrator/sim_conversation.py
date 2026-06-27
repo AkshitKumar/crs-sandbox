@@ -24,6 +24,9 @@ from sandbox.agents.langgraph_crs import CRSAgentSession
 from sandbox.elicitation_policy import ElicitationPolicy
 
 
+ABANDON_SENTINEL = "[ABANDON]"
+
+
 @dataclass
 class SimOutcome:
     """Structured result from one simulated conversation."""
@@ -38,6 +41,8 @@ class SimOutcome:
     actual_price: Optional[float] = None
     consumer_surplus: Optional[float] = None    # wtp - actual_price if both present
     abandoned_at_turn: Optional[int] = None
+    abandonment_type: Optional[str] = None       # "exogenous" | "endogenous"
+    abandonment_reason: Optional[str] = None
     dialogue: list = field(default_factory=list)
     crs_recommendations: Optional[list] = None
     crs_tool_calls_per_turn: list = field(default_factory=list)
@@ -69,6 +74,8 @@ class SimConversation:
     eta: float = 0.0
     seed: int = 0
     elicitation_policy: Optional[ElicitationPolicy] = None
+    endogenous_abandonment: bool = False
+    abandonment_instructions: str | None = None
 
     # Allow caller to pass pre-constructed agents for testing/customization.
     buyer: Optional[BuyerAgent] = None
@@ -76,7 +83,12 @@ class SimConversation:
 
     def __post_init__(self) -> None:
         if self.buyer is None:
-            self.buyer = BuyerAgent(persona=self.persona, category=self.category)
+            self.buyer = BuyerAgent(
+                persona=self.persona,
+                category=self.category,
+                endogenous_abandonment=self.endogenous_abandonment,
+                abandonment_instructions=self.abandonment_instructions,
+            )
         if self.crs is None:
             self.crs = CRSAgentSession(elicitation_policy=self.elicitation_policy)
         self._rng = random.Random(self.seed)
@@ -104,6 +116,16 @@ class SimConversation:
         """First buyer utterance — generic, mimics how real shoppers start."""
         cat = self.category.replace("_", " ")
         return f"I'm looking for a {cat}."
+
+    def _parse_endogenous_abandonment(self, reply: str) -> str | None:
+        """Return the buyer's abandonment reason if the sentinel is present."""
+        if not self.endogenous_abandonment:
+            return None
+        text = reply.strip()
+        if not text.startswith(ABANDON_SENTINEL):
+            return None
+        reason = text[len(ABANDON_SENTINEL):].strip()
+        return reason or "Buyer abandoned without a stated reason."
 
     def run(self) -> SimOutcome:
         """Run end-to-end and return the final outcome record.
@@ -248,6 +270,7 @@ class SimConversation:
                     turns_used=len(dialogue) // 2,
                     asks=ask_count,
                     abandoned_at_turn=turn,
+                    abandonment_type="exogenous",
                     dialogue=dialogue,
                     crs_tool_calls_per_turn=tool_log,
                     **self._policy_fields(),
@@ -273,6 +296,29 @@ class SimConversation:
                 return
             dialogue.append({"role": "user", "content": buyer_reply})
             yield {"type": "buyer_message", "content": buyer_reply, "turn": turn}
+
+            abandonment_reason = self._parse_endogenous_abandonment(buyer_reply)
+            if abandonment_reason is not None:
+                yield {
+                    "type": "abandoned",
+                    "turn": turn,
+                    "reason": abandonment_reason,
+                    "abandonment_type": "endogenous",
+                }
+                yield {"type": "outcome", "outcome": SimOutcome(
+                    persona_id=self.persona.get("id", ""),
+                    category=self.category,
+                    outcome="ABANDONED",
+                    turns_used=len(dialogue) // 2,
+                    asks=ask_count,
+                    abandoned_at_turn=turn,
+                    abandonment_type="endogenous",
+                    abandonment_reason=abandonment_reason,
+                    dialogue=dialogue,
+                    crs_tool_calls_per_turn=tool_log,
+                    **self._policy_fields(),
+                )}
+                return
 
             # CRS handles.
             try:
