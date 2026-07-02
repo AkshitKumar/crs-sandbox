@@ -15,18 +15,14 @@ openers:
     topic: budget
     text: "What's your budget range? Is there a hard cap, or some flexibility for the right machine?"
 
-  - id: portability_vs_screen
-    topic: form_factor
-    text: "Do you prioritize portability and a smaller screen, or a larger display you'll mostly use at a desk?"
+  - id: ram
+    topic: memory
+    text: "How much RAM do you think you need? Light browsing is fine with 8GB, multitasking usually wants 16GB, and heavier workloads need 32GB+."
 
 followups:
   - id: gpu_need
     topic: gpu
     text: "Do you need a dedicated graphics card — for gaming, 3D work, video editing, or ML?"
-
-  - id: ram
-    topic: memory
-    text: "How much RAM do you think you need? Light browsing is fine with 8GB, multitasking usually wants 16GB, and heavier workloads need 32GB+."
 
   - id: storage
     topic: storage
@@ -71,6 +67,10 @@ followups:
   - id: form_factor_2in1
     topic: form_factor
     text: "Would a 2-in-1 or touchscreen design be useful, or do you want a traditional clamshell?"
+
+  - id: portability_vs_screen
+    topic: form_factor
+    text: "Do you prioritize portability and a smaller screen, or a larger display you'll mostly use at a desk?"
 
   - id: fan_noise
     topic: noise

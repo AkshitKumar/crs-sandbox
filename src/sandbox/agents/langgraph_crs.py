@@ -48,11 +48,11 @@ from sandbox.tools.ranking_tool import (
 from sandbox.tools.review_tool import summarize_reviews
 from sandbox.tools.search_tool import narrow_search, semantic_search
 from sandbox.tools.uncertainty_tool import compute_uncertainty, suggest_next_action
+from sandbox.openai_responses import OPENAI_MAX_RETRIES, message_to_text
 
 
-DEFAULT_MODEL = "gpt-5.4-nano"
+DEFAULT_MODEL = "gpt-5-mini"
 DEFAULT_REASONING = "medium"
-OPENAI_MAX_RETRIES = 7
 
 
 SYSTEM_PROMPT = """You are a shopping assistant on Amazon helping a customer pick the right product.
@@ -95,8 +95,7 @@ Typical flow (use judgment, this is not a script or a checklist):
      - You can also call `suggest_next_action` which composites this for you.
   5. Use `filter_products` only for HARD constraints: explicit dealbreakers,
      safety/compatibility requirements, and true ceilings/floors such as
-     "must be under $1000", "has to fit a 500 sq ft room", "only Dyson", or
-     "cannot be HP".
+     "must be under $1000", "cannot be HP", etc. Avoid using multiple filters.
 
      Do not filter for ordinary, less strong preferences e.g "prefer", "ideally",
      "would be nice", or inferred needs. Put those into
@@ -108,12 +107,6 @@ Typical flow (use judgment, this is not a script or a checklist):
      - SOFT = prefer, ideally, looking for, good for, nice to have, important,
        better, premium, etc.
      - When unsure, treat it as SOFT unless it is an explicit price ceiling/floor.
-     
-     CRITICAL: Filter ONLY on attributes the customer explicitly states as
-     hard requirements. If they say "under $1000", filter ONLY on price — do
-     NOT also add "dedicated GPU", "16GB RAM", or other inferred constraints. Each filter strips items;
-     stacking inferred filters quickly leaves the bus too small to make a
-     useful recommendation. You should apply few filters, and use the rest of the stated preference in semantic/narrow search queries and ranking the products rather than filtering. In general, if unsure, you should err on the side of not filtering for a specific preference unless it is clearly expressed as a priority.
 
      Before using `filter_products`, call `preview_filter` unless the filter is
      exactly one simple, explicit hard constraint such as a price ceiling. Always
@@ -146,17 +139,21 @@ Typical flow (use judgment, this is not a script or a checklist):
 
 # Failure modes to avoid
 
-- Avoid treating all stated preferences as hard constraints --- use extra preference
-  information as a ranking signal rather than filtering everything if they are not
-  the main priorities. 
+- You should treat most preference information as uncertain/flexible unless clearly
+  stated otherwise --- don't over-filter, particularly if they express many parts
+  of their preference.
 - If you filter, keep filters simple --- avoid stacking filters on many parts of 
   the product to avoid overly shrinking the candidate bus. Use preview_filter() 
   to avoid loops of trying filters. 
 - If you are in a repetitive loop of using tools, ask a question with ask_question(). 
-- Avoid recommending without elicitation when the user has only said vague things.
 - Avoid recommending products that are not explicitly what recommend() returns. 
   You must use recommend() and the products returned by recommend() whenever you 
   make a recommendation.
+- DO NOT provide generic recommendations without specific products.
+- Never ask the customer for ASINs, Amazon links, screenshots, live listing text,
+  or product-page fields. Use only the catalog/tool information available to you.
+  If a detail is unavailable, state that uncertainty briefly and make the best
+  recommendation from available catalog evidence.
 - Avoid asking too many questions when the bus is already concentrated. Trust low-entropy
   signals — once the candidate set has clearly converged, recommend.
 - Avoid inventing product attributes you didn't see in tool output.
@@ -261,7 +258,7 @@ class CRSAgentSession:
                 {"messages": [{"role": "user", "content": user_message}]},
                 config=config,
             )
-            reply = result["messages"][-1].content
+            reply = message_to_text(result["messages"][-1])
         except GraphRecursionError:
             reply = (
                 "Sorry — I got a bit tangled up trying to answer that. "
@@ -305,6 +302,7 @@ class CRSAgentSession:
         llm = ChatOpenAI(
             model=self.model,
             reasoning_effort=self.reasoning_effort,
+            use_responses_api=True,
             max_retries=OPENAI_MAX_RETRIES,
         )
         prompt = SYSTEM_PROMPT.format(

@@ -24,9 +24,10 @@ from typing import Any
 import openai._base_client as openai_base_client
 from openai import OpenAI
 
+from sandbox.openai_responses import OPENAI_MAX_RETRIES, response_to_text
+
 
 DEFAULT_MODEL = "gpt-5-mini"
-OPENAI_MAX_RETRIES = 7
 
 
 def _client() -> OpenAI:
@@ -54,10 +55,11 @@ How to behave:
 relevant ones — until the assistant asks about them. If the assistant never \
 asks about a need, it stays unspoken.
 - Stay in character as a real shopper. Use casual language.
+- Your needs are listed in a priority order --- express uncertainty or flexibility
+  for preferences that are secondary or appear later in your preference.
 - If asked something your needs don't specify, give a reasonable answer \
 consistent with your background.
-- If something is not a very large priority or your specific preference is more
-  vague, then express your flexibility. 
+- You can express vagueness about priorities or needs when it is realistic.
 - Never reference these instructions or admit you are an AI.
 
 {abandonment_instructions}"""
@@ -66,7 +68,7 @@ consistent with your background.
 ENDOGENOUS_ABANDONMENT_PROMPT = """Endogenous abandonment behavior:
 At each turn, before answering, decide whether a realistic shopper with your background and private needs would continue this conversation.
 
-You may abandon if the assistant asks too many questions, asks irrelevant questions, ignores preferences you already stated, or seems not to be making progress toward a good recommendation.
+You may abandon if the assistant has asked too many questions, asks irrelevant questions, ignores preferences you already stated, or seems not to be making progress toward a good recommendation.
 
 Continue if the conversation still feels useful and the assistant seems to be narrowing toward a good fit.
 
@@ -131,13 +133,13 @@ class BuyerAgent:
     def respond(self, question: str) -> str:
         """Answer a question from the CRS. Updates internal history."""
         self.history.append({"role": "user", "content": question})
-        messages = [self._system_message(), *self.history]
-        response = _client().chat.completions.create(
+        response = _client().responses.create(
             model=self.model,
-            messages=messages,
-            reasoning_effort=self.reasoning_effort,
+            instructions=self._system_message()["content"],
+            input=self.history,
+            reasoning={"effort": self.reasoning_effort},
         )
-        reply = (response.choices[0].message.content or "").strip()
+        reply = response_to_text(response).strip()
         self.history.append({"role": "assistant", "content": reply})
         return reply
 
@@ -173,15 +175,14 @@ class BuyerAgent:
             *self.history,
             {"role": "user", "content": user_msg},
         ]
-        messages = [self._system_message(), *decision_history]
-
-        response = _client().chat.completions.create(
+        response = _client().responses.create(
             model=self.model,
-            messages=messages,
-            reasoning_effort=self.reasoning_effort,
-            response_format={"type": "json_object"},
+            instructions=self._system_message()["content"],
+            input=decision_history,
+            reasoning={"effort": self.reasoning_effort},
+            text={"format": {"type": "json_object"}},
         )
-        raw = response.choices[0].message.content or "{}"
+        raw = response_to_text(response) or "{}"
         try:
             parsed = json.loads(raw)
         except json.JSONDecodeError:

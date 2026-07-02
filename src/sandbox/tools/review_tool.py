@@ -6,7 +6,7 @@
       reviews speak about an aspect.
 
 Cache file: data/categories/<cat>/review_cache.json, keyed by (asin, aspect|"_overall").
-Calls gpt-5-mini with reasoning_effort=minimal (cheap; this is mostly summarization).
+Calls gpt-5-mini with reasoning_effort=low (cheap; this is mostly summarization).
 
 Cost rough estimate:
     - summarize_reviews:           ~$0.0003 per call (300 input + 100 output tokens).
@@ -25,12 +25,12 @@ import openai._base_client as openai_base_client
 from openai import OpenAI
 
 from sandbox.catalog import REPO_ROOT, load_catalog, get_product, load_config
+from sandbox.openai_responses import OPENAI_MAX_RETRIES, response_to_text
 from sandbox.tools.candidate_bus import CandidateBus
 
 
 MODEL = "gpt-5-mini"
-REASONING = "minimal"
-OPENAI_MAX_RETRIES = 7
+REASONING = "low"
 
 
 def _client() -> OpenAI:
@@ -103,13 +103,13 @@ def summarize_reviews(category: str, asin: str, aspect: str | None = None) -> di
         f"  evidence: 1 short sentence quoting or paraphrasing the most representative review snippet."
     )
 
-    resp = _client().chat.completions.create(
+    resp = _client().responses.create(
         model=MODEL,
-        messages=[{"role": "user", "content": prompt}],
-        reasoning_effort=REASONING,
-        response_format={"type": "json_object"},
+        input=prompt,
+        reasoning={"effort": REASONING},
+        text={"format": {"type": "json_object"}},
     )
-    raw = resp.choices[0].message.content or "{}"
+    raw = response_to_text(resp) or "{}"
     try:
         parsed = json.loads(raw)
     except json.JSONDecodeError:
