@@ -36,10 +36,8 @@ The shopping assistant — codenamed **rufus-femto** — is a LangGraph ReAct-st
 git clone <your-fork>
 cd crs-sandbox
 
-# Choose one install:
-pip install -r requirements.txt       # full interactive/scraping stack
-# OR:
-pip install -r requirements-eval.txt  # controlled evaluation + local BGE inference
+# Full interactive, scraping, and controlled-evaluation stack
+pip install -r requirements.txt
 
 playwright install chromium      # full stack only; needed only if you re-scrape
 
