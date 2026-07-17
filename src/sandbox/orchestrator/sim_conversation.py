@@ -96,6 +96,7 @@ class SimConversation:
     buyer_model: str = "gpt-5-mini-2025-08-07"
     recommender_model: str = "gpt-5-mini-2025-08-07"
     retrieval_limit: int = 15
+    carry_forward_recommendations: bool = False
 
     # Allow caller to pass pre-constructed agents for testing/customization.
     buyer: Optional["BuyerAgent"] = None
@@ -120,6 +121,7 @@ class SimConversation:
                 model=self.recommender_model,
                 elicitation_policy=self.elicitation_policy,
                 retrieval_limit=self.retrieval_limit,
+                carry_forward_recommendations=self.carry_forward_recommendations,
             )
         self._rng = random.Random(self.abandonment_seed)
 
@@ -162,6 +164,7 @@ class SimConversation:
         self,
         crs_out: dict[str, Any],
         existing: list[dict[str, Any]],
+        terminal_resolution: dict[str, Any] | None = None,
     ) -> list[dict[str, Any]]:
         """Score hidden snapshots without changing the active buyer conversation.
 
@@ -190,7 +193,8 @@ class SimConversation:
         )
         evaluator = getattr(self.buyer, "evaluate_snapshot", None)
 
-        for snapshot in crs_out.get("new_checkpoints") or []:
+        snapshots = crs_out.get("new_checkpoints") or []
+        for snapshot_index, snapshot in enumerate(snapshots):
             record = dict(snapshot)
             recs = snapshot.get("recommendations") or []
             if snapshot.get("terminal_status") == "NO_FEASIBLE_MATCH":
@@ -207,7 +211,10 @@ class SimConversation:
                 )
                 records.append(record)
                 continue
-            if not callable(evaluator):
+            reuse_terminal = (
+                terminal_resolution is not None and snapshot_index == len(snapshots) - 1
+            )
+            if not reuse_terminal and not callable(evaluator):
                 record.update(
                     {
                         "evaluation_status": "unscored_no_checkpoint_evaluator",
@@ -219,8 +226,11 @@ class SimConversation:
                 records.append(record)
                 continue
             try:
-                decision = evaluator(recs)
-                resolved = self._resolve_decision(decision, recs)
+                if reuse_terminal:
+                    resolved = terminal_resolution
+                else:
+                    decision = evaluator(recs)
+                    resolved = self._resolve_decision(decision, recs)
             except Exception as exc:
                 record.update(
                     {
@@ -247,6 +257,11 @@ class SimConversation:
             record.update(
                 {
                     "evaluation_status": "scored",
+                    "evaluation_source": (
+                        "terminal_buyer_decision_reused"
+                        if reuse_terminal
+                        else "hidden_snapshot_buyer_call"
+                    ),
                     "counterfactual_decision_raw": resolved["decision"],
                     "counterfactual_outcome": resolved["outcome_label"],
                     "counterfactual_purchased_asin": resolved["purchased_asin"],
@@ -432,10 +447,11 @@ class SimConversation:
             "category": crs_out.get("category"),
             "turn": 1,
         }
-        new_checkpoints = self._evaluate_new_checkpoints(crs_out, checkpoint_records)
-        checkpoint_records.extend(new_checkpoints)
-        for checkpoint in new_checkpoints:
-            yield {"type": "checkpoint", "checkpoint": checkpoint, "turn": 0}
+        if not self._recommendations_are_terminal(crs_out):
+            new_checkpoints = self._evaluate_new_checkpoints(crs_out, checkpoint_records)
+            checkpoint_records.extend(new_checkpoints)
+            for checkpoint in new_checkpoints:
+                yield {"type": "checkpoint", "checkpoint": checkpoint, "turn": 0}
 
         if crs_out.get("terminal_status") == "NO_FEASIBLE_MATCH":
             yield {"type": "outcome", "outcome": SimOutcome(
@@ -567,10 +583,14 @@ class SimConversation:
                 "category": crs_out.get("category"),
                 "turn": turn,
             }
-            new_checkpoints = self._evaluate_new_checkpoints(crs_out, checkpoint_records)
-            checkpoint_records.extend(new_checkpoints)
-            for checkpoint in new_checkpoints:
-                yield {"type": "checkpoint", "checkpoint": checkpoint, "turn": turn}
+            # The terminal checkpoint is scored from the actual final buyer
+            # decision below. Deferring it avoids evaluating the same history
+            # and recommendation slate in two independent model calls.
+            if not self._recommendations_are_terminal(crs_out):
+                new_checkpoints = self._evaluate_new_checkpoints(crs_out, checkpoint_records)
+                checkpoint_records.extend(new_checkpoints)
+                for checkpoint in new_checkpoints:
+                    yield {"type": "checkpoint", "checkpoint": checkpoint, "turn": turn}
 
         # ---- terminal ----
         if not self._recommendations_are_terminal(crs_out):
@@ -611,6 +631,14 @@ class SimConversation:
             return
 
         resolved = self._resolve_decision(decision, recs)
+        terminal_checkpoints = self._evaluate_new_checkpoints(
+            crs_out,
+            checkpoint_records,
+            terminal_resolution=resolved,
+        )
+        checkpoint_records.extend(terminal_checkpoints)
+        for checkpoint in terminal_checkpoints:
+            yield {"type": "checkpoint", "checkpoint": checkpoint, "turn": len(dialogue) // 2}
         reason = resolved["decision"].get("reasoning") or ""
         outcome_label = resolved["outcome_label"]
         dialogue.append({"role": "user", "content": f"{reason} [{outcome_label}]".strip()})

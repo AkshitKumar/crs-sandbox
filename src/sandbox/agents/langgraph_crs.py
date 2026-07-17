@@ -205,6 +205,7 @@ class CRSAgentSession:
     reasoning_effort: str = DEFAULT_REASONING
     elicitation_policy: Optional[ElicitationPolicy] = None
     retrieval_limit: int = 15
+    carry_forward_recommendations: bool = False
     ledger: PreferenceLedger = field(default_factory=PreferenceLedger)
     question_ids: list[str] = field(default_factory=list)
     recommendation_source: Optional[str] = None
@@ -491,6 +492,7 @@ class CRSAgentSession:
             asks_so_far=asks_so_far,
             query=query,
             key_query=key_query,
+            prior_recommendations=self._prior_recommendations(),
         )
         self.checkpoints.append(snapshot)
         self._new_checkpoints_this_turn.append(snapshot)
@@ -528,6 +530,7 @@ class CRSAgentSession:
                 asks_so_far=self.asks_so_far,
                 query=query,
                 key_query=key_query,
+                prior_recommendations=self._prior_recommendations(),
             )
         self._apply_snapshot(snapshot)
         self.recommendation_finalized_this_turn = snapshot.recommendations is not None
@@ -558,6 +561,11 @@ class CRSAgentSession:
             for index, product in enumerate(details)
         )
         return f"recommendation finalized ({len(details)} products):\n{summary}"
+
+    def _prior_recommendations(self) -> list[dict[str, Any]] | None:
+        if not self.carry_forward_recommendations or not self.checkpoints:
+            return None
+        return self.checkpoints[-1].recommendations
 
     def _force_next_question(self) -> str | None:
         try:

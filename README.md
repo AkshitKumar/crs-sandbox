@@ -7,7 +7,8 @@ Explicit policies constrain only its question and recommendation tools: `REC`
 asks nothing and freezes a curated category slate, while `ATR(k)` asks exactly
 `k` fixed, neutral questions before the agent supplies full and focused retrieval queries.
 Local BGE/BM25 hybrid retrieval produces 15 candidates, and one model call selects and
-briefly explains three. See
+briefly explains three. An opt-in evaluation flag can also append the immediately
+prior three recommendations, for a deduplicated reranker pool of at most 18. See
 [EVALUATION_PROTOCOL.md](EVALUATION_PROTOCOL.md) before interpreting results.
 The recommendation path performs no local training or fine-tuning and requires no
 fitted relevance model; it uses a pinned pretrained BGE encoder for inference.
@@ -25,7 +26,7 @@ The shopping assistant — codenamed **rufus-femto** — is a LangGraph ReAct-st
 | **Tools** | Explicit modules for feasibility, filtering, semantic search, ranking, uncertainty, inspection, questions, and candidate-bus state | `src/sandbox/tools/` |
 | **rufus-femto agent** | LangGraph ReAct loop wrapping the tool layer; per-conversation Candidate Bus state; entropy-driven ask-vs-recommend gate | `src/sandbox/agents/langgraph_crs.py` |
 | **Buyer simulator** | LLM conditioned on a hidden persona; answers only what's asked; makes a structured PURCHASE / NO_PURCHASE + WTP decision when shown recommendations | `src/sandbox/agents/buyer.py` |
-| **Recommendation pipeline** | Retrieves 15 products from the ReAct agent's query and validates one combined select-and-explain response; also produces non-mutating hidden checkpoints | `src/sandbox/agents/recommendation_pipeline.py` |
+| **Recommendation pipeline** | Retrieves 15 fresh products from the ReAct agent's query and validates one combined select-and-explain response; an opt-in continuity mode can also carry the prior three into the reranker | `src/sandbox/agents/recommendation_pipeline.py` |
 | **Sim orchestrator** | Pairs the buyer with the same CRS under adaptive or fixed tool gates; records a manifest and validated outcome | `src/sandbox/orchestrator/sim_conversation.py` |
 | **Streamlit pages** | Three local UIs — see [Interactive pages](#interactive-pages) below | `scripts/chat.py`, `scripts/live_sim.py`, `scripts/visualize_eval.py` |
 | **Eval CLI** | Runs N personas adaptively by default, or under explicit `rec`/`atr(k)` controls; writes ordered transcripts, summary, and run manifest | `scripts/run_buyer_eval.py` |

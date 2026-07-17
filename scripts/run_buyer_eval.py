@@ -64,6 +64,7 @@ def _run_one(
     buyer_model: str,
     recommender_model: str,
     retrieval_limit: int,
+    carry_forward_recommendations: bool,
 ) -> SimOutcome:
     sim = SimConversation(
         persona=persona,
@@ -76,6 +77,7 @@ def _run_one(
         buyer_model=buyer_model,
         recommender_model=recommender_model,
         retrieval_limit=retrieval_limit,
+        carry_forward_recommendations=carry_forward_recommendations,
     )
     return sim.run()
 
@@ -254,7 +256,7 @@ def _build_manifest(
     index_manifest = json.loads(index_manifest_path.read_text())
     status = _git_value("status", "--porcelain") or ""
     return {
-        "schema_version": "evaluation-manifest-v7",
+        "schema_version": "evaluation-manifest-v9",
         "category": category,
         "policy": {
             "name": policy.name if policy is not None else "adaptive",
@@ -293,6 +295,16 @@ def _build_manifest(
                 if policy is not None and policy.has_nonterminal_checkpoints
                 else None
             ),
+            "carry_forward_recommendations": args.carry_forward_recommendations,
+            "maximum_reranker_candidates": (
+                args.retrieval_k + 3
+                if args.carry_forward_recommendations
+                and policy is not None
+                and policy.has_nonterminal_checkpoints
+                else (
+                    None if policy is not None and policy.name == "rec" else args.retrieval_k
+                )
+            ),
             "method": (
                 "curated default slate followed by one fixed-list personalized-prose API call"
                 if policy is not None and policy.name == "rec"
@@ -316,7 +328,10 @@ def _build_manifest(
                 if policy is not None and policy.has_nonterminal_checkpoints
                 else None
             ),
-            "timing": "hidden prefix snapshots 0..k; buyer history is not mutated",
+            "timing": (
+                "hidden buyer calls score prefixes 0..k-1; the actual terminal buyer decision "
+                "is reused for prefix k; buyer history is not mutated by hidden scoring"
+            ),
         },
         "git_commit": _git_value("rev-parse", "HEAD"),
         "git_dirty": bool(status),
@@ -387,6 +402,14 @@ def main() -> int:
         help="dense candidates shown to the combined selector/explainer (default 15)",
     )
     parser.add_argument(
+        "--carry-forward-recommendations",
+        action="store_true",
+        help=(
+            "append the immediately prior three recommendations to each fresh retrieval pool; "
+            "off by default"
+        ),
+    )
+    parser.add_argument(
         "--out-dir",
         default=None,
         help="directory to write transcripts + summary (default: results/eval_<category>_<ts>/)",
@@ -409,6 +432,10 @@ def main() -> int:
             parser.error(str(e))
     elif args.numquestions is not None:
         parser.error("--numquestions requires --policy atr or checkpoint_atr")
+    if args.carry_forward_recommendations and (
+        elicitation_policy is None or not elicitation_policy.has_nonterminal_checkpoints
+    ):
+        parser.error("--carry-forward-recommendations requires --policy checkpoint_atr")
     if (
         elicitation_policy is not None
         and args.max_turns < elicitation_policy.target_asks + 1
@@ -442,6 +469,7 @@ def main() -> int:
     print(f"Running {len(personas)} personas against {args.category}")
     print(f"  parallel={args.parallel}  eta={args.eta}  max_turns={args.max_turns}")
     print(f"  endogenous_abandonment={args.endogenous_abandonment}")
+    print(f"  carry_forward_recommendations={args.carry_forward_recommendations}")
     if elicitation_policy is not None:
         print(f"  policy={elicitation_policy.name}  numquestions={elicitation_policy.target_asks}")
     else:
@@ -488,6 +516,7 @@ def main() -> int:
                     args.buyer_model,
                     args.recommender_model,
                     args.retrieval_k,
+                    args.carry_forward_recommendations,
                 ): (i, p)
                 for i, p in enumerate(personas)
             }
@@ -531,6 +560,7 @@ def main() -> int:
     summary["max_turns"] = args.max_turns
     summary["eta"] = args.eta
     summary["endogenous_abandonment"] = args.endogenous_abandonment
+    summary["carry_forward_recommendations"] = args.carry_forward_recommendations
     if elicitation_policy is not None:
         summary["policy"] = elicitation_policy.name
         summary["numquestions"] = elicitation_policy.target_asks

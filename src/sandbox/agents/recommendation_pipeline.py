@@ -22,7 +22,7 @@ from sandbox.product_text import serialize_product
 from sandbox.tools.search_tool import semantic_scores
 
 
-PROTOCOL_VERSION = "react-query-recommend-v3"
+PROTOCOL_VERSION = "react-query-recommend-v5"
 DEFAULT_MODEL = "gpt-5-mini-2025-08-07"
 DEFAULT_RETRIEVAL_LIMIT = 15
 
@@ -577,6 +577,7 @@ class RecommendationPipeline:
         asks_so_far: int,
         query: str | None,
         key_query: str | None = None,
+        prior_recommendations: list[dict[str, Any]] | None = None,
     ) -> RecommendationSnapshot:
         if asks_so_far == 0 and ledger.hard_budget_max is None:
             return self.default_snapshot(
@@ -601,7 +602,14 @@ class RecommendationPipeline:
             eligible_products=eligible,
             limit=self.retrieval_limit,
         )
+        retrieval = self._include_prior_recommendations(
+            retrieval,
+            prior_recommendations=prior_recommendations,
+            eligible_products=eligible,
+        )
         source = "agent_query_hybrid_then_model" if query else "ledger_fallback_hybrid_then_model"
+        if any("carry_forward" in sources for sources in retrieval.lane_sources.values()):
+            source = source.replace("_then_model", "_plus_carry_forward_then_model")
         return self._select_and_explain(
             ledger=ledger,
             question_ids=question_ids,
@@ -622,6 +630,7 @@ class RecommendationPipeline:
         asks_so_far: int,
         query: str,
         key_query: str | None = None,
+        prior_recommendations: list[dict[str, Any]] | None = None,
     ) -> RecommendationSnapshot:
         """Retrieve 15 products from the agent's query, then select and explain three."""
         query_text = query.strip()
@@ -637,16 +646,59 @@ class RecommendationPipeline:
             eligible_products=eligible,
             limit=self.retrieval_limit,
         )
+        retrieval = self._include_prior_recommendations(
+            retrieval,
+            prior_recommendations=prior_recommendations,
+            eligible_products=eligible,
+        )
+        source = "agent_query_hybrid_then_model"
+        if any("carry_forward" in sources for sources in retrieval.lane_sources.values()):
+            source = "agent_query_hybrid_plus_carry_forward_then_model"
         return self._select_and_explain(
             ledger=ledger,
             question_ids=question_ids,
             asks_so_far=asks_so_far,
             candidates=retrieval.products,
-            source="agent_query_hybrid_then_model",
+            source=source,
             retrieval=retrieval,
             retrieval_query=query_text,
             retrieval_key_query=(key_query or query_text).strip(),
             eligible_count=len(eligible),
+        )
+
+    @staticmethod
+    def _include_prior_recommendations(
+        retrieval: CandidateRetrieval,
+        *,
+        prior_recommendations: list[dict[str, Any]] | None,
+        eligible_products: list[dict[str, Any]],
+    ) -> CandidateRetrieval:
+        """Append the prior three recommendations without changing fresh retrieval.
+
+        Products already present in the fresh pool remain in their original position.
+        Products made ineligible by a newly revealed hard budget are not retained.
+        """
+        if not prior_recommendations:
+            return retrieval
+        eligible_by_asin = {
+            product["asin"]: product for product in eligible_products if product.get("asin")
+        }
+        products = list(retrieval.products)
+        seen = {product.get("asin") for product in products}
+        lane_sources = {
+            asin: list(sources) for asin, sources in retrieval.lane_sources.items()
+        }
+        for prior in prior_recommendations:
+            asin = prior.get("asin")
+            if not asin or asin in seen or asin not in eligible_by_asin:
+                continue
+            products.append(eligible_by_asin[asin])
+            lane_sources[asin] = ["carry_forward"]
+            seen.add(asin)
+        return CandidateRetrieval(
+            products=products,
+            scores=dict(retrieval.scores),
+            lane_sources=lane_sources,
         )
 
     def _select_and_explain(
