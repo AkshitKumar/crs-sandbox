@@ -17,6 +17,9 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 
+# Developer-only protocol checks (not part of the shared research repository)
+.local-tests/
+
 # OS
 .DS_Store
 

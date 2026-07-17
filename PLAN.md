@@ -68,6 +68,7 @@ The exact thresholds need calibration against real conversations — this is wha
 | Question banks | ✅ both pilot categories | `data/categories/<cat>/questions.yaml` |
 | Personas (self-contained) | ✅ 100 each | `data/categories/<cat>/personas.json` |
 | Index builder (bge embeddings + per-cat centroid) | ✅ | `src/sandbox/index/builder.py` |
+| Shared dense top-15 + bounded LLM reranking | ✅ | `src/sandbox/agents/recommendation_pipeline.py` |
 | Laptop + air_purifier indices | ✅ built | `data/categories/<cat>/index/` |
 | Tool layer (10 modules) | ✅ | `src/sandbox/tools/` |
 | Buyer agent (LLM, multi-turn-aware) | ✅ | `src/sandbox/agents/buyer.py` |
@@ -77,7 +78,6 @@ The exact thresholds need calibration against real conversations — this is wha
 | Streamlit · live buyer×CRS sim | ✅ | `scripts/live_sim.py` (port 8503) |
 | Streamlit · transcript browser | ✅ | `scripts/visualize_eval.py` (port 8502) |
 | Batch eval CLI | ✅ | `scripts/run_buyer_eval.py` |
-| Tool-layer integration test | ✅ | `scripts/test_tools.py` |
 | Terminal REPL | ✅ | `scripts/repl.py` |
 
 **What's worth iterating on next (open):**
@@ -87,6 +87,21 @@ The exact thresholds need calibration against real conversations — this is wha
 - Surfacing the entropy signal in the live UI so you can watch the ask-vs-recommend gate fire in real time.
 - More categories — the embedding-based feasibility fallback gets stronger margins as the catalog of categories grows.
 - A "diff against ground truth" panel that highlights which persona attributes were elicited vs stayed hidden.
+
+### Controlled-evaluation ranking note (2026-07-13)
+
+The recommender no longer uses category-specific evidence weights. `REC` and
+checkpoint 0 use the curated three-product slate declared in the category
+config. `CRSAgentSession` is the conversational agent in every arm. For a
+terminal recommendation it supplies a natural-language embedding query; the
+shared pipeline uses the pinned BGE index to retrieve 15 and one constrained
+`gpt-5-mini` call chooses three structured cards and briefly explains each.
+Hidden checkpoints reuse the latest query the ReAct agent actually supplied,
+without a separate query-normalization call. Lightweight cross-encoders
+were rejected after whole-catalog checks exposed SEO-heavy rankings. Only
+explicit hard budgets are structurally enforced; other responses remain soft
+preferences. Controlled questions use fixed YAML order and neutral wording. The buyer reports
+uncertainty rather than inventing a requirement when its persona is silent.
 
 ## 6. Tool layer specification
 
@@ -148,10 +163,6 @@ This is the contract for what each tool does and how it's implemented. The CRS a
   3. **v2 (best, far-future)**: a fine-tuned small model on collected `(persona, product, purchased?)` pairs from buyer-simulator runs.
 - **Why this matters**: this is exactly the mechanism the paper's "commission objective" formalizes. Here, the agent surfaces high-price items the user is likely to actually buy — boosting expected commission, possibly at the cost of pure match quality.
 
-#### `rank_by_review_sentiment(bus: CandidateBus, aspect: str) -> CandidateBus`
-- **What**: Rank items by how well reviewers speak to a specific aspect ("how is the battery", "are the thermals good"). 
-- **How**: For each item's review excerpts, call gpt-5-mini once with a fixed prompt: *"On a 0–1 scale, how positively do these reviews speak about {aspect}? Return JSON: {score: float, evidence: str}."* Cache results per (asin, aspect).
-
 ### Inspection
 
 #### `get_product_details(asin: str) -> ProductRecord`
@@ -161,10 +172,6 @@ This is the contract for what each tool does and how it's implemented. The CRS a
 #### `compare(asins: list[str], aspects: list[str]) -> ComparisonTable`
 - **What**: Side-by-side attribute table for 2–4 products on specified aspects.
 - **How**: For each (asin, aspect), pull from the structured-spec table if scraped, else fall back to an LLM extraction from bullets/description. Cache the extractions.
-
-#### `summarize_reviews(asin: str, aspect: str | None) -> str`
-- **What**: Concise summary of what reviewers actually say.
-- **How**: LLM call over `review_excerpts`. Cache by `(asin, aspect)`.
 
 ### Question selection
 
@@ -240,9 +247,7 @@ Each step below is a self-contained module. Build incrementally, test each in is
 | B4 | `check_category_supported` | Per-category centroid embeddings, computed once. Cosine-sim check at runtime. | 1 hr |
 | B5 | `catalog_overview` | Precomputed JSON per category. | 30 min |
 | B6 | `get_product_details`, `compare` | Lookup + structured comparison. Compare builds a markdown table the LLM can read. | 1 hr |
-| B7 | `summarize_reviews(asin, aspect)` | gpt-5-mini call, cached by `(asin, aspect)`. | 1 hr |
 | B8 | `rank_by_commission` with v0 P(purchase) | Hand-tuned logistic. Returns ranked bus + per-item commission score for the audit trail. | 2 hr |
-| B9 | `rank_by_review_sentiment(aspect)` | gpt-5-mini batched scoring, cached. | 1 hr |
 | B10 | `compute_uncertainty` | Numpy + state-tracking for attribute coverage. Returns entropy + diversity dict. | 2 hr |
 | B11 | `generate_targeted_question` | Top-K diversity → pick attribute → map to question from bank. | 2 hr |
 
@@ -314,8 +319,8 @@ If we want them: turn the agent's `rank_by_match` weights and `rank_by_commissio
 - 2026-06-04: Locked decisions. ScraperAPI Hobby ✅. Capture maximal product detail (spec table + bullets + reviews + everything). Finer-grained tools. LangGraph for the agent. Streamlit for the chat UI. Human-only chat mode for now.
 - 2026-06-04: Phase A done for laptop + air_purifier (167 + 100 products with median 60 / 26 spec fields). Scope reduced to these two categories for the initial chatbot test on the ScraperAPI free trial (~1k credits spent, ~4k remaining). Other 38 categories deferred until after chatbot v1 works and we upgrade to Hobby plan.
 - 2026-06-04: A3 (LLM attribute extraction) deferred — spec tables alone provide median 60 fields/laptop, sufficient for the filter tool. Revisit if filtering hits accuracy issues during chatbot testing.
-- 2026-06-04: **Phase B complete.** 8 tool modules under `src/sandbox/tools/`: candidate_bus, filter_tool, search_tool, ranking_tool, uncertainty_tool, inspect_tool, review_tool, feasibility_tool. Each unit-tested. Integration test [`scripts/test_tools.py`](scripts/test_tools.py) composes the full pipeline.
-- 2026-06-04: **Phase C complete.** LangGraph ReAct-style agent at [`src/sandbox/agents/langgraph_crs.py`](src/sandbox/agents/langgraph_crs.py) with 17 tools registered, InMemorySaver checkpointer for multi-turn memory, system prompt that documents the decision policy. Multi-turn smoke test: 4-turn conversation produced filter→narrow_search→rank→recommend chain, entropy dropped from 1.00 to 0.34, agent surfaced 3 well-matched gaming laptops within budget. ~$0.10 in API cost for one full conversation.
+- 2026-06-04: **Phase B complete.** Initial tool modules and manual tool walkthrough assembled. The unused review-summary module and walkthrough were removed on 2026-07-15.
+- 2026-06-04: **Phase C complete.** LangGraph ReAct-style agent at [`src/sandbox/agents/langgraph_crs.py`](src/sandbox/agents/langgraph_crs.py) with 18 tools registered, InMemorySaver checkpointer for multi-turn memory, system prompt that documents the decision policy. Multi-turn smoke test: 4-turn conversation produced filter→narrow_search→rank→recommend chain, entropy dropped from 1.00 to 0.34, agent surfaced 3 well-matched gaming laptops within budget. ~$0.10 in API cost for one full conversation.
 - 2026-06-04: **Phase D complete.** Streamlit chat UI at [`scripts/chat.py`](scripts/chat.py). Two-pane layout: chat on left, agent-thinking trace on right (per-turn tool-call breakdown + persistent bus inspector with audit trail and top-10 ASIN list). Recommendation cards render at the bottom of the chat when the agent finalizes. Run with `streamlit run scripts/chat.py`.
 - 2026-06-04: Rebranded the agent UI as **rufus-femto**. Recommendation cards reworked into bordered containers with formatted price pills, star ratings + review counts, brand chips, expandable bullets, "View on Amazon" link.
 - 2026-06-04: Recommendation guard added — `recommend(top_k=3)` now refuses when the bus has fewer than `top_k` items, forcing the agent to relax filters or re-search instead of shipping a one-product set. Added `reset_bus_to_full_catalog()` tool. System prompt updated with anti-over-filtering rule.

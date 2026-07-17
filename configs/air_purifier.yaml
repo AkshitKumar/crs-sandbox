@@ -5,6 +5,12 @@ catalog_path: data/categories/air_purifier/products.jsonl
 questions_path: data/categories/air_purifier/questions.yaml
 index_dir: data/categories/air_purifier/index
 
+# Fixed zero-information recommendation shown by REC and checkpoint 0.
+default_slate:
+  - B07VVK39F7  # Levoit Core 300-P: compact/value option, rating-volume rank 4
+  - B0DJG1731C  # Winix 5510: established midrange large-room option, rank 11
+  - B0BN2MGV5H  # Blueair 211i Max: premium large-room option, rank 44
+
 scrape:
   seed_queries:
     - "air purifier"
@@ -21,12 +27,3 @@ scrape:
     - "multi room air purifier"
   target_products: 300
   reviews_per_product: 8
-
-ranking_defaults:
-  semantic_weight: 1.0
-  price_sensitivity: 0.0
-  rating_weight: 0.0
-  popularity_weight: 0.0
-  sponsored_slots: 0
-  niche_boost: 0.0
-  top_k: 3

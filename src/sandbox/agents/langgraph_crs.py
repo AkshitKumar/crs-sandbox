@@ -9,11 +9,12 @@ Each conversation lives in a `CRSAgentSession` that holds:
 
 Tools are defined inside `_make_tools` as closures over the session, so the
 LLM doesn't need to pass the bus around in arguments — it just calls
-`filter_products(price_max=1100)` and the session updates its bus.
+`semantic_search_full(...)` or `rank_by_match(...)` and the session updates its
+bus.
 
-When the agent decides to recommend, it calls `recommend(top_k)` which freezes
-the current bus's top-K into `session.recommendations` for the chat UI to
-render as cards.
+When the agent decides to recommend, it calls `recommend(query=..., key_query=...)`.
+The shared pipeline builds a 15-product hybrid recall pool and asks one model
+call to choose and briefly explain three of them.
 """
 
 from __future__ import annotations
@@ -30,6 +31,12 @@ from langgraph.errors import GraphRecursionError
 from langgraph.prebuilt import create_react_agent
 
 from sandbox.catalog import load_catalog, load_config
+from sandbox.agents.recommendation_pipeline import (
+    PROTOCOL_VERSION,
+    PreferenceLedger,
+    RecommendationPipeline,
+    RecommendationSnapshot,
+)
 from sandbox.elicitation_policy import ElicitationPolicy
 from sandbox.tools.candidate_bus import CandidateBus
 from sandbox.tools.feasibility_tool import (
@@ -45,9 +52,8 @@ from sandbox.tools.ranking_tool import (
     rank_by_match,
     rank_by_price,
 )
-from sandbox.tools.review_tool import summarize_reviews
 from sandbox.tools.search_tool import narrow_search, semantic_search
-from sandbox.tools.uncertainty_tool import compute_uncertainty, suggest_next_action
+from sandbox.tools.uncertainty_tool import ActionThresholds, compute_uncertainty, suggest_next_action
 from sandbox.openai_responses import OPENAI_MAX_RETRIES, message_to_text
 
 
@@ -71,95 +77,67 @@ that. Do not invent products.
 
 # How to drive the conversation
 
-You are working with a hidden "Candidate Bus" — the set of products you're
-considering. Tools restrict, rerank, or inspect the bus; the bus persists
-across tool calls within this conversation. You do not need to track it
-yourself; each tool's return value reports the current bus size.
+You are working with a hidden "Candidate Bus" while you explore the catalog.
+Search, filtering, ranking, and inspection tools can change or examine this bus,
+and it persists across tool calls. It is a workspace for reasoning, not the final
+recommendation set: `recommend(query=..., key_query=...)` always searches the
+full eligible catalog again from the queries you provide.
 
 Typical flow (use judgment, this is not a script or a checklist):
 
   1. If the customer's initial message is ambiguous about the product type,
-     call `check_category_supported` first. If supported, then set the category
-     by calling `set_category`. From then on every tool acts on that category.
-  2. Call `catalog_overview` and/or `available_filters` once early to know
-     what the catalog actually contains (price range, brands, filterable specs).
-  3. Ask the FIRST opener question via `ask_question()` (no topic argument).
-     Always ask the openers in their canonical order — they cover the broadest
-     attributes (use case, budget, form factor). Then, use ask_question()
-     whenever you ask follow-up questions.
-  4. After each customer answer, decide: ASK or RECOMMEND.
-     - If you decide to ASK, you should ask only one question at a time using
-       `ask_question`. 
-     - Call `compute_uncertainty` to get an entropy/diversity reading on the
-       current bus. Low entropy = ready to recommend. High entropy = ask more.
-     - You can also call `suggest_next_action` which composites this for you.
-  5. Use `filter_products` only for HARD constraints: explicit dealbreakers,
-     safety/compatibility requirements, and true ceilings/floors such as
-     "must be under $1000", "cannot be HP", etc. Avoid using multiple filters.
-
-     Do not filter for ordinary, less strong preferences e.g "prefer", "ideally",
-     "would be nice", or inferred needs. Put those into
-     `semantic_search_full`, `narrow_search`, `rank_by_match`, or the final
-     recommendation justification.
-
-     Classification rule:
-     - HARD = must, need, required, hard cap, etc..
-     - SOFT = prefer, ideally, looking for, good for, nice to have, important,
-       better, premium, etc.
-     - When unsure, treat it as SOFT unless it is an explicit price ceiling/floor.
-
-     Before using `filter_products`, call `preview_filter` unless the filter is
-     exactly one simple, explicit hard constraint such as a price ceiling. Always
-     preview multi-constraint, spec-based, brand-based, rating/review-based,
-     inferred, or already-filtered constraints. If preview leaves fewer than 5
-     products, do not apply the filter; rank/search instead.
-     
-  6. Use `semantic_search` to seed the bus from the entire catalog using a 
-     natural-language description of what the user wants. Use `narrow_search` 
-     to re-rank within the current bus contents after a filter.
-  7. Use `rank_by_match` for general "best match" ordering.
-     Use `rank_by_commission(budget_max=...)` when you've been told to
-     optimize for higher-revenue recommendations; pass the customer's budget.
-  8. Before recommending, optionally use `summarize_reviews` on the top 1–2
-     candidates to enrich your pitch.
-  9. When ready, call `recommend(top_k=3)` to finalize. Return a friendly
-     message explaining why each item fits the customer's needs.
+     call `check_category_supported` first. If supported, set the category with
+     `set_category`. From then on, every catalog tool acts on that category.
+  2. Use `catalog_overview` early when knowing the catalog's price range, brands,
+     or general contents would help.
+  3. Ask clarifying questions with `ask_question()`. Ask only one question at a
+     time. After each answer, decide whether another answer would materially
+     improve the recommendation or whether you know enough to recommend.
+  4. Use filters to remove clear mismatches, not to enforce every preference
+     exactly. Apply exact filters only to genuine hard constraints. For other
+     preferences, filter loosely enough to leave room for tradeoffs; if there is
+     no sensible loose filter, use search or ranking instead.
+  5. Use search, inspection, comparison, ranking, and uncertainty tools when they
+     help you understand the catalog or decide what to ask. They do not lock the
+     final products. Avoid long tool loops; use only the tools that help.
+  6. When ready, call `recommend(query=..., key_query=...)`. The query should
+     concisely cover all revealed preferences. The key query should be a short
+     phrase for the most important revealed requirement. Do not add assumptions
+     or hidden requirements. The tool retrieves 15 products from the full
+     hard-budget-eligible catalog and returns exactly three products with a short
+     personalized explanation for each. Those products and their order are final.
 
 # Style
 
 - Conversational, concise. Ask one question at a time — never stack multiple
-  questions or ask_question() calls in one turn.
-- Don't repeat back the user's words verbatim. Acknowledge briefly and ask.
-- Be thoughtful when using tools; prefer using fewer tools over many. 
+  questions or `ask_question()` calls in one turn.
+- Don't repeat back the customer's words verbatim. Acknowledge briefly and ask.
+- Be thoughtful when using tools; prefer using fewer tools over many.
 - Only your final no-tool assistant message for the turn is shown to the customer.
   It must be a complete customer-facing response.
-- NEVER reveal you're using tools or anything about the internal mechanics (like
-  the catalog, mention "ASINs", ask for help finding products, etc.); keep the 
-  conversation focused on the user and their preferences. 
+- NEVER reveal you're using tools or anything about the internal mechanics, such
+  as the catalog, Candidate Bus, embedding retrieval, or ASINs. Keep the
+  conversation focused on the customer and their preferences.
 
 # Failure modes to avoid
 
-- You should treat most preference information as uncertain/flexible unless clearly
-  stated otherwise --- don't over-filter, particularly if they express many parts
-  of their preference.
-- If you filter, keep filters simple --- avoid stacking filters on many parts of 
-  the product to avoid overly shrinking the candidate bus. Use preview_filter() 
-  to avoid loops of trying filters. 
-- If you are in a repetitive loop of using tools, ask a question with ask_question(). 
-- Avoid recommending products that are not explicitly what recommend() returns. 
-  You must use recommend() and the products returned by recommend() whenever you 
-  make a recommendation.
-- DO NOT provide generic recommendations without specific products.
+- Do not interpret every strongly worded preference as a hard filter. Unless the
+  customer gives a genuinely non-negotiable constraint, let retrieval and final
+  selection handle the tradeoff.
+- Do not assume that products currently at the top of the Candidate Bus will be
+  recommended. The final `recommend` query is the complete input to fresh
+  full-catalog retrieval, so include every important revealed preference in the
+  full query.
+- Use the exact products and order returned by `recommend()`. Do not replace,
+  rename, or add products in your customer-facing response.
+- Do not provide generic recommendations without specific catalog products.
 - Never ask the customer for ASINs, Amazon links, screenshots, live listing text,
-  or product-page fields. Use only the catalog/tool information available to you.
-  If a detail is unavailable, state that uncertainty briefly and make the best
-  recommendation from available catalog evidence.
-- Avoid asking too many questions when the bus is already concentrated. Trust low-entropy
-  signals — once the candidate set has clearly converged, recommend.
-- Avoid inventing product attributes you didn't see in tool output.
-- If the catalog does not have a product/exact match for the user, recommend the 
-  most similar products within the catalog. Do not ask the user for ideas, 
-  just relax some restrictions and try to find the best match available. 
+  or product-page fields. Use the catalog information available to you.
+- Avoid inventing product attributes you did not see. If a detail is unavailable,
+  state that uncertainty briefly and make the best recommendation from the
+  available evidence.
+- If the catalog has no exact match, recommend the closest available products;
+  do not ask the customer to find products for you.
 
 """
 
@@ -170,36 +148,34 @@ def _policy_prompt(policy: ElicitationPolicy) -> str:
 
 # Fixed elicitation policy for this run
 
-You are immediately recommending products to the user; ask zero clarifying 
-questions. Use the customer's initial request to search, filter, rank, and 
-recommend immediately.
+The experiment has already fixed the product category. Ask zero clarifying
+questions and call recommend(query="") during this turn. For this zero-information
+condition, recommend() freezes the category's curated initial slate; do not
+attempt to replace those products in prose.
 """
 
-    if policy.name == "atr_recs":
-        return f"""
-
-# Internal question budget for this run
-
-Use an internal question budget of {policy.target_asks}. Ask at most that many
-clarifying questions before ending the conversation. You may recommend before
-the budget is exhausted, and early recommendations without a purchase do not
-end the conversation. Once the budget is exhausted, make a final recommendation
-and end. Your goal is to provide the best possible recommendation with the
-information gathered within the question budget. Do not mention the question
-budget to the customer, what question you are on, etc. to the user. 
-"""
-
+    checkpoint_instruction = ""
+    if policy.has_nonterminal_checkpoints:
+        checkpoint_instruction = (
+            "After each customer answer, call semantic_search_full once with a concise full query "
+            "and a short key query for the most important preference revealed so far before asking "
+            "the next question."
+        )
     return f"""
 
 # Internal question budget for this run
 
-Use an internal question budget of {policy.target_asks}. Spend the full budget
-on one-at-a-time clarifying questions before recommending. Once the budget is
-exhausted, you must recommend with recommend(). The ask_question() and 
-recommend() tools will return with an indication to recommend at the correct 
-turn. Your goal is to provide the best possible recommendation with the 
-information gathered within the question budget. Do not mention the question 
-budget to the customer, what question you are on, etc. to the user. 
+The experiment has already fixed the product category. Use an internal question
+budget of {policy.target_asks}. Spend the full budget on one-at-a-time
+clarifying questions before recommending. ask_question() returns the next fixed
+experimental question; its topic argument cannot change that order. You may use
+the other catalog tools to interpret answers and prepare candidates.
+{checkpoint_instruction}
+Once the budget is exhausted, call recommend(query=..., key_query=...) with the
+current revealed preferences and the most important revealed requirement.
+The tools enforce the boundary. Do not
+mention the question budget, question number, or experimental policy to the
+customer.
 """
 
 
@@ -218,17 +194,55 @@ class CRSAgentSession:
     qtool: Optional[QuestionTool] = None
     asks_so_far: int = 0
     asked_question_this_turn: bool = False
+    pending_question_text: Optional[str] = None
+    recommendation_finalized_this_turn: bool = False
+    recommendation_prose_raw: Optional[str] = None
+    visible_reply_to_sync: Optional[str] = None
     recommendations: Optional[list] = None
-    best_candidate_snapshots: list[dict[str, Any]] = field(default_factory=list)
+    visible_dialogue: list[dict[str, str]] = field(default_factory=list)
     tool_log: list = field(default_factory=list)
     model: str = DEFAULT_MODEL
     reasoning_effort: str = DEFAULT_REASONING
     elicitation_policy: Optional[ElicitationPolicy] = None
+    retrieval_limit: int = 15
+    ledger: PreferenceLedger = field(default_factory=PreferenceLedger)
+    question_ids: list[str] = field(default_factory=list)
+    recommendation_source: Optional[str] = None
+    recommendation_validation_error: Optional[str] = None
+    recommendation_selection_raw: Optional[str] = None
+    recommendation_product_numbers: list[int] = field(default_factory=list)
+    retrieval_query: Optional[str] = None
+    retrieval_key_query: Optional[str] = None
+    retrieval_query_raw: Optional[str] = None
+    latest_embedding_query: Optional[str] = None
+    latest_key_query: Optional[str] = None
+    retrieval_candidate_asins: list[str] = field(default_factory=list)
+    retrieval_scores: dict[str, float] = field(default_factory=dict)
+    retrieval_lane_sources: dict[str, list[str]] = field(default_factory=dict)
+    eligible_count: Optional[int] = None
+    terminal_status: Optional[str] = None
+    checkpoints: list[RecommendationSnapshot] = field(default_factory=list)
 
     # The compiled LangGraph agent (lazily built once self exists).
     _agent: Any = None
     _checkpointer: Any = None
     _thread_id: str = field(default_factory=lambda: uuid.uuid4().hex[:12])
+    _pipeline: Optional[RecommendationPipeline] = None
+    _new_checkpoints_this_turn: list[RecommendationSnapshot] = field(default_factory=list)
+    _awaiting_answer_context: Optional[dict[str, str]] = None
+
+    def __post_init__(self) -> None:
+        if self.elicitation_policy is None:
+            return
+        if not self.category:
+            raise ValueError("controlled elicitation policies require a known category")
+        qtool = self._ensure_qtool()
+        available = len(qtool.bank.openers) + len(qtool.bank.followups_ordered)
+        if self.elicitation_policy.target_asks > available:
+            raise ValueError(
+                f"policy requests {self.elicitation_policy.target_asks} questions but "
+                f"{self.category!r} has only {available}"
+            )
 
     # ------------------------------------------------------------------
     # Public surface
@@ -239,23 +253,44 @@ class CRSAgentSession:
 
         `max_steps` is LangGraph's recursion_limit: roughly each tool call
         counts as 2 steps (agent decides → tool runs → agent reads result).
-        90 → ~45 tool calls per turn, generous for our 17-tool taxonomy.
+        90 → ~45 tool calls per turn, generous for our 18-tool taxonomy.
 
         If the agent hits the limit, we still return whatever tool calls
         happened plus a fallback message so the chat doesn't break.
         """
+        self.visible_dialogue.append({"role": "user", "content": user_message})
+        context = self._awaiting_answer_context or {"source": "initial_request"}
+        self.ledger.observe(user_message, **context)
+        self._awaiting_answer_context = None
+        self._new_checkpoints_this_turn = []
+        pending_checkpoint: tuple[int, list[str]] | None = None
+        if (
+            self.elicitation_policy is not None
+            and self.elicitation_policy.has_nonterminal_checkpoints
+            and self.asks_so_far < self.elicitation_policy.target_asks
+        ):
+            pending_checkpoint = (self.asks_so_far, list(self.question_ids))
+
         if self._agent is None:
             self._agent = self._build_agent()
 
         self.asked_question_this_turn = False
+        self.pending_question_text = None
+        self.recommendation_finalized_this_turn = False
         before_recs = self.recommendations
         config = {
             "configurable": {"thread_id": self._thread_id},
             "recursion_limit": max_steps,
         }
+        messages = []
+        if self.visible_reply_to_sync:
+            messages.append({"role": "assistant", "content": self.visible_reply_to_sync})
+            self.visible_reply_to_sync = None
+        messages.append({"role": "user", "content": user_message})
+
         try:
             result = self._agent.invoke(
-                {"messages": [{"role": "user", "content": user_message}]},
+                {"messages": messages},
                 config=config,
             )
             reply = message_to_text(result["messages"][-1])
@@ -265,7 +300,48 @@ class CRSAgentSession:
                 "Let me try a simpler approach. Could you restate what you're looking for "
                 "in one or two sentences?"
             )
-        self._snapshot_best_candidates()
+        original_reply = reply
+        if self.pending_question_text:
+            reply = self.pending_question_text
+        elif self.recommendation_finalized_this_turn and self.recommendations is not before_recs:
+            reply = self._render_recommendation_reply()
+        elif (
+            self.elicitation_policy is not None
+            and not self.elicitation_policy.allows_early_recommendations
+            and self.asks_so_far < self.elicitation_policy.target_asks
+            and not self.recommendations
+        ):
+            forced_question = self._force_next_question()
+            if forced_question:
+                reply = forced_question
+        elif (
+            self.elicitation_policy is not None
+            and self.asks_so_far >= self.elicitation_policy.target_asks
+            and not self.recommendations
+            and self.terminal_status is None
+        ):
+            self._finalize_recommendations(
+                query=self.latest_embedding_query or self.ledger.as_text(),
+                key_query=self.latest_key_query,
+            )
+            if self.terminal_status == "NO_FEASIBLE_MATCH":
+                reply = (
+                    "I couldn’t find a catalog option within the hard budget you gave me, "
+                    "so I won’t recommend an item that violates it."
+                )
+            else:
+                reply = self._render_recommendation_reply()
+        if pending_checkpoint is not None:
+            checkpoint_asks, checkpoint_question_ids = pending_checkpoint
+            self._capture_hidden_checkpoint(
+                asks_so_far=checkpoint_asks,
+                question_ids=checkpoint_question_ids,
+                query=self.latest_embedding_query,
+                key_query=self.latest_key_query,
+            )
+        if reply != original_reply:
+            self.visible_reply_to_sync = reply
+        self.visible_dialogue.append({"role": "assistant", "content": reply})
         new_recs = self.recommendations if self.recommendations is not before_recs else None
         return {
             "reply": reply,
@@ -273,19 +349,66 @@ class CRSAgentSession:
             "bus_size": self.bus.size() if self.bus else None,
             "asks_so_far": self.asks_so_far,
             "category": self.category,
+            "question_ids": list(self.question_ids),
+            "recommendation_source": self.recommendation_source,
+            "recommendation_validation_error": self.recommendation_validation_error,
+            "recommendation_selection_raw": self.recommendation_selection_raw,
+            "recommendation_prose_raw": self.recommendation_prose_raw,
+            "recommendation_product_numbers": list(self.recommendation_product_numbers),
+            "retrieval_query": self.retrieval_query,
+            "retrieval_key_query": self.retrieval_key_query,
+            "retrieval_query_raw": self.retrieval_query_raw,
+            "latest_embedding_query": self.latest_embedding_query,
+            "latest_key_query": self.latest_key_query,
+            "retrieval_candidate_asins": list(self.retrieval_candidate_asins),
+            "retrieval_scores": dict(self.retrieval_scores),
+            "retrieval_lane_sources": {
+                asin: list(sources) for asin, sources in self.retrieval_lane_sources.items()
+            },
+            "eligible_count": self.eligible_count,
+            "terminal_status": self.terminal_status,
+            "new_checkpoints": [item.to_dict() for item in self._new_checkpoints_this_turn],
+            "checkpoints": [item.to_dict() for item in self.checkpoints],
+            "protocol_version": PROTOCOL_VERSION,
             "tool_calls_this_turn": self._drain_tool_log(),
         }
 
     def reset(self) -> None:
         """Wipe conversation state and start a fresh thread."""
-        self.category = None
+        # Controlled simulations receive their category from the harness;
+        # interactive adaptive sessions rediscover it after reset.
+        self.category = self.category if self.elicitation_policy is not None else None
         self.bus = None
         self.qtool = None
         self.asks_so_far = 0
         self.asked_question_this_turn = False
+        self.pending_question_text = None
+        self.recommendation_finalized_this_turn = False
+        self.recommendation_prose_raw = None
+        self.visible_reply_to_sync = None
         self.recommendations = None
-        self.best_candidate_snapshots = []
+        self.visible_dialogue = []
         self.tool_log = []
+        self.ledger = PreferenceLedger()
+        self.question_ids = []
+        self.recommendation_source = None
+        self.recommendation_validation_error = None
+        self.recommendation_selection_raw = None
+        self.recommendation_product_numbers = []
+        self.retrieval_query = None
+        self.retrieval_key_query = None
+        self.retrieval_query_raw = None
+        self.latest_embedding_query = None
+        self.latest_key_query = None
+        self.retrieval_candidate_asins = []
+        self.retrieval_scores = {}
+        self.retrieval_lane_sources = {}
+        self.eligible_count = None
+        self.terminal_status = None
+        self.checkpoints = []
+        self._new_checkpoints_this_turn = []
+        self._awaiting_answer_context = None
+        self._pipeline = None
         self._agent = None
         self._checkpointer = None
         self._thread_id = uuid.uuid4().hex[:12]
@@ -325,6 +448,139 @@ class CRSAgentSession:
     def _record(self, name: str, args: dict[str, Any], result_summary: str) -> None:
         self.tool_log.append({"tool": name, "args": args, "result": result_summary})
 
+    def _render_recommendation_reply(self) -> str:
+        if not self.recommendations:
+            return "I found a few options, but I need to refresh the recommendation set before showing them."
+        lines = ["I recommend these three options:"]
+        for rec in self.recommendations[:3]:
+            price = rec.get("price")
+            price_text = f"${price:.2f}" if isinstance(price, (int, float)) else "price unavailable"
+            rating = rec.get("avg_rating")
+            rating_text = f"{rating:.1f} stars" if isinstance(rating, (int, float)) else "no rating"
+            bullets = rec.get("bullets") or []
+            explanation = rec.get("recommendation_explanation")
+            detail = explanation or (bullets[0] if bullets else rec.get("description") or "")
+            detail = str(detail).strip() if explanation else str(detail)[:180].strip()
+            line = f"{rec.get('rank')}. {rec.get('title')} — {price_text}, {rating_text}."
+            if detail:
+                line += f" {detail}"
+            lines.append(line)
+        return "\n\n".join(lines)
+
+    def _ensure_pipeline(self) -> RecommendationPipeline:
+        category = self._ensure_category()
+        if self._pipeline is None or self._pipeline.category != category:
+            self._pipeline = RecommendationPipeline(
+                category=category,
+                model=self.model,
+                retrieval_limit=self.retrieval_limit,
+            )
+        return self._pipeline
+
+    def _capture_hidden_checkpoint(
+        self,
+        *,
+        asks_so_far: int,
+        question_ids: list[str],
+        query: str | None,
+        key_query: str | None,
+    ) -> None:
+        snapshot = self._ensure_pipeline().prefix_snapshot(
+            ledger=self.ledger,
+            question_ids=question_ids,
+            asks_so_far=asks_so_far,
+            query=query,
+            key_query=key_query,
+        )
+        self.checkpoints.append(snapshot)
+        self._new_checkpoints_this_turn.append(snapshot)
+
+    def _apply_snapshot(self, snapshot: RecommendationSnapshot) -> None:
+        self.recommendations = snapshot.recommendations
+        self.recommendation_source = snapshot.recommendation_source
+        self.recommendation_validation_error = snapshot.recommendation_validation_error
+        self.recommendation_selection_raw = snapshot.recommendation_selection_raw
+        self.recommendation_prose_raw = snapshot.recommendation_prose_raw
+        self.recommendation_product_numbers = list(snapshot.recommendation_product_numbers)
+        self.retrieval_query = snapshot.retrieval_query
+        self.retrieval_key_query = snapshot.retrieval_key_query
+        self.retrieval_query_raw = snapshot.retrieval_query_raw
+        self.retrieval_candidate_asins = list(snapshot.retrieval_candidate_asins)
+        self.retrieval_scores = dict(snapshot.retrieval_scores)
+        self.retrieval_lane_sources = {
+            asin: list(sources) for asin, sources in snapshot.retrieval_lane_sources.items()
+        }
+        self.eligible_count = snapshot.eligible_count
+        self.terminal_status = snapshot.terminal_status
+
+    def _finalize_recommendations(self, query: str = "", key_query: str | None = None) -> str:
+        pipeline = self._ensure_pipeline()
+        if self.elicitation_policy is not None and self.elicitation_policy.name == "rec":
+            snapshot = pipeline.default_snapshot(
+                ledger=self.ledger,
+                question_ids=self.question_ids,
+                asks_so_far=self.asks_so_far,
+            )
+        else:
+            snapshot = pipeline.select_for_query(
+                ledger=self.ledger,
+                question_ids=self.question_ids,
+                asks_so_far=self.asks_so_far,
+                query=query,
+                key_query=key_query,
+            )
+        self._apply_snapshot(snapshot)
+        self.recommendation_finalized_this_turn = snapshot.recommendations is not None
+        if (
+            self.elicitation_policy is not None
+            and self.elicitation_policy.has_nonterminal_checkpoints
+        ):
+            self.checkpoints.append(snapshot)
+            self._new_checkpoints_this_turn.append(snapshot)
+
+        if snapshot.terminal_status == "NO_FEASIBLE_MATCH":
+            self._record(
+                "recommend",
+                {"query": query, "key_query": key_query},
+                "no feasible products after hard-budget eligibility",
+            )
+            return "NO_FEASIBLE_MATCH: no catalog product satisfies the explicit hard budget."
+
+        details = snapshot.recommendations or []
+        self._record(
+            "recommend",
+            {"query": query, "key_query": key_query},
+            f"finalized {len(details)} products via {snapshot.recommendation_source}",
+        )
+        summary = "\n".join(
+            f"  #{index + 1} ${product.get('price')} ★{product.get('avg_rating')} — "
+            f"{str(product.get('title', ''))[:80]}"
+            for index, product in enumerate(details)
+        )
+        return f"recommendation finalized ({len(details)} products):\n{summary}"
+
+    def _force_next_question(self) -> str | None:
+        try:
+            qtool = self._ensure_qtool()
+        except Exception:
+            return None
+        r = qtool.ask_fixed() if self.elicitation_policy is not None else qtool.ask(topic=None)
+        question = r.get("question_text")
+        if not question:
+            return None
+        self.asks_so_far += 1
+        self.asked_question_this_turn = True
+        self.pending_question_text = question
+        self.question_ids.append(str(r["question_id"]))
+        self._awaiting_answer_context = {
+            "source": "answer",
+            "question_id": str(r["question_id"]),
+            "topic": str(r["topic"]),
+            "question_text": str(question),
+        }
+        self._record("ask_question", {"topic": None, "forced": True}, f"tier={r['tier']} q={r['question_id']}")
+        return question
+
     def _ensure_category(self) -> str:
         if not self.category:
             raise ValueError("category not set yet — call set_category first")
@@ -344,36 +600,6 @@ class CRSAgentSession:
             from sandbox.catalog import REPO_ROOT
             self.qtool = QuestionTool(bank=QuestionBank.load(REPO_ROOT / config["questions_path"]))
         return self.qtool
-
-    def _snapshot_best_candidates(self, top_k: int = 3) -> None:
-        """Save the current best product(s) at the end of each CRS turn."""
-        if self.bus is None or self.bus.size() == 0:
-            return
-        asins = self.bus.top(min(top_k, self.bus.size()))
-        if not asins:
-            return
-        if self.best_candidate_snapshots and self.best_candidate_snapshots[-1]["asins"] == asins:
-            return
-        snapshot = {
-            "asks_so_far": self.asks_so_far,
-            "bus_size": self.bus.size(),
-            "asins": asins,
-            "bus_notes": self.bus.notes[-3:],
-        }
-        self.best_candidate_snapshots.append(snapshot)
-
-    def _best_so_far_asins(self, limit: int = 6) -> list[str]:
-        """Return recent saved candidates, deduped, without mutating the bus."""
-        out: list[str] = []
-        seen: set[str] = set()
-        for snapshot in reversed(self.best_candidate_snapshots):
-            for asin in snapshot["asins"]:
-                if asin not in seen:
-                    out.append(asin)
-                    seen.add(asin)
-                    if len(out) >= limit:
-                        return out
-        return out
 
     # ------------------------------------------------------------------
     # Tool wrappers (closures over self)
@@ -403,9 +629,21 @@ class CRSAgentSession:
             Initializes the Candidate Bus with all products in that category."""
             if category not in list_available_categories():
                 return f"ERROR: '{category}' is not a supported category. Supported: {list_available_categories()}"
+            if s.elicitation_policy is not None and s.category and category != s.category:
+                return (
+                    f"ERROR: this controlled run is fixed to category {s.category!r}; "
+                    "do not change categories."
+                )
+            if s.category == category:
+                bus = s._ensure_bus()
+                s._record("set_category", {"category": category}, "category already set; no state reset")
+                return (
+                    f"category already set to {category}. Candidate bus has {bus.size()} products."
+                )
             s.category = category
             s.bus = CandidateBus.full(category, list(load_catalog(category)))
             s.qtool = None  # reset question state for new category
+            s._pipeline = None
             s._record("set_category", {"category": category}, f"bus initialized with {s.bus.size()} products")
             return f"category set to {category}. Candidate bus initialized with {s.bus.size()} products."
 
@@ -426,7 +664,8 @@ class CRSAgentSession:
         @tool
         def available_filters_tool() -> str:
             """List the filterable attributes for the current category and example values.
-            Call this before `filter_products` if you're not sure what to constrain on."""
+            Rarely needed. Call this only if the user gave one explicit hard
+            constraint and you are considering a simple filter."""
             af = available_filters(s._ensure_category())
             top_fields = list(af["spec_fields"].items())[:10]
             field_summary = "\n".join(
@@ -450,9 +689,10 @@ class CRSAgentSession:
             brand_not_in: Optional[list] = None,
             spec_contains: Optional[dict] = None,
         ) -> str:
-            """Preview HARD constraints without changing the candidate bus.
-            Use this before `filter_products` when a constraint may be too
-            restrictive. The schema is identical to `filter_products`."""
+            """Preview an exceptional hard filter before applying it.
+            Prefer using this only for simple explicit constraints, especially a
+            budget ceiling. For preferences like RAM, storage, HEPA, portability,
+            build quality, or quiet operation, use search/ranking instead."""
             constraints = {
                 k: v for k, v in {
                     "price_max": price_max, "price_min": price_min,
@@ -490,12 +730,13 @@ class CRSAgentSession:
             brand_not_in: Optional[list] = None,
             spec_contains: Optional[dict] = None,
         ) -> str:
-            """Apply HARD constraints to the candidate bus. Use this when the user
-            states a non-negotiable like 'under $1000' or 'has to have HEPA filter'.
+            """Remove products for one simple explicit hard constraint.
+            Use this mainly for clear budget constraints like 'under $1000'.
+            Rank/search instead for product attributes and softer preferences.
             spec_contains is a dict mapping a spec-table field name to a substring
-            that the value must contain, e.g. {"Graphics Description": "Dedicated"};
-            you can use | to indicate OR conditions for the values, e.g. {"Processor": "Intel|AMD"}.
-            Call `available_filters` first to see what fields exist."""
+            that the value must contain.
+            Avoid spec_contains unless the user made the spec an explicit
+            non-negotiable and preview shows a broad candidate set remains."""
             constraints = {
                 k: v for k, v in {
                     "price_max": price_max, "price_min": price_min,
@@ -515,32 +756,40 @@ class CRSAgentSession:
         @tool
         def reset_bus_to_full_catalog() -> str:
             """Discard all filters and ranking on the current bus and restart with
-            the entire category catalog. Use this when a previous filter chain was
-            too restrictive and you want to rebuild from scratch."""
+            the entire category catalog. Use this when the current candidate set
+            looks too narrow or stale and you want to rebuild from scratch."""
             cat = s._ensure_category()
             s.bus = CandidateBus.full(cat, list(load_catalog(cat)))
             s._record("reset_bus_to_full_catalog", {}, f"bus reset to {s.bus.size()} products")
             return f"bus reset to full catalog: {s.bus.size()} products."
 
         @tool
-        def semantic_search_full(query: str, top_k: int = 30) -> str:
+        def semantic_search_full(query: str, key_query: str = "", top_k: int = 30) -> str:
             """Score the FULL catalog (not just current bus) by semantic similarity to
             a natural-language description of what the customer wants. Replaces the
-            bus contents with the top-K. Use early in the conversation to seed the bus
-            with semantically relevant products, OR after a filter removed too much."""
+            bus contents with the top-K. The key query is a short phrase for the
+            customer's most important revealed requirement and is saved for final
+            multi-lane retrieval."""
             bus = s._ensure_bus()
             semantic_search(bus, query=query, top_k=top_k, full_catalog=True)
-            s._record("semantic_search_full", {"query": query, "top_k": top_k}, f"bus={bus.size()}")
+            s.latest_embedding_query = query.strip() or s.latest_embedding_query
+            s.latest_key_query = key_query.strip() or s.latest_key_query
+            s._record(
+                "semantic_search_full",
+                {"query": query, "key_query": key_query, "top_k": top_k},
+                f"bus={bus.size()}",
+            )
             return f"bus refreshed: top {bus.size()} products matching '{query}'."
 
         @tool
         def narrow_search_tool(query: str, top_k: int = 15) -> str:
             """Re-rank ONLY the current bus contents by semantic similarity to a query.
-            Does not bring back filtered-out products. Use after a filter call to
-            sharpen ranking within what survived."""
+            Does not bring back products outside the current bus. Use only when
+            the current bus is already a good broad candidate set."""
             bus = s._ensure_bus()
             before = bus.size()
             narrow_search(bus, query=query, top_k=top_k)
+            s.latest_embedding_query = query.strip() or s.latest_embedding_query
             s._record("narrow_search", {"query": query, "top_k": top_k}, f"{before} → {bus.size()}")
             return f"bus re-ranked within {before} → kept top {bus.size()}."
 
@@ -572,30 +821,6 @@ class CRSAgentSession:
             return f"bus sorted by price ({'asc' if ascending else 'desc'})."
 
         @tool
-        def restore_best_so_far_candidates(top_k: int = 6) -> str:
-            """Restore saved best-so-far products into the candidate bus.
-            Use this only when earlier saved candidates look more promising than
-            the current bus after later filters/searches. This does not happen
-            automatically; compare the tradeoffs, then call `recommend` again if
-            these saved products better satisfy the customer's hard requirements."""
-            asins = s._best_so_far_asins(limit=top_k)
-            if not asins:
-                return "No best-so-far candidates have been saved yet."
-            s.bus = CandidateBus.from_asins(
-                s._ensure_category(),
-                asins,
-                note="restore_best_so_far_candidates",
-            )
-            details = [get_product_details(s._ensure_category(), asin) for asin in asins[:top_k]]
-            details = [d for d in details if d]
-            s._record("restore_best_so_far_candidates", {"top_k": top_k}, f"restored {len(asins)} products")
-            summary = "\n".join(
-                f"  #{i+1} ${d['price']} ★{d['avg_rating']} — {d['title'][:80]}"
-                for i, d in enumerate(details)
-            )
-            return f"restored {len(asins)} best-so-far candidate(s) into the bus:\n{summary}"
-
-        @tool
         def get_product_details_tool(asin: str) -> str:
             """Full structured details on one specific product."""
             d = get_product_details(s._ensure_category(), asin)
@@ -624,15 +849,6 @@ class CRSAgentSession:
             return "\n".join(lines)
 
         @tool
-        def summarize_reviews_tool(asin: str, aspect: Optional[str] = None) -> str:
-            """Cached LLM-generated summary of what reviewers say about a product.
-            Pass an `aspect` (e.g., 'battery life', 'noise level') to focus the summary."""
-            r = summarize_reviews(s._ensure_category(), asin, aspect=aspect)
-            s._record("summarize_reviews", {"asin": asin, "aspect": aspect},
-                      f"sentiment={r.get('sentiment_score')}")
-            return f"sentiment={r['sentiment_score']}\nsummary: {r['summary']}\nevidence: {r['evidence']}"
-
-        @tool
         def compute_uncertainty_tool(top_k: int = 10) -> str:
             """Compute entropy of retrieval scores + attribute diversity over the top-K
             of the bus. Low entropy / clear top item = ready to recommend.
@@ -651,7 +867,16 @@ class CRSAgentSession:
         def suggest_next_action_tool() -> str:
             """Composite recommendation: ASK, RECOMMEND, or KEEP_ASKING. Based on
             entropy of the current bus + ask budget. Use as a soft guide; you can override."""
-            r = suggest_next_action(s._ensure_bus(), asks_so_far=s.asks_so_far)
+            thresholds = None
+            if s.elicitation_policy is not None:
+                target = s.elicitation_policy.target_asks
+                if s.elicitation_policy.name == "rec":
+                    thresholds = ActionThresholds(min_asks_before_recommend=0, max_asks=0)
+                elif s.elicitation_policy.allows_early_recommendations:
+                    thresholds = ActionThresholds(min_asks_before_recommend=0, max_asks=target)
+                else:
+                    thresholds = ActionThresholds(min_asks_before_recommend=target, max_asks=target)
+            r = suggest_next_action(s._ensure_bus(), asks_so_far=s.asks_so_far, thresholds=thresholds)
             s._record("suggest_next_action", {}, f"{r['action']}: {r['reason']}")
             return f"suggested={r['action']}  reason={r['reason']}  signals={r['signals']}"
 
@@ -681,10 +906,18 @@ class CRSAgentSession:
                     "Recommend now using the current conversation and candidate set."
                 )
             qtool = s._ensure_qtool()
-            r = qtool.ask(topic=topic)
+            r = qtool.ask_fixed() if s.elicitation_policy is not None else qtool.ask(topic=topic)
             if r.get("question_text"):
                 s.asks_so_far += 1
                 s.asked_question_this_turn = True
+                s.pending_question_text = r["question_text"]
+                s.question_ids.append(str(r["question_id"]))
+                s._awaiting_answer_context = {
+                    "source": "answer",
+                    "question_id": str(r["question_id"]),
+                    "topic": str(r["topic"]),
+                    "question_text": str(r["question_text"]),
+                }
                 s._record("ask_question", {"topic": topic},
                           f"tier={r['tier']} q={r['question_id']}")
                 return (
@@ -696,22 +929,15 @@ class CRSAgentSession:
             return f"no more questions available. uncovered_topics={r.get('uncovered_topics', [])}"
 
         @tool
-        def recommend(top_k: int = 3, justification: str = "") -> str:
-            """FINALIZE the recommendation by taking the top-K of the current bus.
-            After calling this you should write a customer-facing message explaining
-            why each item fits. Your message MUST list the exactly the products 
-            returned by this tool - do not rename, summarize, generalize the product 
-            information, or provide generic labels. The chat UI renders the recommendation 
-            cards from the bus's top-K automatically. You must use this tool if you are 
-            recommending any products.
-
-            IMPORTANT: if the bus has fewer than `top_k` products, this tool will
-            REFUSE and tell you to widen first. Do not work around this — the
-            customer wants choices, not a single forced result. Common ways to
-            widen: relax the tightest filter, or call semantic_search_full again
-            with a slightly broader query.
-
-            `justification`: a short note about why these items were chosen."""
+        def recommend(query: str = "", key_query: str = "") -> str:
+            """Retrieve 15 products, then finalize three. Query should cover all
+            revealed preferences; key_query should focus only on the most important
+            revealed requirement."""
+            if s.recommendation_finalized_this_turn or s.recommendations:
+                return (
+                    "RECOMMENDATION_ALREADY_FINALIZED: use the fixed products already returned; "
+                    "do not call recommend() again or change their order."
+                )
             if (
                 s.elicitation_policy is not None
                 and not s.elicitation_policy.allows_early_recommendations
@@ -720,7 +946,7 @@ class CRSAgentSession:
                 remaining = s.elicitation_policy.target_asks - s.asks_so_far
                 s._record(
                     "recommend",
-                    {"top_k": top_k, "justification": justification},
+                    {"query": query, "key_query": key_query},
                     f"blocked by policy: {s.asks_so_far}/{s.elicitation_policy.target_asks} asks",
                 )
                 return (
@@ -728,51 +954,26 @@ class CRSAgentSession:
                     f"clarifying question(s) before recommending."
                 )
 
-            bus = s._ensure_bus()
-            available = bus.size()
-
-            # Guard: don't ship a thin recommendation.
-            if available < top_k:
+            if s.asked_question_this_turn and s.pending_question_text:
+                s._record(
+                    "recommend",
+                    {"query": query, "key_query": key_query},
+                    "blocked: already asked a question this turn",
+                )
                 return (
-                    f"REFUSED: bus has only {available} product(s), need at least {top_k}. "
-                    f"Do NOT recommend yet — widen the candidate set first. "
-                    f"Recent bus operations: {bus.notes[-3:]}. "
-                    f"Suggestions: (1) relax the most recent filter (e.g., raise price_max, "
-                    f"drop a brand/spec restriction), (2) re-run semantic_search_full with a "
-                    f"broader query, then narrow back with rank_by_match."
+                    "ASK_ALREADY_FINALIZED_THIS_TURN: send the question you just received "
+                    "from ask_question() to the buyer. Recommend only after the buyer answers."
                 )
 
-            top = bus.top(top_k)
-            details = [get_product_details(s._ensure_category(), a) for a in top]
-            details = [d for d in details if d]
-            s.recommendations = [{
-                "rank": i + 1, **d
-            } for i, d in enumerate(details)]
-            s._record("recommend", {"top_k": top_k, "justification": justification},
-                      f"finalized {len(details)} products from bus of {available}")
-            summary = "\n".join(
-                f"  #{i+1} ${d['price']} ★{d['avg_rating']} — {d['title'][:80]}"
-                for i, d in enumerate(details)
+            if s.elicitation_policy is None or s.elicitation_policy.name != "rec":
+                if not query.strip():
+                    return "QUERY_REQUIRED: call recommend with a concise embedding query."
+                s.latest_embedding_query = query.strip()
+                s.latest_key_query = key_query.strip() or s.latest_key_query or query.strip()
+            return s._finalize_recommendations(
+                query=query,
+                key_query=key_query.strip() or s.latest_key_query or query.strip(),
             )
-            best_so_far = [asin for asin in s._best_so_far_asins(limit=6) if asin not in top]
-            if best_so_far:
-                best_details = [get_product_details(s._ensure_category(), asin) for asin in best_so_far[:3]]
-                best_details = [d for d in best_details if d]
-                if best_details:
-                    alternatives = "\n".join(
-                        f"  #{i+1} ${d['price']} ★{d['avg_rating']} — {d['title'][:80]}"
-                        for i, d in enumerate(best_details)
-                    )
-                    return (
-                        f"recommendation finalized ({len(details)} products):\n{summary}\n\n"
-                        "Best-so-far candidates from earlier turns, not automatically recommended:\n"
-                        f"{alternatives}\n"
-                        "If any best-so-far candidate better satisfies the customer's hard requirements, "
-                        "call restore_best_so_far_candidates and then recommend again. Otherwise, proceed "
-                        "with the finalized recommendations above."
-                    )
-
-            return f"recommendation finalized ({len(details)} products):\n{summary}"
 
         return [
             check_category_supported,
@@ -787,10 +988,8 @@ class CRSAgentSession:
             rank_by_match_tool,
             rank_by_commission_tool,
             rank_by_price_tool,
-            restore_best_so_far_candidates,
             get_product_details_tool,
             compare_products,
-            summarize_reviews_tool,
             compute_uncertainty_tool,
             suggest_next_action_tool,
             ask_question_tool,

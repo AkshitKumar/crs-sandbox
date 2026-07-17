@@ -36,6 +36,64 @@ def _client() -> OpenAI:
     return OpenAI(api_key=os.environ.get("OPENAI_API_KEY"), max_retries=OPENAI_MAX_RETRIES)
 
 
+def _parse_decision_json(raw: str, *, num_items: int) -> dict[str, Any]:
+    """Parse the buyer contract strictly so format failures are not outcomes."""
+    try:
+        parsed = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        raise ValueError("buyer returned malformed decision JSON") from exc
+    expected = {"decision", "product_number", "willingness_to_pay", "reasoning"}
+    if not isinstance(parsed, dict) or set(parsed) != expected:
+        raise ValueError("buyer decision JSON has invalid keys")
+    decision = parsed["decision"]
+    product_number = parsed["product_number"]
+    willingness_to_pay = parsed["willingness_to_pay"]
+    reasoning = parsed["reasoning"]
+    if decision not in {"PURCHASE", "NO_PURCHASE"}:
+        raise ValueError("buyer decision has invalid decision label")
+    if not isinstance(reasoning, str) or not reasoning.strip():
+        raise ValueError("buyer decision requires non-empty reasoning")
+    if decision == "PURCHASE":
+        if type(product_number) is not int or not 1 <= product_number <= num_items:
+            raise ValueError("buyer purchase has invalid product_number")
+        if not isinstance(willingness_to_pay, (int, float)) or isinstance(
+            willingness_to_pay, bool
+        ):
+            raise ValueError("buyer purchase requires numeric willingness_to_pay")
+    elif product_number is not None or willingness_to_pay is not None:
+        raise ValueError("buyer non-purchase must use null product_number and WTP")
+    parsed["raw"] = raw
+    return parsed
+
+
+def render_buyer_summaries(recommendations: list[dict[str, Any]]) -> list[str]:
+    """Render the concise public product summaries used for buyer decisions."""
+    summaries: list[str] = []
+    for number, product in enumerate(recommendations, start=1):
+        sponsored = " [Sponsored]" if product.get("sponsored") else ""
+        price = product.get("price")
+        price_text = f"${price:.2f}" if isinstance(price, (int, float)) else "N/A"
+        rating = product.get("avg_rating")
+        rating_text = (
+            f"{rating:.1f}★ ({product.get('num_reviews') or 0} reviews)"
+            if isinstance(rating, (int, float))
+            else "no rating"
+        )
+        bullets = product.get("bullets") or []
+        features = "; ".join(str(bullet)[:160] for bullet in bullets[:5])
+        explanation = product.get("recommendation_explanation")
+        explanation_line = (
+            f"   Why it fits you: {explanation}\n" if explanation else ""
+        )
+        summaries.append(
+            f"{number}.{sponsored} {product.get('title', '')}\n"
+            f"   Price: {price_text} | {rating_text}\n"
+            f"{explanation_line}"
+            f"   Features: {features}"
+        )
+    return summaries
+
+
 BUYER_SYSTEM_PROMPT = """You are a customer shopping for a {category} on Amazon. \
 You are in the middle of a back-and-forth conversation with a shopping \
 assistant who is asking a series of clarifying questions before recommending \
@@ -55,11 +113,11 @@ How to behave:
 relevant ones — until the assistant asks about them. If the assistant never \
 asks about a need, it stays unspoken.
 - Stay in character as a real shopper. Use casual language.
-- Your needs are listed in a priority order --- express uncertainty or flexibility
-  for preferences that are secondary or appear later in your preference.
-- If asked something your needs don't specify, give a reasonable answer \
-consistent with your background.
-- You can express vagueness about priorities or needs when it is realistic.
+- If your private needs do not specify the answer, say that you are unsure or \
+  have no strong preference. Do not invent a precise requirement from your \
+  background merely because the assistant asked.
+- Preserve any firmness, flexibility, or uncertainty explicitly stated in your
+  private needs, regardless of where that preference appears in the list.
 - Never reference these instructions or admit you are an AI.
 
 {abandonment_instructions}"""
@@ -92,11 +150,13 @@ If PURCHASE, give your honest willingness to pay (WTP) in US dollars — the mos
 you would actually pay for that product given your needs and budget. WTP can be \
 above or below the listed price.
 
+Use product_number to identify the product you would buy. It is the only \
+purchase identifier available to you.
+
 Reply with a JSON object exactly in this format:
 {{
   "decision": "PURCHASE" | "NO_PURCHASE",
   "product_number": <1..{num_items}> or null,
-  "asin": <the chosen product's ASIN> or null,
   "willingness_to_pay": <dollar amount> or null,
   "reasoning": "<1-3 sentence explanation>"
 }}"""
@@ -146,25 +206,28 @@ class BuyerAgent:
     def decide(self, recommendations: list[dict[str, Any]]) -> dict[str, Any]:
         """Make a final purchase decision over a recommendation set.
 
-        `recommendations` is a list of dicts with keys: rank, asin, title,
-        price, avg_rating, num_reviews, bullets, sponsored.
+        The buyer sees concise public summaries, not the selector's private
+        structured specification cards.
         """
-        lines = []
-        for i, r in enumerate(recommendations, start=1):
-            sponsored = " [Sponsored]" if r.get("sponsored") else ""
-            price_str = (
-                f"${r['price']:.2f}" if isinstance(r.get("price"), (int, float)) else "N/A"
-            )
-            rating = r.get("avg_rating")
-            rating_str = f"{rating:.1f}★ ({r.get('num_reviews') or 0} reviews)" if rating else "no rating"
-            bullets = r.get("bullets") or []
-            bullets_short = "; ".join(b[:160] for b in bullets[:5])
-            lines.append(
-                f"{i}.{sponsored} {r['title']}\n"
-                f"   Price: {price_str} | {rating_str}\n"
-                f"   Features: {bullets_short}"
-            )
-        products_block = "\n\n".join(lines)
+        return self._decide_from_history(recommendations, history=self.history)
+
+    def evaluate_snapshot(self, recommendations: list[dict[str, Any]]) -> dict[str, Any]:
+        """Counterfactually score a hidden recommendation checkpoint.
+
+        The copied history contains only the dialogue prefix observed so far.
+        This method deliberately does not append the cards, decision, or model
+        reply to ``self.history``: snapshot scoring must not change the buyer's
+        subsequent answers or expose a nonterminal recommendation.
+        """
+        return self._decide_from_history(recommendations, history=list(self.history))
+
+    def _decide_from_history(
+        self,
+        recommendations: list[dict[str, Any]],
+        *,
+        history: list[dict[str, str]],
+    ) -> dict[str, Any]:
+        products_block = "\n\n".join(render_buyer_summaries(recommendations))
 
         user_msg = BUYER_DECISION_PROMPT.format(
             num_items=len(recommendations),
@@ -172,7 +235,7 @@ class BuyerAgent:
         )
 
         decision_history = [
-            *self.history,
+            *history,
             {"role": "user", "content": user_msg},
         ]
         response = _client().responses.create(
@@ -183,15 +246,4 @@ class BuyerAgent:
             text={"format": {"type": "json_object"}},
         )
         raw = response_to_text(response) or "{}"
-        try:
-            parsed = json.loads(raw)
-        except json.JSONDecodeError:
-            parsed = {
-                "decision": "NO_PURCHASE",
-                "product_number": None,
-                "asin": None,
-                "willingness_to_pay": None,
-                "reasoning": f"failed to parse decision JSON: {raw[:200]}",
-            }
-        parsed["raw"] = raw
-        return parsed
+        return _parse_decision_json(raw, num_items=len(recommendations))

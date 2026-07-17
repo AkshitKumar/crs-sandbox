@@ -128,8 +128,10 @@ def _outcome_pill(outcome: str) -> str:
     cls = {
         "PURCHASE": "pill-purchase",
         "NO_PURCHASE": "pill-nopurchase",
+        "NO_FEASIBLE_MATCH": "pill-nopurchase",
         "ABANDONED": "pill-abandoned",
         "ERROR": "pill-error",
+        "PROTOCOL_ERROR": "pill-error",
     }.get(outcome, "pill-error")
     return f"<span class='outcome-pill {cls}'>{label}</span>"
 
@@ -178,11 +180,15 @@ with st.sidebar:
     n_total = len(rows)
     n_purchase = sum(1 for r in rows if r["outcome"] == "PURCHASE")
     n_nop = sum(1 for r in rows if r["outcome"] == "NO_PURCHASE")
+    n_no_feasible = sum(1 for r in rows if r["outcome"] == "NO_FEASIBLE_MATCH")
     n_ab = sum(1 for r in rows if r["outcome"] == "ABANDONED")
-    n_err = sum(1 for r in rows if r["outcome"] == "ERROR")
+    n_err = sum(1 for r in rows if r["outcome"] in {"ERROR", "PROTOCOL_ERROR"})
     st.metric("personas", n_total)
     st.metric("purchase rate", f"{n_purchase / n_total:.0%}")
-    st.caption(f"{n_purchase} purchased · {n_nop} no-purchase · {n_ab} abandoned · {n_err} error")
+    st.caption(
+        f"{n_purchase} purchased · {n_nop} no-purchase · {n_no_feasible} no feasible match · "
+        f"{n_ab} abandoned · {n_err} protocol error"
+    )
 
 # ----------------- main: this persona -----------------
 
@@ -222,6 +228,23 @@ with c_left:
         st.caption(f"abandoned at turn {record['abandoned_at_turn']}")
     if record.get("error"):
         st.error(record["error"])
+
+    checkpoints = record.get("recommendation_checkpoints") or []
+    if checkpoints:
+        st.markdown("### Hidden checkpoint trajectory")
+        st.caption(
+            "Counterfactual prefix scores; `best observed` is historical and does not mean an "
+            "earlier card remains feasible after later constraints."
+        )
+        for checkpoint in checkpoints:
+            status = checkpoint.get("evaluation_status", "unscored")
+            current = checkpoint.get("current_utility")
+            best = checkpoint.get("best_observed_utility")
+            st.caption(
+                f"t={checkpoint.get('index')} · asks={checkpoint.get('asks_so_far')} · "
+                f"{status} · current utility={_fmt_price(current)} · "
+                f"best observed={_fmt_price(best)}"
+            )
 
 # Right: transcript with tool calls + final recommendations
 with c_right:
@@ -294,7 +317,7 @@ with c_right:
         st.markdown("### Buyer's decision")
         d = decision.get("decision")
         chosen_n = decision.get("product_number")
-        chosen_asin = decision.get("asin") or record.get("purchased_asin")
+        chosen_asin = record.get("purchased_asin")
         wtp = decision.get("willingness_to_pay")
         reasoning = decision.get("reasoning", "")
         if d == "PURCHASE":

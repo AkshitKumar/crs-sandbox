@@ -1,39 +1,33 @@
-"""Build a vector index over a category's scraped products.
+"""Build a vector index over a category's shared product-to-text format.
 
-Encodes each product as: title + top bullets + short description tail, using
-BAAI/bge-large-en-v1.5. Persists embeddings as .npy plus a parallel
-products.json metadata file (ASIN order matches row order in the embedding).
+Uses BAAI/bge-large-en-v1.5 and persists embeddings as ``.npy`` plus a
+parallel ``products.json`` file whose ASIN order matches the embedding rows.
 """
 
 from __future__ import annotations
 
 import json
+import hashlib
 from pathlib import Path
 from typing import Any
-
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
+from sandbox.product_text import PRODUCT_TEXT_VERSION, serialize_product
+
 
 MODEL_NAME = "BAAI/bge-large-en-v1.5"
-
-# Cap per field to keep within model context (~512 tokens).
-MAX_BULLET_CHARS = 1200
-MAX_DESC_CHARS = 600
+MODEL_REVISION = "d4aa6901d3a41ba39fb536a557fa166f842b0e09"
+INDEX_SCHEMA_VERSION = "dense-index-v1"
 
 
-def _product_text(product: dict[str, Any]) -> str:
-    title = product.get("title") or ""
-    bullets = product.get("bullets") or []
-    bullets_joined = " | ".join(bullets)[:MAX_BULLET_CHARS]
-    desc = (product.get("description") or "")[:MAX_DESC_CHARS]
-    parts = [title]
-    if bullets_joined:
-        parts.append(bullets_joined)
-    if desc:
-        parts.append(desc)
-    return "\n".join(parts)
+def _sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
+
+def _ordered_asin_sha256(products: list[dict[str, Any]]) -> str:
+    payload = "\n".join(str(product.get("asin") or "") for product in products)
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 def load_products(catalog_path: Path) -> list[dict[str, Any]]:
     products: list[dict[str, Any]] = []
@@ -49,6 +43,7 @@ def build_index(
     catalog_path: Path,
     index_dir: Path,
     model_name: str = MODEL_NAME,
+    model_revision: str = MODEL_REVISION,
     batch_size: int = 32,
 ) -> None:
     """Build and persist the embedding index for a category."""
@@ -59,9 +54,9 @@ def build_index(
         raise ValueError(f"No products in {catalog_path}")
 
     print(f"[index] loading model {model_name}...")
-    model = SentenceTransformer(model_name)
+    model = SentenceTransformer(model_name, revision=model_revision)
 
-    texts = [_product_text(p) for p in products]
+    texts = [serialize_product(product) for product in products]
     print(f"[index] encoding {len(texts)} products...")
     embeddings = model.encode(
         texts,
@@ -73,9 +68,32 @@ def build_index(
 
     emb_path = index_dir / "embeddings.npy"
     meta_path = index_dir / "products.json"
+    centroid_path = index_dir / "centroid.npy"
+    manifest_path = index_dir / "index_manifest.json"
     np.save(emb_path, embeddings.astype(np.float32))
+    centroid = embeddings.mean(axis=0)
+    norm = np.linalg.norm(centroid)
+    if norm > 0:
+        centroid = centroid / norm
+    np.save(centroid_path, centroid.astype(np.float32))
     with meta_path.open("w") as f:
         json.dump(products, f)
+    manifest = {
+        "schema_version": INDEX_SCHEMA_VERSION,
+        "model_id": model_name,
+        "model_revision": model_revision,
+        "product_text_version": PRODUCT_TEXT_VERSION,
+        "product_count": len(products),
+        "embedding_shape": list(embeddings.shape),
+        "embedding_dtype": "float32",
+        "catalog_sha256": _sha256(catalog_path),
+        "ordered_asin_sha256": _ordered_asin_sha256(products),
+        "products_sha256": _sha256(meta_path),
+        "embeddings_sha256": _sha256(emb_path),
+    }
+    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
 
     print(f"[index] wrote {emb_path} (shape={embeddings.shape})")
+    print(f"[index] wrote {centroid_path}")
     print(f"[index] wrote {meta_path} ({len(products)} products)")
+    print(f"[index] wrote {manifest_path}")

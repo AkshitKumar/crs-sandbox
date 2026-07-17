@@ -1,4 +1,4 @@
-"""Filter tool: hard constraints over the catalog.
+"""Filter tool: remove products that obviously fail stated preferences.
 
 The single most important tool for narrowing a 100–500 product catalog down
 to a manageable candidate set before semantic search runs.
@@ -8,7 +8,7 @@ Two surfaces:
       what values they take. The agent calls this first to know its options.
     - `preview_filter(bus, constraints)` — count survivors without changing
       the bus.
-    - `apply_filter(bus, constraints)` — restrict the bus by hard constraints.
+    - `apply_filter(bus, constraints)` — restrict the bus by obvious failures.
 
 Constraint schema:
     {
@@ -116,7 +116,7 @@ def _range_summary(xs: list[float]) -> dict[str, float | None]:
 
 
 def apply_filter(bus: CandidateBus, constraints: dict[str, Any]) -> CandidateBus:
-    """Narrow the bus by hard constraints. Returns the same bus, mutated."""
+    """Narrow the bus by removing obvious failures. Returns the same bus, mutated."""
     kept = _matching_asins(bus, constraints)
     note = "filter(" + ", ".join(_describe_constraints(constraints)) + ")"
     return bus.restrict(kept, note=note)

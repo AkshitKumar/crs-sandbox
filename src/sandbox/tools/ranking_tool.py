@@ -1,24 +1,8 @@
-"""Ranking tools: re-rank a CandidateBus by various objectives.
+"""Optional objective-specific ranking tools available to the ReAct agent.
 
-Three tools, in order of complexity:
-    - `rank_by_match`     — weighted combo of semantic sim + rating + popularity
-    - `rank_by_commission`— P(purchase) × price, the v0 commission-objective ranker
-    - `rank_by_price`     — simple price ascending / descending (utility)
-
-All operate over the bus's current ASIN set; none re-introduce filtered-out items.
-
-`rank_by_commission` uses a hand-tuned logistic for P(purchase). The coefficients
-will be re-fit from buyer-simulator data once that pipeline is up; the v0 form
-is good enough to drive meaningful rank differences and test the agent's logic.
-
-P(purchase | persona, item) ≈ sigmoid(
-    β_0
-  + β_1 * semantic_sim                  # match to elicited preferences
-  + β_2 * z(rating)                     # higher rating helps
-  + β_3 * z(log_reviews)                # social proof
-  - β_4 * z(price)                      # price hurts
-  + β_5 * 1{price ≤ elicited_budget}    # within budget is a big boost
-)
+Fixed policies do not assign category-specific weights. The agent may still
+invoke an explicit ranking objective when the conversation or experiment calls
+for it; final selection is bounded and validated by the shared pipeline.
 """
 
 from __future__ import annotations
@@ -33,29 +17,23 @@ from sandbox.catalog import load_catalog
 from sandbox.tools.candidate_bus import CandidateBus
 
 
-# ---------------------------------------------------------------------------
-# Helpers: per-catalog normalization
-# ---------------------------------------------------------------------------
-
-
 def _normalizers(catalog: list[dict[str, Any]]) -> dict[str, dict[str, float]]:
-    """Compute z-score normalizers (mean/std) for price, rating, log_reviews
-    across the catalog. Cached at call time (caller can hold the result)."""
     prices = np.array([p["price"] for p in catalog if p.get("price") is not None], dtype=float)
     ratings = np.array([p["avg_rating"] for p in catalog if p.get("avg_rating") is not None], dtype=float)
-    log_revs = np.array([math.log1p(p["num_reviews"]) for p in catalog if p.get("num_reviews") is not None], dtype=float)
+    log_reviews = np.array(
+        [math.log1p(p["num_reviews"]) for p in catalog if p.get("num_reviews") is not None],
+        dtype=float,
+    )
 
-    def _stats(xs: np.ndarray) -> dict[str, float]:
-        if xs.size == 0:
+    def stats(values: np.ndarray) -> dict[str, float]:
+        if values.size == 0:
             return {"mean": 0.0, "std": 1.0}
-        m = float(xs.mean())
-        s = float(xs.std()) or 1.0
-        return {"mean": m, "std": s}
+        return {"mean": float(values.mean()), "std": float(values.std()) or 1.0}
 
     return {
-        "price": _stats(prices),
-        "rating": _stats(ratings),
-        "log_reviews": _stats(log_revs),
+        "price": stats(prices),
+        "rating": stats(ratings),
+        "log_reviews": stats(log_reviews),
     }
 
 
@@ -65,15 +43,10 @@ def _safe_z(value: float | None, stats: dict[str, float], fallback: float = 0.0)
     return (float(value) - stats["mean"]) / stats["std"]
 
 
-def _safe_log_revs(num_reviews: int | None) -> float:
-    if num_reviews is None or num_reviews <= 0:
-        return 0.0
-    return math.log1p(float(num_reviews))
-
-
-# ---------------------------------------------------------------------------
-# rank_by_match: weighted combo of semantic + rating + popularity
-# ---------------------------------------------------------------------------
+def _log_reviews(num_reviews: int | None) -> float | None:
+    if num_reviews is None:
+        return None
+    return math.log1p(max(0, float(num_reviews)))
 
 
 @dataclass
@@ -81,85 +54,78 @@ class MatchWeights:
     semantic: float = 1.0
     rating: float = 0.0
     popularity: float = 0.0
-    price_penalty: float = 0.0  # subtract `price_penalty * z(price)`
+    price_penalty: float = 0.0
 
 
 def rank_by_match(
-    bus: CandidateBus, weights: MatchWeights | dict[str, float] | None = None
+    bus: CandidateBus,
+    weights: MatchWeights | dict[str, float] | None = None,
 ) -> CandidateBus:
-    """Reorder the bus by a weighted combination of attributes.
-
-    Reuses the per-asin semantic scores currently held in `bus.scores` (set
-    by the most recent `semantic_search` / `narrow_search` call). Items
-    without a score get 0 for that component.
-    """
     if weights is None:
         weights = MatchWeights()
     elif isinstance(weights, dict):
-        weights = MatchWeights(**{k: v for k, v in weights.items() if k in MatchWeights.__dataclass_fields__})
+        weights = MatchWeights(
+            **{
+                key: value
+                for key, value in weights.items()
+                if key in MatchWeights.__dataclass_fields__
+            }
+        )
 
     catalog = list(load_catalog(bus.category))
-    by_asin = {p["asin"]: p for p in catalog if p.get("asin")}
+    by_asin = {product["asin"]: product for product in catalog if product.get("asin")}
     norms = _normalizers(catalog)
-
-    new_scores: dict[str, float] = {}
+    scores: dict[str, float] = {}
     for asin in bus.asins:
-        p = by_asin.get(asin)
-        if p is None:
+        product = by_asin.get(asin)
+        if product is None:
             continue
-        sem = bus.scores.get(asin, 0.0)
-        rating_z = _safe_z(p.get("avg_rating"), norms["rating"])
-        pop_z = _safe_z(_safe_log_revs(p.get("num_reviews")), norms["log_reviews"])
-        price_z = _safe_z(p.get("price"), norms["price"])
-        score = (
-            weights.semantic * sem
-            + weights.rating * rating_z
-            + weights.popularity * pop_z
-            - weights.price_penalty * price_z
+        scores[asin] = (
+            weights.semantic * bus.scores.get(asin, 0.0)
+            + weights.rating * _safe_z(product.get("avg_rating"), norms["rating"])
+            + weights.popularity
+            * _safe_z(_log_reviews(product.get("num_reviews")), norms["log_reviews"])
+            - weights.price_penalty * _safe_z(product.get("price"), norms["price"])
         )
-        new_scores[asin] = score
-
-    ordered = sorted(new_scores.keys(), key=lambda a: new_scores[a], reverse=True)
-    note = (
-        f"rank_by_match(sem={weights.semantic}, rating={weights.rating}, "
-        f"pop={weights.popularity}, -price={weights.price_penalty})"
+    ordered = sorted(scores, key=scores.get, reverse=True)
+    return bus.reorder(
+        ordered,
+        scores,
+        note=(
+            f"rank_by_match(sem={weights.semantic}, rating={weights.rating}, "
+            f"pop={weights.popularity}, -price={weights.price_penalty})"
+        ),
     )
-    return bus.reorder(ordered, new_scores, note=note)
-
-
-# ---------------------------------------------------------------------------
-# rank_by_commission: expected revenue per impression
-# ---------------------------------------------------------------------------
 
 
 @dataclass
 class PurchaseModel:
-    """Hand-tuned v0 logistic for P(purchase | item, elicited preferences)."""
+    """Illustrative hand-tuned objective used only for commission experiments."""
 
     beta_0: float = -1.0
     beta_semantic: float = 2.5
     beta_rating: float = 0.5
     beta_log_reviews: float = 0.3
     beta_price: float = -0.6
-    beta_in_budget: float = 1.5   # large jump for fitting under the user's hard budget cap
+    beta_in_budget: float = 1.5
 
     def prob(
         self,
         semantic_sim: float,
         rating_z: float,
-        log_revs_z: float,
+        log_reviews_z: float,
         price_z: float,
         in_budget: bool,
     ) -> float:
-        x = (
+        value = (
             self.beta_0
             + self.beta_semantic * semantic_sim
             + self.beta_rating * rating_z
-            + self.beta_log_reviews * log_revs_z
+            + self.beta_log_reviews * log_reviews_z
             + self.beta_price * price_z
-            + self.beta_in_budget * (1.0 if in_budget else 0.0)
+            + self.beta_in_budget * float(in_budget)
         )
-        return 1.0 / (1.0 + math.exp(-x))
+        return 1.0 / (1.0 + math.exp(-value))
 
 
 def rank_by_commission(
@@ -167,47 +133,38 @@ def rank_by_commission(
     budget_max: float | None = None,
     model: PurchaseModel | None = None,
 ) -> CandidateBus:
-    """Rank by expected commission ≈ price × P(purchase).
-
-    `budget_max` is the user's elicited hard price cap; items at or below
-    this get a P(purchase) boost. If None, the in-budget term is dropped.
-    """
     model = model or PurchaseModel()
     catalog = list(load_catalog(bus.category))
-    by_asin = {p["asin"]: p for p in catalog if p.get("asin")}
+    by_asin = {product["asin"]: product for product in catalog if product.get("asin")}
     norms = _normalizers(catalog)
-
-    new_scores: dict[str, float] = {}
+    scores: dict[str, float] = {}
     for asin in bus.asins:
-        p = by_asin.get(asin)
-        if p is None or p.get("price") is None:
+        product = by_asin.get(asin)
+        if product is None or product.get("price") is None:
             continue
-        sem = bus.scores.get(asin, 0.0)
-        rating_z = _safe_z(p.get("avg_rating"), norms["rating"])
-        log_revs_z = _safe_z(_safe_log_revs(p.get("num_reviews")), norms["log_reviews"])
-        price_z = _safe_z(p.get("price"), norms["price"])
-        in_budget = budget_max is not None and p["price"] <= budget_max
-
-        p_buy = model.prob(sem, rating_z, log_revs_z, price_z, in_budget)
-        expected_commission = float(p["price"]) * p_buy
-        new_scores[asin] = expected_commission
-
-    ordered = sorted(new_scores.keys(), key=lambda a: new_scores[a], reverse=True)
+        probability = model.prob(
+            bus.scores.get(asin, 0.0),
+            _safe_z(product.get("avg_rating"), norms["rating"]),
+            _safe_z(_log_reviews(product.get("num_reviews")), norms["log_reviews"]),
+            _safe_z(product.get("price"), norms["price"]),
+            budget_max is not None and product["price"] <= budget_max,
+        )
+        scores[asin] = float(product["price"]) * probability
+    ordered = sorted(scores, key=scores.get, reverse=True)
     note = f"rank_by_commission(budget≤{budget_max})" if budget_max else "rank_by_commission"
-    return bus.reorder(ordered, new_scores, note=note)
-
-
-# ---------------------------------------------------------------------------
-# rank_by_price: trivial utility
-# ---------------------------------------------------------------------------
+    return bus.reorder(ordered, scores, note=note)
 
 
 def rank_by_price(bus: CandidateBus, ascending: bool = True) -> CandidateBus:
     catalog = list(load_catalog(bus.category))
-    by_asin = {p["asin"]: p for p in catalog if p.get("asin")}
+    by_asin = {product["asin"]: product for product in catalog if product.get("asin")}
     ordered = sorted(
         bus.asins,
-        key=lambda a: (by_asin.get(a, {}).get("price") or float("inf")),
+        key=lambda asin: by_asin.get(asin, {}).get("price") or float("inf"),
         reverse=not ascending,
     )
-    return bus.reorder(ordered, None, note=f"rank_by_price({'asc' if ascending else 'desc'})")
+    return bus.reorder(
+        ordered,
+        None,
+        note=f"rank_by_price({'asc' if ascending else 'desc'})",
+    )

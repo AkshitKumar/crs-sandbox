@@ -34,6 +34,7 @@ class Question:
 class QuestionBank:
     openers: list[Question]
     followups_by_topic: dict[str, list[Question]]
+    followups_ordered: list[Question]
 
     @classmethod
     def load(cls, path: Path) -> "QuestionBank":
@@ -43,12 +44,18 @@ class QuestionBank:
             for q in data.get("openers") or []
         ]
         followups_by_topic: dict[str, list[Question]] = {}
+        followups_ordered: list[Question] = []
         for q in data.get("followups") or []:
             question = Question(
                 id=q["id"], topic=q["topic"], text=q["text"], tier="followup"
             )
+            followups_ordered.append(question)
             followups_by_topic.setdefault(question.topic, []).append(question)
-        return cls(openers=openers, followups_by_topic=followups_by_topic)
+        return cls(
+            openers=openers,
+            followups_by_topic=followups_by_topic,
+            followups_ordered=followups_ordered,
+        )
 
     def all_topics(self) -> list[str]:
         return list(self.followups_by_topic.keys())
@@ -105,6 +112,25 @@ class QuestionTool:
         self.state.mark_asked(followup)
         return self._make_response(followup)
 
+    def ask_fixed(self) -> dict[str, Any]:
+        """Return the next question in declared YAML order for controlled runs."""
+        opener = self._next_opener()
+        if opener is not None:
+            self.state.mark_asked(opener)
+            return self._make_response(opener)
+        for question in self.bank.followups_ordered:
+            if question.id not in self.state.asked_ids:
+                self.state.mark_asked(question)
+                return self._make_response(question)
+        return {
+            "question_id": None,
+            "question_text": None,
+            "tier": None,
+            "remaining_openers": 0,
+            "uncovered_topics": self._uncovered_topics(),
+            "note": "No questions remaining. Consider recommending.",
+        }
+
     # ------------------------------------------------------------------
     # Internals
     # ------------------------------------------------------------------
@@ -144,6 +170,7 @@ class QuestionTool:
     def _make_response(self, q: Question) -> dict[str, Any]:
         return {
             "question_id": q.id,
+            "topic": q.topic,
             "question_text": q.text,
             "tier": q.tier,
             "remaining_openers": sum(

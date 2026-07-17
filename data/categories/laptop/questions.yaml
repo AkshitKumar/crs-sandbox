@@ -3,38 +3,38 @@
 # Tier 1 (openers): asked in this order for every user. Each ATR(k) policy
 # means the CRS asks the first k openers before recommending.
 #
-# Tier 2 (followups): topic-tagged pool. After openers, the CRS LLM picks
-# which to ask next based on what's still unknown about the buyer's needs.
+# Tier 2 (followups): fixed YAML order in controlled evaluation; the interactive
+# CRS may select them adaptively by topic.
 
 openers:
   - id: use_case
     topic: use_case
-    text: "What will you mainly use this laptop for — work, school, gaming, creative work, or general everyday tasks?"
+    text: "What do you expect to use this laptop for most?"
 
   - id: budget
     topic: budget
-    text: "What's your budget range? Is there a hard cap, or some flexibility for the right machine?"
+    text: "Do you have a budget range, and is any upper limit firm or flexible?"
 
   - id: ram
     topic: memory
-    text: "How much RAM do you think you need? Light browsing is fine with 8GB, multitasking usually wants 16GB, and heavier workloads need 32GB+."
+    text: "Do you have any requirements or preferences about memory (RAM)?"
 
 followups:
   - id: gpu_need
     topic: gpu
-    text: "Do you need a dedicated graphics card — for gaming, 3D work, video editing, or ML?"
+    text: "Do you have any requirements or preferences about graphics performance?"
 
   - id: storage
     topic: storage
-    text: "How much storage do you need, and do you want everything on a fast SSD?"
+    text: "Do you have any requirements or preferences about storage?"
 
   - id: battery
     topic: battery
-    text: "How important is battery life — do you need all-day unplugged use, or are you mostly near an outlet?"
+    text: "How important is battery life to you?"
 
   - id: weight
     topic: portability
-    text: "Is weight a major concern? Some people care about anything over 3 lbs, others don't mind 4–5 lbs."
+    text: "How important are weight and portability to you?"
 
   - id: display_quality
     topic: display

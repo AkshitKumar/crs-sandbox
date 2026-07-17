@@ -1,20 +1,25 @@
 # Air purifier question bank.
 #
 # Tier 1 (openers): asked in this order for every user.
-# Tier 2 (followups): topic-tagged pool, picked adaptively after openers.
+# Tier 2 (followups): fixed YAML order in controlled evaluation; the interactive
+# CRS may select them adaptively by topic.
 
 openers:
+  - id: use_context
+    topic: use_context
+    text: "Where do you expect to use the air purifier most?"
+
   - id: room_size
     topic: room_size
-    text: "What size room will this be used in — a small bedroom, a medium living space, or a large open room?"
+    text: "How large is the space where you expect to use it?"
 
   - id: primary_concern
     topic: primary_concern
-    text: "What's the main thing you're trying to address — allergies, pets, smoke or odors, or general air quality?"
+    text: "What would you most like the air purifier to address?"
 
   - id: budget
     topic: budget
-    text: "What's your budget range? Are you open to spending more upfront for lower long-term filter costs, or trying to minimize the initial price?"
+    text: "Do you have a budget range, and is any upper limit firm or flexible?"
 
 followups:
   - id: exact_sqft
@@ -23,15 +28,15 @@ followups:
 
   - id: hepa_required
     topic: filtration
-    text: "Do you specifically need HEPA filtration, or are you open to other technologies?"
+    text: "Do you have any requirements or preferences about filtration technology?"
 
   - id: filter_cost
     topic: filtration
-    text: "How much does ongoing filter replacement cost factor into your decision?"
+    text: "How important are ongoing filter and maintenance costs to you?"
 
   - id: noise_level
     topic: noise
-    text: "Where will this run — bedroom, living room, office — and how important is keeping it quiet, especially at night?"
+    text: "How important is operating noise to you?"
 
   - id: pets
     topic: pets

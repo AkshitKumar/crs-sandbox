@@ -26,6 +26,7 @@ from sandbox.env import load_env  # noqa: E402
 load_env()
 
 from sandbox.orchestrator.sim_conversation import SimConversation  # noqa: E402
+from sandbox.agents.langgraph_crs import CRSAgentSession  # noqa: E402
 from sandbox.tools.feasibility_tool import list_available_categories  # noqa: E402
 
 st.set_page_config(page_title="rufus-femto · live sim", layout="wide", page_icon="🎬")
@@ -106,8 +107,10 @@ def _outcome_pill(outcome: str) -> str:
     cls = {
         "PURCHASE": "pill-purchase",
         "NO_PURCHASE": "pill-nopurchase",
+        "NO_FEASIBLE_MATCH": "pill-nopurchase",
         "ABANDONED": "pill-abandoned",
         "ERROR": "pill-error",
+        "PROTOCOL_ERROR": "pill-error",
     }.get(outcome, "pill-error")
     return f"<span class='outcome-pill {cls}'>{label}</span>"
 
@@ -161,7 +164,13 @@ with st.sidebar:
         value=0.0, step=0.05,
         help="Probability the buyer gives up before the next turn. Set 0 for noiseless eval.",
     )
-    seed = st.number_input("Seed", min_value=0, value=0, step=1)
+    abandonment_seed = st.number_input(
+        "Abandonment seed",
+        min_value=0,
+        value=0,
+        step=1,
+        help="Seeds only the optional exogenous abandonment draw, not LLM responses.",
+    )
 
     st.divider()
     play = st.button("▶ Run simulation", type="primary", use_container_width=True)
@@ -224,7 +233,8 @@ if play:
         category=category,
         max_turns=int(max_turns),
         eta=float(eta),
-        seed=int(seed),
+        abandonment_seed=int(abandonment_seed),
+        crs=CRSAgentSession(),
     )
 
     final_outcome = None

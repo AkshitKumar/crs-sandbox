@@ -190,20 +190,15 @@ catalog_path: data/categories/{slug}/products.jsonl
 questions_path: data/categories/{slug}/questions.yaml
 index_dir: data/categories/{slug}/index
 
+# Curate exactly three ASINs after scraping. Required by controlled REC runs.
+default_slate: []
+
 scrape:
   seed_queries:
 {seed_queries_yaml}
   target_products: {target}
   reviews_per_product: 8
 
-ranking_defaults:
-  semantic_weight: 1.0
-  price_sensitivity: 0.0
-  rating_weight: 0.0
-  popularity_weight: 0.0
-  sponsored_slots: 0
-  niche_boost: 0.0
-  top_k: 3
 """
 
 
