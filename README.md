@@ -36,7 +36,7 @@ The current catalog snapshots cover `laptop` and `air_purifier`.
 git clone <your-fork>
 cd crs-sandbox
 
-uv venv
+uv venv --python 3.12
 uv pip install -r requirements.txt
 
 cp .env.example .env
