@@ -142,9 +142,9 @@ Recommended products:
 {products_block}
 
 Decide:
-- PURCHASE one of the listed products if at least one is a reasonable fit for \
+- PURCHASE one of the listed products if at least one is a good fit for \
 your needs.
-- NO_PURCHASE if none of them are a reasonable fit.
+- NO_PURCHASE if none of them are a good fit.
 
 If PURCHASE, give your honest willingness to pay (WTP) in US dollars — the most \
 you would actually pay for that product given your needs and budget. WTP can be \
