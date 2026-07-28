@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from typing import Literal
 
 
-PolicyName = Literal["rec", "atr", "checkpoint_atr"]
+PolicyName = Literal["rec", "single_atr", "checkpoint_atr"]
 
 
 @dataclass(frozen=True)
@@ -22,7 +22,7 @@ class ElicitationPolicy:
             return "rec"
         if self.name == "checkpoint_atr":
             return f"checkpoint_atr{self.target_asks}"
-        return f"atr{self.target_asks}"
+        return f"single_atr{self.target_asks}"
 
     @property
     def allows_early_recommendations(self) -> bool:
@@ -39,20 +39,16 @@ def make_policy(name: str, numquestions: int | None = None) -> ElicitationPolicy
     """Build and validate an elicitation policy from CLI-style arguments."""
     if name == "rec":
         if numquestions is not None:
-            raise ValueError("--numquestions is only valid with --policy atr or checkpoint_atr")
+            raise ValueError(
+                "--numquestions is only valid with --policy single_atr or checkpoint_atr"
+            )
         return ElicitationPolicy(name="rec", target_asks=0)
 
-    if name == "atr_recs":
-        raise ValueError(
-            "--policy atr_recs names the retired visible-card treatment; use --policy checkpoint_atr "
-            "for hidden nonterminal recommendation checkpoints"
-        )
-
-    if name in {"atr", "checkpoint_atr"}:
+    if name in {"single_atr", "checkpoint_atr"}:
         if numquestions is None:
             raise ValueError(f"--policy {name} requires --numquestions")
         if numquestions < 0:
             raise ValueError("--numquestions must be non-negative")
         return ElicitationPolicy(name=name, target_asks=numquestions)
 
-    raise ValueError("--policy must be one of: rec, atr, checkpoint_atr")
+    raise ValueError("--policy must be one of: rec, single_atr, checkpoint_atr")

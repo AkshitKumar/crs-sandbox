@@ -9,7 +9,7 @@ Contract:
       returns an unasked question with that topic, or surfaces the list of
       uncovered topics if none specified.
 
-This split gives clean ATR(k) semantics for early turns while letting the CRS
+This split gives clean single_atr(k) semantics for early turns while letting the CRS
 agent behave adaptively later.
 """
 

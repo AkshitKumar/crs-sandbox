@@ -57,7 +57,7 @@ def _validate_agent_wiring() -> None:
     if not isinstance(adaptive.crs, CRSAgentSession) or adaptive.crs.category is not None:
         raise ValueError("adaptive simulation is not routed through an unset-category CRSAgentSession")
 
-    for name, numquestions in (("rec", None), ("atr", 1), ("checkpoint_atr", 2)):
+    for name, numquestions in (("rec", None), ("single_atr", 1), ("checkpoint_atr", 2)):
         policy = make_policy(name, numquestions)
         controlled = SimConversation(
             persona={"id": "preflight"},
@@ -77,7 +77,7 @@ def main() -> int:
         _validate_category(category)
         print(f"ok: {category} catalog, slate, questions, personas, and dense index")
     _validate_agent_wiring()
-    print("ok: adaptive, REC, ATR, and checkpoint ATR use CRSAgentSession")
+    print("ok: adaptive, REC, single_atr, and checkpoint_atr use CRSAgentSession")
     print("evaluation setup is internally consistent; no provider call was made")
     return 0
 

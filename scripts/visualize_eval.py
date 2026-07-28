@@ -78,8 +78,14 @@ def _list_eval_dirs() -> list[Path]:
     root = REPO_ROOT / "results"
     if not root.exists():
         return []
+    active_roots = [root / "local", root / "bouchet"]
     return sorted(
-        [p for p in root.iterdir() if p.is_dir() and (p / "transcripts.jsonl").exists()],
+        [
+            path.parent
+            for active_root in active_roots
+            if active_root.exists()
+            for path in active_root.rglob("transcripts.jsonl")
+        ],
         reverse=True,
     )
 

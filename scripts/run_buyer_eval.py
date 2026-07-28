@@ -2,14 +2,14 @@
 
 Runs N personas from the category's personas.json through the
 rufus-femto CRS agent, collects outcomes (purchase/no-purchase/WTP/turns/abandonment),
-writes per-conversation transcripts + a summary aggregate to results/.
+writes per-conversation transcripts + a summary aggregate to results/local/.
 
 Usage:
     python scripts/run_buyer_eval.py laptop --n-personas 10
     python scripts/run_buyer_eval.py air_purifier --n-personas 20 --eta 0.05
     python scripts/run_buyer_eval.py laptop --persona-ids laptop_001,laptop_002
     python scripts/run_buyer_eval.py laptop --policy rec
-    python scripts/run_buyer_eval.py laptop --policy atr --numquestions 3
+    python scripts/run_buyer_eval.py laptop --policy single_atr --numquestions 3
     python scripts/run_buyer_eval.py laptop --policy checkpoint_atr --numquestions 3
     python scripts/run_buyer_eval.py laptop --endogenous-abandonment
 
@@ -380,9 +380,9 @@ def main() -> int:
     parser.add_argument("--parallel", type=int, default=4, help="max concurrent conversations")
     parser.add_argument(
         "--policy",
-        choices=["rec", "atr", "checkpoint_atr"],
+        choices=["rec", "single_atr", "checkpoint_atr"],
         default=None,
-        metavar="{rec,atr,checkpoint_atr}",
+        metavar="{rec,single_atr,checkpoint_atr}",
         help=(
             "optional controlled policy; omit for the ordinary adaptive ReAct recommender"
         ),
@@ -391,7 +391,7 @@ def main() -> int:
         "--numquestions",
         type=int,
         default=None,
-        help="number of clarifying questions for --policy atr or checkpoint_atr",
+        help="number of clarifying questions for --policy single_atr or checkpoint_atr",
     )
     parser.add_argument("--buyer-model", default="gpt-5-mini-2025-08-07")
     parser.add_argument("--recommender-model", default="gpt-5-mini-2025-08-07")
@@ -412,7 +412,10 @@ def main() -> int:
     parser.add_argument(
         "--out-dir",
         default=None,
-        help="directory to write transcripts + summary (default: results/eval_<category>_<ts>/)",
+        help=(
+            "directory to write transcripts + summary "
+            "(default: results/local/eval_<category>_<ts>/)"
+        ),
     )
     parser.add_argument(
         "--fail-on-protocol-error",
@@ -431,7 +434,7 @@ def main() -> int:
         except ValueError as e:
             parser.error(str(e))
     elif args.numquestions is not None:
-        parser.error("--numquestions requires --policy atr or checkpoint_atr")
+        parser.error("--numquestions requires --policy single_atr or checkpoint_atr")
     if args.carry_forward_recommendations and (
         elicitation_policy is None or not elicitation_policy.has_nonterminal_checkpoints
     ):
@@ -464,7 +467,11 @@ def main() -> int:
         personas = personas[: args.n_personas]
 
     ts = time.strftime("%Y%m%d_%H%M%S")
-    out_dir = Path(args.out_dir) if args.out_dir else REPO_ROOT / "results" / f"eval_{args.category}_{ts}"
+    out_dir = (
+        Path(args.out_dir)
+        if args.out_dir
+        else REPO_ROOT / "results" / "local" / f"eval_{args.category}_{ts}"
+    )
     out_dir.mkdir(parents=True, exist_ok=True)
     print(f"Running {len(personas)} personas against {args.category}")
     print(f"  parallel={args.parallel}  eta={args.eta}  max_turns={args.max_turns}")

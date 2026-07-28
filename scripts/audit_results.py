@@ -5,8 +5,8 @@ them as diagnostic evidence and reports outcome/accounting invariants rather
 than pooling them into a policy conclusion.
 
 Usage:
-    python3 scripts/audit_results.py
-    python3 scripts/audit_results.py --results-root results --json-out /tmp/audit.json
+    uv run python scripts/audit_results.py
+    uv run python scripts/audit_results.py --results-root results/local
 """
 
 from __future__ import annotations
@@ -69,7 +69,7 @@ def _audit_row(row: dict[str, Any], counts: Counter[str]) -> None:
 def audit(results_root: Path) -> dict[str, Any]:
     totals = _empty_counts()
     per_run: dict[str, dict[str, int]] = {}
-    transcript_paths = sorted(results_root.glob("*/transcripts.jsonl"))
+    transcript_paths = sorted(results_root.rglob("transcripts.jsonl"))
     for path in transcript_paths:
         counts = _empty_counts()
         with path.open() as handle:
@@ -98,7 +98,7 @@ def audit(results_root: Path) -> dict[str, Any]:
             except json.JSONDecodeError:
                 counts["summary_n_mismatch"] += 1
                 totals["summary_n_mismatch"] += 1
-        per_run[path.parent.name] = dict(counts)
+        per_run[str(path.parent.relative_to(results_root))] = dict(counts)
     return {
         "results_root": str(results_root),
         "runs_with_transcripts": len(transcript_paths),
