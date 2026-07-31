@@ -190,7 +190,7 @@ catalog_path: data/categories/{slug}/products.jsonl
 questions_path: data/categories/{slug}/questions.yaml
 index_dir: data/categories/{slug}/index
 
-# Curate exactly three ASINs after scraping. Required by controlled REC runs.
+# Curate exactly three ASINs after scraping. Added to every recommendation candidate pool.
 default_slate: []
 
 scrape:

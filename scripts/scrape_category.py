@@ -11,10 +11,10 @@ Two backends, selected by which env vars are present:
 Use `--no-proxy` to force Playwright/residential even if SCRAPERAPI_KEY is set.
 
 Usage:
-    python scripts/scrape_category.py laptop                  # fast (ScraperAPI)
-    python scripts/scrape_category.py laptop --concurrency 8  # bump in-flight count
-    python scripts/scrape_category.py laptop --render         # JS rendering (~10x cost)
-    python scripts/scrape_category.py laptop --no-proxy       # force residential
+    uv run python scripts/scrape_category.py laptop                  # fast (ScraperAPI)
+    uv run python scripts/scrape_category.py laptop --concurrency 8  # bump in-flight count
+    uv run python scripts/scrape_category.py laptop --render         # JS rendering (~10x cost)
+    uv run python scripts/scrape_category.py laptop --no-proxy       # force residential
 """
 
 from __future__ import annotations

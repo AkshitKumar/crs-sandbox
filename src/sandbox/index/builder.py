@@ -1,8 +1,4 @@
-"""Build a vector index over a category's shared product-to-text format.
-
-Uses BAAI/bge-large-en-v1.5 and persists embeddings as ``.npy`` plus a
-parallel ``products.json`` file whose ASIN order matches the embedding rows.
-"""
+"""Build a validated embedding matrix in catalog order."""
 
 from __future__ import annotations
 
@@ -18,7 +14,7 @@ from sandbox.product_text import PRODUCT_TEXT_VERSION, serialize_product
 
 MODEL_NAME = "BAAI/bge-large-en-v1.5"
 MODEL_REVISION = "d4aa6901d3a41ba39fb536a557fa166f842b0e09"
-INDEX_SCHEMA_VERSION = "dense-index-v1"
+INDEX_SCHEMA_VERSION = "dense-index-v2"
 
 
 def _sha256(path: Path) -> str:
@@ -67,17 +63,8 @@ def build_index(
     )
 
     emb_path = index_dir / "embeddings.npy"
-    meta_path = index_dir / "products.json"
-    centroid_path = index_dir / "centroid.npy"
     manifest_path = index_dir / "index_manifest.json"
     np.save(emb_path, embeddings.astype(np.float32))
-    centroid = embeddings.mean(axis=0)
-    norm = np.linalg.norm(centroid)
-    if norm > 0:
-        centroid = centroid / norm
-    np.save(centroid_path, centroid.astype(np.float32))
-    with meta_path.open("w") as f:
-        json.dump(products, f)
     manifest = {
         "schema_version": INDEX_SCHEMA_VERSION,
         "model_id": model_name,
@@ -88,12 +75,9 @@ def build_index(
         "embedding_dtype": "float32",
         "catalog_sha256": _sha256(catalog_path),
         "ordered_asin_sha256": _ordered_asin_sha256(products),
-        "products_sha256": _sha256(meta_path),
         "embeddings_sha256": _sha256(emb_path),
     }
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
 
     print(f"[index] wrote {emb_path} (shape={embeddings.shape})")
-    print(f"[index] wrote {centroid_path}")
-    print(f"[index] wrote {meta_path} ({len(products)} products)")
     print(f"[index] wrote {manifest_path}")

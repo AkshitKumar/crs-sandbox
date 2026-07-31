@@ -1,5 +1,5 @@
 {
-  "schema_version": "dense-index-v1",
+  "schema_version": "dense-index-v2",
   "model_id": "BAAI/bge-large-en-v1.5",
   "model_revision": "d4aa6901d3a41ba39fb536a557fa166f842b0e09",
   "product_text_version": "spec-first-v1",
@@ -8,6 +8,5 @@
   "embedding_dtype": "float32",
   "catalog_sha256": "8a03d4754a0548a10a761bc8b538e7145b5567c821320d2eadf9bf505b007e91",
   "ordered_asin_sha256": "a501e1c4e4488907cd823726bcf013d855c923f019be977ba23bce7103697891",
-  "products_sha256": "fa1a077e6555a5109d40e8a995cec678a8aefb364c8c52fac86c033c89bd0740",
   "embeddings_sha256": "79cb23eaef42ebf1f9d4cf81b4974c1538d8b91dbd492a5cc7c689dab0022823"
 }

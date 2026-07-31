@@ -1,7 +1,7 @@
 """CLI: build a vector index for a category.
 
 Usage:
-    python scripts/build_index.py laptop
+    uv run python scripts/build_index.py laptop
 """
 
 from __future__ import annotations
