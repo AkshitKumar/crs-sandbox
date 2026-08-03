@@ -162,7 +162,7 @@ class RecommendationService:
             model=self.model,
             instructions=(
                 "Prepare a catalog retrieval from the exact shopping dialogue. Choose a short "
-                "focus query for the buyer's most important revealed need. Set max_price only "
+                "focus query for the buyer's most important revealed needs. Set max_price only "
                 "when the buyer explicitly stated a numeric ceiling; otherwise use null. Never "
                 "infer a ceiling from general price sensitivity or willingness to find value."
             ),

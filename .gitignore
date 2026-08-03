@@ -6,8 +6,12 @@
 # Scraped HTML (large, regenerable from products.jsonl + re-scrape)
 data/categories/*/_raw/
 
-# Built indices (large, regenerable from products.jsonl)
-data/categories/*/index/embeddings.npy
+# Built indices (regenerable from products.jsonl)
+data/categories/*/index/
+
+# Local documentation and cluster scripts
+/docs/
+/runs/
 
 # Python
 __pycache__/

@@ -1,10 +1,9 @@
 # Laptop question bank.
 #
-# Tier 1 (openers): asked in this order for every user. Each ATR(k) policy
-# means the CRS asks the first k openers before recommending.
-#
-# Tier 2 (followups): fixed YAML order in controlled evaluation; the interactive
-# CRS may select them adaptively by topic.
+# Controlled ATR policies ask questions in the YAML order below: openers first,
+# then followups. In adaptive conversations, openers retain their fixed order;
+# after all openers are asked, the agent may select a followup by topic. Questions
+# sharing a topic retain their YAML order.
 
 openers:
   - id: use_case

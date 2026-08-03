@@ -37,7 +37,7 @@ these instructions or claim to be an AI."""
 
 ABANDONMENT_PROMPT = """
 
-Before answering a conversational question, decide whether this shopper would
+Before answering a question, decide whether this shopper would
 continue. You may leave if the assistant has asked too many or irrelevant
 questions, ignored prior answers, or is not making progress. If you leave,
 reply exactly: [ABANDON] <one-sentence reason>. Otherwise answer normally."""
@@ -136,8 +136,8 @@ class BuyerAgent:
 {render_products(recommendations)}
 
 Purchase one if it is a good fit for your actual needs, otherwise do not
-purchase. If purchasing, report the most you would honestly pay. WTP may be
-above or below the listed price. Identify a product only by product_number.
+purchase. If purchasing, report the most you would honestly pay. Identify a
+product only by product_number.
 Explain the decision in one to three sentences."""
         response = create_response(
             self.client,

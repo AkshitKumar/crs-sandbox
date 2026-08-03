@@ -2,8 +2,8 @@
 
 This repository evaluates an API-backed conversational recommender against
 persona-conditioned API buyers for laptop and air-purifier catalogs. It supports
-an unconstrained adaptive agent and controlled ATR policies that measure how
-recommendations change as more buyer answers become available.
+an adaptive agent and controlled ask-then-recommend (ATR) policies that measure
+how recommendations change as more buyer answers become available.
 
 No evaluation outcome is generated locally or deterministically. Buyer answers,
 recommendations, purchases, and willingness to pay require a valid OpenAI API
@@ -19,7 +19,7 @@ cp .env.example .env
 # Set OPENAI_API_KEY in .env
 ```
 
-Build an index after changing a catalog:
+Build the local indices before the first run and after changing a catalog:
 
 ```bash
 uv run python scripts/build_index.py laptop
@@ -80,25 +80,17 @@ default slate to the retrieved `k` candidates. After deduplication and budget
 eligibility, an API model selects and explains the final three products.
 
 `rec`, `single_atr`, `branching_atr`, and adaptive recommendations all use that
-same operation. There is no Candidate Bus, persistent inferred preference state,
-carry-forward candidate set, readiness score, local purchase model, or local
-fallback recommendation.
+same operation.
 
 ## Repository layout
 
 ```text
 configs/                    category configuration and default recall slate
-data/categories/            products, personas, question banks, embeddings
+data/categories/            products, personas, question banks, generated indices
 src/sandbox/agents/         buyer and recommender behavior
 src/sandbox/catalog.py      catalog loading and stateless hybrid retrieval
 src/sandbox/simulation.py   one conversation and ATR branching
 scripts/run_eval.py         parallel evaluation and aggregate output
 scripts/demo.py             live simulation, replay, and comparison
 scripts/scrape_category.py  catalog collection
-scripts/gen_configs.py      preserved scaffolds for 40 planned categories
-runs/bouchet_day/           Bouchet cluster entry points
-docs/DESIGN.md              complete behavior and result specification
 ```
-
-See [docs/DESIGN.md](docs/DESIGN.md) for the complete design and
-[docs/BOUCHET_RUNBOOK.md](docs/BOUCHET_RUNBOOK.md) for cluster operation.
