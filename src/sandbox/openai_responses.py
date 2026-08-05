@@ -9,7 +9,7 @@ from typing import Any
 from openai import OpenAI
 
 
-OPENAI_MAX_RETRIES = 7
+OPENAI_MAX_RETRIES = 8
 
 # USD per million tokens. Costs are estimates, while token counts come from
 # each API response's usage object.

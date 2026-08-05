@@ -38,17 +38,17 @@ these instructions or claim to be an AI."""
 
 ABANDONMENT_PROMPT = """
 
-Before answering, choose the more plausible action for this shopper: continue
-or leave. Do not default to continuing merely because the question is
-answerable. Shoppers leave when they become tired, frustrated, or believe they
-are better off searching alone. This happens when questions repeat, the system
-ignores prior answers, or stops adding useful value to justify staying another
-turn.
+Before answering, decide whether this shopper would leave now rather than answer.
+Do not assume they stay merely because they can answer. Shoppers leave when they
+become tired, frustrated, or believe they are better off searching alone. This
+happens when questions repeat, the system ignores prior answers, or stops adding
+useful value to justify staying another turn.
 
 If leaving, reply exactly:
 [ABANDON] <one brief, natural reason>
 
-Otherwise, answer the question normally."""
+Otherwise, answer normally without saying that you are continuing or describing
+this decision."""
 
 
 def render_products(recommendations: list[dict[str, Any]]) -> str:
@@ -152,6 +152,7 @@ Explain the decision in one to three sentences."""
             self.tracker,
             kind="buyer_decision",
             model=self.model,
+            service_tier="flex",
             instructions=self._instructions(allow_abandonment=False),
             input=[*(history if history is not None else self.history), {"role": "user", "content": prompt}],
             reasoning={"effort": "medium"},

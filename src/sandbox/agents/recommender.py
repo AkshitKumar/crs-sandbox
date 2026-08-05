@@ -195,6 +195,7 @@ class RecommendationService:
             self.tracker,
             kind="recommendation_plan",
             model=self.model,
+            service_tier="flex",
             instructions=(
                 "Prepare a catalog retrieval from the exact shopping dialogue. Choose a short "
                 "focus query for the buyer's most important revealed needs. Set max_price only "
@@ -281,6 +282,7 @@ class RecommendationService:
             self.tracker,
             kind="recommendation_selection",
             model=self.model,
+            service_tier="flex",
             instructions=selection_instructions,
             input=selection_input,
             reasoning={"effort": "medium"},
