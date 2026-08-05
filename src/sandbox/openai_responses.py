@@ -14,7 +14,7 @@ OPENAI_MAX_RETRIES = 8
 # USD per million tokens. Costs are estimates, while token counts come from
 # each API response's usage object.
 MODEL_PRICES = {
-    "gpt-5-mini": {"input": 0.25, "cached_input": 0.025, "output": 2.00},
+    "gpt-5.6-luna": {"input": 0.20, "cached_input": 0.02, "output": 1.20},
 }
 
 

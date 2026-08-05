@@ -25,7 +25,7 @@ from sandbox.openai_responses import (
 from sandbox.questions import QuestionBank
 
 
-DEFAULT_MODEL = "gpt-5-mini"
+DEFAULT_MODEL = "gpt-5.6-luna"
 
 
 class RecommendationError(RuntimeError):

@@ -203,6 +203,16 @@ def _summarize(outcomes: list[Outcome]) -> dict[str, Any]:
     purchases = [outcome for outcome in outcomes if outcome.outcome == "PURCHASE"]
     revenue = [outcome.revenue for outcome in outcomes]
     surplus = [outcome.consumer_surplus for outcome in outcomes]
+    engagement_decisions = [
+        decision
+        for outcome in outcomes
+        for decision in outcome.engagement_decisions
+    ]
+    engagement_fallbacks = [
+        decision
+        for decision in engagement_decisions
+        if decision.get("evaluation_status") == "fallback_answer"
+    ]
     topics = Counter(topic for outcome in outcomes for topic in outcome.question_topics if topic)
     return {
         "n": n,
@@ -223,6 +233,8 @@ def _summarize(outcomes: list[Outcome]) -> dict[str, Any]:
         "mean_turns": _mean([float(outcome.turns_used) for outcome in outcomes]),
         "mean_questions": _mean([float(outcome.asks) for outcome in outcomes]),
         "question_topics": dict(topics),
+        "engagement_decision_count": len(engagement_decisions),
+        "engagement_decision_fallback_count": len(engagement_fallbacks),
         "checkpoint_metrics": _checkpoint_metrics(outcomes),
         "api_usage": _aggregate_usage(outcomes),
     }
@@ -254,8 +266,8 @@ def main() -> int:
     parser.add_argument("--max-turns", type=int, default=16)
     parser.add_argument("--retrieval-k", type=int, default=15)
     parser.add_argument("--assortment-size", type=int, default=5)
-    parser.add_argument("--buyer-model", default="gpt-5-mini")
-    parser.add_argument("--recommender-model", default="gpt-5-mini")
+    parser.add_argument("--buyer-model", default="gpt-5.6-luna")
+    parser.add_argument("--recommender-model", default="gpt-5.6-luna")
     parser.add_argument("--endogenous-abandonment", action="store_true")
     parser.add_argument("--out-dir", type=Path)
     parser.add_argument("--fail-on-protocol-error", action="store_true")

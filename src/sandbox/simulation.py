@@ -64,6 +64,7 @@ class Outcome:
     question_topics: list[str] = field(default_factory=list)
     tool_calls_per_turn: list[list[dict[str, Any]]] = field(default_factory=list)
     checkpoints: list[dict[str, Any]] = field(default_factory=list)
+    engagement_decisions: list[dict[str, Any]] = field(default_factory=list)
     abandonment_reason: str | None = None
     error_code: str | None = None
     error: str | None = None
@@ -136,8 +137,8 @@ class Simulation:
     policy: Policy = field(default_factory=Policy)
     max_turns: int = 16
     endogenous_abandonment: bool = False
-    buyer_model: str = "gpt-5-mini"
-    recommender_model: str = "gpt-5-mini"
+    buyer_model: str = "gpt-5.6-luna"
+    recommender_model: str = "gpt-5.6-luna"
     retrieval_limit: int = 15
     assortment_size: int = 5
     tracker: UsageTracker = field(default_factory=UsageTracker)
@@ -185,6 +186,7 @@ class Simulation:
         self.question_topics: list[str] = []
         self.tool_calls: list[list[dict[str, Any]]] = []
         self.checkpoints: list[dict[str, Any]] = []
+        self.engagement_decisions: list[dict[str, Any]] = []
         self.final_recommendation: RecommendationResult | None = None
         self.prior_recommendations: list[dict[str, Any]] = []
 
@@ -242,17 +244,16 @@ class Simulation:
                     recommendation_already_visible=True,
                 )
                 return
+            abandonment_reason = self._abandonment_reason(step.reply)
+            if abandonment_reason is not None:
+                yield from self._finish_abandoned(
+                    abandonment_reason,
+                    turn=len(self.tool_calls) + 1,
+                )
+                return
             reply = self.buyer.respond(step.reply)
             self.dialogue.append({"role": "user", "content": reply})
             yield {"type": "buyer_message", "content": reply, "turn": len(self.tool_calls) + 1}
-            if reply.strip().startswith(ABANDON_SENTINEL):
-                reason = reply.strip()[len(ABANDON_SENTINEL):].strip()
-                yield {"type": "abandoned", "reason": reason}
-                yield {
-                    "type": "outcome",
-                    "outcome": self._outcome(outcome="ABANDONED", abandonment_reason=reason),
-                }
-                return
             if len(self.tool_calls) >= self.max_turns:
                 break
             step = self.recommender.step(reply)
@@ -281,6 +282,52 @@ class Simulation:
             "turn": len(self.tool_calls),
         }
 
+    def _abandonment_reason(self, question: str) -> str | None:
+        if not self.endogenous_abandonment:
+            return None
+        record: dict[str, Any] = {
+            "question_number": len(self.question_ids),
+            "question_id": self.question_ids[-1] if self.question_ids else None,
+            "question": question,
+        }
+        try:
+            decision = self.buyer.decide_abandonment(question)
+            record.update({"evaluation_status": "scored", **decision})
+        except Exception as exc:
+            decision = {
+                "action": "ANSWER",
+                "reason": (
+                    "Defaulted to ANSWER because the abandonment decision "
+                    "could not be evaluated."
+                ),
+            }
+            record.update(
+                {
+                    "evaluation_status": "fallback_answer",
+                    **decision,
+                    "error_code": (
+                        exc.code
+                        if isinstance(exc, RecommendationError)
+                        else type(exc).__name__.upper()
+                    ),
+                    "error": f"{type(exc).__name__}: {exc}",
+                }
+            )
+        self.engagement_decisions.append(record)
+        return decision["reason"] if decision["action"] == "ABANDON" else None
+
+    def _finish_abandoned(
+        self, reason: str, *, turn: int
+    ) -> Iterator[dict[str, Any]]:
+        reply = f"{ABANDON_SENTINEL} {reason}"
+        self.dialogue.append({"role": "user", "content": reply})
+        yield {"type": "buyer_message", "content": reply, "turn": turn}
+        yield {"type": "abandoned", "reason": reason}
+        yield {
+            "type": "outcome",
+            "outcome": self._outcome(outcome="ABANDONED", abandonment_reason=reason),
+        }
+
     def _ask_fixed(self) -> Iterator[dict[str, Any] | bool]:
         question = self.questions.next(fixed=True)
         if question is None:
@@ -297,17 +344,16 @@ class Simulation:
             "tool_calls": self.tool_calls[-1],
             "turn": len(self.tool_calls),
         }
+        abandonment_reason = self._abandonment_reason(question.text)
+        if abandonment_reason is not None:
+            yield from self._finish_abandoned(
+                abandonment_reason,
+                turn=len(self.tool_calls) + 1,
+            )
+            return True
         reply = self.buyer.respond(question.text)
         self.dialogue.append({"role": "user", "content": reply})
         yield {"type": "buyer_message", "content": reply, "turn": len(self.tool_calls) + 1}
-        if reply.strip().startswith(ABANDON_SENTINEL):
-            reason = reply.strip()[len(ABANDON_SENTINEL):].strip()
-            yield {"type": "abandoned", "reason": reason}
-            yield {
-                "type": "outcome",
-                "outcome": self._outcome(outcome="ABANDONED", abandonment_reason=reason),
-            }
-            return True
         return False
 
     def _run_branching(self) -> Iterator[dict[str, Any]]:
@@ -464,6 +510,7 @@ class Simulation:
             question_topics=list(self.question_topics),
             tool_calls_per_turn=list(self.tool_calls),
             checkpoints=list(self.checkpoints),
+            engagement_decisions=list(self.engagement_decisions),
             abandonment_reason=abandonment_reason,
             error_code=error_code,
             error=error,

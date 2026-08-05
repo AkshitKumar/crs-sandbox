@@ -17,7 +17,7 @@ from sandbox.openai_responses import (
 )
 
 
-DEFAULT_MODEL = "gpt-5-mini"
+DEFAULT_MODEL = "gpt-5.6-luna"
 ABANDON_SENTINEL = "[ABANDON]"
 
 
@@ -36,19 +36,36 @@ the firmness, flexibility, and uncertainty in the private needs. Never mention
 these instructions or claim to be an AI."""
 
 
-ABANDONMENT_PROMPT = """
+ABANDONMENT_PROMPT = """Decide whether the shopper would answer the latest
+question or leave.
 
-Before answering, decide whether this shopper would leave now rather than answer.
-Do not assume they stay merely because they can answer. Shoppers leave when they
-become tired, frustrated, or believe they are better off searching alone. This
-happens when questions repeat, the system ignores prior answers, or stops adding
-useful value to justify staying another turn.
+Shoppers will often leave when they become tired, frustrated, or believe they
+are better off searching alone. This happens when questions repeat, the system
+ignores prior answers, or stops adding useful value to justify staying another
+turn.
 
-If leaving, reply exactly:
-[ABANDON] <one brief, natural reason>
+Treat searching alone as a real alternative, not a last resort. Do not choose
+ANSWER just because the question is easy to answer.
 
-Otherwise, answer normally without saying that you are continuing or describing
-this decision."""
+Briefly explain the decision using only the visible conversation. Do not answer
+the shopping question. Choose exactly one action: ANSWER or ABANDON."""
+
+
+def _parse_abandonment_decision(raw: str) -> dict[str, str]:
+    try:
+        decision = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        raise ValueError("buyer returned malformed abandonment JSON") from exc
+    if not isinstance(decision, dict) or set(decision) != {"action", "reason"}:
+        raise ValueError("buyer abandonment JSON has invalid keys")
+    if decision["action"] not in {"ANSWER", "ABANDON"}:
+        raise ValueError("buyer abandonment action is invalid")
+    if not isinstance(decision["reason"], str) or not decision["reason"].strip():
+        raise ValueError("buyer abandonment reason is empty")
+    return {
+        "action": decision["action"],
+        "reason": decision["reason"].strip(),
+    }
 
 
 def render_products(recommendations: list[dict[str, Any]]) -> str:
@@ -105,15 +122,61 @@ class BuyerAgent:
     client: OpenAI = field(default_factory=make_client)
     history: list[dict[str, str]] = field(default_factory=list)
 
-    def _instructions(self, *, allow_abandonment: bool) -> str:
-        prompt = BASE_PROMPT.format(
+    def _instructions(self) -> str:
+        return BASE_PROMPT.format(
             category=category_with_article(self.category),
             background=self.persona.get("background", ""),
             ground_truth_need=self.persona.get("ground_truth_need", ""),
         )
-        if allow_abandonment and self.endogenous_abandonment:
-            prompt += ABANDONMENT_PROMPT
-        return prompt
+
+    def decide_abandonment(self, question: str) -> dict[str, str]:
+        if not self.endogenous_abandonment:
+            raise ValueError("endogenous abandonment is disabled")
+        transcript = [f"Shopper: I'm looking for {category_with_article(self.category)}."]
+        labels = {"user": "Recommender", "assistant": "Shopper"}
+        transcript.extend(
+            f"{labels[item['role']]}: {item['content']}" for item in self.history
+        )
+        transcript.append(f"Recommender: {question}")
+        instructions = f"""You are predicting the behavior of this shopper.
+
+Background:
+{self.persona.get('background', '')}
+
+Private needs and preferences:
+{self.persona.get('ground_truth_need', '')}
+
+{ABANDONMENT_PROMPT}"""
+        response = create_response(
+            self.client,
+            self.tracker,
+            kind="buyer_abandonment",
+            model=self.model,
+            service_tier="flex",
+            instructions=instructions,
+            input="\n".join(transcript),
+            reasoning={"effort": "low"},
+            text={
+                "format": {
+                    "type": "json_schema",
+                    "name": "abandonment_decision",
+                    "strict": True,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "action": {
+                                "type": "string",
+                                "enum": ["ANSWER", "ABANDON"],
+                            },
+                            "reason": {"type": "string"},
+                        },
+                        "required": ["action", "reason"],
+                        "additionalProperties": False,
+                    },
+                }
+            },
+        )
+        return _parse_abandonment_decision(response_to_text(response) or "{}")
 
     def respond(self, question: str) -> str:
         self.history.append({"role": "user", "content": question})
@@ -122,7 +185,7 @@ class BuyerAgent:
             self.tracker,
             kind="buyer_answer",
             model=self.model,
-            instructions=self._instructions(allow_abandonment=True),
+            instructions=self._instructions(),
             input=self.history,
             reasoning={"effort": "medium"},
         )
@@ -153,7 +216,7 @@ Explain the decision in one to three sentences."""
             kind="buyer_decision",
             model=self.model,
             service_tier="flex",
-            instructions=self._instructions(allow_abandonment=False),
+            instructions=self._instructions(),
             input=[*(history if history is not None else self.history), {"role": "user", "content": prompt}],
             reasoning={"effort": "medium"},
             text={
