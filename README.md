@@ -73,12 +73,15 @@ The adaptive agent has five tools:
 - `ask_question`
 - `recommend`
 
-Catalog exploration is stateless. `recommend()` always reads the exact visible
-dialogue, derives a temporary focused query and optional explicit price ceiling,
-runs fresh full-catalog hybrid retrieval, and adds the category's configured
-default slate to the retrieved `k` candidates. After deduplication and budget
-eligibility, an API model selects and explains the configured assortment
-(five products by default).
+`recommend()` always reads the exact visible dialogue, derives a temporary
+focused query and optional explicit price ceiling, runs fresh full-catalog hybrid
+retrieval, and adds the category's configured default slate to the retrieved `k`
+candidates. At each branching ATR checkpoint after the first, the immediately
+preceding recommendations are also added to the reranker pool by default. The
+pool is deduplicated, and prior products that violate a newly revealed hard price
+ceiling are omitted. No hidden purchase or willingness-to-pay information is
+used. An API model then selects and explains the configured assortment (five
+products by default).
 
 `rec`, `single_atr`, `branching_atr`, and adaptive recommendations all use that
 same operation.

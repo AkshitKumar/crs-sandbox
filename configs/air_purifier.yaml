@@ -6,7 +6,7 @@ questions_path: data/categories/air_purifier/questions.yaml
 index_dir: data/categories/air_purifier/index
 
 # Guaranteed recall candidates added to every fresh retrieval pool before the
-# LLM chooses the final three products.
+# LLM chooses the final assortment.
 default_slate:
   - B07VVK39F7  # Levoit Core 300-P: compact/value option, rating-volume rank 4
   - B0DJG1731C  # Winix 5510: established midrange large-room option, rank 11

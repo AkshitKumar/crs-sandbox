@@ -186,6 +186,7 @@ class Simulation:
         self.tool_calls: list[list[dict[str, Any]]] = []
         self.checkpoints: list[dict[str, Any]] = []
         self.final_recommendation: RecommendationResult | None = None
+        self.prior_recommendations: list[dict[str, Any]] = []
 
     def run(self) -> Outcome:
         outcome = None
@@ -356,7 +357,15 @@ class Simulation:
             json.dumps(self.dialogue, sort_keys=True).encode()
         ).hexdigest()
         try:
-            result = self.service.recommend(list(self.dialogue))
+            result = self.service.recommend(
+                list(self.dialogue),
+                prior_recommendations=self.prior_recommendations,
+            )
+            # Carry recommendation identity only. Hidden purchase decisions and WTP
+            # never affect the next checkpoint's candidate pool.
+            self.prior_recommendations = [
+                {"asin": product.get("asin")} for product in result.recommendations
+            ]
             decision = self.buyer.evaluate_snapshot(result.recommendations)
             resolved = _resolve_decision(decision, result.recommendations)
             return (

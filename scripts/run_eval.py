@@ -365,6 +365,12 @@ def main() -> int:
             "max_turns": args.max_turns,
             "retrieval_k": args.retrieval_k,
             "assortment_size": args.assortment_size,
+            "carry_forward_recommendations": policy.name == "branching_atr",
+            "maximum_reranker_candidates": (
+                args.retrieval_k
+                + len(default_slate(args.category))
+                + (args.assortment_size if policy.name == "branching_atr" else 0)
+            ),
             "default_slate": [product["asin"] for product in default_slate(args.category)],
             "endogenous_abandonment": args.endogenous_abandonment,
             "buyer_model": args.buyer_model,

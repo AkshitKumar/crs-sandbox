@@ -11,6 +11,7 @@ from openai import OpenAI
 from sandbox.catalog import (
     catalog_overview,
     default_slate,
+    get_products,
     product_details,
     retrieve_catalog,
 )
@@ -83,6 +84,7 @@ class RecommendationResult:
     plan: RecommendationPlan
     retrieved_asins: list[str]
     default_slate_asins: list[str]
+    carried_forward_asins: list[str]
     candidate_asins: list[str]
     lane_sources: dict[str, list[str]]
     eligible_count: int
@@ -93,6 +95,7 @@ class RecommendationResult:
             "plan": self.plan.to_dict(),
             "retrieved_asins": self.retrieved_asins,
             "default_slate_asins": self.default_slate_asins,
+            "carried_forward_asins": self.carried_forward_asins,
             "candidate_asins": self.candidate_asins,
             "lane_sources": self.lane_sources,
             "eligible_count": self.eligible_count,
@@ -112,7 +115,12 @@ class RecommendationService:
         if self.assortment_size < 1:
             raise ValueError("assortment_size must be positive")
 
-    def recommend(self, dialogue: list[dict[str, str]]) -> RecommendationResult:
+    def recommend(
+        self,
+        dialogue: list[dict[str, str]],
+        *,
+        prior_recommendations: list[dict[str, Any]] | None = None,
+    ) -> RecommendationResult:
         transcript = dialogue_text(dialogue)
         plan = self._plan(transcript)
         retrieval = retrieve_catalog(
@@ -143,6 +151,26 @@ class RecommendationService:
             if asin not in seen:
                 pool.append(product)
                 seen.add(asin)
+        carried_forward_asins: list[str] = []
+        prior_asins = [
+            str(product.get("asin") or "")
+            for product in (prior_recommendations or [])
+            if product.get("asin")
+        ]
+        for product in get_products(self.category, prior_asins):
+            price = product.get("price")
+            if not isinstance(price, (int, float)):
+                continue
+            if plan.max_price is not None and float(price) > plan.max_price:
+                continue
+            asin = product["asin"]
+            carried_forward_asins.append(asin)
+            sources = lane_sources.setdefault(asin, [])
+            if "carry_forward" not in sources:
+                sources.append("carry_forward")
+            if asin not in seen:
+                pool.append(product)
+                seen.add(asin)
         if len(pool) < self.assortment_size:
             raise RecommendationError(
                 "INSUFFICIENT_BUDGET_ELIGIBLE_PRODUCTS",
@@ -155,6 +183,7 @@ class RecommendationService:
             plan=plan,
             retrieved_asins=[product["asin"] for product in retrieval.products],
             default_slate_asins=default_asins,
+            carried_forward_asins=carried_forward_asins,
             candidate_asins=[product["asin"] for product in pool],
             lane_sources=lane_sources,
             eligible_count=retrieval.eligible_count,

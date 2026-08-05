@@ -6,7 +6,7 @@ questions_path: data/categories/laptop/questions.yaml
 index_dir: data/categories/laptop/index
 
 # Guaranteed recall candidates added to every fresh retrieval pool before the
-# LLM chooses the final three products.
+# LLM chooses the final assortment.
 default_slate:
   - B0C4G4L53W  # HP Pavilion 15: rating-volume rank 4
   - B0BSJ46KY9  # Lenovo IdeaPad 3i Chromebook: rating-volume rank 6
