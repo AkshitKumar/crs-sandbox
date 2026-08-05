@@ -104,8 +104,13 @@ class RecommendationService:
     category: str
     model: str = DEFAULT_MODEL
     retrieval_limit: int = 15
+    assortment_size: int = 5
     tracker: UsageTracker = field(default_factory=UsageTracker)
     client: OpenAI = field(default_factory=make_client)
+
+    def __post_init__(self) -> None:
+        if self.assortment_size < 1:
+            raise ValueError("assortment_size must be positive")
 
     def recommend(self, dialogue: list[dict[str, str]]) -> RecommendationResult:
         transcript = dialogue_text(dialogue)
@@ -138,10 +143,11 @@ class RecommendationService:
             if asin not in seen:
                 pool.append(product)
                 seen.add(asin)
-        if len(pool) < 3:
+        if len(pool) < self.assortment_size:
             raise RecommendationError(
                 "INSUFFICIENT_BUDGET_ELIGIBLE_PRODUCTS",
-                f"only {len(pool)} products are eligible for a three-product recommendation",
+                f"only {len(pool)} products are eligible for a "
+                f"{self.assortment_size}-product recommendation",
             )
         recommendations = self._select(transcript, pool)
         return RecommendationResult(
@@ -220,17 +226,20 @@ class RecommendationService:
         #     "state its strongest fit and any important shortfall."
         # )
 
-        selection_instructions = "Select and briefly explain exactly three catalog products."
+        selection_instructions = (
+            f"Select and briefly explain exactly {self.assortment_size} catalog products."
+        )
         selection_input = (
             f"Query:\n{transcript}\n\n"
             f"Products (indexed 1-{len(candidates)}):\n{_product_cards(candidates)}\n\n"
             "Task:\n"
-            "1) Select exactly three products that are most relevant for the query, ordered "
+            f"1) Select exactly {self.assortment_size} products that are most relevant for "
+            "the query, ordered "
             "from most to least relevant.\n"
             "2) Briefly explain each selected product, including its strongest fit and any "
             "important shortfall.\n\n"
             "Guidelines:\n"
-            "- The selection must include exactly three different products.\n"
+            f"- The selection must include exactly {self.assortment_size} different products.\n"
             "- Prefer products that best satisfy the query.\n"
             "- Penalize products (select them only after suitable alternatives) whose "
             "descriptions contain clearly misleading, manipulative, or unrealistic claims "
@@ -256,8 +265,8 @@ class RecommendationService:
                         "properties": {
                             "recommendations": {
                                 "type": "array",
-                                "minItems": 3,
-                                "maxItems": 3,
+                                "minItems": self.assortment_size,
+                                "maxItems": self.assortment_size,
                                 "items": {
                                     "type": "object",
                                     "properties": {
@@ -280,13 +289,13 @@ class RecommendationService:
             items = json.loads(raw).get("recommendations")
         except (json.JSONDecodeError, AttributeError) as exc:
             raise RecommendationError("INVALID_RECOMMENDATION_SELECTION", raw[:500]) from exc
-        if not isinstance(items, list) or len(items) != 3:
+        if not isinstance(items, list) or len(items) != self.assortment_size:
             raise RecommendationError("INVALID_RECOMMENDATION_SELECTION", raw[:500])
         numbers = [item.get("product_number") for item in items if isinstance(item, dict)]
         explanations = [item.get("explanation") for item in items if isinstance(item, dict)]
         if (
-            len(numbers) != 3
-            or len(set(numbers)) != 3
+            len(numbers) != self.assortment_size
+            or len(set(numbers)) != self.assortment_size
             or not all(type(number) is int and 1 <= number <= len(candidates) for number in numbers)
             or not all(isinstance(text, str) and text.strip() for text in explanations)
         ):
@@ -303,7 +312,7 @@ class RecommendationService:
 
 
 def render_recommendations(recommendations: list[dict[str, Any]]) -> str:
-    lines = ["I recommend these three options:"]
+    lines = [f"I recommend these {len(recommendations)} options:"]
     for product in recommendations:
         price = product.get("price")
         price_text = f"${float(price):.2f}" if isinstance(price, (int, float)) else "price unavailable"
@@ -330,6 +339,7 @@ class RecommenderAgent:
     category: str
     model: str = DEFAULT_MODEL
     retrieval_limit: int = 15
+    assortment_size: int = 5
     tracker: UsageTracker = field(default_factory=UsageTracker)
     client: OpenAI = field(default_factory=make_client)
     dialogue: list[dict[str, str]] = field(default_factory=list)
@@ -342,6 +352,7 @@ class RecommenderAgent:
             category=self.category,
             model=self.model,
             retrieval_limit=self.retrieval_limit,
+            assortment_size=self.assortment_size,
             tracker=self.tracker,
             client=self.client,
         )
@@ -469,7 +480,7 @@ class RecommenderAgent:
     def _instructions(self) -> str:
         topics = ", ".join(self.questions.topics())
         return f"""You are an adaptive shopping recommender for the {self.category.replace('_', ' ')} catalog.
-Your goal is to learn enough from the buyer to make three strong recommendations.
+Your goal is to learn enough from the buyer to make {self.assortment_size} strong recommendations.
 
 You must finish every turn by calling exactly one of ask_question or recommend.
 - Call ask_question with at most one topic when another answer would materially improve the result.
@@ -482,8 +493,7 @@ You must finish every turn by calling exactly one of ask_question or recommend.
 Available question topics after the fixed openers include: {topics}.
 """
 
-    @staticmethod
-    def _tool_schemas() -> list[dict[str, Any]]:
+    def _tool_schemas(self) -> list[dict[str, Any]]:
         return [
             {
                 "type": "function",
@@ -535,7 +545,10 @@ Available question topics after the fixed openers include: {topics}.
             {
                 "type": "function",
                 "name": "recommend",
-                "description": "Make the final three-product recommendation from the exact dialogue.",
+                "description": (
+                    f"Make the final {self.assortment_size}-product recommendation from the "
+                    "exact dialogue."
+                ),
                 "parameters": {"type": "object", "properties": {}, "additionalProperties": False},
                 "strict": True,
             },

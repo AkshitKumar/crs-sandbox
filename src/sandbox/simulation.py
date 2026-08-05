@@ -10,6 +10,7 @@ from typing import Any, Iterator, Literal
 from openai import OpenAI
 
 from sandbox.agents.buyer import ABANDON_SENTINEL, BuyerAgent
+from sandbox.catalog import category_with_article
 from sandbox.agents.recommender import (
     RecommendationError,
     RecommendationResult,
@@ -69,7 +70,34 @@ class Outcome:
     api_usage: dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        payload = asdict(self)
+        payload["schema_version"] = "crs-transcript-v2"
+        payload["recommendation_result"] = _compact_recommendation_result(
+            payload.get("recommendation_result")
+        )
+        for checkpoint in payload.get("checkpoints") or []:
+            if "recommendation_result" in checkpoint:
+                checkpoint["recommendation_result"] = _compact_recommendation_result(
+                    checkpoint.get("recommendation_result")
+                )
+        return payload
+
+
+def _compact_recommendation_result(
+    result: dict[str, Any] | None,
+) -> dict[str, Any] | None:
+    """Keep selection identity and rationale; catalog data is keyed by ASIN."""
+    if result is None:
+        return None
+    compact = dict(result)
+    compact["recommendations"] = [
+        {
+            "asin": product.get("asin"),
+            "recommendation_explanation": product.get("recommendation_explanation"),
+        }
+        for product in result.get("recommendations") or []
+    ]
+    return compact
 
 
 def _resolve_decision(
@@ -111,6 +139,7 @@ class Simulation:
     buyer_model: str = "gpt-5-mini"
     recommender_model: str = "gpt-5-mini"
     retrieval_limit: int = 15
+    assortment_size: int = 5
     tracker: UsageTracker = field(default_factory=UsageTracker)
     client: OpenAI | None = None
     buyer: BuyerAgent | None = None
@@ -131,6 +160,7 @@ class Simulation:
                 category=self.category,
                 model=self.recommender_model,
                 retrieval_limit=self.retrieval_limit,
+                assortment_size=self.assortment_size,
                 tracker=self.tracker,
                 client=self.client,
             )
@@ -141,6 +171,7 @@ class Simulation:
                 category=self.category,
                 model=self.recommender_model,
                 retrieval_limit=self.retrieval_limit,
+                assortment_size=self.assortment_size,
                 tracker=self.tracker,
                 client=self.client,
             )
@@ -180,7 +211,7 @@ class Simulation:
             }
 
     def _run_iter(self) -> Iterator[dict[str, Any]]:
-        opener = f"I'm looking for a {self.category.replace('_', ' ')}."
+        opener = f"I'm looking for {category_with_article(self.category)}."
         self.dialogue.append({"role": "user", "content": opener})
         yield {"type": "buyer_message", "content": opener, "turn": 1}
 

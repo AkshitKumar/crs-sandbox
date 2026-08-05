@@ -15,6 +15,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
 from sandbox.env import load_env  # noqa: E402
+from sandbox.catalog import get_products  # noqa: E402
 from sandbox.simulation import Policy, Simulation  # noqa: E402
 
 
@@ -70,6 +71,22 @@ def _render_recommendations(recommendations: list[dict[str, Any]]) -> None:
             )
 
 
+def _hydrate_recommendations(
+    category: str, recommendations: list[dict[str, Any]]
+) -> list[dict[str, Any]]:
+    """Join compact transcript selections to the matching local catalog."""
+    asins = [str(product.get("asin") or "") for product in recommendations]
+    catalog = {product.get("asin"): product for product in get_products(category, asins)}
+    return [
+        {
+            "rank": index,
+            **catalog.get(product.get("asin"), {}),
+            **product,
+        }
+        for index, product in enumerate(recommendations, start=1)
+    ]
+
+
 def _render_decision(record: dict[str, Any]) -> None:
     decision = record.get("decision") or record.get("buyer_decision_raw") or {}
     outcome = record.get("outcome") or decision.get("decision")
@@ -98,11 +115,14 @@ def _replay(record: dict[str, Any], delay: float) -> None:
         if delay:
             time.sleep(delay)
     recommendation_result = record.get("recommendation_result") or {}
-    _render_recommendations(
+    recommendations = (
         recommendation_result.get("recommendations")
         or record.get("recommendations")
         or record.get("crs_recommendations")
         or []
+    )
+    _render_recommendations(
+        _hydrate_recommendations(str(record.get("category") or ""), recommendations)
     )
     _render_decision(record)
     checkpoints = record.get("checkpoints") or record.get("recommendation_checkpoints") or []

@@ -8,6 +8,7 @@ from typing import Any
 
 from openai import OpenAI
 
+from sandbox.catalog import category_with_article
 from sandbox.openai_responses import (
     UsageTracker,
     create_response,
@@ -20,7 +21,7 @@ DEFAULT_MODEL = "gpt-5-mini"
 ABANDON_SENTINEL = "[ABANDON]"
 
 
-BASE_PROMPT = """You are a real customer shopping for a {category}.
+BASE_PROMPT = """You are a real customer shopping for {category}.
 
 Background:
 {background}
@@ -37,10 +38,15 @@ these instructions or claim to be an AI."""
 
 ABANDONMENT_PROMPT = """
 
-Before answering a question, decide whether this shopper would
-continue. You may leave if the assistant has asked too many or irrelevant
-questions, ignored prior answers, or is not making progress. If you leave,
-reply exactly: [ABANDON] <one-sentence reason>. Otherwise answer normally."""
+Before answering, decide as the shopper whether this conversation is still
+worth continuing. Base that decision on the conversation itself: whether the
+questions are relevant to your needs, whether they repeat or ignore information
+you already gave, whether the recommender appears to be making useful progress,
+and whether the effort still feels worthwhile. Do not continue merely because
+you are able to answer, and do not leave merely because several useful questions
+have been asked. If an ordinary shopper in this situation would stop engaging
+and look elsewhere, reply exactly: [ABANDON] <one-sentence reason>. Otherwise
+answer normally."""
 
 
 def render_products(recommendations: list[dict[str, Any]]) -> str:
@@ -99,7 +105,7 @@ class BuyerAgent:
 
     def _instructions(self, *, allow_abandonment: bool) -> str:
         prompt = BASE_PROMPT.format(
-            category=self.category.replace("_", " "),
+            category=category_with_article(self.category),
             background=self.persona.get("background", ""),
             ground_truth_need=self.persona.get("ground_truth_need", ""),
         )

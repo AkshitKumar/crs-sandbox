@@ -36,6 +36,15 @@ def load_config(category: str) -> dict[str, Any]:
     return yaml.safe_load(path.read_text())
 
 
+def category_with_article(category: str) -> str:
+    """Return the configured category name with the correct indefinite article."""
+    display_name = str(
+        load_config(category).get("display_name") or category.replace("_", " ")
+    ).strip()
+    article = "an" if display_name[:1].lower() in "aeiou" else "a"
+    return f"{article} {display_name.lower()}"
+
+
 @lru_cache(maxsize=64)
 def load_catalog(category: str) -> tuple[dict[str, Any], ...]:
     path = REPO_ROOT / load_config(category)["catalog_path"]

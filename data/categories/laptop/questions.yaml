@@ -19,10 +19,6 @@ openers:
     text: "Do you have any requirements or preferences about memory (RAM)?"
 
 followups:
-  - id: gpu_need
-    topic: gpu
-    text: "Do you have any requirements or preferences about graphics performance?"
-
   - id: storage
     topic: storage
     text: "Do you have any requirements or preferences about storage?"
@@ -31,13 +27,17 @@ followups:
     topic: battery
     text: "How important is battery life to you?"
 
+  - id: display_quality
+    topic: display
+    text: "Do you care about display quality — high resolution, color accuracy, OLED, that kind of thing?"
+
   - id: weight
     topic: portability
     text: "How important are weight and portability to you?"
 
-  - id: display_quality
-    topic: display
-    text: "Do you care about display quality — high resolution, color accuracy, OLED, that kind of thing?"
+  - id: gpu_need
+    topic: gpu
+    text: "Do you have any requirements or preferences about graphics performance?"
 
   - id: refresh_rate
     topic: display

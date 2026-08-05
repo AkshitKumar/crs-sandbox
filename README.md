@@ -41,7 +41,7 @@ uv run python scripts/run_eval.py laptop \
 
 # One visible conversation plus hidden recommendation branches at depths 0...7
 uv run python scripts/run_eval.py laptop \
-  --policy branching_atr --numquestions 7 --n-personas 30
+  --policy branching_atr --numquestions 7 --n-personas 30 --assortment-size 5
 
 # Run only persona-file positions 51 through 100 (inclusive)
 uv run python scripts/run_eval.py laptop \
@@ -77,7 +77,8 @@ Catalog exploration is stateless. `recommend()` always reads the exact visible
 dialogue, derives a temporary focused query and optional explicit price ceiling,
 runs fresh full-catalog hybrid retrieval, and adds the category's configured
 default slate to the retrieved `k` candidates. After deduplication and budget
-eligibility, an API model selects and explains the final three products.
+eligibility, an API model selects and explains the configured assortment
+(five products by default).
 
 `rec`, `single_atr`, `branching_atr`, and adaptive recommendations all use that
 same operation.

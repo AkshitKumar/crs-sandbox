@@ -6,7 +6,6 @@ import argparse
 import hashlib
 import json
 import os
-import subprocess
 import sys
 import time
 from collections import Counter, defaultdict
@@ -58,19 +57,6 @@ def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def _git_value(*args: str) -> str | None:
-    try:
-        return subprocess.run(
-            ["git", *args],
-            cwd=REPO_ROOT,
-            check=True,
-            capture_output=True,
-            text=True,
-        ).stdout.strip()
-    except (OSError, subprocess.CalledProcessError):
-        return None
-
-
 def _run_one(
     persona: dict[str, Any],
     category: str,
@@ -86,6 +72,7 @@ def _run_one(
         buyer_model=args.buyer_model,
         recommender_model=args.recommender_model,
         retrieval_limit=args.retrieval_k,
+        assortment_size=args.assortment_size,
     ).run()
 
 
@@ -266,6 +253,7 @@ def main() -> int:
     parser.add_argument("--parallel", type=int, default=4)
     parser.add_argument("--max-turns", type=int, default=16)
     parser.add_argument("--retrieval-k", type=int, default=15)
+    parser.add_argument("--assortment-size", type=int, default=5)
     parser.add_argument("--buyer-model", default="gpt-5-mini")
     parser.add_argument("--recommender-model", default="gpt-5-mini")
     parser.add_argument("--endogenous-abandonment", action="store_true")
@@ -289,8 +277,10 @@ def main() -> int:
         parser.error("--parallel must be positive")
     if args.max_turns < 1:
         parser.error("--max-turns must be positive")
-    if args.retrieval_k < 3:
-        parser.error("--retrieval-k must be at least 3")
+    if args.assortment_size < 1:
+        parser.error("--assortment-size must be positive")
+    if args.retrieval_k < args.assortment_size:
+        parser.error("--retrieval-k must be at least --assortment-size")
     if policy.numquestions > len(QuestionBank.load(args.category).questions):
         parser.error("policy requests more questions than the category defines")
     if policy.name != "adaptive" and args.max_turns < policy.numquestions + 1:
@@ -365,7 +355,7 @@ def main() -> int:
     questions_path = catalog_path.with_name("questions.yaml")
     elapsed = time.time() - started
     summary = {
-        "schema_version": "crs-evaluation-v1",
+        "schema_version": "crs-evaluation-v2",
         "run": {
             "category": args.category,
             "policy": policy.name,
@@ -374,12 +364,11 @@ def main() -> int:
             "persona_ids": [outcome.persona_id for outcome in outcomes],
             "max_turns": args.max_turns,
             "retrieval_k": args.retrieval_k,
+            "assortment_size": args.assortment_size,
             "default_slate": [product["asin"] for product in default_slate(args.category)],
             "endogenous_abandonment": args.endogenous_abandonment,
             "buyer_model": args.buyer_model,
             "recommender_model": args.recommender_model,
-            "git_commit": _git_value("rev-parse", "HEAD"),
-            "git_dirty": bool(_git_value("status", "--porcelain")),
             "catalog_sha256": _sha256(catalog_path),
             "personas_sha256": _sha256(personas_path),
             "questions_sha256": _sha256(questions_path),

@@ -23,10 +23,6 @@ openers:
     text: "Do you have a budget range, and is any upper limit firm or flexible?"
 
 followups:
-  - id: exact_sqft
-    topic: room_size
-    text: "Do you know roughly how many square feet the room is?"
-
   - id: hepa_required
     topic: filtration
     text: "Do you have any requirements or preferences about filtration technology?"
