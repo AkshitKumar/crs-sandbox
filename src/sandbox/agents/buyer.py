@@ -39,13 +39,11 @@ these instructions or claim to be an AI."""
 ABANDONMENT_PROMPT = """Decide whether the shopper would answer the latest
 question or leave.
 
-Shoppers will often leave when they become tired, frustrated, or believe they
-are better off searching alone. This happens when questions repeat, the system
-ignores prior answers, or stops adding useful value to justify staying another
-turn.
-
-Treat searching alone as a real alternative, not a last resort. Do not choose
-ANSWER just because the question is easy to answer.
+Base the decision on the conversation itself: whether the questions are
+relevant to the shopper's needs, whether they repeat or ignore information the
+shopper already gave, whether the recommender appears to be making useful
+progress, and whether the effort still feels worthwhile. If an ordinary shopper in
+this situation would stop engaging and look elsewhere, choose ABANDON.
 
 Briefly explain the decision using only the visible conversation. Do not answer
 the shopping question. Choose exactly one action: ANSWER or ABANDON."""
