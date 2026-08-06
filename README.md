@@ -41,7 +41,7 @@ uv run python scripts/run_eval.py laptop \
 
 # One visible conversation plus hidden recommendation branches at depths 0...7
 uv run python scripts/run_eval.py laptop \
-  --policy branching_atr --numquestions 7 --n-personas 30 --assortment-size 5
+  --policy branching_atr --numquestions 7 --n-personas 30 --assortment-size 3
 
 # Run only persona-file positions 51 through 100 (inclusive)
 uv run python scripts/run_eval.py laptop \
@@ -80,7 +80,7 @@ candidates. At each branching ATR checkpoint after the first, the immediately
 preceding recommendations are also added to the reranker pool by default. The
 pool is deduplicated, and prior products that violate a newly revealed hard price
 ceiling are omitted. No hidden purchase or willingness-to-pay information is
-used. An API model then selects and explains the configured assortment (five
+used. An API model then selects and explains the configured assortment (three
 products by default).
 
 `rec`, `single_atr`, `branching_atr`, and adaptive recommendations all use that

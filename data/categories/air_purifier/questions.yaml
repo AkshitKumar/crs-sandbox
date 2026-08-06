@@ -8,11 +8,11 @@
 openers:
   - id: use_context
     topic: use_context
-    text: "Where do you expect to use the air purifier most?"
+    text: "How do you expect to use the air purifier?"
 
-  - id: room_size
-    topic: room_size
-    text: "How large is the space where you expect to use it?"
+  - id: space_type
+    topic: space_type
+    text: "What kind of space will you use it in the most?"
 
   - id: primary_concern
     topic: primary_concern
@@ -27,13 +27,13 @@ followups:
     topic: filtration
     text: "Do you have any requirements or preferences about filtration technology?"
 
-  - id: filter_cost
-    topic: filtration
-    text: "How important are ongoing filter and maintenance costs to you?"
-
   - id: noise_level
     topic: noise
     text: "How important is operating noise to you?"
+
+  - id: filter_cost
+    topic: filtration
+    text: "How important are ongoing filter and maintenance costs to you?"
 
   - id: pets
     topic: pets

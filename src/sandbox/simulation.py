@@ -140,7 +140,7 @@ class Simulation:
     buyer_model: str = "gpt-5.6-luna"
     recommender_model: str = "gpt-5.6-luna"
     retrieval_limit: int = 15
-    assortment_size: int = 5
+    assortment_size: int = 3
     tracker: UsageTracker = field(default_factory=UsageTracker)
     client: OpenAI | None = None
     buyer: BuyerAgent | None = None

@@ -107,7 +107,7 @@ class RecommendationService:
     category: str
     model: str = DEFAULT_MODEL
     retrieval_limit: int = 15
-    assortment_size: int = 5
+    assortment_size: int = 3
     tracker: UsageTracker = field(default_factory=UsageTracker)
     client: OpenAI = field(default_factory=make_client)
 
@@ -370,7 +370,7 @@ class RecommenderAgent:
     category: str
     model: str = DEFAULT_MODEL
     retrieval_limit: int = 15
-    assortment_size: int = 5
+    assortment_size: int = 3
     tracker: UsageTracker = field(default_factory=UsageTracker)
     client: OpenAI = field(default_factory=make_client)
     dialogue: list[dict[str, str]] = field(default_factory=list)

@@ -265,7 +265,7 @@ def main() -> int:
     parser.add_argument("--parallel", type=int, default=4)
     parser.add_argument("--max-turns", type=int, default=16)
     parser.add_argument("--retrieval-k", type=int, default=15)
-    parser.add_argument("--assortment-size", type=int, default=5)
+    parser.add_argument("--assortment-size", type=int, default=3)
     parser.add_argument("--buyer-model", default="gpt-5.6-luna")
     parser.add_argument("--recommender-model", default="gpt-5.6-luna")
     parser.add_argument("--endogenous-abandonment", action="store_true")
