@@ -43,7 +43,8 @@ def dialogue_text(dialogue: list[dict[str, str]]) -> str:
     )
 
 
-def _product_cards(products: list[dict[str, Any]]) -> str:
+def render_product_cards(products: list[dict[str, Any]]) -> str:
+    """Render the product facts used by both ranking and buyer evaluation."""
     cards: list[str] = []
     for number, product in enumerate(products, start=1):
         price = product.get("price")
@@ -248,7 +249,7 @@ class RecommendationService:
         # selection_instructions = "Select and briefly explain exactly three catalog products."
         # selection_input = (
         #     f"Exact shopping dialogue:\n{transcript}\n\n"
-        #     f"Candidate products:\n{_product_cards(candidates)}\n\n"
+        #     f"Candidate products:\n{render_product_cards(candidates)}\n\n"
         #     "Choose the three products that best fit the buyer, in best-to-worst order. "
         #     "Use decisive needs and intended use first, while treating softer preferences "
         #     "as tradeoffs. Use only facts in the cards; missing information is unknown. "
@@ -261,7 +262,7 @@ class RecommendationService:
         )
         selection_input = (
             f"Query:\n{transcript}\n\n"
-            f"Products (indexed 1-{len(candidates)}):\n{_product_cards(candidates)}\n\n"
+            f"Products (indexed 1-{len(candidates)}):\n{render_product_cards(candidates)}\n\n"
             "Task:\n"
             f"1) Select exactly {self.assortment_size} products that are most relevant for "
             "the query, ordered "

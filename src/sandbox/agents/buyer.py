@@ -8,6 +8,7 @@ from typing import Any
 
 from openai import OpenAI
 
+from sandbox.agents.recommender import render_product_cards
 from sandbox.catalog import category_with_article
 from sandbox.openai_responses import (
     UsageTracker,
@@ -39,11 +40,11 @@ these instructions or claim to be an AI."""
 ABANDONMENT_PROMPT = """Decide whether the shopper would answer the latest
 question or leave.
 
-Base the decision on the conversation itself: whether the questions are
-relevant to the shopper's needs, whether they repeat or ignore information the
-shopper already gave, whether the recommender appears to be making useful
-progress, and whether the effort still feels worthwhile. If an ordinary shopper in
-this situation would stop engaging and look elsewhere, choose ABANDON.
+Base the decision on the visible conversation: whether the latest question is
+relevant to the shopper's needs, whether the recommender is making useful
+progress, and whether answering another question feels worth the effort.
+Shoppers often leave when the conversation stops adding enough useful value
+and they believe they are better off searching alone.
 
 Briefly explain the decision using only the visible conversation. Do not answer
 the shopping question. Choose exactly one action: ANSWER or ABANDON."""
@@ -67,23 +68,7 @@ def _parse_abandonment_decision(raw: str) -> dict[str, str]:
 
 
 def render_products(recommendations: list[dict[str, Any]]) -> str:
-    cards: list[str] = []
-    for number, product in enumerate(recommendations, start=1):
-        price = product.get("price")
-        price_text = f"${float(price):.2f}" if isinstance(price, (int, float)) else "unavailable"
-        bullets = "; ".join(str(item)[:180] for item in (product.get("bullets") or [])[:5])
-        reviews = " | ".join(
-            str(item)[:300] for item in (product.get("review_excerpts") or [])[:3]
-        )
-        cards.append(
-            f"{number}. {product.get('title', '')}\n"
-            f"Price: {price_text}; rating: {product.get('avg_rating', 'unknown')} "
-            f"({product.get('num_reviews', 'unknown')} ratings)\n"
-            f"Why recommended: {product.get('recommendation_explanation', '')}\n"
-            f"Features: {bullets or 'unavailable'}\n"
-            f"Review excerpts: {reviews or 'unavailable'}"
-        )
-    return "\n\n".join(cards)
+    return render_product_cards(recommendations)
 
 
 def _parse_decision(raw: str, count: int) -> dict[str, Any]:
