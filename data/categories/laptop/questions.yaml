@@ -12,13 +12,17 @@ openers:
 
   - id: budget
     topic: budget
-    text: "Do you have a budget range, and is any upper limit firm or flexible?"
+    text: "Do you have a budget range?"
 
+  - id: os_preference
+    topic: os
+    text: "Do you have an operating system preference?"
+
+followups:
   - id: ram
     topic: memory
     text: "Do you have any requirements or preferences about memory (RAM)?"
 
-followups:
   - id: storage
     topic: storage
     text: "Do you have any requirements or preferences about storage?"
@@ -26,6 +30,10 @@ followups:
   - id: battery
     topic: battery
     text: "How important is battery life to you?"
+
+  - id: screen_size
+    topic: form_factor
+    text: "Do you have a preferred screen size?"
 
   - id: display_quality
     topic: display
@@ -42,10 +50,6 @@ followups:
   - id: refresh_rate
     topic: display
     text: "Is a high refresh rate (120Hz or higher) important to you, for gaming or smoother scrolling?"
-
-  - id: os_preference
-    topic: os
-    text: "Do you have an OS preference — Windows, macOS, ChromeOS, or no strong opinion?"
 
   - id: ports
     topic: ports
@@ -66,10 +70,6 @@ followups:
   - id: form_factor_2in1
     topic: form_factor
     text: "Would a 2-in-1 or touchscreen design be useful, or do you want a traditional clamshell?"
-
-  - id: portability_vs_screen
-    topic: form_factor
-    text: "Do you prioritize portability and a smaller screen, or a larger display you'll mostly use at a desk?"
 
   - id: fan_noise
     topic: noise

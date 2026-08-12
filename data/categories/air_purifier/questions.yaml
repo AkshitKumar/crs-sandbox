@@ -6,21 +6,21 @@
 # sharing a topic retain their YAML order.
 
 openers:
-  - id: use_context
-    topic: use_context
-    text: "How do you expect to use the air purifier?"
+  - id: primary_concern
+    topic: primary_concern
+    text: "What would you most like the air purifier to address?"
 
   - id: space_type
     topic: space_type
     text: "What kind of space will you use it in the most?"
 
-  - id: primary_concern
-    topic: primary_concern
-    text: "What would you most like the air purifier to address?"
+  - id: room_size
+    topic: room_size
+    text: "Roughly how large is the space?"
 
   - id: budget
     topic: budget
-    text: "Do you have a budget range, and is any upper limit firm or flexible?"
+    text: "Do you have a budget range?"
 
 followups:
   - id: hepa_required
