@@ -43,6 +43,7 @@ question or leave.
 Base the decision on the visible conversation: whether the latest question is
 relevant to the shopper's needs, whether the recommender is making useful
 progress, and whether answering another question feels worth the effort.
+Judge the full conversation, not merely the latest question.
 Shoppers often leave when the conversation stops adding enough useful value
 and they believe they are better off searching alone.
 
@@ -138,7 +139,7 @@ Private needs and preferences:
             service_tier="flex",
             instructions=instructions,
             input="\n".join(transcript),
-            reasoning={"effort": "low"},
+            reasoning={"effort": "medium"},
             text={
                 "format": {
                     "type": "json_schema",
@@ -189,9 +190,9 @@ Private needs and preferences:
 
 {render_products(recommendations)}
 
-Purchase one if it is a good fit for your actual needs, otherwise do not
-purchase. If purchasing, report the most you would honestly pay. Identify a
-product only by product_number.
+Purchase one only if it is a good fit for your actual preferences, otherwise do
+not purchase. If purchasing, report the most you would be willing to pay based
+on how well it fits your needs. Identify a product only by product_number.
 Explain the decision in one to three sentences."""
         response = create_response(
             self.client,
