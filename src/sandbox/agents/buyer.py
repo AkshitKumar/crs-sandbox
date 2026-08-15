@@ -139,7 +139,7 @@ Private needs and preferences:
             service_tier="flex",
             instructions=instructions,
             input="\n".join(transcript),
-            reasoning={"effort": "medium"},
+            reasoning={"effort": "low"},
             text={
                 "format": {
                     "type": "json_schema",
@@ -193,7 +193,7 @@ Private needs and preferences:
 Purchase one only if it is a good fit for your actual preferences, otherwise do
 not purchase. If purchasing, report the most you would be willing to pay based
 on how well it fits your needs. Identify a product only by product_number.
-Explain the decision in one to three sentences."""
+Explain the decision in one to three sentences before reporting the decision."""
         response = create_response(
             self.client,
             self.tracker,
@@ -211,16 +211,16 @@ Explain the decision in one to three sentences."""
                     "schema": {
                         "type": "object",
                         "properties": {
+                            "reasoning": {"type": "string"},
                             "decision": {"type": "string", "enum": ["PURCHASE", "NO_PURCHASE"]},
                             "product_number": {"type": ["integer", "null"]},
                             "willingness_to_pay": {"type": ["number", "null"]},
-                            "reasoning": {"type": "string"},
                         },
                         "required": [
+                            "reasoning",
                             "decision",
                             "product_number",
                             "willingness_to_pay",
-                            "reasoning",
                         ],
                         "additionalProperties": False,
                     },
