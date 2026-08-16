@@ -37,18 +37,19 @@ the firmness, flexibility, and uncertainty in the private needs. Never mention
 these instructions or claim to be an AI."""
 
 
-ABANDONMENT_PROMPT = """Decide whether the shopper would answer the latest
-question or leave.
+ABANDONMENT_PROMPT = """Decide whether the shopper will continue the
+conversation (answer the question) or leave the interaction.
 
-Base the decision on the visible conversation: whether the latest question is
-relevant to the shopper's needs, whether the recommender is making useful
-progress, and whether answering another question feels worth the effort.
-Judge the full conversation, not merely the latest question.
-Shoppers often leave when the conversation stops adding enough useful value
-and they believe they are better off searching alone.
+Base the decision on the conversation and the shopper's profile. Shoppers will
+leave when they are frustrated, tired, or the conversation has become
+repetitive. Evaluate whether the questions are relevant to the shopper's needs,
+and if the recommender seems to be making useful progress. Judge the full
+conversation, not merely the latest question. Continue if answering another
+question feels worth the effort; at some point shoppers may want to leave the
+interaction to search by themselves instead.
 
-Briefly explain the decision using only the visible conversation. Do not answer
-the shopping question. Choose exactly one action: ANSWER or ABANDON."""
+Briefly explain the chosen decision. Do not answer the shopping question.
+Choose exactly one action: CONTINUE or ABANDON."""
 
 
 def _parse_abandonment_decision(raw: str) -> dict[str, str]:
@@ -58,7 +59,7 @@ def _parse_abandonment_decision(raw: str) -> dict[str, str]:
         raise ValueError("buyer returned malformed abandonment JSON") from exc
     if not isinstance(decision, dict) or set(decision) != {"action", "reason"}:
         raise ValueError("buyer abandonment JSON has invalid keys")
-    if decision["action"] not in {"ANSWER", "ABANDON"}:
+    if decision["action"] not in {"CONTINUE", "ABANDON"}:
         raise ValueError("buyer abandonment action is invalid")
     if not isinstance(decision["reason"], str) or not decision["reason"].strip():
         raise ValueError("buyer abandonment reason is empty")
@@ -122,7 +123,7 @@ class BuyerAgent:
             f"{labels[item['role']]}: {item['content']}" for item in self.history
         )
         transcript.append(f"Recommender: {question}")
-        instructions = f"""You are predicting the behavior of this shopper.
+        instructions = f"""Determine this shopper's next action in the conversation.
 
 Background:
 {self.persona.get('background', '')}
@@ -148,13 +149,13 @@ Private needs and preferences:
                     "schema": {
                         "type": "object",
                         "properties": {
+                            "reason": {"type": "string"},
                             "action": {
                                 "type": "string",
-                                "enum": ["ANSWER", "ABANDON"],
+                                "enum": ["CONTINUE", "ABANDON"],
                             },
-                            "reason": {"type": "string"},
                         },
-                        "required": ["action", "reason"],
+                        "required": ["reason", "action"],
                         "additionalProperties": False,
                     },
                 }

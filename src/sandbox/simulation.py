@@ -295,15 +295,15 @@ class Simulation:
             record.update({"evaluation_status": "scored", **decision})
         except Exception as exc:
             decision = {
-                "action": "ANSWER",
+                "action": "CONTINUE",
                 "reason": (
-                    "Defaulted to ANSWER because the abandonment decision "
+                    "Defaulted to CONTINUE because the abandonment decision "
                     "could not be evaluated."
                 ),
             }
             record.update(
                 {
-                    "evaluation_status": "fallback_answer",
+                    "evaluation_status": "fallback_continue",
                     **decision,
                     "error_code": (
                         exc.code

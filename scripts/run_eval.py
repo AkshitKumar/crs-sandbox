@@ -211,7 +211,7 @@ def _summarize(outcomes: list[Outcome]) -> dict[str, Any]:
     engagement_fallbacks = [
         decision
         for decision in engagement_decisions
-        if decision.get("evaluation_status") == "fallback_answer"
+        if decision.get("evaluation_status") == "fallback_continue"
     ]
     topics = Counter(topic for outcome in outcomes for topic in outcome.question_topics if topic)
     return {
