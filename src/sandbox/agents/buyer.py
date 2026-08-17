@@ -40,13 +40,14 @@ these instructions or claim to be an AI."""
 ABANDONMENT_PROMPT = """Decide whether the shopper will continue the
 conversation (answer the question) or leave the interaction.
 
-Base the decision on the conversation and the shopper's profile. Shoppers will
-leave when they are frustrated, tired, or the conversation has become
-repetitive. Evaluate whether the questions are relevant to the shopper's needs,
-and if the recommender seems to be making useful progress. Judge the full
+Base the decision on the conversation and traits suggested by the shopper’s
+profile. Shoppers may leave when they are frustrated, tired, or the
+conversation feels persistently repetitive. Evaluate whether the questions are
+relevant to the shopper's needs,
+and if the recommender seems to be making reasonable progress. Judge the full
 conversation, not merely the latest question. Continue if answering another
-question feels worth the effort; at some point shoppers may want to leave the
-interaction to search by themselves instead.
+question feels worth the effort; shoppers may leave the interaction if searching
+independently begins to seem preferable.
 
 Briefly explain the chosen decision. Do not answer the shopping question.
 Choose exactly one action: CONTINUE or ABANDON."""
