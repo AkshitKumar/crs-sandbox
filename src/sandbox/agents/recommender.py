@@ -400,6 +400,7 @@ class RecommenderAgent:
                 self.tracker,
                 kind="adaptive_recommender",
                 model=self.model,
+                service_tier="flex",
                 instructions=self._instructions(),
                 input=self.api_history,
                 tools=self._tool_schemas(),

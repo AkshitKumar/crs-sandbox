@@ -37,3 +37,4 @@ results/*/raw/
 # Eval outputs — generated locally per collaborator
 results/
 !results/.gitkeep
+scripts/local/
