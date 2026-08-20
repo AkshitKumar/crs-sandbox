@@ -43,9 +43,9 @@ conversation (answer the question) or leave the interaction.
 Base the decision on the conversation and traits suggested by the shopper’s
 profile. Shoppers may leave when they are frustrated, tired, or the
 conversation feels persistently repetitive. Evaluate whether the questions are
-relevant to the shopper's needs,
-and if the recommender seems to be making reasonable progress. Judge the full
-conversation, not merely the latest question. Continue if answering another
+relevant to the shopper's needs and whether the recommender is learning
+preferences that could improve the recommendation. Judge the full conversation,
+not merely the latest question. Continue if answering another
 question feels worth the effort; shoppers may leave the interaction if searching
 independently seems clearly preferable.
 

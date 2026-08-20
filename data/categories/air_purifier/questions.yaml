@@ -14,10 +14,6 @@ openers:
     topic: space_type
     text: "What kind of space will you use it in the most?"
 
-  - id: room_size
-    topic: room_size
-    text: "Roughly how large is the space?"
-
   - id: budget
     topic: budget
     text: "Do you have a budget range?"

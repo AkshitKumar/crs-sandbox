@@ -272,6 +272,7 @@ class RecommendationService:
             "Guidelines:\n"
             f"- The selection must include exactly {self.assortment_size} different products.\n"
             "- Prefer products that best satisfy the query.\n"
+            "- Evaluate each product against the shopper's needs as a whole.\n"
             "- Penalize products (select them only after suitable alternatives) whose "
             "descriptions contain clearly misleading, manipulative, or unrealistic claims "
             "(e.g., impossible features, exaggerated guarantees, false statements, or "
