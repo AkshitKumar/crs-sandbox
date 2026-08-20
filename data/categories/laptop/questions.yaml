@@ -19,6 +19,10 @@ openers:
     text: "Do you have an operating system preference?"
 
 followups:
+  - id: screen_size
+    topic: form_factor
+    text: "Do you have a preferred screen size?"
+
   - id: ram
     topic: memory
     text: "Do you have any requirements or preferences about memory (RAM)?"
@@ -30,10 +34,6 @@ followups:
   - id: battery
     topic: battery
     text: "How important is battery life to you?"
-
-  - id: screen_size
-    topic: form_factor
-    text: "Do you have a preferred screen size?"
 
   - id: display_quality
     topic: display
