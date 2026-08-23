@@ -47,7 +47,7 @@ relevant to the shopper's needs and whether the recommender is learning
 preferences that could improve the recommendation. Judge the full conversation,
 not merely the latest question. Continue if answering another
 question feels worth the effort; shoppers may leave the interaction if searching
-independently seems clearly preferable.
+independently seems clearly preferable at this point. 
 
 Briefly explain the chosen decision. Do not answer the shopping question.
 Choose exactly one action: CONTINUE or ABANDON."""
@@ -193,7 +193,7 @@ Private needs and preferences:
 
 {render_products(recommendations)}
 
-Purchase one only if it is a good overall fit for your actual preferences,
+Purchase one only if it is a good overall fit for your complete preferences and compatible with your needs,
 otherwise do not purchase. If purchasing, report the most you would be willing
 to pay based on how well it fits your needs. Identify a product only by
 product_number.
