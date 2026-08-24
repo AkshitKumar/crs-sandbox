@@ -10,13 +10,13 @@ openers:
     topic: primary_concern
     text: "What would you most like the air purifier to address?"
 
-  - id: space_type
-    topic: space_type
-    text: "What kind of space will you use it in the most?"
-
   - id: budget
     topic: budget
     text: "Do you have a budget range?"
+
+  - id: space_type
+    topic: space_type
+    text: "What kind of space will you use it in the most?"
 
 followups:
   - id: hepa_required

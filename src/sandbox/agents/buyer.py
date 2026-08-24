@@ -194,9 +194,9 @@ Private needs and preferences:
 {render_products(recommendations)}
 
 Purchase one only if it is a good overall fit for your complete preferences and compatible with your needs,
-otherwise do not purchase. If purchasing, report the most you would be willing
-to pay based on how well it fits your needs. Identify a product only by
-product_number.
+otherwise do not purchase. In judging overall fit, weigh each aspect according to its importance to you.
+If purchasing, report the most you would be willing to pay based on how well it fits your needs. Identify a
+product only by product_number.
 Explain the decision in one to three sentences before reporting the decision."""
         response = create_response(
             self.client,

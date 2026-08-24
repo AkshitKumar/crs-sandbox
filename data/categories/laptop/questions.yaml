@@ -14,10 +14,6 @@ openers:
     topic: budget
     text: "Do you have a budget range?"
 
-  - id: os_preference
-    topic: os
-    text: "Do you have an operating system preference?"
-
 followups:
   - id: screen_size
     topic: form_factor
@@ -34,6 +30,10 @@ followups:
   - id: battery
     topic: battery
     text: "How important is battery life to you?"
+
+  - id: os_preference
+    topic: os
+    text: "Do you have an operating system preference?"
 
   - id: display_quality
     topic: display
