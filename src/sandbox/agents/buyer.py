@@ -37,17 +37,11 @@ the firmness, flexibility, and uncertainty in the private needs. Never mention
 these instructions or claim to be an AI."""
 
 
-ABANDONMENT_PROMPT = """Predict the shopper’s most likely next action at this
-point, not whether leaving is merely plausible.
+ABANDONMENT_PROMPT = """Predict the shopper’s most likely next action at this point, using the action they would actually take as the standard.
 
-Base the decision on the conversation and traits suggested by the shopper’s
-profile. Shoppers may leave when they are frustrated, tired, or the
-conversation feels persistently repetitive. Evaluate whether the questions are
-relevant to the shopper's needs and whether the recommender is learning
-preferences that could improve the recommendation. Judge the full conversation,
-not merely the latest question. Continue while answering another question
-remains the more likely behavior; abandon when this shopper would actually stop
-engaging now.
+Let the shopper’s private needs inform their priorities and tolerance, while grounding the recommender’s progress in what has been said openly. A shopper may prefer a recommendation or a better next question and still continue: a relevant, distinct unanswered question, or the absence of a recommendation by itself, is not enough to make stopping most likely. Genuine repetition, frustration, or fatigue accumulated over the visible exchange can make disengagement more likely.
+
+Continue while answering another question remains the more likely behavior; abandon when this shopper would actually stop engaging now.
 
 Briefly explain the chosen decision. Do not answer the shopping question.
 Choose exactly one action: CONTINUE or ABANDON."""
