@@ -14,9 +14,9 @@ openers:
     topic: budget
     text: "Do you have a budget range?"
 
-  - id: space_type
-    topic: space_type
-    text: "What kind of space will you use it in the most?"
+  - id: room_size
+    topic: room_size
+    text: "Roughly how large is the space?"
 
 followups:
   - id: hepa_required
@@ -27,13 +27,13 @@ followups:
     topic: noise
     text: "How important is operating noise to you?"
 
+  - id: durability
+    topic: durability
+    text: "How important is long-term durability to you?"
+
   - id: filter_cost
     topic: filtration
     text: "How important are ongoing filter and maintenance costs to you?"
-
-  - id: pets
-    topic: pets
-    text: "Do you have pets, and are pet dander or hair a primary concern?"
 
   - id: specific_allergens
     topic: allergies

@@ -390,6 +390,16 @@ def main() -> int:
             "catalog_sha256": _sha256(catalog_path),
             "personas_sha256": _sha256(personas_path),
             "questions_sha256": _sha256(questions_path),
+            "buyer_source_sha256": _sha256(
+                REPO_ROOT / "src" / "sandbox" / "agents" / "buyer.py"
+            ),
+            "recommender_source_sha256": _sha256(
+                REPO_ROOT / "src" / "sandbox" / "agents" / "recommender.py"
+            ),
+            "simulation_source_sha256": _sha256(
+                REPO_ROOT / "src" / "sandbox" / "simulation.py"
+            ),
+            "run_eval_source_sha256": _sha256(Path(__file__).resolve()),
             "wall_clock_s": round(elapsed, 2),
         },
         "metrics": _summarize(outcomes),

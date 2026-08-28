@@ -45,6 +45,10 @@ def category_with_article(category: str) -> str:
     return f"{article} {display_name.lower()}"
 
 
+PRODUCT_CARD_BULLET_LIMIT = 10
+PRODUCT_CARD_BULLET_CHAR_LIMIT = 5500
+
+
 @lru_cache(maxsize=64)
 def load_catalog(category: str) -> tuple[dict[str, Any], ...]:
     path = REPO_ROOT / load_config(category)["catalog_path"]
@@ -74,7 +78,7 @@ def product_details(category: str, asins: list[str]) -> list[dict[str, Any]]:
             "price": product.get("price"),
             "avg_rating": product.get("avg_rating"),
             "num_reviews": product.get("num_reviews"),
-            "bullets": (product.get("bullets") or [])[:6],
+            "bullets": (product.get("bullets") or [])[:PRODUCT_CARD_BULLET_LIMIT],
             "description": str(product.get("description") or "")[:1200],
             "spec_table": product.get("spec_table") or {},
             "review_excerpts": [

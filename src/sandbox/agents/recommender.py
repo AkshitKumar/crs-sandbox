@@ -9,6 +9,8 @@ from typing import Any
 from openai import OpenAI
 
 from sandbox.catalog import (
+    PRODUCT_CARD_BULLET_CHAR_LIMIT,
+    PRODUCT_CARD_BULLET_LIMIT,
     catalog_overview,
     default_slate,
     get_products,
@@ -51,7 +53,10 @@ def render_product_cards(products: list[dict[str, Any]]) -> str:
         specs = "; ".join(
             f"{key}: {value}" for key, value in (product.get("spec_table") or {}).items()
         )[:2200]
-        bullets = "; ".join(str(item) for item in (product.get("bullets") or [])[:6])[:1600]
+        bullets = "; ".join(
+            str(item)
+            for item in (product.get("bullets") or [])[:PRODUCT_CARD_BULLET_LIMIT]
+        )[:PRODUCT_CARD_BULLET_CHAR_LIMIT]
         reviews = " | ".join(
             str(item)[:350] for item in (product.get("review_excerpts") or [])[:3]
         )
