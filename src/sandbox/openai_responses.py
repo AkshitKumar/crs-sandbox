@@ -11,11 +11,16 @@ from openai import OpenAI
 
 OPENAI_MAX_RETRIES = 8
 
-# USD per million tokens. Costs are estimates, while token counts come from
-# each API response's usage object.
+# USD per million short-context tokens, verified against the official OpenAI
+# pricing page on 2026-08-30. Costs are estimates, while token counts and the
+# service tier come from each API response.
 MODEL_PRICES = {
-    "gpt-5.6-luna": {"input": 0.20, "cached_input": 0.02, "output": 1.20},
+    "gpt-5.6-luna": {
+        "standard": {"input": 0.20, "cached_input": 0.02, "output": 1.20},
+        "flex": {"input": 0.10, "cached_input": 0.01, "output": 0.60},
+    },
 }
+LONG_CONTEXT_THRESHOLD = 272_000
 
 
 def make_client() -> OpenAI:
@@ -58,8 +63,14 @@ def response_output_items(response: Any) -> list[dict[str, Any]]:
     return items
 
 
-def _price_for_model(model: str) -> dict[str, float] | None:
-    return next((rates for prefix, rates in MODEL_PRICES.items() if model.startswith(prefix)), None)
+def _price_for_model(model: str, service_tier: str) -> dict[str, float] | None:
+    tiers = next(
+        (rates for prefix, rates in MODEL_PRICES.items() if model.startswith(prefix)),
+        None,
+    )
+    if tiers is None:
+        return None
+    return tiers["flex" if service_tier == "flex" else "standard"]
 
 
 @dataclass
@@ -69,22 +80,28 @@ class UsageTracker:
     def record(self, response: Any, *, kind: str, latency_s: float) -> None:
         usage = getattr(response, "usage", None)
         model = str(getattr(response, "model", "") or "")
+        service_tier = str(getattr(response, "service_tier", "") or "standard")
         input_tokens = int(getattr(usage, "input_tokens", 0) or 0)
         output_tokens = int(getattr(usage, "output_tokens", 0) or 0)
         details = getattr(usage, "input_tokens_details", None)
         cached_tokens = int(getattr(details, "cached_tokens", 0) or 0)
-        rates = _price_for_model(model)
+        rates = _price_for_model(model, service_tier)
         estimated_cost = None
         if rates is not None:
+            input_multiplier = 2 if input_tokens > LONG_CONTEXT_THRESHOLD else 1
+            output_multiplier = 1.5 if input_tokens > LONG_CONTEXT_THRESHOLD else 1
             estimated_cost = (
-                max(0, input_tokens - cached_tokens) * rates["input"]
-                + cached_tokens * rates["cached_input"]
-                + output_tokens * rates["output"]
+                max(0, input_tokens - cached_tokens)
+                * rates["input"]
+                * input_multiplier
+                + cached_tokens * rates["cached_input"] * input_multiplier
+                + output_tokens * rates["output"] * output_multiplier
             ) / 1_000_000
         self.calls.append(
             {
                 "kind": kind,
                 "model": model,
+                "service_tier": service_tier,
                 "response_id": getattr(response, "id", None),
                 "input_tokens": input_tokens,
                 "cached_input_tokens": cached_tokens,

@@ -73,8 +73,8 @@ the host and API rate limits allow it; Bouchet's evaluation wrapper defaults to
 
 ## Fixed question order
 
-The current seven-question laptop sequence is use case, budget, screen size,
-RAM, storage, battery, and operating-system preference. The air-purifier
+The current seven-question laptop sequence is use case, budget, RAM, screen
+size, storage, battery, and operating-system preference. The air-purifier
 sequence is primary concern, budget, room size, filtration requirements, noise,
 durability, and filter/maintenance cost. Fixed ATR policies use this exact YAML
 order; adaptive conversations select from the same bank.
@@ -104,9 +104,12 @@ retrieval, and adds the category's configured default slate to the retrieved `k`
 candidates. At each branching ATR checkpoint after the first, the immediately
 preceding recommendations are also added to the reranker pool by default. The
 pool is deduplicated, and prior products that violate a newly revealed hard price
-ceiling are omitted. No hidden purchase or willingness-to-pay information is
-used. An API model then selects and explains the configured assortment (three
-products by default).
+ceiling are omitted. Eligible prior recommendations are identified to the
+reranker so that it retains one when it remains among the best overall fits and
+replaces it when newly revealed information makes another product meaningfully
+better. No hidden purchase or willingness-to-pay information is used. An API
+model then selects and explains the configured assortment (three products by
+default).
 
 `rec`, `single_atr`, `branching_atr`, and adaptive recommendations all use that
 same operation.

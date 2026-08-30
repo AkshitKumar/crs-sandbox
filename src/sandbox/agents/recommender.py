@@ -28,6 +28,13 @@ from sandbox.questions import QuestionBank
 
 
 DEFAULT_MODEL = "gpt-5.6-luna"
+PREVIOUS_RECOMMENDATION_LABEL = "[PREVIOUSLY RECOMMENDED]"
+CONTINUITY_NOTE = (
+    "Products labelled [PREVIOUSLY RECOMMENDED] were shown at the immediately "
+    "preceding checkpoint. Retain one when it remains among the best overall fits "
+    "after the latest answer; replace it when the new information makes another "
+    "product meaningfully better."
+)
 
 
 class RecommendationError(RuntimeError):
@@ -183,7 +190,33 @@ class RecommendationService:
                 f"only {len(pool)} products are eligible for a "
                 f"{self.assortment_size}-product recommendation",
             )
-        recommendations = self._select(transcript, pool)
+        selection_transcript = transcript
+        selection_pool = pool
+        if prior_asins:
+            prior_asin_set = set(prior_asins)
+            selection_transcript = (
+                f"{transcript}\n\nContinuity context: {CONTINUITY_NOTE}"
+            )
+            selection_pool = []
+            for product in pool:
+                copy = dict(product)
+                if str(product.get("asin") or "") in prior_asin_set:
+                    copy["title"] = (
+                        f"{PREVIOUS_RECOMMENDATION_LABEL} "
+                        f"{product.get('title', '')}"
+                    )
+                selection_pool.append(copy)
+
+        selected = self._select(selection_transcript, selection_pool)
+        originals = {str(product["asin"]): product for product in pool}
+        recommendations: list[dict[str, Any]] = []
+        for item in selected:
+            product = dict(originals[str(item["asin"])])
+            product["rank"] = item["rank"]
+            product["recommendation_explanation"] = item[
+                "recommendation_explanation"
+            ]
+            recommendations.append(product)
         return RecommendationResult(
             recommendations=recommendations,
             plan=plan,
