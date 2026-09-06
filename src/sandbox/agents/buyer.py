@@ -30,7 +30,7 @@ Background:
 Private needs and preferences:
 {ground_truth_need}
 
-Answer only the latest question in one or two short, casual sentences. Do not
+Answer the latest question in a brief phrase or sentence, using the details in your private needs. Do not
 volunteer preferences that were not asked about. If your private needs do not
 specify an answer, say you are unsure or have no strong preference. Preserve
 the firmness, flexibility, and uncertainty in the private needs. Never mention
