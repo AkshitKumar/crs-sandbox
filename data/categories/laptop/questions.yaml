@@ -17,7 +17,7 @@ openers:
 followups:
   - id: ram
     topic: memory
-    text: "Do you have any requirements or preferences about memory (RAM)?"
+    text: "Any particular requirements or preferences for memory (RAM)?"
 
   - id: screen_size
     topic: form_factor
@@ -25,11 +25,11 @@ followups:
 
   - id: storage
     topic: storage
-    text: "Do you have any requirements or preferences about storage?"
+    text: "What are your storage requirements or preferences, if any?"
 
   - id: battery
     topic: battery
-    text: "How important is battery life to you?"
+    text: "How much does battery life matter to you?"
 
   - id: os_preference
     topic: os

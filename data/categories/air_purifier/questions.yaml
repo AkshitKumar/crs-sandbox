@@ -25,15 +25,15 @@ followups:
 
   - id: noise_level
     topic: noise
-    text: "How important is operating noise to you?"
+    text: "Is operating noise an important consideration for you?"
 
   - id: durability
     topic: durability
-    text: "How important is long-term durability to you?"
+    text: "How much does long-term durability matter to you?"
 
   - id: filter_cost
     topic: filtration
-    text: "How important are ongoing filter and maintenance costs to you?"
+    text: "What priority would you give to ongoing filter and maintenance costs?"
 
   - id: specific_allergens
     topic: allergies
