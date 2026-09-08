@@ -35,6 +35,10 @@ followups:
     topic: os
     text: "Do you have an operating system preference?"
 
+  - id: other_requirements
+    topic: other
+    text: "Anything else we haven't covered that's a must-have or dealbreaker?"
+
   - id: display_quality
     topic: display
     text: "Do you care about display quality — high resolution, color accuracy, OLED, that kind of thing?"
