@@ -73,12 +73,13 @@ the host and API rate limits allow it; Bouchet's evaluation wrapper defaults to
 
 ## Fixed question order
 
-The current eight-question laptop sequence is use case, budget, RAM, screen
-size, storage, battery, operating-system preference, and a final catch-all for
-remaining must-haves or dealbreakers. The seven-question air-purifier sequence
-is primary concern, budget, room size, filtration requirements, noise,
-durability, and filter/maintenance cost. Fixed ATR policies use this exact YAML
-order; adaptive conversations select from the same bank.
+The current seven-question laptop sequence is use case, budget, screen size,
+combined memory/storage preferences, battery, operating-system preference, and
+a final catch-all for remaining must-haves or dealbreakers.
+The seven-question air-purifier sequence is primary concern, budget, room size,
+filtration requirements, noise, durability, and filter/maintenance cost. Fixed
+ATR policies use this exact YAML order; adaptive conversations select from the
+same bank.
 
 ## Demo
 

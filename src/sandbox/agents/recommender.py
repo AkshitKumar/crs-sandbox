@@ -30,10 +30,10 @@ from sandbox.questions import QuestionBank
 DEFAULT_MODEL = "gpt-5.6-luna"
 PREVIOUS_RECOMMENDATION_LABEL = "[PREVIOUSLY RECOMMENDED]"
 CONTINUITY_NOTE = (
-    "Products labelled [PREVIOUSLY RECOMMENDED] were shown at the immediately "
-    "preceding checkpoint. Retain one when it remains among the best overall fits "
-    "after the latest answer; replace it when the new information makes another "
-    "product meaningfully better."
+    "Products labelled [PREVIOUSLY RECOMMENDED] were the leading choices before "
+    "the customer’s latest response. Retain one when it remains among the best "
+    "overall fits after the latest answer; replace it when the new information "
+    "makes another product meaningfully better."
 )
 
 

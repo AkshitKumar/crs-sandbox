@@ -43,7 +43,7 @@ Let the shopper’s private needs inform their priorities and tolerance, while g
 
 Continue while answering another question remains the more likely behavior; abandon when this shopper would actually stop engaging now.
 
-Briefly explain the chosen decision. Do not answer the shopping question.
+Briefly describe the shopper’s reaction to the experience so far and their most likely next action.
 Choose exactly one action: CONTINUE or ABANDON."""
 
 

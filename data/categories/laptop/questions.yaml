@@ -15,17 +15,13 @@ openers:
     text: "Do you have a budget range?"
 
 followups:
-  - id: ram
-    topic: memory
-    text: "Any particular requirements or preferences for memory (RAM)?"
-
   - id: screen_size
     topic: form_factor
     text: "Do you have a preferred screen size?"
 
-  - id: storage
-    topic: storage
-    text: "What are your storage requirements or preferences, if any?"
+  - id: memory_storage
+    topic: memory_storage
+    text: "Any preferences for memory (RAM)? What about storage?"
 
   - id: battery
     topic: battery
