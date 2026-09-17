@@ -1,0 +1,40 @@
+category: opener
+display_name: Opener
+
+catalog_path: data/categories/opener/products.jsonl
+questions_path: data/categories/opener/questions.yaml
+index_dir: data/categories/opener/index
+
+# Popular, high-review defaults spanning manual, electric, and multifunction designs.
+default_slate:
+  - B07YP2VH4B
+  - B00T4RH8E6
+  - B00004OCJW
+
+scrape:
+  # US-only. Can openers dominate volume; niche terms remain capped.
+  products_per_query: 10
+  max_search_pages: 15
+  query_caps:
+    can opener: 100
+    manual can opener: 70
+    electric can opener: 45
+    heavy duty can opener: 18
+    smooth edge can opener: 18
+  # Can openers dominate the personas; wine and bottle openers also occur.
+  # Broad categories first; specialized persona needs follow.
+  seed_queries:
+    - "can opener"
+    - "manual can opener"
+    - "electric can opener"
+    - "heavy duty can opener"
+    - "ergonomic easy turn can opener"
+    - "smooth edge can opener"
+    # - "stainless steel can opener"  # Inspect materials on the selected models.
+    - "compact camping can opener"
+    # - "large can opener"  # Covered by heavy-duty query.
+    - "OXO Good Grips can opener"
+    - "wine opener corkscrew"
+    - "bottle opener"
+  target_products: 250
+  reviews_per_product: 8

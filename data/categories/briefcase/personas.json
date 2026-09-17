@@ -1,0 +1,1604 @@
+{
+  "personas": [
+    {
+      "id": "briefcase_001",
+      "gender": "male",
+      "background": "A junior attorney commutes by train daily and wants one polished bag that survives heavy paperwork and long days.",
+      "ground_truth_need": "He needs a professional briefcase for daily courthouse and office use that reads classic and formal. The top priority is long-term durability with strong stitching, reinforced handles, and hardware that won\u2019t fail under weight; he\u2019s replacing a bag whose corners and handle attachments wore out quickly. It must fit a 15-inch laptop plus thick case files and a legal pad, without becoming bulky. Comfort matters but comes after build quality. Target budget is $450 with a hard max of $650 if the leather and construction are truly long-lasting. He prefers minimal branding and dislikes overly rugged, buckle-heavy styling.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My top priority is [[something that will genuinely last for years of daily use]].",
+        "It needs to [[look formal enough for court]].",
+        "I also need [[room for a 15-inch laptop and thick documents]].",
+        "I\u2019d strongly prefer [[minimal logos or visible branding]].",
+        "I\u2019m trying to keep it around [[$450 with a hard limit of $650]].",
+        "I\u2019d like [[a comfortable shoulder strap]] since I carry it all day.",
+        "If possible, I want [[a simple, classic exterior without a rugged vibe]]."
+      ]
+    },
+    {
+      "id": "briefcase_002",
+      "gender": "female",
+      "background": "A frequent business traveler flies weekly and wants a reliable work bag that handles airports, rain, and crowded commutes.",
+      "ground_truth_need": "She wants a daily-use travel-ready briefcase that holds a laptop, chargers, headphones, an umbrella, and paperwork without feeling overstuffed. The primary dealbreaker is weather resistance and easy wipe-clean performance because she\u2019s often caught in rain and puts the bag on dirty floors and under airplane seats. Next is capacity and organization for tech accessories, then durability of zippers and seams. She is open to leather or waxed canvas as long as it ages well and doesn\u2019t soak through. Target budget is $300 with a hard max of $500 if it\u2019s truly robust. She dislikes very heavy bags and wants a neat, professional silhouette.",
+      "context_trail": [
+        "I need a briefcase for work travel.",
+        "The most important thing is [[it has to handle rain and messy travel conditions]].",
+        "I also need [[enough space for laptop plus chargers, headphones, and paperwork]].",
+        "I want [[zippers and seams that won\u2019t fail with constant use]].",
+        "I\u2019m aiming for [[about $300 and I can\u2019t go over $500]].",
+        "I\u2019d really like [[something that doesn\u2019t feel overly heavy]].",
+        "I prefer [[a structured, professional look]].",
+        "Bonus if it has [[smart pockets for tech accessories]]."
+      ]
+    },
+    {
+      "id": "briefcase_003",
+      "gender": "unspecified",
+      "background": "A university student bikes to campus and wants a simple, low-key bag that looks grown-up without being flashy.",
+      "ground_truth_need": "They need an inexpensive leather-look briefcase for classes and occasional interviews, prioritizing a plain, understated exterior with minimal or no logos. The main constraint is budget: target under $100 with a hard max of $150, accepting that premium heritage brands are out of reach. It should survive light daily wear, fit a 13-inch laptop and a notebook, and be easy to carry on a bike commute. Durability matters but within the price range they\u2019ll accept some compromise as long as stitching and handles aren\u2019t flimsy. They prefer black or dark brown and dislike \u201crugged\u201d oversized styling.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "I really need it to be [[under $100, or at most $150]].",
+        "I want [[a plain look with no loud logos]].",
+        "It should [[fit a 13-inch laptop and a notebook]].",
+        "I\u2019d prefer [[black or dark brown]].",
+        "I don\u2019t want [[anything that looks rugged or oversized]].",
+        "It should [[handle light daily wear without falling apart]].",
+        "I\u2019d like [[a simple handle that\u2019s comfortable to grab]]."
+      ]
+    },
+    {
+      "id": "briefcase_004",
+      "gender": "male",
+      "background": "A new graduate entering a corporate job wants a meaningful gift bag that works in both business-casual and formal settings.",
+      "ground_truth_need": "He wants a briefcase that can be used daily in an office and occasionally for more formal meetings, so versatility in style is critical. The dealbreaker is carrying comfort because he walks between buildings and often carries it for 30\u201340 minutes; a good strap and balanced weight matter most. It must fit a 15-inch laptop, a water bottle, and a document folder. He wants durable materials and hardware but is wary of overly complex designs that could fail. Target budget is $250 with a hard max of $400. He prefers a clean design, not too rugged, and would rather avoid loud buckles.",
+      "context_trail": [
+        "I want to buy a briefcase.",
+        "The biggest thing for me is [[it has to be comfortable to carry for longer walks]].",
+        "I need [[it to work with both business-casual clothes and a suit]].",
+        "It should [[fit a 15-inch laptop]].",
+        "I\u2019m trying to stay around [[$250 and I won\u2019t go over $400]].",
+        "I\u2019d prefer [[a clean, simple design]].",
+        "I don\u2019t want [[too many buckles or complicated closures]].",
+        "It should handle [[a folder and a water bottle without feeling cramped]]."
+      ]
+    },
+    {
+      "id": "briefcase_005",
+      "gender": "female",
+      "background": "A consultant moves between client sites all day and needs a rolling option to save her shoulders.",
+      "ground_truth_need": "She needs a rolling briefcase primarily for paperwork and a laptop, because carrying weight all day is causing shoulder strain. The top priority is smooth, stable rolling with durable wheels and a sturdy telescoping handle that won\u2019t wobble. Next is a professional appearance suitable for client offices, followed by interior organization for documents, pens, and small accessories. It should fit a 14-inch laptop and several folders without tipping over. Target budget is $180 with a hard max of $280, prioritizing reliability over luxury branding. She dislikes flimsy fabric that tears at seams and wants something easy to clean.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "I specifically need [[a rolling briefcase with sturdy wheels and handle]].",
+        "It should [[look professional in client offices]].",
+        "I need [[space for folders plus a laptop]].",
+        "I want to spend [[around $180 and not exceed $280]].",
+        "I\u2019d like [[good internal organization for small items]].",
+        "I can\u2019t deal with [[flimsy seams that rip under weight]].",
+        "Ideally it\u2019s [[easy to wipe clean]]."
+      ]
+    },
+    {
+      "id": "briefcase_006",
+      "gender": "male",
+      "background": "A minimalist commuter takes the subway and wants the slimmest possible bag that still protects his laptop.",
+      "ground_truth_need": "He needs a thin, streamlined briefcase that stays close to the body on crowded trains and fits under a desk easily. The primary requirement is a truly slim profile without bulky gussets, while still offering reliable laptop protection for a 13-inch device. After that, he cares about lightweight carry and a clean, modern look that\u2019s appropriate for meetings. He doesn\u2019t need many pockets and dislikes overbuilt \u201ctactical\u201d styling. Target budget is $120 with a hard max of $220, willing to pay more if the padding and stitching are solid. He prefers dark neutral colors and minimal branding.",
+      "context_trail": [
+        "I need a briefcase.",
+        "My main requirement is [[it has to be very thin and not bulky]].",
+        "It must [[protect a 13-inch laptop]].",
+        "I\u2019d strongly prefer [[something lightweight]].",
+        "I want to keep it to [[$120\u2013$220 maximum]].",
+        "I like [[a clean, modern look]].",
+        "I don\u2019t need [[a ton of pockets or compartments]].",
+        "Please avoid [[flashy logos or loud branding]]."
+      ]
+    },
+    {
+      "id": "briefcase_007",
+      "gender": "non-binary",
+      "background": "A UK-based professional shops locally and wants a dependable everyday bag that fits a smaller laptop and looks smart.",
+      "ground_truth_need": "They want a briefcase available from UK or nearby European sellers, to avoid complicated returns and import hassles. The most important constraint is availability and serviceability within the UK market. It needs to fit a 13-inch laptop, a charger, and a notebook, and look professional enough for meetings. Durability is important\u2014strong stitching, reliable hardware, and materials that age well\u2014without being overly heavy. Target budget is \u00a3180 with a hard max of \u00a3300, and they\u2019d rather pay for quality than a big logo. Preference for understated styling and a comfortable crossbody option, but not at the expense of a clean silhouette.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "The key thing is [[it needs to be easy to buy and service in the UK or nearby Europe]].",
+        "It has to [[fit a 13-inch laptop]].",
+        "I want [[a professional look for meetings]].",
+        "My budget is [[around \u00a3180, with a hard limit of \u00a3300]].",
+        "I care about [[strong stitching and dependable hardware]].",
+        "I\u2019d prefer [[an understated design without big logos]].",
+        "If possible, include [[a comfortable crossbody strap]]."
+      ]
+    },
+    {
+      "id": "briefcase_008",
+      "gender": "female",
+      "background": "A design-conscious office worker wants a bag that blends into casual outfits but still works for formal presentations.",
+      "ground_truth_need": "She needs a briefcase that can be worn crossbody and carried by handles, balancing casual and formal aesthetics. The top priority is the versatility of style\u2014appropriate with jeans and a button-up but not out of place with a suit. Next is functional laptop protection for a 14-inch computer, then comfort with a strap that doesn\u2019t dig into the shoulder. She prefers durable materials that patina well and doesn\u2019t want a bag that looks overly rugged. Target budget is $200 with a hard max of $350. She likes warm neutrals and tidy silhouettes, and dislikes excessive external pockets that look messy.",
+      "context_trail": [
+        "I want a briefcase.",
+        "My main priority is [[it should look right both casually and with a suit]].",
+        "I need [[a crossbody option plus top handles]].",
+        "It should [[fit and protect a 14-inch laptop]].",
+        "I\u2019m looking to spend [[about $200 and not more than $350]].",
+        "I want [[a strap that stays comfortable on my shoulder]].",
+        "I\u2019d rather avoid [[a rugged, outdoorsy look]].",
+        "I prefer [[a clean exterior without lots of bulky pockets]]."
+      ]
+    },
+    {
+      "id": "briefcase_009",
+      "gender": "male",
+      "background": "A traditionalist professional carries an attach\u00e9 daily and wants a classic upgrade after visible wear on his current case.",
+      "ground_truth_need": "He wants a classic hard-sided leather-style briefcase/attach\u00e9 that looks timeless and stays structured. The primary requirement is rigid structure and corner protection because his current case is scuffed and sagging after a few years. Next is durability of hinges/locks and handle mounts, followed by a professional, conservative look. It needs to fit documents and a slim laptop, but he\u2019s willing to sacrifice capacity for a crisp silhouette. Target budget is $300 with a hard max of $550, paying more only for noticeably better construction. He dislikes soft, slouchy bags and prefers minimal external detailing and no loud branding.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "The most important thing is [[a structured, hard-sided style that keeps its shape]].",
+        "I need [[durable corners and protection against scuffs]].",
+        "I want [[reliable hardware like hinges, locks, and handle mounts]].",
+        "My budget is [[around $300, with a hard cap of $550]].",
+        "I prefer [[a conservative, classic look]].",
+        "I\u2019m fine with [[less capacity if it stays slim and formal]].",
+        "Please avoid [[big logos or flashy embellishments]]."
+      ]
+    },
+    {
+      "id": "briefcase_010",
+      "gender": "female",
+      "background": "A weekly commuter balances gym, office, and short business trips and wants one leather bag that can do it all.",
+      "ground_truth_need": "She wants a high-quality leather briefcase that can handle daily commuting plus occasional overnight trips, carrying a laptop, notebook, chargers, and a few travel essentials. The top priority is capacity without looking oversized\u2014she needs smart expansion and organization so it doesn\u2019t become a messy dump bag. Next is durability of leather and stitching under heavy load, then comfort when carried through airports. She prefers a polished look suitable for professional settings. Target budget is $400 with a hard max of $800 if the leather and construction are exceptional. She dislikes bags that feel heavy when empty and wants hardware that won\u2019t scratch easily.",
+      "context_trail": [
+        "I need a briefcase for work.",
+        "My main need is [[enough capacity and organization so it doesn\u2019t become a cluttered mess]].",
+        "It should [[hold laptop, chargers, notebook, and some travel items]].",
+        "I want [[strong leather and stitching that can take heavy loads]].",
+        "I\u2019m aiming for [[about $400, and I won\u2019t go past $800]].",
+        "I\u2019d like [[a comfortable carry for airports]].",
+        "I prefer [[a polished, professional look]].",
+        "I\u2019d rather not have [[hardware that scratches up immediately]]."
+      ]
+    },
+    {
+      "id": "briefcase_011",
+      "gender": "male",
+      "background": "A value-focused shopper wants a lifetime-quality leather briefcase but is skeptical of premium pricing and marketing hype.",
+      "ground_truth_need": "He wants a leather briefcase that feels genuinely long-lasting but does not cost luxury-brand money. The dealbreaker is value-for-money: he wants evidence of quality construction (thick leather, solid stitching, strong handle anchors) without paying a huge markup for a name. It must fit a 15-inch laptop and daily work items. He prefers a classic look and dislikes fussy designs with too many straps. Target budget is $250 with a hard max of $350, and he will not stretch beyond that even for well-known heritage brands. He\u2019s wary of thin leather, weak zippers, and flimsy linings that tear.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My top concern is [[getting real quality without paying for hype]].",
+        "I need [[durable construction like strong stitching and handle anchors]].",
+        "It should [[fit a 15-inch laptop]].",
+        "I\u2019m trying to stay within [[$250\u2013$350 max]].",
+        "I\u2019d like [[a classic, straightforward look]].",
+        "I want to avoid [[lots of straps and complicated closures]].",
+        "I\u2019m wary of [[fragile zippers or linings that rip]]."
+      ]
+    },
+    {
+      "id": "briefcase_012",
+      "gender": "unspecified",
+      "background": "An EU-based buyer prefers shopping within the EU and wants a zippered leather bag for commuting and meetings.",
+      "ground_truth_need": "They need a leather briefcase that\u2019s available within the EU and prefer to avoid cross-border complications outside the region. The top priority is a fully zippered main compartment for security on public transport. Next is professional appearance, followed by dependable zipper quality and stitching so the closure doesn\u2019t fail. It must hold a 14-inch laptop and documents without being too bulky. Target budget is \u20ac220 with a hard max of \u20ac400 if the zipper hardware and leather quality are demonstrably better. They prefer understated branding, neutral colors, and a comfortable strap option, but security and quality of closure come first.",
+      "context_trail": [
+        "I need a briefcase.",
+        "The most important thing is [[a zippered main compartment for security]].",
+        "I want [[something readily available within the EU]].",
+        "It should [[fit a 14-inch laptop and documents]].",
+        "My budget is [[around \u20ac220, and I won\u2019t exceed \u20ac400]].",
+        "I care about [[a zipper that\u2019s truly high quality and won\u2019t break]].",
+        "I prefer [[a professional, understated look]].",
+        "If possible, include [[a comfortable shoulder strap]]."
+      ]
+    },
+    {
+      "id": "briefcase_013",
+      "gender": "female",
+      "background": "A brand-deal shopper has access to a major discount and wants to know if discounted fashion labels can still meet work needs.",
+      "ground_truth_need": "She wants a professional-looking black leather briefcase and can purchase from a well-known fashion brand at a steep discount, but she\u2019s concerned about whether the construction is actually durable enough for daily use. The main priority is a polished, office-appropriate look in black with minimal branding. Next is durability\u2014handles, stitching, and hardware must survive commuting and regular carrying. It needs to fit a 13-inch laptop and a notebook. Budget logic: she\u2019s willing to spend $250 if it\u2019s worth it, with a hard max of $400 even if the list price is higher, because she wants strong value. She dislikes overly trendy shapes that date quickly.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a professional black look that doesn\u2019t feel trendy]].",
+        "I need [[minimal branding or logos]].",
+        "It should [[hold a 13-inch laptop and a notebook]].",
+        "I\u2019m trying to keep it within [[$250, with a hard cap of $400]].",
+        "I care a lot about [[durable handles and stitching for daily commuting]].",
+        "I\u2019d like [[hardware that feels solid, not flimsy]].",
+        "I want to avoid [[odd shapes that will look dated quickly]]."
+      ]
+    },
+    {
+      "id": "briefcase_014",
+      "gender": "male",
+      "background": "A field engineer moves between office and job sites and wants one bag that looks professional but can take some abuse.",
+      "ground_truth_need": "He needs a briefcase that can tolerate rough handling and occasional outdoor exposure while still looking acceptable in meetings. The dealbreaker is durability against abrasion and moisture; he often sets it down on concrete and sometimes gets caught in drizzle. Next is easy organization for tools like a small tape measure, chargers, and paperwork, followed by comfortable carry. He prefers a more utilitarian look but not overly tactical. Target budget is $180 with a hard max of $320, prioritizing toughness over premium leather feel. It should fit a 14-inch laptop and not collapse when partially filled. He dislikes delicate finishes that scratch easily.",
+      "context_trail": [
+        "I need a briefcase.",
+        "The top priority is [[it must be tough against scuffs and light rain]].",
+        "I want [[easy organization for small gear and paperwork]].",
+        "It should [[fit a 14-inch laptop]].",
+        "My budget is [[around $180, and I won\u2019t exceed $320]].",
+        "I\u2019d like [[a comfortable carry option]].",
+        "I prefer [[utilitarian styling that still looks okay in meetings]].",
+        "I want to avoid [[finishes that scratch or mark up easily]]."
+      ]
+    },
+    {
+      "id": "briefcase_015",
+      "gender": "female",
+      "background": "A paralegal carries heavy binders and wants a long-lasting bag that won\u2019t become a shoulder-killer.",
+      "ground_truth_need": "She needs a briefcase built for weight: thick binders, document stacks, and a laptop. The top priority is load-bearing durability\u2014reinforced bottom, strong straps/handles, and stitching that won\u2019t separate under heavy daily use. Next is comfort, including a wide strap and balanced carry to reduce shoulder pain. It must fit a 15-inch laptop and multiple binders without the zipper straining. Target budget is $220 with a hard max of $400 because she\u2019s replacing a bag that stretched and tore at stress points. She prefers a professional look and dislikes excessive pockets that bulge. She\u2019s okay with canvas or leather as long as it\u2019s sturdy and not overly heavy when empty.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main requirement is [[it has to handle heavy loads without tearing]].",
+        "I really need [[a comfortable strap to reduce shoulder strain]].",
+        "It must [[fit a 15-inch laptop plus binders]].",
+        "I\u2019m trying to stay within [[$220\u2013$400 max]].",
+        "I\u2019d like [[a reinforced bottom that doesn\u2019t sag]].",
+        "I prefer [[a professional look]].",
+        "I want to avoid [[bulky exterior pockets that stick out]]."
+      ]
+    },
+    {
+      "id": "briefcase_016",
+      "gender": "non-binary",
+      "background": "A tech worker switches between coworking spaces and wants a subtle bag that doesn\u2019t scream \u2018designer\u2019 or \u2018outdoors\u2019.",
+      "ground_truth_need": "They want a low-profile briefcase that blends in anywhere and keeps valuables discreet. The primary dealbreaker is minimal branding and a quiet aesthetic\u2014no large logos, contrast stitching, or loud metal accents. Next is practical organization for a laptop, tablet, chargers, and a slim water bottle, followed by durability for daily commuting. It needs to fit a 14-inch laptop and slide under a desk. Budget target is $160 with a hard max of $280; they\u2019ll pay more only if the materials and stitching are clearly better. They dislike stiff, boxy cases and prefer a slightly softer silhouette as long as it stays tidy.",
+      "context_trail": [
+        "I need a briefcase.",
+        "The most important thing is [[it should be very understated with no big logos]].",
+        "It needs [[good organization for tech essentials]].",
+        "It should [[fit a 14-inch laptop]].",
+        "My budget is [[about $160, with a hard limit of $280]].",
+        "I care about [[durability for daily commuting]].",
+        "I prefer [[a tidy look that still feels a bit soft]].",
+        "I\u2019d like [[something that slides under a desk easily]]."
+      ]
+    },
+    {
+      "id": "briefcase_017",
+      "gender": "male",
+      "background": "A senior manager wants a \u2018buy it for life\u2019 briefcase as a personal milestone purchase and expects premium materials.",
+      "ground_truth_need": "He wants a premium briefcase that can be maintained for decades and looks refined in executive settings. The top priority is materials and craftsmanship: full-grain or high-quality leather (or equally premium textile), excellent stitching, and hardware built to last with available repairs. Next is a timeless silhouette that won\u2019t look dated, followed by capacity for a 15-inch laptop, documents, and travel essentials. Budget target is $700 with a hard max of $1,000, justified only if the bag is repairable and ages beautifully. He dislikes overly rugged \u201cworkwear\u201d styling and excessive weight; he wants elegance, not bulk.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[top-tier craftsmanship and materials that can last decades]].",
+        "I want [[a timeless design that won\u2019t look dated]].",
+        "It needs [[space for a 15-inch laptop and documents]].",
+        "I\u2019m comfortable around [[$700, but I won\u2019t exceed $1,000]].",
+        "I strongly prefer [[repairability or service options]].",
+        "I\u2019d like to avoid [[a rugged workwear look]].",
+        "I don\u2019t want [[a bag that feels overly heavy or bulky]]."
+      ]
+    },
+    {
+      "id": "briefcase_018",
+      "gender": "female",
+      "background": "A commuter in a rainy city walks a lot and needs a work bag that won\u2019t soak through or ruin electronics.",
+      "ground_truth_need": "She needs an all-weather briefcase for daily commuting on foot, with dependable protection for a laptop and paperwork during frequent rain. The dealbreaker is water resistance: materials and construction must prevent soak-through, including protected seams and a closure that sheds water. Next is laptop protection and interior lining that won\u2019t trap moisture, followed by comfort when carried for long walks. It should fit a 13-inch laptop, charger, and a lunch container. Budget target is $180 with a hard max of $300. She prefers a clean, professional look and dislikes delicate leather that stains easily; she\u2019s open to waxed canvas or treated leather.",
+      "context_trail": [
+        "I need a briefcase for commuting.",
+        "The most important thing is [[serious water resistance for rainy days]].",
+        "I need [[reliable laptop protection]].",
+        "It should [[fit a 13-inch laptop plus a few daily items]].",
+        "I\u2019m aiming for [[around $180 and not more than $300]].",
+        "I\u2019d like [[a closure that helps keep water out]].",
+        "I want [[a comfortable carry for long walks]].",
+        "I prefer [[materials that don\u2019t stain or spot easily]]."
+      ]
+    },
+    {
+      "id": "briefcase_019",
+      "gender": "unspecified",
+      "background": "A mixed-dress-code professional wants one versatile bag and worries about buying something with too few reviews.",
+      "ground_truth_need": "They want a versatile briefcase that balances formal and casual use, suitable for office days, client meetings, and occasional events. The primary requirement is confidence in quality\u2014solid construction and proven durability\u2014because they\u2019re wary of lightly reviewed products and don\u2019t want to gamble on an expensive bag. Next is a look that can dress up or down, followed by manageable weight and comfort. It needs to fit a 14-inch laptop and documents. Budget target is $300 with a hard max of $600, stretching only if the warranty, materials, and construction are convincing. They prefer understated styling and dislike bags that look overly rugged or too informal.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My biggest priority is [[being confident it\u2019s truly well-built and not a risky buy]].",
+        "I need [[a style that works both formal and casual]].",
+        "It should [[fit a 14-inch laptop and documents]].",
+        "I\u2019m targeting [[about $300, with a hard max of $600]].",
+        "I\u2019d prefer [[something not overly heavy]].",
+        "I like [[understated design details]].",
+        "I want to avoid [[bags that look too rugged or too informal]]."
+      ]
+    },
+    {
+      "id": "briefcase_020",
+      "gender": "male",
+      "background": "A daily office commuter is picky about closures and wants a secure bag that won\u2019t pop open in transit.",
+      "ground_truth_need": "He needs a briefcase for daily commuting with a strong preference for secure closure because he often stands on crowded trains. The top priority is a closure system that stays shut and protects contents, ideally a zipper or similarly secure design. Next is durability around the opening\u2014zippers, stitching, and edge finishing must hold up to repeated use. It should fit a 15-inch laptop, charger, and a document folder, with enough structure to keep papers neat. Budget target is $200 with a hard max of $350. He prefers a professional, simple look with minimal branding and dislikes floppy messenger-style bags that sag.",
+      "context_trail": [
+        "I need a briefcase.",
+        "The most important thing is [[a secure closure that won\u2019t pop open on the train]].",
+        "I care a lot about [[durability around the opening like zipper and stitching quality]].",
+        "It must [[fit a 15-inch laptop]].",
+        "I\u2019m trying to keep it within [[$200, with a hard limit of $350]].",
+        "I need [[enough structure to keep papers neat]].",
+        "I prefer [[a simple, professional look]].",
+        "I\u2019d like [[minimal branding]]."
+      ]
+    },
+    {
+      "id": "briefcase_021",
+      "gender": "female",
+      "background": "A public defender carries files between courthouse and office and needs a bag that looks strict-professional but survives daily abuse.",
+      "ground_truth_need": "She needs a buy-it-for-life style briefcase for courthouse work that won\u2019t fail at stress points under heavy paper loads. The top priority is durability: reinforced handles, strong stitching, and hardware that doesn\u2019t loosen, because her current bag\u2019s handle anchors stretched and cracked. It must fit a 15-inch laptop, multiple file folders, and a legal pad, while still looking formal. She prefers a plain exterior with minimal branding and dislikes overly rugged canvas aesthetics. Target budget is $350 with a hard max of $550, but she\u2019ll only spend near the max for clearly superior construction and a secure closure.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[long-term durability at the handles and stitching]].",
+        "It needs [[to look formal enough for daily court use]].",
+        "It must [[fit a 15-inch laptop and several file folders]].",
+        "I\u2019m aiming for [[$350 and I won\u2019t go over $550]].",
+        "I prefer [[a plain exterior with minimal branding]].",
+        "I\u2019d like [[a secure closure that won\u2019t pop open]].",
+        "I want to avoid [[a rugged, outdoorsy vibe]]."
+      ]
+    },
+    {
+      "id": "briefcase_022",
+      "gender": "male",
+      "background": "A frugal professional wants a lifelong leather briefcase but hates paying for labels and marketing.",
+      "ground_truth_need": "He wants a quality leather briefcase that can last for years but refuses to pay luxury pricing just for a name. His top priority is value-for-money: thick material, solid stitching, strong zippers, and sturdy handle mounts, with no gimmicky add-ons. It needs to fit a 14-inch laptop, a notebook, and daily cables, and look professional without being flashy. Target budget is $200 with a hard max of $320, and he will not stretch beyond that even if a brand is popular. He prefers minimal logos and dislikes heavy, overbuilt designs.",
+      "context_trail": [
+        "I need a briefcase.",
+        "My top concern is [[getting real build quality without paying for a brand name]].",
+        "I need [[strong zippers and handle anchors that won\u2019t fail]].",
+        "It should [[fit a 14-inch laptop and daily essentials]].",
+        "I\u2019m trying to stay within [[$200\u2013$320 max]].",
+        "I prefer [[minimal logos or branding]].",
+        "I want to avoid [[a bag that feels overly heavy]].",
+        "I\u2019d like [[a clean, professional look]]."
+      ]
+    },
+    {
+      "id": "briefcase_023",
+      "gender": "unspecified",
+      "background": "A remote worker uses coworking spaces and wants a slim, modern bag that fits tight under chairs and small desks.",
+      "ground_truth_need": "They need a thin briefcase that stays compact in crowded spaces and doesn\u2019t snag on chairs or commuter turnstiles. The primary requirement is a truly slim profile while still protecting a 13-inch laptop with decent padding. They care next about light weight and a modern, understated look. They don\u2019t need extensive organization, just a couple of simple pockets for charger and keys. Target budget is $120 with a hard max of $220, willing to pay more only if the bag is noticeably lighter and better padded. They dislike bulky gussets and loud hardware.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "The main thing is [[it has to be very slim and not bulky]].",
+        "It must [[protect a 13-inch laptop with decent padding]].",
+        "I\u2019d really like [[a lightweight carry]].",
+        "I want to keep it to [[$120, with a hard cap of $220]].",
+        "I prefer [[a modern, understated style]].",
+        "I don\u2019t need [[lots of compartments]].",
+        "Please avoid [[big metal accents or loud hardware]]."
+      ]
+    },
+    {
+      "id": "briefcase_024",
+      "gender": "female",
+      "background": "A location-hopping trainer carries stacks of printed materials and wants to stop straining her shoulders during long corridors.",
+      "ground_truth_need": "She needs a rolling briefcase for frequent site-to-site travel in large buildings, with a focus on mobility and stability. The top priority is durable, smooth-rolling wheels and a sturdy telescoping handle that doesn\u2019t wobble, because she\u2019s had cheap luggage handles bend. Next is capacity for paperwork and a laptop, followed by organization for small items like pens and adapters. It should look professional enough for client-facing work. Target budget is $160 with a hard max of $260, prioritizing functional reliability over premium materials. She prefers something easy to wipe clean and dislikes bags that tip over easily.",
+      "context_trail": [
+        "I need a briefcase for work.",
+        "My main requirement is [[a rolling design with sturdy wheels and handle]].",
+        "It should [[carry lots of paperwork comfortably]].",
+        "I need [[space for a laptop too]].",
+        "I\u2019m aiming for [[$160, and I won\u2019t exceed $260]].",
+        "I\u2019d like [[good organization for small items]].",
+        "It should [[look professional in front of clients]].",
+        "I prefer [[something that won\u2019t tip over easily]]."
+      ]
+    },
+    {
+      "id": "briefcase_025",
+      "gender": "male",
+      "background": "A UK commuter wants a dependable bag from local sellers to avoid hassle, and carries only a small laptop and papers.",
+      "ground_truth_need": "He needs a briefcase that\u2019s readily available in the UK with straightforward shipping and returns, avoiding import complications. The primary constraint is UK availability and support. It must fit a 13-inch laptop plus a few documents and chargers, and hold up for daily commuting. He prefers a buy-it-for-life mindset with strong stitching and durable fabric or leather, but he doesn\u2019t want an overly heavy bag. Target budget is \u00a3160 with a hard max of \u00a3280, and he\u2019ll prioritize proven durability over fancy features. He dislikes loud branding and wants a classic, office-appropriate look.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "The key thing is [[it needs to be readily available in the UK]].",
+        "It must [[fit a 13-inch laptop]].",
+        "I care about [[durability for everyday commuting]].",
+        "My budget is [[around \u00a3160, with a hard limit of \u00a3280]].",
+        "I\u2019d prefer [[something not too heavy]].",
+        "I like [[a classic, office-appropriate style]].",
+        "Please avoid [[big logos or loud branding]]."
+      ]
+    },
+    {
+      "id": "briefcase_026",
+      "gender": "female",
+      "background": "A style-conscious professional wants a crossbody-with-handles briefcase that transitions smoothly from casual days to formal meetings.",
+      "ground_truth_need": "She needs a \u201ccasual-but-can-wear-with-a-suit\u201d briefcase with both top handles and a crossbody strap, because her work alternates between relaxed office days and formal presentations. The top priority is that versatile aesthetic. Next is a dedicated laptop sleeve for a 14-inch device, followed by comfort of the strap for commuting. She prefers durable materials like treated leather or waxed canvas that don\u2019t look sloppy with age. Target budget is $180 with a hard max of $320. She dislikes overly rugged workwear styling and wants a clean silhouette without too many exterior pockets.",
+      "context_trail": [
+        "I want a briefcase.",
+        "My main priority is [[a look that works casually and also with a suit]].",
+        "I need [[crossbody carry plus top handles]].",
+        "It should have [[a laptop sleeve for a 14-inch device]].",
+        "I\u2019m aiming for [[$180, and I won\u2019t go above $320]].",
+        "I want [[a strap that stays comfortable when commuting]].",
+        "I\u2019d like to avoid [[a rugged workwear vibe]].",
+        "I prefer [[a clean exterior without lots of pockets]]."
+      ]
+    },
+    {
+      "id": "briefcase_027",
+      "gender": "male",
+      "background": "A traditionalist carries an attach\u00e9 to meetings and wants a classic structured replacement after scuffs and sagging appeared quickly.",
+      "ground_truth_need": "He wants a classic hard-structured leather-style briefcase that keeps its shape and looks conservative. The top priority is rigid structure and corner protection, since his current case scuffed heavily and started sagging at the sides. Next is durable hardware (hinges/locks/handle mounts), followed by a slim profile that still fits documents and a thin laptop. He is willing to sacrifice capacity for a crisp silhouette. Target budget is $280 with a hard max of $500, spending more only for noticeably better build quality. He dislikes soft, floppy bags and prefers minimal external decoration and no prominent logos.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "The main thing is [[a structured, hard-sided style that holds its shape]].",
+        "I need [[strong corner protection against scuffs]].",
+        "I care about [[durable locks/hinges and handle mounts]].",
+        "My budget is [[around $280, with a hard max of $500]].",
+        "I want [[a slim, conservative profile]].",
+        "I\u2019d rather avoid [[soft, floppy designs]].",
+        "Please keep it [[minimal with no prominent logos]]."
+      ]
+    },
+    {
+      "id": "briefcase_028",
+      "gender": "female",
+      "background": "A weekly business traveler carries many accessories and wants one premium bag that fits everything without feeling chaotic.",
+      "ground_truth_need": "She needs a high-capacity briefcase for frequent travel that comfortably fits a laptop, chargers, headphones, notebook, and an umbrella. The top priority is usable space and organization so items are easy to access without overstuffing. Next is durability of zippers, seams, and handles under heavy load, followed by weather tolerance for occasional rain. It should fit a 15-inch laptop and still look professional in client settings. Target budget is $600 with a hard max of $1,000, justified only if it\u2019s truly long-lasting and well-constructed. She dislikes bags that feel heavy when empty and prefers understated branding.",
+      "context_trail": [
+        "I need a briefcase for work travel.",
+        "My main priority is [[enough capacity and organization for lots of daily gear]].",
+        "It has to [[fit a 15-inch laptop comfortably]].",
+        "I need [[durable zippers and seams for heavy loads]].",
+        "My budget is [[around $600, with a hard limit of $1,000]].",
+        "I\u2019d like [[some rain tolerance for travel days]].",
+        "I prefer [[understated branding]].",
+        "I want to avoid [[a bag that feels heavy when empty]]."
+      ]
+    },
+    {
+      "id": "briefcase_029",
+      "gender": "unspecified",
+      "background": "An office worker in a rainy climate wants a truly all-weather briefcase and worries about electronics getting ruined on wet commutes.",
+      "ground_truth_need": "They need an all-weather briefcase that can handle frequent rain and damp conditions without soaking through. The dealbreaker is weather resistance and protected construction, including water-shedding materials and seams that don\u2019t wick moisture into the interior. Next is laptop protection for a 14-inch device, followed by a secure closure that helps keep water out. They want a professional look suitable for work. Target budget is $170 with a hard max of $300, prioritizing function over luxury materials. They dislike delicate leather that stains easily and prefer something that wipes clean without looking cheap.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "The most important thing is [[serious all-weather performance in rain]].",
+        "It needs [[strong protection for a 14-inch laptop]].",
+        "I want [[a closure that helps keep water out]].",
+        "I\u2019m aiming for [[$170, with a hard cap of $300]].",
+        "I prefer [[a professional look for work]].",
+        "I\u2019d like [[materials that wipe clean easily]].",
+        "I want to avoid [[leather that stains or spots quickly]]."
+      ]
+    },
+    {
+      "id": "briefcase_030",
+      "gender": "male",
+      "background": "A cautious buyer wants a formal-casual balance but is anxious about purchasing bags with few reviews or unknown durability.",
+      "ground_truth_need": "He wants a briefcase that balances formal and casual for a mixed dress-code workplace, but his top priority is confidence in proven durability, since he\u2019s been burned by lightly reviewed products. He wants sturdy stitching, reliable zippers, and materials that won\u2019t look worn quickly. Next is a style that can be used with business-casual outfits and still feel appropriate in formal meetings. It should fit a 15-inch laptop and documents and not feel overly heavy. Target budget is $320 with a hard max of $600, stretching only if warranty and build quality signals are strong. He prefers understated designs and dislikes very rugged workwear looks.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[feeling confident it\u2019s truly durable and not a gamble]].",
+        "I need [[a style that balances formal and casual]].",
+        "It must [[fit a 15-inch laptop and documents]].",
+        "I\u2019m targeting [[$320, with a hard max of $600]].",
+        "I\u2019d prefer [[something not overly heavy]].",
+        "I like [[understated, clean design]].",
+        "I want to avoid [[an overly rugged workwear look]]."
+      ]
+    },
+    {
+      "id": "briefcase_031",
+      "gender": "female",
+      "background": "A new graduate wants a sentimental, long-term work bag gift and needs it to handle a large laptop and daily commuting.",
+      "ground_truth_need": "She wants a briefcase that will last for many years as a meaningful gift, so durability and a timeless professional look are most important. It must fit a large 15-inch laptop, a folder, a notepad, and a water bottle without stressing seams. She worries about delicate linings and zippers failing, so she prefers robust construction and hardware. She needs it to work in a generally business-casual office while still looking appropriate for occasional formal settings. Target budget is $250 with a hard max of $450, preferring to stay lower unless build quality is clearly superior. She dislikes loud branding and overly trendy styling.",
+      "context_trail": [
+        "I want a briefcase.",
+        "My main priority is [[something durable that can last for many years]].",
+        "It needs [[to look professional enough for formal settings]].",
+        "It must [[fit a 15-inch laptop]].",
+        "I\u2019m hoping for [[$250, with a hard limit of $450]].",
+        "I\u2019m a bit wary of [[fragile zippers or linings failing]].",
+        "I prefer [[minimal branding]].",
+        "I want to avoid [[trendy designs that date quickly]]."
+      ]
+    },
+    {
+      "id": "briefcase_032",
+      "gender": "male",
+      "background": "A student wants a simple leather briefcase for classes and interviews and is strict about cost and subtle styling.",
+      "ground_truth_need": "He needs an inexpensive, plain-looking leather or leather-like briefcase suitable for student use, with enough durability for light daily wear. The top priority is a low price, since it\u2019s for school rather than a career-long investment. It should fit a 13-inch laptop, a notebook, and a couple of small items, and look neat for interviews. Target budget is under $100 with a hard max of $150. He prefers black or dark brown, wants minimal logos, and dislikes rugged or oversized designs. He\u2019s okay with fewer features if the bag looks clean and the handles aren\u2019t flimsy.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main constraint is [[keeping it under $100, max $150]].",
+        "I want [[a plain, simple exterior]].",
+        "It should [[fit a 13-inch laptop]].",
+        "I prefer [[black or dark brown]].",
+        "I\u2019d like [[minimal logos or branding]].",
+        "I want to avoid [[a rugged or oversized look]].",
+        "It should handle [[light daily wear without flimsy handles]]."
+      ]
+    },
+    {
+      "id": "briefcase_033",
+      "gender": "female",
+      "background": "A buyer in the EU wants a secure zip-top leather briefcase and prefers avoiding UK-only brands or complicated cross-border returns.",
+      "ground_truth_need": "She needs a zippered leather briefcase available within the EU, with an emphasis on security and easy purchasing. The dealbreaker is a fully zippered main compartment, since she commutes on public transport and wants to reduce pickpocket risk. Next is zipper durability and smooth operation, followed by a professional look and enough room for a 14-inch laptop and documents. Target budget is \u20ac200 with a hard max of \u20ac380, paying more only if the leather and hardware are clearly higher quality. She prefers understated branding and neutral colors and dislikes flap-only closures that can gape open.",
+      "context_trail": [
+        "I need a briefcase.",
+        "The most important thing is [[a fully zippered main compartment for security]].",
+        "I want [[it to be readily available within the EU]].",
+        "I care about [[a zipper that\u2019s smooth and durable]].",
+        "My budget is [[around \u20ac200, with a hard limit of \u20ac380]].",
+        "It should [[fit a 14-inch laptop and documents]].",
+        "I prefer [[understated branding]].",
+        "I want to avoid [[flap-only closures that can gape open]]."
+      ]
+    },
+    {
+      "id": "briefcase_034",
+      "gender": "male",
+      "background": "A discount shopper can access a big markdown on a fashion label and wants a black briefcase that still feels work-appropriate.",
+      "ground_truth_need": "He wants a professional-looking black leather briefcase and can get a significant discount from a fashion brand, but he\u2019s unsure if the build quality is worth it. The top priority is a clean, office-appropriate black look that doesn\u2019t feel flashy. Next is durability of handles, stitching, and hardware, since he expects daily commuting use. It needs to fit a 13-inch laptop and a notebook. Target budget is $220 with a hard max of $380, even if the retail price is higher, because value matters. He prefers minimal logos and dislikes overly soft bags that sag and look sloppy.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a professional black look that doesn\u2019t feel flashy]].",
+        "I need [[durable handles and stitching for daily use]].",
+        "It should [[fit a 13-inch laptop and a notebook]].",
+        "I want to stay within [[$220, with a hard cap of $380]].",
+        "I prefer [[minimal logos]].",
+        "I\u2019d like [[hardware that feels solid]].",
+        "I want to avoid [[bags that sag and look sloppy]]."
+      ]
+    },
+    {
+      "id": "briefcase_035",
+      "gender": "unspecified",
+      "background": "A frequent meeting-goer wants a satchel-style briefcase and values easy access while keeping a polished, tidy appearance.",
+      "ground_truth_need": "They want a leather satchel/briefcase hybrid that feels refined but practical for everyday meetings. The top priority is ease of access and organization for quick transitions between conference rooms, without dumping everything out. Next is a professional appearance that looks intentional rather than like a casual messenger bag, followed by durability of stitching and strap attachments. It needs to fit a 14-inch laptop, a notebook, and a few accessories. Target budget is $180 with a hard max of $350, paying more only if the materials and hardware are clearly better. They dislike overly boxy attach\u00e9 styles and prefer a slightly softer silhouette that still stays neat.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[easy access and organization for meetings]].",
+        "I want [[a satchel-like style that still looks polished]].",
+        "It should [[fit a 14-inch laptop]].",
+        "My budget is [[around $180, with a hard limit of $350]].",
+        "I need [[durable strap attachments and stitching]].",
+        "I prefer [[a slightly softer silhouette that stays tidy]].",
+        "I want to avoid [[a very boxy attach\u00e9 look]]."
+      ]
+    },
+    {
+      "id": "briefcase_036",
+      "gender": "female",
+      "background": "A small-business owner travels occasionally and wants matching leather goods that can double as a briefcase or small weekender option.",
+      "ground_truth_need": "She wants attractive leather goods for work and short business trips, prioritizing versatility: a briefcase that can handle day-to-day office use but also work for quick overnight travel. The top priority is capacity and layout that supports both documents and a few travel essentials without looking like a gym bag. Next is durable leather and hardware that ages well, followed by a professional, understated look. It should fit a 15-inch laptop. Target budget is $350 with a hard max of $700, stretching only for clearly premium materials. She dislikes loud branding and prefers warm brown tones, but won\u2019t sacrifice function for color.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main need is [[something that can work for office use and short business trips]].",
+        "It should [[have capacity for documents plus a few travel items]].",
+        "It must [[fit a 15-inch laptop]].",
+        "I\u2019m aiming for [[$350, with a hard limit of $700]].",
+        "I want [[durable leather and hardware that ages well]].",
+        "I prefer [[an understated, professional look]].",
+        "I\u2019d like [[warm brown tones if possible]]."
+      ]
+    },
+    {
+      "id": "briefcase_037",
+      "gender": "male",
+      "background": "A long-walk commuter prioritizes comfort first because he\u2019s tired of sore shoulders from stiff straps on his current bag.",
+      "ground_truth_need": "He needs a briefcase for daily commuting where the number one priority is carrying comfort, since he walks a lot and his current strap digs in and causes shoulder pain. Next he wants enough space for a 14-inch laptop, a charger, and a document folder, followed by durability at the strap anchors and handles so it won\u2019t tear under load. He prefers a professional, simple look with minimal branding. Target budget is $180 with a hard max of $300, and he won\u2019t pay more unless the strap and carry ergonomics are clearly superior. He dislikes very rigid boxes and wants a balanced feel when worn crossbody.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "The most important thing is [[a comfortable strap that doesn\u2019t dig into my shoulder]].",
+        "I need [[space for a 14-inch laptop and a folder]].",
+        "I care about [[durable strap anchors and handles]].",
+        "I\u2019m trying to keep it within [[$180, with a hard limit of $300]].",
+        "I prefer [[a professional, simple look]].",
+        "I\u2019d like [[minimal branding]].",
+        "I want to avoid [[a very rigid, boxy feel]]."
+      ]
+    },
+    {
+      "id": "briefcase_038",
+      "gender": "non-binary",
+      "background": "A detail-oriented buyer has had zippers fail before and now treats closure reliability as a dealbreaker for any work bag.",
+      "ground_truth_need": "They need a leather briefcase for daily use, and the dealbreaker is closure reliability because previous bags had zipper teeth separate and pulls break. They want a secure zip-top with robust hardware and clean finishing around the opening. Next is long-term durability in stitching and handle attachment points, followed by a professional appearance suitable for meetings. It should fit a 13-inch laptop and daily essentials without being bulky. Target budget is $240 with a hard max of $420, paying more only if the zipper hardware quality is demonstrably better. They prefer minimal branding and dislike complicated flap-and-buckle systems.",
+      "context_trail": [
+        "I need a briefcase.",
+        "My main requirement is [[a truly reliable zipper/closure that won\u2019t fail]].",
+        "I need [[a secure zip-top rather than a flimsy flap]].",
+        "I care about [[durability at stitching and handle attachments]].",
+        "My budget is [[around $240, with a hard cap of $420]].",
+        "It should [[fit a 13-inch laptop]].",
+        "I prefer [[a clean, professional look]].",
+        "I want to avoid [[complicated buckle-heavy designs]]."
+      ]
+    },
+    {
+      "id": "briefcase_039",
+      "gender": "female",
+      "background": "A minimalist office worker wants an ultra-clean briefcase that blends in and avoids attention in shared workspaces.",
+      "ground_truth_need": "She needs a briefcase that looks understated and professional, with minimal logos and a clean silhouette. The top priority is a quiet aesthetic that doesn\u2019t draw attention in coworking spaces. Next is adequate size for a 14-inch laptop and documents, followed by durability of materials and hardware for daily use. She prefers something that stays tidy rather than floppy. Target budget is $150 with a hard max of $280, and she\u2019ll prioritize subtle design and decent construction over extra pockets. She dislikes loud contrast stitching, shiny oversized hardware, and overly rugged textures.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a very understated look with no attention-grabbing details]].",
+        "I want [[minimal logos or branding]].",
+        "It should [[fit a 14-inch laptop and documents]].",
+        "I\u2019m trying to stay within [[$150, with a hard cap of $280]].",
+        "I care about [[durable materials and hardware]].",
+        "I prefer [[a tidy shape that doesn\u2019t get floppy]].",
+        "I want to avoid [[shiny oversized hardware]]."
+      ]
+    },
+    {
+      "id": "briefcase_040",
+      "gender": "male",
+      "background": "A busy professional wants a buy-it-for-life briefcase as a personal milestone, but he\u2019s sensitive to weight and daily practicality.",
+      "ground_truth_need": "He wants a BIFL-style briefcase that will last a long time and feel like a meaningful upgrade, but he needs it to be practical for daily commuting. The top priority is overall durability and craftsmanship: strong stitching, reinforced stress points, and quality materials that age well. Next, he cares about keeping weight reasonable, since he carries it daily. It should fit a 15-inch laptop, a notebook, and a few accessories, and look professional in office settings. Target budget is $450 with a hard max of $750, paying more only if the durability is clearly superior. He prefers minimal branding and dislikes overly bulky, heavy-looking designs.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[buy-it-for-life durability and craftsmanship]].",
+        "I really want [[something that isn\u2019t excessively heavy]].",
+        "It should [[fit a 15-inch laptop and work essentials]].",
+        "I\u2019m aiming for [[$450, with a hard limit of $750]].",
+        "I want [[reinforced stress points like handles and corners]].",
+        "I prefer [[a professional look for the office]].",
+        "Please avoid [[big logos or a bulky, heavy-looking silhouette]]."
+      ]
+    },
+    {
+      "id": "briefcase_041",
+      "gender": "female",
+      "background": "A corporate commuter carries a large laptop and paperwork daily and wants to stop replacing bags that fail at the seams.",
+      "ground_truth_need": "She needs a durable briefcase for everyday office commuting that can handle weight without seam failure. The top priority is reinforced construction\u2014strong stitching, solid handle anchors, and a bottom that won\u2019t sag\u2014because her last bag tore near the handles. It must fit a 15-inch laptop plus documents and chargers while still looking professional. She prefers a clean, classic exterior and minimal branding. Target budget is $250 with a hard max of $420, and she\u2019ll pay toward the top only if the bag clearly handles heavy loads. Secondary preferences include a comfortable strap and hardware that won\u2019t scratch up quickly.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[reinforced construction that won\u2019t tear at the handles]].",
+        "It has to [[fit a 15-inch laptop and documents]].",
+        "I want [[a professional look for the office]].",
+        "I\u2019m aiming for [[$250, with a hard max of $420]].",
+        "I prefer [[minimal logos or branding]].",
+        "I\u2019d like [[a comfortable shoulder strap]].",
+        "I want [[hardware that doesn\u2019t scratch up easily]]."
+      ]
+    },
+    {
+      "id": "briefcase_042",
+      "gender": "male",
+      "background": "A frequent flyer needs a briefcase that stays secure in airports and planes and won\u2019t get ruined by weather or spills.",
+      "ground_truth_need": "He wants a travel-ready briefcase for weekly flights, prioritizing security and resilience. The top priority is a secure, fully closing main compartment\u2014preferably zippered\u2014so nothing falls out when he\u2019s rushing through terminals. Next is weather and spill resistance with materials that wipe clean, followed by durability of zippers and seams. It must fit a 14-inch laptop, chargers, and travel paperwork. Target budget is $280 with a hard max of $500, stretching only if the closure hardware and materials are notably better. He prefers an understated business look and dislikes bulky, overbuilt bags.",
+      "context_trail": [
+        "I need a briefcase for travel.",
+        "The most important thing is [[a secure closure that fully shuts the main compartment]].",
+        "I want [[materials that handle weather and spills]].",
+        "It should [[fit a 14-inch laptop and travel essentials]].",
+        "My budget is [[around $280, with a hard max of $500]].",
+        "I care about [[durable zippers and seams]].",
+        "I prefer [[an understated business look]].",
+        "I want to avoid [[anything overly bulky]]."
+      ]
+    },
+    {
+      "id": "briefcase_043",
+      "gender": "non-binary",
+      "background": "A city commuter uses packed public transit and wants a slim, tidy bag that won\u2019t snag or take up space.",
+      "ground_truth_need": "They need a compact briefcase designed for crowded transit, and the top priority is a slim profile that stays close to the body. It must still protect a 13-inch laptop with adequate padding and a secure compartment. Next is lightweight carry and comfort, since they walk between stops. They prefer a minimal, modern aesthetic with little branding and limited external pockets to avoid snagging. Target budget is $130 with a hard max of $240, paying more only if the bag is noticeably slimmer and better padded. They dislike loud metal accents and overly rigid boxy cases.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main requirement is [[a slim profile that works on crowded transit]].",
+        "It needs [[padding to protect a 13-inch laptop]].",
+        "I want [[a secure compartment for valuables]].",
+        "I\u2019m aiming for [[$130, with a hard cap of $240]].",
+        "I\u2019d prefer [[a lightweight carry]].",
+        "I like [[a minimal, modern style]].",
+        "Please avoid [[extra pockets or details that snag]]."
+      ]
+    },
+    {
+      "id": "briefcase_044",
+      "gender": "female",
+      "background": "A consultant with a shoulder injury wants to switch to rolling luggage for client days and needs it to look polished.",
+      "ground_truth_need": "She needs a rolling briefcase that reduces strain and can be used in professional client environments. The top priority is a stable rolling system with durable wheels and a strong telescoping handle, because a previous handle bent and became unusable. Next is professional appearance and capacity for a laptop, documents, and accessories. It should fit a 15-inch laptop and multiple folders and stand upright without tipping. Target budget is $180 with a hard max of $300, prioritizing reliability and smooth mobility over premium leather. She prefers easy-clean materials and dislikes overly large roller bags that look like bulky suitcases.",
+      "context_trail": [
+        "I need a briefcase for work.",
+        "The most important thing is [[a rolling setup with sturdy wheels and a solid handle]].",
+        "It has to [[look polished for client sites]].",
+        "It should [[fit a 15-inch laptop and folders]].",
+        "I\u2019m aiming for [[$180, with a hard max of $300]].",
+        "I want [[a bag that stands upright without tipping]].",
+        "I\u2019d prefer [[materials that are easy to wipe clean]].",
+        "I want to avoid [[an oversized roller that feels like a suitcase]]."
+      ]
+    },
+    {
+      "id": "briefcase_045",
+      "gender": "male",
+      "background": "A traditional office worker wants a conservative leather briefcase and prioritizes a formal look above all else.",
+      "ground_truth_need": "He wants a conservative leather briefcase that looks strictly professional for meetings and formal office settings. The top priority is a classic, formal aesthetic with minimal ornamentation, no loud logos, and a structured silhouette. Next is durable materials and stitching to avoid premature wear, followed by capacity to fit a 14-inch laptop and documents. Target budget is $300 with a hard max of $550, stretching only if the leather and construction are noticeably superior. He dislikes casual messenger-bag looks and rugged workwear styles, and he prefers a secure closure that keeps papers neatly contained.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a conservative, formal look for professional settings]].",
+        "I want [[a structured silhouette rather than a slouchy bag]].",
+        "It should [[fit a 14-inch laptop and documents]].",
+        "My budget is [[around $300, with a hard max of $550]].",
+        "I need [[durable leather and stitching]].",
+        "I\u2019d prefer [[minimal branding]].",
+        "I want [[a closure that keeps papers securely contained]]."
+      ]
+    },
+    {
+      "id": "briefcase_046",
+      "gender": "female",
+      "background": "A budget-conscious worker wants a simple work bag quickly and doesn\u2019t care about premium materials if it functions reliably.",
+      "ground_truth_need": "She needs an affordable briefcase for everyday work use, and the primary driver is cost control. She wants something that looks reasonably professional but is mainly functional: it must fit a 13-inch laptop, charger, and a notebook. Durability matters in basic ways\u2014zippers and handles shouldn\u2019t fail immediately\u2014but she\u2019s willing to compromise on leather grade or luxury details to stay within budget. Target budget is $80 with a hard max of $140. She prefers minimal branding and a simple color like black or navy. She dislikes overly bulky bags and doesn\u2019t want lots of unnecessary compartments.",
+      "context_trail": [
+        "I need a briefcase.",
+        "My main constraint is [[keeping it around $80, max $140]].",
+        "It needs [[to fit a 13-inch laptop]].",
+        "I want [[a simple professional look]].",
+        "I prefer [[minimal branding]].",
+        "I\u2019d like [[handles and zippers that won\u2019t fail quickly]].",
+        "I want to avoid [[a bulky, oversized shape]].",
+        "I don\u2019t need [[a bunch of extra compartments]]."
+      ]
+    },
+    {
+      "id": "briefcase_047",
+      "gender": "non-binary",
+      "background": "A commuter in a wet climate insists on water protection and wants a bag that can be wiped down after rainy walks.",
+      "ground_truth_need": "They need a briefcase for daily commuting in frequent rain, and the dealbreaker is strong water resistance to protect electronics. They want water-shedding materials and construction that won\u2019t wick moisture through seams, plus a closure that helps keep the interior dry. Next is laptop protection for a 14-inch device, followed by professional appearance suitable for meetings. Target budget is $200 with a hard max of $350, prioritizing weather performance over premium leather. They prefer a clean design and minimal logos, and they dislike delicate finishes that stain or warp. Secondary preference is a comfortable carry for longer walks.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "The most important thing is [[strong water resistance for rainy commutes]].",
+        "It should [[protect a 14-inch laptop]].",
+        "I want [[a closure that helps keep the inside dry]].",
+        "I\u2019m aiming for [[$200, with a hard max of $350]].",
+        "I need [[a professional look for meetings]].",
+        "I prefer [[minimal logos]].",
+        "I\u2019d like [[a comfortable carry for longer walks]]."
+      ]
+    },
+    {
+      "id": "briefcase_048",
+      "gender": "male",
+      "background": "An executive wants a premium milestone briefcase and cares about craftsmanship and long-term serviceability over price.",
+      "ground_truth_need": "He wants a premium briefcase that signals quality in executive settings and can be maintained for decades. The top priority is craftsmanship and materials\u2014high-quality leather or equivalent, excellent stitching, and durable hardware. Next is repairability or service options, since he expects to keep it long term, followed by a timeless, understated design. It must fit a 15-inch laptop and documents but shouldn\u2019t be overly bulky. Target budget is $800 with a hard max of $1,200, paying near the max only if construction and service support are outstanding. He dislikes rugged workwear styling and visible flashy logos.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[top-tier craftsmanship and premium materials]].",
+        "I really want [[repairability or long-term service options]].",
+        "It should [[fit a 15-inch laptop and documents]].",
+        "I\u2019m aiming for [[$800, with a hard limit of $1,200]].",
+        "I prefer [[a timeless, understated design]].",
+        "I want to avoid [[a rugged workwear look]].",
+        "Please avoid [[flashy branding or big logos]]."
+      ]
+    },
+    {
+      "id": "briefcase_049",
+      "gender": "female",
+      "background": "A paralegal carries heavy binders daily and wants a bag that can take weight without sagging or ripping.",
+      "ground_truth_need": "She needs a load-bearing briefcase for daily legal work, and the top priority is strength under heavy weight. She wants reinforced handles, sturdy strap attachments, and a supportive base so the bag doesn\u2019t sag when packed with binders. Next is enough capacity for a 15-inch laptop and multiple folders, followed by comfort to reduce shoulder fatigue. Target budget is $230 with a hard max of $420, because she\u2019s replacing a bag that tore at stress points. She prefers a professional look and minimal branding, and she dislikes excessive external pockets that bulge and catch on things.",
+      "context_trail": [
+        "I need a briefcase.",
+        "My main priority is [[it must handle heavy binders without tearing or sagging]].",
+        "It should [[fit a 15-inch laptop and folders]].",
+        "I need [[a supportive base or reinforced bottom]].",
+        "I\u2019m targeting [[$230, with a hard max of $420]].",
+        "I want [[comfortable carry to reduce shoulder fatigue]].",
+        "I prefer [[a professional look]].",
+        "I want to avoid [[bulky exterior pockets]]."
+      ]
+    },
+    {
+      "id": "briefcase_050",
+      "gender": "male",
+      "background": "A minimal-pack commuter wants only essentials and hates bags that feel cluttered, so he prioritizes simple organization.",
+      "ground_truth_need": "He needs a straightforward briefcase for daily commuting, and the top priority is simple, efficient organization that keeps essentials easy to find without excessive compartments. He carries a 14-inch laptop, charger, keys, and a notebook and wants a tidy interior that doesn\u2019t become a junk drawer. Next is a slim-to-medium profile that fits comfortably under a desk, followed by durability of zippers and stitching for everyday use. Target budget is $170 with a hard max of $280, paying more only if the materials and hardware feel truly solid. He prefers a clean modern look with minimal branding and dislikes rugged, strap-heavy designs.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[simple organization that keeps essentials easy to find]].",
+        "It needs [[to fit a 14-inch laptop]].",
+        "I\u2019d like [[a profile that fits under a desk easily]].",
+        "My budget is [[around $170, with a hard limit of $280]].",
+        "I care about [[durable zippers and stitching]].",
+        "I prefer [[a clean, modern look]].",
+        "I want to avoid [[rugged, strap-heavy designs]]."
+      ]
+    },
+    {
+      "id": "briefcase_051",
+      "gender": "female",
+      "background": "A cross-city commuter needs one bag that transitions across dress codes and values comfort because she walks between trains and offices.",
+      "ground_truth_need": "She needs a versatile briefcase that works with both business-casual and more formal outfits, since her days vary. The top priority is style versatility that still reads professional. Next is carrying comfort\u2014especially a strap that doesn\u2019t slip or dig\u2014because she walks a lot between transit and meetings. It must fit a 14-inch laptop and a document folder, and she wants decent organization for small items. Target budget is $220 with a hard max of $360, preferring to stay near target unless comfort and build quality are clearly better. She dislikes loud logos and bulky shapes.",
+      "context_trail": [
+        "I need a briefcase.",
+        "My main priority is [[a versatile style that works formal and business-casual]].",
+        "I really need [[a comfortable strap for lots of walking]].",
+        "It must [[fit a 14-inch laptop and a folder]].",
+        "I\u2019m aiming for [[$220, with a hard max of $360]].",
+        "I\u2019d like [[some organization for small items]].",
+        "I prefer [[minimal branding]].",
+        "I want to avoid [[a bulky, oversized shape]]."
+      ]
+    },
+    {
+      "id": "briefcase_052",
+      "gender": "male",
+      "background": "A UK-based buyer wants a classic leather briefcase and prioritizes local availability and straightforward returns.",
+      "ground_truth_need": "He needs a classic leather briefcase that can be purchased and returned easily within the UK, avoiding customs delays and complicated returns. The top priority is UK availability and support. Next is a formal, conservative look for office use, followed by durability\u2014strong stitching, reliable zipper or closure, and handle attachment points that won\u2019t loosen. It must fit a 15-inch laptop and documents without becoming too bulky. Target budget is \u00a3220 with a hard max of \u00a3400, spending near the max only for clearly superior leather and construction. He prefers minimal branding and dislikes rugged canvas styling.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "The most important thing is [[easy UK availability and returns]].",
+        "I need [[a formal, conservative look]].",
+        "It should [[fit a 15-inch laptop and documents]].",
+        "My budget is [[around \u00a3220, with a hard limit of \u00a3400]].",
+        "I care about [[durability at stitching and handle mounts]].",
+        "I prefer [[minimal branding]].",
+        "I want to avoid [[a rugged canvas look]]."
+      ]
+    },
+    {
+      "id": "briefcase_053",
+      "gender": "unspecified",
+      "background": "An EU commuter wants a professional zip-top briefcase and dislikes flap-only designs that feel insecure on trains.",
+      "ground_truth_need": "They need a professional briefcase for commuting, with the top priority being a secure zip-top main compartment to keep items safe on crowded public transit. Next is availability within the EU for easy purchasing and returns, followed by durable zipper hardware and seams. It must fit a 13-inch laptop, documents, and a charger, while staying relatively sleek. Target budget is \u20ac180 with a hard max of \u20ac320, paying more only if the zipper quality and materials are clearly better. They prefer understated styling and minimal logos, and they dislike flap-only closures and noisy buckles.",
+      "context_trail": [
+        "I need a briefcase.",
+        "The main thing is [[a secure zip-top main compartment]].",
+        "I\u2019d like [[easy availability within the EU]].",
+        "I care about [[durable zipper hardware]].",
+        "My budget is [[around \u20ac180, with a hard max of \u20ac320]].",
+        "It should [[fit a 13-inch laptop and documents]].",
+        "I prefer [[understated styling with minimal logos]].",
+        "I want to avoid [[flap-only closures and loud buckles]]."
+      ]
+    },
+    {
+      "id": "briefcase_054",
+      "gender": "female",
+      "background": "A practical buyer wants a briefcase that stays neat inside and out, and she\u2019s especially picky about messy-looking exterior pockets.",
+      "ground_truth_need": "She needs a professional briefcase for daily work, and her top priority is a clean, streamlined exterior that looks tidy without bulky pockets. Next is enough capacity for a 14-inch laptop, a notebook, and daily accessories, followed by organization that prevents clutter inside. She wants durable materials and hardware for everyday commuting. Target budget is $190 with a hard max of $320, preferring to stay closer to target unless build quality is clearly better. She prefers neutral colors and minimal branding, and she dislikes rugged aesthetics and dangling straps.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a clean exterior without bulky pockets]].",
+        "It needs [[to fit a 14-inch laptop and daily items]].",
+        "I want [[organization that prevents interior clutter]].",
+        "I\u2019m aiming for [[$190, with a hard max of $320]].",
+        "I care about [[durable materials and hardware]].",
+        "I prefer [[neutral colors]].",
+        "I want to avoid [[rugged looks or dangling straps]]."
+      ]
+    },
+    {
+      "id": "briefcase_055",
+      "gender": "male",
+      "background": "A buyer replacing a saggy messenger bag wants structure but still wants it to be comfortable and not too rigid.",
+      "ground_truth_need": "He needs a structured briefcase that keeps papers neat and doesn\u2019t slump like his current messenger bag. The top priority is maintaining shape and organization\u2014enough structure to protect documents and laptop without collapsing. Next is comfortable carry with a good strap, followed by durability of seams and handle attachment points. It must fit a 15-inch laptop and a document folder while staying reasonably slim. Target budget is $240 with a hard max of $380, paying more only if comfort and structure are clearly better. He prefers understated styling and minimal branding and dislikes stiff, boxy attach\u00e9 cases.",
+      "context_trail": [
+        "I need a briefcase.",
+        "My main priority is [[enough structure so it doesn\u2019t slump or sag]].",
+        "It should [[keep documents neat and protected]].",
+        "I want [[comfortable carry with a good strap]].",
+        "My budget is [[around $240, with a hard cap of $380]].",
+        "It must [[fit a 15-inch laptop]].",
+        "I prefer [[understated styling]].",
+        "I want to avoid [[a stiff, boxy attach\u00e9 feel]]."
+      ]
+    },
+    {
+      "id": "briefcase_056",
+      "gender": "female",
+      "background": "A heavy commuter wants a bag that\u2019s tough but also light, because she\u2019s tired of bags that feel heavy even before she adds her laptop.",
+      "ground_truth_need": "She needs a durable daily briefcase for commuting, and the top priority is keeping weight low so it\u2019s not exhausting to carry. Next is enough capacity for a 15-inch laptop, charger, and documents, followed by durability at stress points so it can handle everyday use. She wants a professional look for work. Target budget is $210 with a hard max of $340, paying more only if the bag is clearly lighter without sacrificing build quality. She prefers minimal branding and dislikes rugged canvas looks. Secondary preference is a comfortable strap that distributes weight better.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "The most important thing is [[it should feel lightweight even when empty]].",
+        "It needs [[to fit a 15-inch laptop and documents]].",
+        "I care about [[durability at stress points for daily use]].",
+        "I\u2019m aiming for [[$210, with a hard max of $340]].",
+        "I want [[a professional look for work]].",
+        "I prefer [[minimal branding]].",
+        "I\u2019d like [[a strap that distributes weight comfortably]]."
+      ]
+    },
+    {
+      "id": "briefcase_057",
+      "gender": "non-binary",
+      "background": "A skeptical shopper wants a briefcase with proven quality signals and cares about warranties, because they hate wasting money on failures.",
+      "ground_truth_need": "They need a daily briefcase and their top priority is confidence in quality\u2014clear signs of durable construction and a warranty that backs it up\u2014because they\u2019ve had bags fail at zippers and seams. Next is durable hardware (zippers, buckles if any), followed by a professional look appropriate for meetings. It must fit a 14-inch laptop and a few daily items. Target budget is $260 with a hard max of $450, stretching only if warranty and build quality are strong. They prefer minimal branding and a clean silhouette and dislike gimmicky \u201cfeature overload\u201d designs.",
+      "context_trail": [
+        "I need a briefcase.",
+        "My main priority is [[strong quality signals and a warranty I can trust]].",
+        "I care a lot about [[durable hardware like zippers and pulls]].",
+        "It should [[fit a 14-inch laptop]].",
+        "My budget is [[around $260, with a hard cap of $450]].",
+        "I want [[a professional look for meetings]].",
+        "I prefer [[minimal branding]].",
+        "I want to avoid [[gimmicky designs with too many features]]."
+      ]
+    },
+    {
+      "id": "briefcase_058",
+      "gender": "male",
+      "background": "A traveler wants a briefcase that can do double duty and cares about clean aesthetics because he\u2019s often in formal meetings right after flights.",
+      "ground_truth_need": "He needs a briefcase that transitions seamlessly from travel to formal meetings, and the top priority is a polished professional look that doesn\u2019t read casual. Next is practical capacity for a 15-inch laptop, chargers, and travel paperwork, followed by durability for frequent handling in airports. He wants a secure closure and prefers minimal branding. Target budget is $400 with a hard max of $700, paying more only if it looks refined and holds up long term. He dislikes rugged workwear styling and bulky shapes that look clumsy with a suit. Secondary preference is materials that resist scuffs and stay presentable.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a polished look that works in formal meetings]].",
+        "It needs [[capacity for a 15-inch laptop and travel paperwork]].",
+        "I care about [[durability for frequent flights and handling]].",
+        "I\u2019m aiming for [[$400, with a hard cap of $700]].",
+        "I want [[a secure closure]].",
+        "I prefer [[minimal branding]].",
+        "I\u2019d like [[materials that resist scuffs and stay presentable]]."
+      ]
+    },
+    {
+      "id": "briefcase_059",
+      "gender": "female",
+      "background": "A commuter with a small frame wants a briefcase that fits her laptop but doesn\u2019t overwhelm her or look oversized.",
+      "ground_truth_need": "She needs a briefcase for daily commuting that fits essentials without looking huge on her. The top priority is a compact, proportional size that still fits a 13-inch laptop and a slim folder. Next is keeping weight manageable, followed by a professional look. She wants basic durability\u2014handles and zippers that won\u2019t fail\u2014but she doesn\u2019t need heavy-duty load capacity. Target budget is $160 with a hard max of $260, paying more only if the fit and weight are clearly better. She prefers understated styling and minimal logos and dislikes bulky gussets and huge exterior pockets.",
+      "context_trail": [
+        "I need a briefcase.",
+        "My main priority is [[a compact size that doesn\u2019t look oversized on me]].",
+        "It needs [[to fit a 13-inch laptop]].",
+        "I want [[a lighter bag that\u2019s easy to carry]].",
+        "I\u2019m aiming for [[$160, with a hard max of $260]].",
+        "I prefer [[a professional look]].",
+        "I need [[handles and zippers that hold up]].",
+        "I want to avoid [[bulky gussets or huge exterior pockets]]."
+      ]
+    },
+    {
+      "id": "briefcase_060",
+      "gender": "unspecified",
+      "background": "A value-driven buyer is choosing between materials and wants guidance while staying within a firm mid-range budget.",
+      "ground_truth_need": "They need a work briefcase and are open to leather or treated canvas, but the top priority is staying within a firm budget while still getting dependable quality. They want a bag that looks professional, fits a 14-inch laptop and documents, and has durable stitching and closures. They\u2019re replacing a bag that started fraying at seams and warping at the base. Target budget is $200 with a hard max of $300, and they will prioritize durability and a clean look over extra features. They prefer minimal branding, neutral colors, and moderate organization, and they dislike overly rugged aesthetics or overly shiny \u201cdesigner\u201d details.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "The main thing is [[keeping it within $200\u2013$300 max]].",
+        "I need [[dependable quality that won\u2019t fray at seams]].",
+        "It should [[fit a 14-inch laptop and documents]].",
+        "I want [[a professional, clean look]].",
+        "I\u2019m okay with [[leather or treated canvas]].",
+        "I prefer [[minimal branding]].",
+        "I want to avoid [[a rugged or overly flashy style]]."
+      ]
+    },
+    {
+      "id": "briefcase_061",
+      "gender": "male",
+      "background": "A downtown commuter squeezes into packed trains and wants a slim work bag that won\u2019t bump others or snag on coats.",
+      "ground_truth_need": "He needs a briefcase for daily commuting where the top priority is a slim, low-profile shape that stays close to the body on crowded transit. It must still protect a 13-inch laptop and keep documents from bending, with a secure main closure. Next priorities are light weight and durable stitching at stress points. Target budget is $150 with a hard max of $260, stretching only if the bag is noticeably slimmer without sacrificing protection. He prefers a clean, modern look with minimal branding and dislikes bulky exterior pockets or strap-heavy, rugged styles.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a slim profile that works on crowded trains]].",
+        "It needs [[protection for a 13-inch laptop]].",
+        "I want [[a secure main closure]].",
+        "I\u2019m aiming for [[$150, with a hard limit of $260]].",
+        "I prefer [[a lightweight carry]].",
+        "I care about [[durable stitching at stress points]].",
+        "I want to avoid [[bulky pockets or rugged strap-heavy styling]]."
+      ]
+    },
+    {
+      "id": "briefcase_062",
+      "gender": "female",
+      "background": "A professional in a rainy city walks to work and wants a bag that keeps electronics dry and stays presentable.",
+      "ground_truth_need": "She needs a daily commuting briefcase and the dealbreaker is rain protection, because she regularly gets caught in downpours. She wants water-shedding materials and seams that won\u2019t wick moisture into the interior, plus a closure that helps keep water out. Next is laptop protection for a 14-inch device, followed by a professional look. Target budget is $220 with a hard max of $380, paying more only if weather resistance is proven and construction is solid. She dislikes delicate leather that spots easily and prefers a tidy silhouette with minimal branding.",
+      "context_trail": [
+        "I need a briefcase.",
+        "The most important thing is [[strong rain protection for commuting]].",
+        "It should [[protect a 14-inch laptop]].",
+        "I want [[a closure that helps keep water out]].",
+        "My budget is [[around $220, with a hard max of $380]].",
+        "I need [[a professional look for work]].",
+        "I prefer [[materials that don\u2019t spot or stain easily]].",
+        "Please avoid [[big logos or flashy branding]]."
+      ]
+    },
+    {
+      "id": "briefcase_063",
+      "gender": "non-binary",
+      "background": "A buyer had a zipper fail mid-commute and now insists on closure reliability and solid hardware above all else.",
+      "ground_truth_need": "They need a work briefcase and the top priority is closure reliability, since a previous bag\u2019s zipper split and spilled items. They want a robust zip-top or similarly secure closure with durable pulls and smooth operation. Next is overall build durability\u2014stitching, handle anchors, and edge finishing\u2014followed by capacity for a 14-inch laptop and documents. Target budget is $260 with a hard max of $450, spending near the max only if hardware quality is clearly better. They prefer understated styling and dislike buckle-heavy or flap-only designs that feel insecure.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main requirement is [[a closure that won\u2019t fail, especially the zipper]].",
+        "I want [[durable hardware like strong pulls and smooth tracks]].",
+        "It should [[fit a 14-inch laptop and documents]].",
+        "My budget is [[around $260, with a hard cap of $450]].",
+        "I care about [[solid stitching and handle anchors]].",
+        "I prefer [[an understated look]].",
+        "I want to avoid [[flap-only or buckle-heavy closures]]."
+      ]
+    },
+    {
+      "id": "briefcase_064",
+      "gender": "male",
+      "background": "A conservative office worker wants a classic briefcase that looks formal every day and avoids anything too casual.",
+      "ground_truth_need": "He needs a briefcase for daily office use and the top priority is a formal, conservative appearance that reads professional in meetings. He wants a structured silhouette, minimal decoration, and no loud branding. Next is durable materials and stitching for long-term use, followed by enough room for a 15-inch laptop and documents without becoming bulky. Target budget is $320 with a hard max of $600, paying more only if leather quality and construction are noticeably superior. He dislikes messenger-bag slouch and rugged workwear looks and prefers a closure that keeps papers neatly contained.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a formal, conservative look for work]].",
+        "I want [[a structured silhouette rather than a slouchy bag]].",
+        "It must [[fit a 15-inch laptop and documents]].",
+        "My budget is [[around $320, with a hard max of $600]].",
+        "I care about [[durable materials and stitching]].",
+        "I prefer [[minimal branding]].",
+        "I want [[a closure that keeps papers neatly contained]]."
+      ]
+    },
+    {
+      "id": "briefcase_065",
+      "gender": "female",
+      "background": "A paralegal carries heavy binders and wants a bag that won\u2019t sag, rip, or become painful to carry over long hallways.",
+      "ground_truth_need": "She needs a heavy-duty briefcase and the top priority is load-bearing durability, because she carries binders and thick files daily. She wants reinforced handles, sturdy strap anchors, and a supportive base that won\u2019t sag under weight. Next is capacity for a 15-inch laptop and multiple folders, followed by comfort to reduce shoulder strain. Target budget is $240 with a hard max of $420, justified only if it can reliably carry heavy loads. She prefers a professional look with minimal branding and dislikes bulky exterior pockets that catch on things.",
+      "context_trail": [
+        "I need a briefcase.",
+        "My main priority is [[it must handle heavy binders without sagging or tearing]].",
+        "It should [[fit a 15-inch laptop and multiple folders]].",
+        "I want [[reinforced handles and strap anchors]].",
+        "I\u2019m aiming for [[$240, with a hard max of $420]].",
+        "I\u2019d like [[a comfortable strap to reduce shoulder strain]].",
+        "I prefer [[a professional look]].",
+        "I want to avoid [[bulky exterior pockets]]."
+      ]
+    },
+    {
+      "id": "briefcase_066",
+      "gender": "unspecified",
+      "background": "A budget-first shopper needs a basic briefcase for a new job and cares more about function than premium branding.",
+      "ground_truth_need": "They need an affordable briefcase for a new role, with the top priority being price. It must fit a 14-inch laptop, charger, and a notebook, and look reasonably professional. Durability matters in a practical sense\u2014zippers and handles shouldn\u2019t fail quickly\u2014but they accept that materials may be mid-range to keep costs down. Target budget is $90 with a hard max of $150. They prefer simple dark colors and minimal branding, dislike bulky shapes, and do not want unnecessary compartments. Secondary preference is a secure closure so items don\u2019t spill during commuting.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main constraint is [[keeping it around $90, max $150]].",
+        "It needs [[to fit a 14-inch laptop]].",
+        "I want [[a simple professional look]].",
+        "I prefer [[minimal branding]].",
+        "I need [[zippers and handles that don\u2019t fail quickly]].",
+        "I want to avoid [[a bulky shape]].",
+        "I\u2019d like [[a secure closure for commuting]]."
+      ]
+    },
+    {
+      "id": "briefcase_067",
+      "gender": "female",
+      "background": "A client-facing consultant wants to roll her bag between sites and needs it to stay upright and look polished.",
+      "ground_truth_need": "She needs a rolling briefcase and the top priority is smooth, stable mobility\u2014durable wheels and a sturdy telescoping handle that doesn\u2019t wobble. Next is a professional look suitable for client offices, followed by capacity for a 14-inch laptop, documents, and small accessories. She wants it to stand upright without tipping and to fit easily in tight spaces. Target budget is $170 with a hard max of $280, prioritizing reliability over luxury materials. She prefers easy-clean surfaces and dislikes oversized rolling bags that look like full carry-on suitcases.",
+      "context_trail": [
+        "I need a briefcase for work.",
+        "My main requirement is [[a rolling setup with sturdy wheels and a solid handle]].",
+        "It has to [[look professional for client offices]].",
+        "It should [[fit a 14-inch laptop and documents]].",
+        "I\u2019m aiming for [[$170, with a hard max of $280]].",
+        "I want [[a bag that stands upright without tipping]].",
+        "I\u2019d like [[easy-clean materials]].",
+        "I want to avoid [[an oversized rolling bag]]."
+      ]
+    },
+    {
+      "id": "briefcase_068",
+      "gender": "male",
+      "background": "A milestone buyer wants a premium bag that can be serviced and repaired, and he cares about timeless style more than trendy features.",
+      "ground_truth_need": "He wants a premium briefcase and the top priority is long-term craftsmanship\u2014high-quality materials, excellent stitching, and hardware built to last. Next is repairability or service support, since he expects decades of use, followed by a timeless design that stays appropriate in formal settings. It must fit a 15-inch laptop and documents while staying reasonably sleek. Target budget is $700 with a hard max of $1,000, paying near the max only if serviceability and construction are outstanding. He prefers minimal branding and dislikes rugged workwear looks or bulky silhouettes.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[premium craftsmanship and materials]].",
+        "I really want [[repairability or service support]].",
+        "It needs [[a timeless design for formal settings]].",
+        "My budget is [[around $700, with a hard cap of $1,000]].",
+        "It must [[fit a 15-inch laptop and documents]].",
+        "I prefer [[minimal branding]].",
+        "I want to avoid [[bulky or rugged styling]]."
+      ]
+    },
+    {
+      "id": "briefcase_069",
+      "gender": "non-binary",
+      "background": "A coworking regular wants a subtle, logo-free briefcase that blends in and keeps a neat silhouette on shared desks.",
+      "ground_truth_need": "They need a briefcase for daily use in coworking spaces, and the top priority is an understated aesthetic with minimal or no visible branding. Next is a tidy, clean silhouette that stays neat on a desk, followed by practical capacity for a 13-inch laptop and a few accessories. They want basic durability\u2014good stitching and reliable closures\u2014without excessive bulk. Target budget is $160 with a hard max of $280, paying more only if the design is truly subtle and well-made. They dislike shiny oversized hardware, loud contrast stitching, and rugged strap-heavy looks.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[an understated look with little to no visible branding]].",
+        "I want [[a clean silhouette that stays neat on a desk]].",
+        "It should [[fit a 13-inch laptop]].",
+        "I\u2019m aiming for [[$160, with a hard max of $280]].",
+        "I need [[reliable stitching and closures]].",
+        "I want to avoid [[shiny oversized hardware]].",
+        "I don\u2019t want [[a rugged strap-heavy style]]."
+      ]
+    },
+    {
+      "id": "briefcase_070",
+      "gender": "female",
+      "background": "A commuter who walks a lot cares about comfort first and wants a bag that doesn\u2019t feel heavy or awkward on long days.",
+      "ground_truth_need": "She needs a briefcase for daily commuting and the top priority is carrying comfort, because she walks long distances and hates straps that dig in. Next is keeping weight low, followed by enough capacity for a 14-inch laptop, charger, and documents. She wants a professional look suitable for office meetings and decent durability at strap anchors and handles. Target budget is $200 with a hard max of $340, spending near the max only if the strap and ergonomics are notably better. She prefers minimal branding and dislikes boxy rigid cases that feel awkward when worn crossbody.",
+      "context_trail": [
+        "I need a briefcase.",
+        "My main priority is [[a comfortable strap for long walks]].",
+        "I really want [[a bag that stays lightweight]].",
+        "It must [[fit a 14-inch laptop and documents]].",
+        "I\u2019m aiming for [[$200, with a hard max of $340]].",
+        "I want [[a professional look for meetings]].",
+        "I care about [[durable strap anchors and handles]].",
+        "I want to avoid [[a boxy rigid case feel]]."
+      ]
+    },
+    {
+      "id": "briefcase_071",
+      "gender": "male",
+      "background": "A value-minded buyer compares many options and prioritizes the best quality-per-dollar within a strict upper limit.",
+      "ground_truth_need": "He needs a work briefcase and the top priority is value-for-money: he wants durable construction and materials without paying luxury markup. He\u2019s looking for solid stitching, reliable zippers, and handle anchors that won\u2019t fail, plus a professional look. It must fit a 15-inch laptop and documents and stay reasonably slim. Target budget is $220 with a hard max of $350, and he will not exceed that. He prefers minimal branding and dislikes overly complicated closures or strap-heavy designs. Secondary preference is a clean interior organization for charger and small items.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[best quality-for-dollar, not luxury markup]].",
+        "I need [[durable stitching, zippers, and handle anchors]].",
+        "It should [[fit a 15-inch laptop and documents]].",
+        "I\u2019m targeting [[$220, with a hard max of $350]].",
+        "I prefer [[minimal branding]].",
+        "I want to avoid [[complicated closures or lots of straps]].",
+        "I\u2019d like [[simple organization for small items]]."
+      ]
+    },
+    {
+      "id": "briefcase_072",
+      "gender": "female",
+      "background": "An EU-based professional wants a secure zip-top bag that\u2019s easy to buy locally and looks sharp in meetings.",
+      "ground_truth_need": "She needs a briefcase available within the EU, and the top priority is a secure zip-top main compartment for commuting and peace of mind. Next is EU availability and easy returns, followed by durable zipper hardware and seams. It should fit a 14-inch laptop, documents, and daily accessories without becoming bulky. Target budget is \u20ac220 with a hard max of \u20ac400, paying more only if the leather/materials and zipper quality are clearly better. She prefers a professional, understated look with minimal branding and dislikes flap-only closures and noisy buckles.",
+      "context_trail": [
+        "I need a briefcase.",
+        "The most important thing is [[a secure zip-top main compartment]].",
+        "I want [[easy availability within the EU]].",
+        "I care about [[durable zipper hardware and seams]].",
+        "My budget is [[around \u20ac220, with a hard max of \u20ac400]].",
+        "It should [[fit a 14-inch laptop and documents]].",
+        "I prefer [[an understated professional look]].",
+        "I want to avoid [[flap-only closures or noisy buckles]]."
+      ]
+    },
+    {
+      "id": "briefcase_073",
+      "gender": "unspecified",
+      "background": "A tidy worker dislikes clutter and wants a briefcase that stays organized without lots of bulky pockets or a messy exterior.",
+      "ground_truth_need": "They need a briefcase for daily work, with the top priority being organization that keeps items separated and easy to find without creating bulk. They carry a 13-inch laptop, charger, notebook, and a few small essentials and want a clean layout. Next is a streamlined exterior that looks neat, followed by durable construction for everyday commuting. Target budget is $180 with a hard max of $320, spending more only if the layout and build quality feel clearly better. They prefer minimal branding and neutral colors and dislike rugged aesthetics and oversized exterior pockets.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[organization that keeps things separated and easy to find]].",
+        "It should [[fit a 13-inch laptop and essentials]].",
+        "I want [[a streamlined exterior that looks neat]].",
+        "I\u2019m aiming for [[$180, with a hard max of $320]].",
+        "I care about [[durable construction for commuting]].",
+        "I prefer [[minimal branding]].",
+        "I want to avoid [[oversized exterior pockets]]."
+      ]
+    },
+    {
+      "id": "briefcase_074",
+      "gender": "male",
+      "background": "A student needs a briefcase for interviews and classes and must keep costs very low while still looking professional enough.",
+      "ground_truth_need": "He needs a budget-friendly briefcase that looks presentable for interviews and is functional for school. The top priority is low cost, since he can\u2019t justify a premium bag yet. It must fit a 13-inch laptop and a notebook and have basic durability so handles and zippers don\u2019t fail quickly. Target budget is $70 with a hard max of $130. He prefers black or dark brown with minimal branding and a simple design. He dislikes bulky shapes and rugged workwear styling and is fine with limited features if it stays clean and professional.",
+      "context_trail": [
+        "I need a briefcase.",
+        "My main constraint is [[keeping it around $70, max $130]].",
+        "It needs [[to look professional enough for interviews]].",
+        "It should [[fit a 13-inch laptop and a notebook]].",
+        "I prefer [[black or dark brown]].",
+        "I want [[minimal branding]].",
+        "I need [[basic durability in handles and zippers]].",
+        "I want to avoid [[a bulky or rugged look]]."
+      ]
+    },
+    {
+      "id": "briefcase_075",
+      "gender": "female",
+      "background": "A buyer wants a versatile bag that can handle occasional overnight trips and dislikes bags that feel like a chaotic \u2018dump\u2019 inside.",
+      "ground_truth_need": "She needs a briefcase that can also work for short overnight business trips, with the top priority being capacity and layout that prevents clutter. She wants room for a laptop, documents, chargers, and a few travel items without the bag becoming messy or overstuffed. Next is durability of zippers and seams under heavier loads, followed by a professional look. It must fit a 15-inch laptop and stay reasonably structured. Target budget is $320 with a hard max of $650, paying more only if the build quality is clearly superior. She prefers understated branding and dislikes very heavy bags when empty.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main need is [[capacity and layout that keeps things from getting cluttered]].",
+        "It should [[work for occasional overnight trips]].",
+        "It must [[fit a 15-inch laptop]].",
+        "My budget is [[around $320, with a hard max of $650]].",
+        "I care about [[durable zippers and seams for heavier loads]].",
+        "I want [[a professional look]].",
+        "I\u2019d like to avoid [[a bag that feels heavy when empty]]."
+      ]
+    },
+    {
+      "id": "briefcase_076",
+      "gender": "non-binary",
+      "background": "A durability-first buyer is tired of frayed corners and wants a briefcase that can be repaired rather than replaced.",
+      "ground_truth_need": "They need a durable daily briefcase and the top priority is construction that resists wear at corners, edges, and handle stress points, because prior bags frayed and cracked quickly. Next is the ability to repair or service common failure points, followed by a professional look and secure closure. It must fit a 14-inch laptop and documents while staying reasonably sleek. Target budget is $350 with a hard max of $600, paying more only if repairability and materials are clearly better. They prefer minimal branding and dislike overly rugged or tactical styling.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[durability at corners, edges, and stress points]].",
+        "I really want [[repairability or replaceable parts]].",
+        "It should [[fit a 14-inch laptop and documents]].",
+        "I\u2019m aiming for [[$350, with a hard max of $600]].",
+        "I want [[a secure closure]].",
+        "I prefer [[a professional look]].",
+        "I want to avoid [[rugged or tactical styling]]."
+      ]
+    },
+    {
+      "id": "briefcase_077",
+      "gender": "male",
+      "background": "A frequent meeting traveler wants a briefcase that looks sharp but hates loud logos and overly shiny hardware.",
+      "ground_truth_need": "He needs a professional briefcase for meetings and light travel, and the top priority is a polished appearance without flashy branding. He wants understated design and matte or subtle hardware that won\u2019t look gaudy. Next is durable materials and construction for frequent handling, followed by capacity for a 14-inch laptop and documents. Target budget is $280 with a hard max of $480, paying more only if it stays refined and holds up. He dislikes rugged workwear looks and overly bulky shapes and prefers a secure closure that keeps papers neat.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a polished look without loud logos]].",
+        "I want [[subtle hardware that isn\u2019t overly shiny]].",
+        "It should [[fit a 14-inch laptop and documents]].",
+        "My budget is [[around $280, with a hard max of $480]].",
+        "I care about [[durable construction for frequent handling]].",
+        "I want to avoid [[a rugged workwear vibe]].",
+        "I\u2019d like [[a secure closure for keeping papers neat]]."
+      ]
+    },
+    {
+      "id": "briefcase_078",
+      "gender": "female",
+      "background": "A professional with a small commute wants a compact, structured briefcase that looks neat on the desk and doesn\u2019t feel oversized.",
+      "ground_truth_need": "She needs a compact briefcase for daily work and the top priority is a tidy, structured shape that looks neat when set on a desk. It must fit a 13-inch laptop and a slim folder without being bulky. Next is lightweight carry, followed by basic durability so the bag doesn\u2019t sag or warp quickly. Target budget is $180 with a hard max of $300, spending more only if the structure and finish quality are clearly better. She prefers neutral colors, minimal branding, and a clean exterior with few pockets, and she dislikes oversized gussets and floppy messenger styles.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a compact, structured shape that looks neat on a desk]].",
+        "It should [[fit a 13-inch laptop and a slim folder]].",
+        "I want [[a lightweight carry]].",
+        "I\u2019m aiming for [[$180, with a hard max of $300]].",
+        "I need [[basic durability so it doesn\u2019t sag]].",
+        "I prefer [[neutral colors]].",
+        "I want to avoid [[floppy messenger-style designs]]."
+      ]
+    },
+    {
+      "id": "briefcase_079",
+      "gender": "unspecified",
+      "background": "A mixed-dress-code worker wants one bag that can shift contexts, and they\u2019ll pay more if it genuinely lasts rather than looking cheap.",
+      "ground_truth_need": "They need a versatile briefcase that can work in both business-casual and formal contexts, and the top priority is that style flexibility without looking sloppy. Next is durability for daily commuting\u2014strong stitching, reliable closures, and materials that don\u2019t look worn quickly. It must fit a 15-inch laptop and documents while staying reasonably sleek. Target budget is $300 with a hard max of $550, paying more only if durability is clearly superior and the look stays refined. They prefer minimal branding and dislike rugged workwear styling, and they want a comfortable strap but not at the expense of a clean silhouette.",
+      "context_trail": [
+        "I need a briefcase.",
+        "My main priority is [[a style that works both formal and business-casual]].",
+        "I need [[durability for daily commuting]].",
+        "It must [[fit a 15-inch laptop and documents]].",
+        "My budget is [[around $300, with a hard max of $550]].",
+        "I prefer [[minimal branding]].",
+        "I want to avoid [[a rugged workwear vibe]].",
+        "I\u2019d like [[a comfortable strap]]."
+      ]
+    },
+    {
+      "id": "briefcase_080",
+      "gender": "male",
+      "background": "A practical commuter wants a secure zip-top bag and is strict on budget, aiming for a solid mid-range purchase without overspending.",
+      "ground_truth_need": "He needs a daily work briefcase and the top priority is a secure zip-top closure that keeps items contained on public transit. Next is staying within a strict budget, followed by durability of zipper hardware and stitching for everyday use. It should fit a 14-inch laptop, charger, and documents and look professional enough for meetings. Target budget is $180 with a hard max of $250, and he will not exceed it. He prefers minimal branding and a clean design and dislikes flap-only closures and overbuilt, bulky bags.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "The main thing is [[a secure zip-top closure for commuting]].",
+        "I need to keep it within [[$180, with a hard max of $250]].",
+        "I care about [[durable zipper hardware and stitching]].",
+        "It should [[fit a 14-inch laptop and documents]].",
+        "I want [[a professional look]].",
+        "I prefer [[minimal branding]].",
+        "I want to avoid [[bulky designs or flap-only closures]]."
+      ]
+    },
+    {
+      "id": "briefcase_081",
+      "gender": "female",
+      "background": "A nonprofit program manager commutes by bus and wants one dependable bag that won\u2019t look shabby in board meetings.",
+      "ground_truth_need": "She needs a professional briefcase for daily commuting and occasional formal meetings, with the top priority being durability at stress points because her last bag\u2019s straps frayed and the base collapsed. It must fit a 14-inch laptop, documents, and chargers while staying reasonably sleek. Next priorities are a polished, understated look and a comfortable strap for longer walks. Target budget is $180 with a hard max of $320, prioritizing reliability over luxury branding. She prefers minimal logos and neutral colors and dislikes bulky exterior pockets that snag during transit.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[durability so it won\u2019t fray or collapse under daily use]].",
+        "It should [[look polished enough for board meetings]].",
+        "I need [[space for a 14-inch laptop and documents]].",
+        "I\u2019m aiming for [[$180, with a hard max of $320]].",
+        "I\u2019d like [[a comfortable strap for commuting]].",
+        "I prefer [[minimal logos and neutral colors]].",
+        "I want to avoid [[bulky exterior pockets that snag]]."
+      ]
+    },
+    {
+      "id": "briefcase_082",
+      "gender": "male",
+      "background": "A daily cyclist needs a work bag that stays secure and balanced while riding and still looks professional at the office.",
+      "ground_truth_need": "He needs a briefcase for commuting by bike, and the dealbreaker is stable carry that won\u2019t swing or shift while riding. He prefers a design that can be worn securely (e.g., crossbody that sits tight) without feeling awkward when he arrives at work. Next is weather tolerance for light rain, followed by laptop protection for a 13-inch device. Target budget is $200 with a hard max of $350, paying more only if stability and weather performance are clearly better. He prefers a clean look and minimal branding and dislikes floppy bags that bounce around.",
+      "context_trail": [
+        "I need a briefcase.",
+        "The most important thing is [[stable carry that won\u2019t swing around while biking]].",
+        "I want [[some rain tolerance for commuting]].",
+        "It should [[protect a 13-inch laptop]].",
+        "My budget is [[around $200, with a hard max of $350]].",
+        "I prefer [[a clean, professional look]].",
+        "I\u2019d like [[minimal branding]].",
+        "I want to avoid [[floppy designs that bounce around]]."
+      ]
+    },
+    {
+      "id": "briefcase_083",
+      "gender": "non-binary",
+      "background": "A frequent traveler wants a briefcase that slides onto a suitcase handle and keeps airport navigation painless.",
+      "ground_truth_need": "They need a travel-oriented briefcase, and the top priority is easy airport handling with a luggage pass-through that works reliably on rolling suitcases. Next is a secure closure to prevent spills when rushing, followed by organization for chargers, passport, and small tech. It must fit a 14-inch laptop and a document folder. Target budget is $260 with a hard max of $450, spending toward the top only if travel features are well-executed and durable. They prefer an understated look and dislike bulky, overbuilt bags that are hard to stow.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a luggage pass-through that works well for airport travel]].",
+        "I need [[a secure closure so nothing spills out]].",
+        "It should [[fit a 14-inch laptop and a folder]].",
+        "My budget is [[around $260, with a hard max of $450]].",
+        "I\u2019d like [[organized pockets for travel essentials]].",
+        "I prefer [[an understated look]].",
+        "I want to avoid [[bags that feel bulky and hard to stow]]."
+      ]
+    },
+    {
+      "id": "briefcase_084",
+      "gender": "female",
+      "background": "A corporate analyst wants a sleek briefcase that won\u2019t draw attention and is strict about avoiding animal products.",
+      "ground_truth_need": "She needs a professional briefcase with the top priority being non-leather, animal-free materials that still look polished, since she avoids animal products entirely. Next is a clean, minimalist design with minimal branding, followed by laptop protection for a 14-inch device. She wants decent durability and easy cleaning for daily commuting. Target budget is $170 with a hard max of $300, paying more only if the material quality and finish look genuinely professional. She dislikes shiny plastic-looking faux leather and bulky silhouettes.",
+      "context_trail": [
+        "I need a briefcase.",
+        "My main requirement is [[no animal leather or animal-derived materials]].",
+        "I want [[a polished look that still feels minimalist]].",
+        "It should [[protect a 14-inch laptop]].",
+        "I\u2019m aiming for [[$170, with a hard max of $300]].",
+        "I\u2019d like [[materials that are easy to clean]].",
+        "I prefer [[minimal branding]].",
+        "I want to avoid [[shiny plastic-looking finishes or bulky shapes]]."
+      ]
+    },
+    {
+      "id": "briefcase_085",
+      "gender": "male",
+      "background": "A meticulous professional wants a classic attach\u00e9-style case and cares most about structure and scuff resistance.",
+      "ground_truth_need": "He needs a structured briefcase that holds its shape perfectly, with the top priority being rigid structure and strong edge/corner protection because his current bag scuffs and warps quickly. Next is reliable hardware and closures that feel solid, followed by a conservative, formal appearance. It must fit documents and a slim laptop but doesn\u2019t need large capacity. Target budget is $320 with a hard max of $600, spending near the max only for clearly superior build and hardware. He prefers minimal branding and dislikes soft, slouchy bags or rugged workwear styling.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a rigid, structured case that keeps its shape]].",
+        "I need [[strong corner and edge protection against scuffs]].",
+        "I care about [[reliable hardware and closures]].",
+        "My budget is [[around $320, with a hard max of $600]].",
+        "I want [[a conservative, formal look]].",
+        "I prefer [[minimal branding]].",
+        "I want to avoid [[soft or rugged-looking designs]]."
+      ]
+    },
+    {
+      "id": "briefcase_086",
+      "gender": "female",
+      "background": "A junior consultant carries her bag all day and wants comfort first because shoulder pain has become a real issue.",
+      "ground_truth_need": "She needs a briefcase for constant carrying, and the top priority is comfort and ergonomics, especially a strap that doesn\u2019t dig in and stays stable on the shoulder. Next is keeping weight manageable, followed by enough capacity for a 15-inch laptop, charger, and a notebook. She wants durable strap anchors and stitching since she carries heavy loads. Target budget is $230 with a hard max of $380, paying more only if comfort is clearly better. She prefers a professional look and minimal logos and dislikes boxy rigid cases that feel awkward crossbody.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a comfortable strap that won\u2019t hurt my shoulder]].",
+        "I really want [[a bag that stays reasonably lightweight]].",
+        "It must [[fit a 15-inch laptop and basics]].",
+        "I\u2019m aiming for [[$230, with a hard max of $380]].",
+        "I need [[durable strap anchors and stitching]].",
+        "I want [[a professional look]].",
+        "I want to avoid [[a rigid boxy feel when worn crossbody]]."
+      ]
+    },
+    {
+      "id": "briefcase_087",
+      "gender": "unspecified",
+      "background": "An EU buyer wants to keep purchases local and needs a work bag that closes securely on public transit.",
+      "ground_truth_need": "They need a briefcase for commuting, and the top priority is a secure closure that fully closes the main compartment to deter pickpocketing. Next is EU availability and easy returns to avoid customs hassles, followed by durable zipper or closure hardware. It must fit a 13-inch laptop and documents while staying sleek. Target budget is \u20ac160 with a hard max of \u20ac300, paying more only if the closure hardware and stitching are clearly better. They prefer understated styling and dislike noisy buckles or flap-only designs.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "The most important thing is [[a main compartment that closes fully and securely]].",
+        "I need [[easy availability within the EU]].",
+        "I care about [[durable closure hardware like zippers and pulls]].",
+        "My budget is [[around \u20ac160, with a hard max of \u20ac300]].",
+        "It should [[fit a 13-inch laptop]].",
+        "I prefer [[an understated look]].",
+        "I want to avoid [[flap-only closures or noisy buckles]]."
+      ]
+    },
+    {
+      "id": "briefcase_088",
+      "gender": "male",
+      "background": "A UK buyer wants a dependable work bag from local retailers and prefers classic leather without fuss or loud logos.",
+      "ground_truth_need": "He needs a briefcase and the top priority is straightforward UK availability with simple shipping and returns. Next is durability for daily commuting, followed by a conservative look that works in traditional office settings. It must fit a 14-inch laptop and documents and have reliable stitching and closures. Target budget is \u00a3180 with a hard max of \u00a3320, spending toward the top only for clearly better construction. He prefers minimal branding and dislikes rugged canvas styling and complicated buckle-heavy closures.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[easy UK purchase and returns]].",
+        "I need [[durability for everyday commuting]].",
+        "It should [[fit a 14-inch laptop and documents]].",
+        "My budget is [[around \u00a3180, with a hard max of \u00a3320]].",
+        "I want [[a conservative office-appropriate look]].",
+        "I prefer [[minimal branding]].",
+        "I want to avoid [[rugged canvas or buckle-heavy designs]]."
+      ]
+    },
+    {
+      "id": "briefcase_089",
+      "gender": "female",
+      "background": "A neat-freak office worker wants a briefcase that stays organized and hates when bags become a bottomless pit.",
+      "ground_truth_need": "She needs a work briefcase and the top priority is functional organization that prevents clutter, with dedicated spaces for laptop, charger, pens, and small essentials. Next is a clean exterior that looks tidy in meetings, followed by durability of zippers and stitching for daily use. It must fit a 14-inch laptop and documents without feeling bulky. Target budget is $190 with a hard max of $330, paying more only if the interior layout is genuinely helpful. She prefers minimal branding and dislikes oversized exterior pockets and strap-heavy rugged designs.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[organization that prevents my bag from turning into a clutter pit]].",
+        "It needs [[to fit a 14-inch laptop and documents]].",
+        "I want [[a tidy exterior for meetings]].",
+        "I\u2019m aiming for [[$190, with a hard max of $330]].",
+        "I care about [[durable zippers and stitching]].",
+        "I prefer [[minimal branding]].",
+        "I want to avoid [[big exterior pockets or rugged straps]]."
+      ]
+    },
+    {
+      "id": "briefcase_090",
+      "gender": "male",
+      "background": "A price-sensitive shopper needs a briefcase soon for a new job and wants to stay under a strict ceiling.",
+      "ground_truth_need": "He needs a basic briefcase for a new job, and the top priority is staying within a strict budget. It must fit a 15-inch laptop and a few documents and look professional enough for an office. He wants decent durability in the areas that fail first\u2014handles and zippers\u2014without paying for premium leather. Target budget is $110 with a hard max of $170. He prefers dark neutral colors and minimal logos, and he dislikes bulky shapes and overly complicated compartments. A secure closure is important since he commutes on public transit.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main constraint is [[keeping it around $110, max $170]].",
+        "It needs [[to fit a 15-inch laptop]].",
+        "I want [[a professional look for the office]].",
+        "I need [[handles and zippers that don\u2019t fail fast]].",
+        "I prefer [[dark neutral colors]].",
+        "I\u2019d like [[a secure closure for commuting]].",
+        "I want to avoid [[bulky shapes or overly complex compartments]]."
+      ]
+    },
+    {
+      "id": "briefcase_091",
+      "gender": "non-binary",
+      "background": "A premium buyer wants one briefcase for decades and is willing to pay more if it can be repaired and ages beautifully.",
+      "ground_truth_need": "They want a long-term premium briefcase with the top priority being materials and craftsmanship that will age well over decades. Next is repairability or service support, since they want to maintain it rather than replace it. It should look timeless and professional, fit a 15-inch laptop and documents, and avoid unnecessary bulk. Target budget is $650 with a hard max of $950, spending near the cap only if construction and service options are clearly strong. They prefer minimal branding and dislike rugged workwear styling or flashy details.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[premium craftsmanship that can last for decades]].",
+        "I really want [[repairability or service options]].",
+        "It should [[have a timeless professional design]].",
+        "My budget is [[around $650, with a hard max of $950]].",
+        "It needs [[to fit a 15-inch laptop and documents]].",
+        "I prefer [[minimal branding]].",
+        "I want to avoid [[rugged or flashy styling]]."
+      ]
+    },
+    {
+      "id": "briefcase_092",
+      "gender": "female",
+      "background": "A commuter wants a briefcase that doesn\u2019t look huge on her and cares a lot about proportional size and weight.",
+      "ground_truth_need": "She needs a briefcase for daily work and the top priority is a compact, proportional size that doesn\u2019t overwhelm her frame while still holding essentials. It must fit a 13-inch laptop, a slim notebook, and a small charger, and she wants it to stay relatively lightweight. Next is a professional look, followed by basic durability in handles and zippers. Target budget is $160 with a hard max of $270, paying more only if size and weight are clearly better. She prefers minimal branding and dislikes bulky gussets and oversized exterior pockets.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a compact size that doesn\u2019t look oversized on me]].",
+        "It must [[fit a 13-inch laptop]].",
+        "I want [[a lightweight carry]].",
+        "I\u2019m aiming for [[$160, with a hard max of $270]].",
+        "I need [[a professional look for work]].",
+        "I want [[handles and zippers that hold up]].",
+        "I want to avoid [[bulky gussets or huge exterior pockets]]."
+      ]
+    },
+    {
+      "id": "briefcase_093",
+      "gender": "male",
+      "background": "A tech worker carries two devices and wants a bag that can handle them safely without becoming bulky or awkward.",
+      "ground_truth_need": "He needs a briefcase and the top priority is safely carrying two devices\u2014his 14-inch laptop plus a tablet\u2014without them rubbing together or bending. Next is a slim-to-medium profile that still fits under a desk, followed by durable stitching and reliable zipper hardware for daily use. He prefers a modern, understated look with minimal branding. Target budget is $240 with a hard max of $400, paying more only if the internal protection and separators are clearly better. He dislikes bulky, overbuilt bags and hates messy pocket layouts that waste space.",
+      "context_trail": [
+        "I need a briefcase.",
+        "My main priority is [[safe, separated storage for a laptop and a tablet]].",
+        "I want [[a profile that stays fairly slim]].",
+        "I care about [[durable stitching and zipper hardware]].",
+        "My budget is [[around $240, with a hard max of $400]].",
+        "It should [[fit under a desk easily]].",
+        "I prefer [[a modern, understated look]].",
+        "I want to avoid [[wasted space from messy pocket layouts]]."
+      ]
+    },
+    {
+      "id": "briefcase_094",
+      "gender": "female",
+      "background": "A client-facing professional wants a bag that looks sharp but refuses to carry something heavy and stiff all day.",
+      "ground_truth_need": "She needs a briefcase for daily client meetings, with the top priority being a polished professional appearance that still feels comfortable to carry. Next is keeping weight down and avoiding overly stiff construction, followed by enough room for a 14-inch laptop and documents. She wants durable hardware and stitching since she uses it constantly. Target budget is $260 with a hard max of $420, paying more only if the bag stays sleek while being comfortable. She prefers minimal branding and dislikes rugged canvas looks and excessive buckles or straps.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a sharp professional look for client meetings]].",
+        "I really need [[something that isn\u2019t heavy or overly stiff]].",
+        "It must [[fit a 14-inch laptop and documents]].",
+        "My budget is [[around $260, with a hard max of $420]].",
+        "I care about [[durable hardware and stitching]].",
+        "I prefer [[minimal branding]].",
+        "I want to avoid [[buckle-heavy or strap-heavy designs]]."
+      ]
+    },
+    {
+      "id": "briefcase_095",
+      "gender": "unspecified",
+      "background": "A buyer replacing a messy tote wants a structured work bag that keeps papers crisp and doesn\u2019t collapse on the floor.",
+      "ground_truth_need": "They need a structured briefcase with the top priority being shape retention so papers stay crisp and the bag doesn\u2019t collapse when set down. Next is a supportive base that helps it stand or sit neatly, followed by capacity for a 15-inch laptop and documents. They want dependable durability in seams and handles for daily use and a professional look. Target budget is $210 with a hard max of $360, paying more only if structure and materials are clearly better. They prefer minimal branding and dislike floppy tote-like designs and oversized exterior pockets.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a structured bag that keeps its shape and papers crisp]].",
+        "I want [[a supportive base that doesn\u2019t collapse on the floor]].",
+        "It must [[fit a 15-inch laptop and documents]].",
+        "I\u2019m aiming for [[$210, with a hard max of $360]].",
+        "I need [[durable seams and handles]].",
+        "I want [[a professional look]].",
+        "I want to avoid [[floppy tote-like designs or oversized pockets]]."
+      ]
+    },
+    {
+      "id": "briefcase_096",
+      "gender": "male",
+      "background": "A security-conscious commuter wants a briefcase that closes fully and keeps valuables discreet on crowded transit.",
+      "ground_truth_need": "He needs a briefcase for daily commuting and the top priority is security and discretion\u2014fully closing compartments and a design that doesn\u2019t advertise expensive contents. Next is durable zippers and stitching, followed by enough room for a 14-inch laptop and documents. Target budget is $230 with a hard max of $380, paying more only if the closure and build are clearly robust. He prefers minimal branding and a plain exterior and dislikes flap-only closures and loud metal accents. He also wants the bag to be reasonably slim so it stays close to the body.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "The most important thing is [[security and discretion on crowded transit]].",
+        "I need [[a fully closing main compartment]].",
+        "It should [[fit a 14-inch laptop and documents]].",
+        "My budget is [[around $230, with a hard max of $380]].",
+        "I care about [[durable zippers and stitching]].",
+        "I prefer [[a plain exterior with minimal branding]].",
+        "I want [[a reasonably slim profile]]."
+      ]
+    },
+    {
+      "id": "briefcase_097",
+      "gender": "female",
+      "background": "A frequent flyer wants a travel briefcase that stays organized and hates rummaging for chargers and adapters mid-flight.",
+      "ground_truth_need": "She needs a travel briefcase and the top priority is smart organization for tech and travel essentials so she can access chargers, adapters, and small items quickly. Next is a secure closure for airport movement, followed by durability of zippers and seams under frequent handling. It must fit a 15-inch laptop and a document folder while staying reasonably sleek. Target budget is $300 with a hard max of $520, paying more only if organization is genuinely useful and construction is solid. She prefers understated branding and dislikes overly bulky bags that are hard to fit under seats.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[excellent organization for chargers, adapters, and small tech]].",
+        "I need [[a secure closure for airport movement]].",
+        "It must [[fit a 15-inch laptop]].",
+        "I\u2019m aiming for [[$300, with a hard max of $520]].",
+        "I care about [[durable zippers and seams]].",
+        "I prefer [[understated branding]].",
+        "I want to avoid [[a bag that\u2019s too bulky to fit under a seat]]."
+      ]
+    },
+    {
+      "id": "briefcase_098",
+      "gender": "non-binary",
+      "background": "A design-forward buyer wants a briefcase that feels modern and clean, and they strongly dislike visible logos and noisy hardware.",
+      "ground_truth_need": "They need a briefcase for work with the top priority being a modern, minimalist aesthetic that looks intentional and clean. Next is minimal branding and quiet hardware that doesn\u2019t jingle or look flashy, followed by enough capacity for a 14-inch laptop and documents. They want a tidy silhouette that stays neat and decent durability for daily use. Target budget is $220 with a hard max of $360, paying more only if design and materials feel refined. They dislike rugged workwear styling, contrast stitching, and oversized exterior pockets.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[a modern minimalist design that looks clean and intentional]].",
+        "I want [[minimal branding and quiet hardware]].",
+        "It should [[fit a 14-inch laptop and documents]].",
+        "My budget is [[around $220, with a hard max of $360]].",
+        "I want [[a tidy silhouette that stays neat]].",
+        "I need [[decent durability for daily use]].",
+        "I want to avoid [[rugged styling or oversized exterior pockets]]."
+      ]
+    },
+    {
+      "id": "briefcase_099",
+      "gender": "male",
+      "background": "A cost-benefit optimizer wants a leather-look professional bag but is unwilling to spend on premium labels or boutique brands.",
+      "ground_truth_need": "He needs a professional briefcase and the top priority is staying within a strict mid-range budget while still getting reliable construction. He wants strong stitching, dependable zippers, and handle anchors that won\u2019t fail, with a clean leather-look appearance suitable for the office. It must fit a 15-inch laptop and documents and remain reasonably slim. Target budget is $200 with a hard max of $300, and he won\u2019t exceed it. He prefers minimal branding, dislikes flashy logos, and wants to avoid complicated buckle systems that slow him down.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main constraint is [[keeping it within $200, max $300]].",
+        "I need [[reliable construction like strong stitching and handle anchors]].",
+        "It must [[fit a 15-inch laptop and documents]].",
+        "I want [[a clean leather-look professional style]].",
+        "I prefer [[minimal branding]].",
+        "I care about [[dependable zippers]].",
+        "I want to avoid [[buckle-heavy closures that slow me down]]."
+      ]
+    },
+    {
+      "id": "briefcase_100",
+      "gender": "female",
+      "background": "A senior leader wants a refined milestone briefcase and will pay for true quality, but only if it stays sleek and not bulky.",
+      "ground_truth_need": "She wants a premium briefcase as a milestone purchase and the top priority is exceptional craftsmanship and materials that look refined in executive settings. Next is a sleek silhouette that avoids bulk while still fitting a 15-inch laptop and documents, followed by durable hardware and stitching. She expects minimal branding and timeless styling and wants the bag to remain presentable with everyday use. Target budget is $900 with a hard max of $1,300, paying near the cap only if quality is clearly superior and the bag stays sleek. She dislikes rugged workwear vibes and overly heavy bags.",
+      "context_trail": [
+        "I\u2019m looking for a briefcase.",
+        "My main priority is [[exceptional craftsmanship and premium materials]].",
+        "I really want [[a sleek silhouette that avoids bulk]].",
+        "It must [[fit a 15-inch laptop and documents]].",
+        "My budget is [[around $900, with a hard max of $1,300]].",
+        "I care about [[durable hardware and stitching]].",
+        "I prefer [[minimal branding and timeless styling]].",
+        "I want to avoid [[rugged vibes or an overly heavy bag]]."
+      ]
+    }
+  ]
+}

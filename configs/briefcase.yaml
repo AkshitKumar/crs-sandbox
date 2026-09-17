@@ -1,0 +1,45 @@
+category: briefcase
+display_name: Briefcase
+
+catalog_path: data/categories/briefcase/products.jsonl
+questions_path: data/categories/briefcase/questions.yaml
+index_dir: data/categories/briefcase/index
+
+# Popular, high-review defaults spanning basic, rolling, and leather styles.
+default_slate:
+  - B00DUGZFWY
+  - B00VIM9VQ8
+  - B075VSR5CZ
+
+scrape:
+  # US-only; geographic persona constraints do not trigger regional scraping.
+  products_per_query: 10
+  max_search_pages: 12
+  query_caps:
+    briefcase: 85
+    laptop briefcase: 65
+    leather briefcase: 45
+    slim lightweight briefcase: 15
+    canvas briefcase: 15
+  # Broad categories first; specialized persona needs follow.
+  seed_queries:
+    - "briefcase"
+    - "laptop briefcase"
+    - "leather briefcase"
+    - "rolling briefcase"
+    - "slim lightweight briefcase"
+    - "water resistant briefcase"
+    - "hard sided attache case"
+    - "canvas briefcase"
+    # - "affordable briefcase"  # General laptop query covers budget models.
+    - "full grain leather briefcase"
+    - "expandable travel briefcase luggage sleeve"
+    # - "heavy duty lawyer briefcase"  # Revisit only if document-capacity gap remains.
+    # - "zip top crossbody briefcase"
+    - "vegan leather briefcase"
+    # - "minimalist black briefcase"  # Slim/leather searches and cached bag products cover this.
+    # - "13 inch laptop briefcase"
+    # - "15 inch laptop briefcase"
+    - "Briggs Riley expandable briefcase"
+  target_products: 250
+  reviews_per_product: 8

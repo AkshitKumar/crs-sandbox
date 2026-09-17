@@ -1,0 +1,1604 @@
+{
+  "personas": [
+    {
+      "id": "glove_001",
+      "gender": "unspecified",
+      "background": "Homeowner doing periodic storm cleanup and weekend repairs, trying to stop buying disposable gear. ",
+      "ground_truth_need": "Needs durable general-purpose work gloves for debris removal, yardwork, and occasional flood cleanup. The top priority is abrasion and puncture resistance with reinforced palm and fingertips; flimsy \u201cdonation-bin\u201d gloves fail immediately. Must fit snugly enough to grip tools and carry wet branches without slipping, but not so tight that circulation is cut off. Prefers breathable materials and a cuff that helps keep grit out; water resistance is helpful but full waterproofing is not required. Target budget is $25\u2013$35, with a hard maximum of $45 if durability is clearly better. Dislikes stiff, bulky gloves that reduce dexterity.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "My main priority is [[tough, abrasion-resistant work gloves that won\u2019t shred on debris]].",
+        "I also need [[good grip when handling wet branches and tools]].",
+        "I can\u2019t deal with [[loose-fitting fingers, so a snug fit matters]].",
+        "I\u2019d strongly prefer [[a cuff that keeps sand and splinters out]].",
+        "I\u2019m willing to trade some comfort for [[better breathability so my hands don\u2019t get swampy]].",
+        "I\u2019d like [[some water resistance for occasional soggy cleanup]].",
+        "I\u2019m trying to keep it [[around $25\u2013$35, max $45]]."
+      ]
+    },
+    {
+      "id": "glove_002",
+      "gender": "male",
+      "background": "Outdoor maintenance worker at a mountain resort, often working in severe wind and subzero temperatures.",
+      "ground_truth_need": "Needs extreme-cold winter work gloves for climbing metal structures and scraping sharp rime ice. Absolute dealbreaker is warmth plus wind protection in brutal conditions (around -30\u00b0C with high winds) without losing safety-critical dexterity. Gloves must resist tearing from abrasive ice and contact with metal, and maintain flexibility to handle carabiners and tools. A modular system is acceptable: dexterous liner plus insulated shell, as long as combined performance is reliable. Must manage moisture from snow contact; waterproofing is strongly preferred. Target budget is $120\u2013$180, hard max $220 if proven durability and warmth. Dislikes rigid thumbs and bulky fingers.",
+      "context_trail": [
+        "I need gloves.",
+        "The top requirement is [[real warmth in brutal subzero wind]].",
+        "Right behind that, I need [[enough dexterity to safely handle climbing gear]].",
+        "I can\u2019t accept [[material that tears up easily on sharp ice]].",
+        "I strongly prefer [[wind-blocking construction that doesn\u2019t leak drafts]].",
+        "I\u2019d like [[waterproofing to handle snow and wet metal]].",
+        "I\u2019m open to [[a liner-plus-shell setup if it improves performance]].",
+        "I can spend [[$120\u2013$180, absolute max $220]]."
+      ]
+    },
+    {
+      "id": "glove_003",
+      "gender": "female",
+      "background": "Tradesperson who washes exterior glass daily, working long winter shifts with constant water exposure.",
+      "ground_truth_need": "Needs truly waterproof, durable work gloves for window washing in winter where hands are continually wet. The number-one requirement is 100% waterproofing that does not seep at seams or fingertips; water ingress quickly causes numb hands. Must be warm enough for near-freezing conditions yet tight and tactile for finger control on squeegees and small clips. Prefers a close fit and good fingertip sensitivity; bulk is a negative. Materials can be leather or synthetic as long as waterproof barrier holds up. Target budget is $40\u2013$70, hard max $90 for proven waterproof durability. Dislikes loose cuffs that let water run in.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "My dealbreaker is [[fully waterproof gloves that don\u2019t leak at the seams]].",
+        "Next, I need [[a snug, tactile fit for fingertip control]].",
+        "I also require [[enough warmth for long, wet winter shifts]].",
+        "I can\u2019t stand [[bulky gloves that kill dexterity]].",
+        "I\u2019d like [[a cuff that prevents water from running inside]].",
+        "I prefer [[durable palms that won\u2019t abrade quickly]].",
+        "I\u2019m aiming for [[$40\u2013$70, with a hard cap of $90]]."
+      ]
+    },
+    {
+      "id": "glove_004",
+      "gender": "unspecified",
+      "background": "Recreational skier who goes out most weekends and is tired of replacing gear every season.",
+      "ground_truth_need": "Needs ski gloves or mittens that stay dry all day and last multiple seasons. Primary requirement is waterproofing with reliable seam sealing so hands stay dry through snow contact and occasional wet chairlift surfaces. Must also be warm enough for typical resort days and handle wind on lifts. Durability matters: reinforced palms and strong stitching to avoid wear after 1\u20132 seasons. Prefers a gauntlet cuff to seal over jacket sleeves and an adjustable wrist closure. Target budget is $80\u2013$130, hard max $160 if longevity is clearly better. Dislikes overly stiff gloves that make pole handling awkward.",
+      "context_trail": [
+        "I need gloves.",
+        "The most important thing is [[staying dry all day on the mountain]].",
+        "After that, I want [[durability that lasts more than a season or two]].",
+        "I also need [[solid warmth for cold lift rides]].",
+        "I\u2019d strongly prefer [[a gauntlet cuff to seal out snow]].",
+        "I care about [[good grip for poles without slipping]].",
+        "I don\u2019t want [[stiff gloves that make my hands clumsy]].",
+        "I\u2019m budgeting [[$80\u2013$130, max $160]]."
+      ]
+    },
+    {
+      "id": "glove_005",
+      "gender": "female",
+      "background": "Home cook without a dishwasher managing hand eczema and trying to keep a strict daily routine.",
+      "ground_truth_need": "Needs dishwashing gloves that truly keep water out and withstand frequent daily washing. Top priority is preventing leaks and water ingress, since moisture triggers painful eczema flare-ups. Gloves must be comfortable for longer sessions and provide enough dexterity to grip wet plates and scrubber tools. Prefers a longer cuff that can be secured to reduce splash entry; latex sensitivity is possible, so nitrile or non-latex options are preferred. Durability is important\u2014current gloves fail within weeks\u2014so thicker material and reinforced fingertips are welcome. Target budget is $10\u2013$18 per pair, hard max $25 if they last substantially longer.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The biggest need is [[dishwashing gloves that don\u2019t let water seep in]].",
+        "I also need [[comfort for long washes without irritation]].",
+        "I\u2019d strongly prefer [[non-latex material to avoid skin reactions]].",
+        "I need [[enough dexterity to grip slippery dishes]].",
+        "It matters that they have [[a longer cuff to reduce splashes inside]].",
+        "I\u2019m tired of replacements, so [[better durability at the fingertips]] is important.",
+        "I\u2019m trying to keep it [[around $10\u2013$18, max $25]]."
+      ]
+    },
+    {
+      "id": "glove_006",
+      "gender": "male",
+      "background": "Warehouse worker who alternates between indoor lifting and short outdoor loading in cold wind.",
+      "ground_truth_need": "Needs durable work gloves for lifting boxes, moving pallets, and occasional outdoor tasks on windy mornings. Primary driver is durability against abrasion and tearing from repetitive handling. Must provide decent warmth and wind resistance for brief outdoor stints without becoming overly insulated indoors. Grip is important for cardboard and shrink wrap, and the gloves should break in without stiff seams. Moderate water resistance is helpful for damp loads but not a full waterproof requirement. Target budget is $20\u2013$35, hard max $50 for a pair that holds up significantly longer. Dislikes sticky coatings that snag on packaging film.",
+      "context_trail": [
+        "I need gloves.",
+        "My main priority is [[durability for heavy, repetitive warehouse handling]].",
+        "I also want [[good grip on boxes and pallet wrap]].",
+        "I need [[some wind protection for quick outdoor loading]].",
+        "I can\u2019t deal with [[coatings that snag or stick to shrink wrap]].",
+        "I\u2019d prefer [[seams that don\u2019t chafe and soften as they break in]].",
+        "A nice-to-have is [[light water resistance for damp loads]].",
+        "I\u2019m aiming for [[$20\u2013$35, max $50]]."
+      ]
+    },
+    {
+      "id": "glove_007",
+      "gender": "unspecified",
+      "background": "Bike commuter in a windy city who relies on their phone for navigation and transit updates.",
+      "ground_truth_need": "Needs winter commuting gloves that block wind and allow phone use without frequent removal. Dealbreaker is wind resistance; cold wind causes numb fingers even when temperatures are only moderately cold. Must have reliable touchscreen capability on at least index/thumb. Prefers a low-profile, flexible glove for steering and locking a bike, with optional light water resistance for sleet. Wants dark colors and a snug fit to avoid bunching. Target budget is $35\u2013$60, hard max $90 for proven touchscreen performance and durability. Dislikes rigid neoprene feel and cheap conductive threads that stop working quickly.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The top priority is [[strong wind resistance so my hands don\u2019t go numb]].",
+        "I also need [[touchscreen use without taking them off]].",
+        "I want [[a slim, flexible fit for biking and locking up]].",
+        "I\u2019d prefer [[dark colors that look neutral for commuting]].",
+        "Waterproofing isn\u2019t critical, but [[some water resistance for sleet]] would help.",
+        "I\u2019m trying to avoid [[conductive tips that wear out fast]].",
+        "I\u2019m looking at [[$35\u2013$60, hard max $90]]."
+      ]
+    },
+    {
+      "id": "glove_008",
+      "gender": "female",
+      "background": "Office worker in a cold building who must follow a strict uniform and types all day.",
+      "ground_truth_need": "Needs thin, solid-black gloves suitable for constant typing in a chilly office (around mid-50s \u00b0F) with no option for a space heater. Primary requirement is typing dexterity: minimal bulk and good finger articulation. Must comply with uniform rules\u2014no fingerless gloves and no obvious logos; leather or leather-like is preferred for appearance. Comfort matters for all-day wear, with a lining that doesn\u2019t itch and seams that don\u2019t rub. Warmth is secondary to dexterity. Target budget is $30\u2013$60, hard max $90 if they meet uniform constraints perfectly. Dislikes shiny, costume-like faux leather.",
+      "context_trail": [
+        "I need gloves.",
+        "My main priority is [[thin gloves that let me type comfortably all day]].",
+        "I also need [[solid black with no prominent logos for my uniform]].",
+        "I prefer [[leather or leather-like material for a clean office look]].",
+        "I can\u2019t use [[fingerless designs, even if they\u2019re warmer]].",
+        "I need [[seams that don\u2019t chafe during constant typing]].",
+        "Warmth matters, but I\u2019ll trade it for [[flexible finger articulation]].",
+        "I\u2019m targeting [[$30\u2013$60, max $90]]."
+      ]
+    },
+    {
+      "id": "glove_009",
+      "gender": "male",
+      "background": "Motorcyclist who rides most days and is frustrated by expensive gloves wearing out quickly.",
+      "ground_truth_need": "Needs leather motorcycle riding gloves that last longer than a single season of regular riding. Primary driver is durability at high-wear points (thumb, palm, fingertips) from switchgear and grip friction. Must have good feel for controls and not be overly stiff, while still offering basic protection (reinforced palm and knuckle area). Prefers breathable leather for warmer days and avoids bulky winter gauntlets for this use. Water resistance is not a priority since he avoids rain. Target budget is $80\u2013$140, hard max $170 if the construction and warranty are strong. Dislikes cheap stitching that blows out early.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The biggest thing is [[durability at the thumb and palm so they last more than a year]].",
+        "Next, I need [[good feel for the bike\u2019s controls]].",
+        "I\u2019d like [[reinforcement in high-wear areas without extra bulk]].",
+        "I can\u2019t deal with [[stitching that fails after a few months]].",
+        "I prefer [[breathable leather for everyday riding]].",
+        "Rain isn\u2019t my focus, so [[waterproofing is optional]] for me.",
+        "I\u2019m aiming for [[$80\u2013$140, max $170]]."
+      ]
+    },
+    {
+      "id": "glove_010",
+      "gender": "female",
+      "background": "Animal shelter employee who works quickly with gates and hoses during chilly mornings.",
+      "ground_truth_need": "Needs thin winter work gloves that are waterproof enough for hose spray while staying dexterous for latches and padlocks. Dealbreaker is slim dexterity: bulky gloves slow her down and make locking gates difficult. Must resist water intrusion on the back of the hand and fingers, and be durable against repeated wet use. Warmth should be moderate\u2014conditions aren\u2019t arctic\u2014but wet cold causes discomfort. Prefers grippy palms and a snug fit; coated work gloves are acceptable if they don\u2019t become rigid. Target budget is $20\u2013$40, hard max $55 for a pair that stays waterproof and flexible.",
+      "context_trail": [
+        "I need gloves.",
+        "My top priority is [[thin gloves that don\u2019t slow down my fingers]].",
+        "I also need [[waterproofing for working with hoses]].",
+        "I\u2019m looking for [[durability for daily wet work]] more than style.",
+        "I need [[a grippy palm for gates and tools]].",
+        "I can\u2019t stand [[water getting in through the back of the glove]].",
+        "I want [[moderate insulation so wet cold doesn\u2019t bite]].",
+        "I\u2019m trying to keep it [[$20\u2013$40, max $55]]."
+      ]
+    },
+    {
+      "id": "glove_011",
+      "gender": "female",
+      "background": "New England hobby photographer who spends hours outside waiting for wildlife shots in winter.",
+      "ground_truth_need": "Needs winter gloves that balance warmth with dexterity for camera controls during 2\u20134 hour outings. Primary requirement is dexterity for dials, shutter, and lens adjustments; overly stiff thumbs or oversized fingers are a dealbreaker. Must be warm enough for typical 20\u00b0F days and occasional dips toward 0\u00b0F, plus some wind protection. Prefers a glove system that can be used with a liner if needed, and a non-slippery grip on camera body. Waterproofing is a bonus for snow, not essential. Target budget is $60\u2013$90, hard max $110 for proven performance.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main thing is [[dexterity for camera buttons and dials]].",
+        "I also need [[enough warmth for hours outside in winter]].",
+        "I\u2019d like [[wind protection to reduce numb fingers]].",
+        "I can\u2019t deal with [[stiff thumbs or oversized fingertips]].",
+        "I want [[good grip on a camera body without slipping]].",
+        "Waterproofing isn\u2019t mandatory, but [[snow resistance would be nice]].",
+        "I\u2019m aiming for [[$60\u2013$90, max $110]]."
+      ]
+    },
+    {
+      "id": "glove_012",
+      "gender": "unspecified",
+      "background": "Family caregiver shopping for an older relative with poor circulation and frequent cold hands.",
+      "ground_truth_need": "Needs very warm winter gloves for an older adult with circulation issues, where warmth is the clear priority over style. Must be wind-resistant to handle wind chill during short walks, errands, and clearing snow off a car. Gloves must be gloves (not mittens) to allow simple tasks like holding keys and gripping a steering wheel. Waterproofing is a bonus but not required. Fit should accommodate smaller hands and avoid pressure points that worsen circulation. Target budget is $50\u2013$75, hard max $90 for reliably warmer options. Dislikes thin fashion gloves that look nice but don\u2019t insulate.",
+      "context_trail": [
+        "I need gloves.",
+        "The most important thing is [[serious warmth for someone with poor circulation]].",
+        "Next, I want [[wind protection so wind chill doesn\u2019t cut through]].",
+        "They must be [[gloves, not mittens, to still use fingers]].",
+        "I\u2019d prefer [[smaller sizing options for narrow hands]].",
+        "Waterproofing is optional, but [[some water resistance for snow]] would help.",
+        "I\u2019m trying to avoid [[tight pressure points that make hands colder]].",
+        "I\u2019m looking to spend [[$50\u2013$75, max $90]]."
+      ]
+    },
+    {
+      "id": "glove_013",
+      "gender": "male",
+      "background": "DIY mechanic who is fed up with disposable gloves tearing mid-task and letting grime under nails.",
+      "ground_truth_need": "Needs reusable gloves for automotive work that resist tearing and protect hands from grease, paint, and grime. Dealbreaker is tear resistance: disposable nitrile gloves fail too quickly and lead to mess and minor cuts. Must be close-fitting for dexterity around fasteners and tools, with a grippy palm and minimal seam bulk. Prefer washable gloves that can handle oil exposure and still clean up decently. Breathability matters for longer sessions, but chemical resistance is more important than insulation. Target budget is $15\u2013$30, hard max $40 for a pair that lasts months with regular use. Dislikes sticky coatings that trap dirt.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main issue is [[gloves that won\u2019t tear quickly during automotive work]].",
+        "I also need [[a tight fit for good dexterity on small parts]].",
+        "I want [[washable material that can handle oil and grime]].",
+        "Grip matters, so [[a non-slip palm]] is important.",
+        "I can\u2019t deal with [[seams that bunch up and reduce feel]].",
+        "I\u2019d like [[breathability so my hands don\u2019t overheat]].",
+        "I\u2019m aiming for [[$15\u2013$30, max $40]]."
+      ]
+    },
+    {
+      "id": "glove_014",
+      "gender": "non-binary",
+      "background": "Home baker who routinely handles hot metal trays and is tired of using towels as protection.",
+      "ground_truth_need": "Needs heat-resistant oven gloves or welding-style gauntlets for pulling large trays from deep ovens. Top priority is heat protection for both hands and forearms; burns are the primary risk. Must be long-cuffed to cover part of the arm and provide a secure grip on slick metal pans. Dexterity is secondary but should be sufficient to handle tray corners safely. Prefers durable leather with strong stitching and a lining that doesn\u2019t shed onto food-contact surfaces. Bulk is acceptable if it improves protection. Target budget is $25\u2013$45, hard max $60 for high-quality materials and longer lifespan.",
+      "context_trail": [
+        "I need gloves.",
+        "My top priority is [[serious heat protection for hands and forearms]].",
+        "I also want [[a long cuff that acts like a gauntlet]].",
+        "I need [[good grip on hot metal trays]] more than flexibility.",
+        "Durability matters, so [[strong stitching and thick material]] is important.",
+        "I\u2019d prefer [[a lining that won\u2019t shed fibers onto food areas]].",
+        "I can live with bulk, but I still need [[basic dexterity to grab tray corners]].",
+        "I\u2019m aiming for [[$25\u2013$45, max $60]]."
+      ]
+    },
+    {
+      "id": "glove_015",
+      "gender": "unspecified",
+      "background": "Student commuter in a very cold region who spends long stretches waiting outdoors for transit.",
+      "ground_truth_need": "Needs winter touchscreen gloves for long daily bus waits in extreme cold snaps. Dealbreaker is warmth: hands must stay functional during prolonged exposure, occasionally down to very low temperatures. Must also allow smartphone use for schedules and messaging without removing gloves. Durability is important because cheap pairs fail quickly with daily wear. Prefers a snug fit to keep heat in and avoid floppy fingertips, plus decent wind resistance. Waterproofing is not a priority. Target budget is $40\u2013$60, hard max $75 if warmth and touchscreen reliability are proven. Dislikes gloves that work on screens only intermittently.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The biggest need is [[warmth for long waits outside in extreme cold]].",
+        "I also need [[reliable touchscreen performance for my phone]].",
+        "I\u2019m tired of replacing pairs, so [[durability for daily use]] matters.",
+        "I prefer [[a snug fit that keeps heat from leaking out]].",
+        "I\u2019d like [[wind resistance to cut the bite]] while I\u2019m standing still.",
+        "I\u2019m trying to avoid [[screen tips that only work sometimes]].",
+        "I\u2019m aiming for [[$40\u2013$60, max $75]]."
+      ]
+    },
+    {
+      "id": "glove_016",
+      "gender": "female",
+      "background": "Parent of an active kid who destroys winter gear quickly through rough play in snow.",
+      "ground_truth_need": "Needs durable children\u2019s/teen snow gloves that can survive frequent outdoor play and school recess. Primary requirement is durability: reinforced palms, sturdy stitching, and materials that don\u2019t rip after a few outings. Must keep hands warm enough for typical snowy days and stay reasonably dry; waterproofing is strongly preferred to avoid soaked insulation. A secure cuff closure matters to keep snow out and prevent losing gloves. Comfort is important but secondary to longevity. Target budget is $20\u2013$35 per pair, hard max $45 if they truly reduce replacements. Dislikes complicated liners that get separated and lost.",
+      "context_trail": [
+        "I need gloves.",
+        "My main priority is [[kids\u2019 snow gloves that can take a beating without ripping]].",
+        "I also need [[waterproofing so they don\u2019t get soaked fast]].",
+        "Warmth matters, so [[good insulation for snowy days]] is important.",
+        "I want [[a cuff closure that keeps snow out]].",
+        "I\u2019m trying to prevent losses, so [[easy-to-keep-together features]] help.",
+        "I\u2019d rather avoid [[separate liners that get misplaced]].",
+        "I\u2019m aiming for [[$20\u2013$35, max $45]]."
+      ]
+    },
+    {
+      "id": "glove_017",
+      "gender": "male",
+      "background": "Volunteer with a local snow-sculpture event who works hands-on with wet snow for hours.",
+      "ground_truth_need": "Needs waterproof gloves for extended outdoor work with wet snow in subzero conditions, where frostbite prevention is critical. Dealbreaker is staying warm while wet; past gloves soak through and force frequent warming breaks. Must be waterproof with dependable barrier and closures that keep moisture out, plus insulation suited for long stationary work. Dexterity can be moderate\u2014holding tools and packing snow is enough\u2014but grip must remain secure when wet. Prefers durable shells that resist abrasion from ice and tools. Target budget is $90\u2013$140, hard max $180 for high-end waterproof warmth. Dislikes gloves that feel clammy inside after an hour.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The top priority is [[staying warm even when I\u2019m working with wet snow]].",
+        "I also need [[true waterproofing that doesn\u2019t soak through]].",
+        "I want [[insulation suited for long outdoor sessions]] rather than quick errands.",
+        "I need [[secure grip even when everything is wet]].",
+        "Durability matters, so [[a tough outer shell against ice and tools]] is important.",
+        "I\u2019m trying to avoid [[a clammy interior that builds up moisture]].",
+        "I\u2019m budgeting [[$90\u2013$140, max $180]]."
+      ]
+    },
+    {
+      "id": "glove_018",
+      "gender": "unspecified",
+      "background": "University commuter in a wet winter climate who holds cold metal railings and walks in wind daily.",
+      "ground_truth_need": "Needs waterproof and windproof winter gloves for daily commuting where hands contact wet, cold metal. Primary driver is waterproofing: must prevent water transfer from railings and slushy conditions. Wind resistance is next to stop chill, but extreme insulation isn\u2019t required because temperatures are moderate subfreezing. Prefers thin, flexible gloves with a non-rigid feel and a dark, understated color. Touchscreen compatibility is a nice-to-have, not required. Also cares about avoiding expensive shipping and prefers commonly available options. Target budget is $30\u2013$55, hard max $75 if quality is clearly higher. Dislikes stiff neoprene that limits movement.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "My main priority is [[waterproof gloves for grabbing wet, snowy railings]].",
+        "Next, I need [[wind protection to reduce chill]].",
+        "I prefer [[a thin, flexible feel rather than rigid gloves]].",
+        "I\u2019d like [[dark, neutral colors for everyday use]].",
+        "Touchscreen isn\u2019t mandatory, but [[phone-friendly tips would be nice]].",
+        "I\u2019m trying to avoid [[high shipping costs or hard-to-find options]].",
+        "I\u2019m aiming for [[$30\u2013$55, max $75]]."
+      ]
+    },
+    {
+      "id": "glove_019",
+      "gender": "male",
+      "background": "Construction worker in a cold region trying to cut recurring costs from cheap gloves that fail fast.",
+      "ground_truth_need": "Needs construction work gloves that last longer than bargain-bin options while still allowing dexterity. The number-one priority is durability against abrasion, tearing, and general jobsite wear; replacing gloves every couple weeks is unacceptable. Must have reasonable dexterity for handling fasteners, tools, and materials, plus enough warmth for cold days without becoming bulky. Prefers tough palms and good stitching, and would like a fit that doesn\u2019t get sloppy when wet. Waterproofing is helpful but not required. Target budget is $25\u2013$45, hard max $65 for a pair that demonstrably outlasts typical store gloves. Dislikes gloves that \u201cstick\u201d to surfaces or snag.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[construction gloves that last longer than cheap store pairs]].",
+        "Next, I need [[dexterity for tools and small parts]].",
+        "I want [[enough warmth for cold days without huge bulk]].",
+        "I care about [[tough palms and stitching that won\u2019t blow out]].",
+        "I\u2019d like [[a fit that doesn\u2019t get sloppy when damp]].",
+        "I\u2019m trying to avoid [[gloves that stick or snag while working]].",
+        "I\u2019m aiming for [[$25\u2013$45, max $65]]."
+      ]
+    },
+    {
+      "id": "glove_020",
+      "gender": "unspecified",
+      "background": "Home cook and hobbyist who wants safer knife work after repeated close calls in the kitchen.",
+      "ground_truth_need": "Needs a cut-resistant kitchen glove for safer food prep, especially when handling sharp knives and slicers. Dealbreaker is cut protection: must be certified or clearly designed for high cut resistance to reduce injuries. Must also be food-safe, comfortable, and easy to clean (machine washable preferred). Dexterity is important for gripping produce and holding small items; overly thick gloves that make hands clumsy are undesirable. Prefers a snug fit with good ventilation to avoid sweaty hands during prep. Target budget is $15\u2013$25, hard max $35 if protection and durability are clearly superior. Dislikes gloves that retain odors after washing.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main requirement is [[cut-resistant protection for kitchen prep]].",
+        "I also need [[food-safe materials that are okay around ingredients]].",
+        "It\u2019s important that they are [[easy to wash and keep hygienic]].",
+        "I want [[good dexterity so I can still handle small items]].",
+        "I prefer [[a snug fit that doesn\u2019t slide around]].",
+        "I\u2019m trying to avoid [[gloves that hold odors after washing]].",
+        "I\u2019m aiming for [[$15\u2013$25, max $35]]."
+      ]
+    },
+    {
+      "id": "glove_021",
+      "gender": "male",
+      "background": "Urban dog walker handling early-morning winter walks in wind and light snow.",
+      "ground_truth_need": "Needs winter walking gloves that block wind and keep hands comfortable during 30\u201360 minute dog walks. The primary requirement is wind resistance to prevent numb fingers when standing still at intersections. Warmth should be moderate, not bulky, since activity generates some heat. Needs reliable grip for leash handling and poop bags without slipping. Prefers easy on/off and a snug wrist seal to keep drafts out. Waterproofing is helpful for snow but not a dealbreaker. Target budget is $30\u2013$55, hard max $75 if wind blocking is excellent. Dislikes stiff gloves that make leash handling awkward.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The most important thing is [[blocking wind so my hands don\u2019t go numb]].",
+        "I also need [[enough warmth for long winter walks]].",
+        "I want [[good grip for holding a leash securely]].",
+        "I prefer [[easy on-and-off for quick trips outside]].",
+        "Waterproofing isn\u2019t critical, but [[snow resistance would help]].",
+        "I\u2019m trying to avoid [[stiff gloves that limit hand movement]].",
+        "I\u2019m aiming for [[$30\u2013$55, max $75]]."
+      ]
+    },
+    {
+      "id": "glove_022",
+      "gender": "female",
+      "background": "Florist who handles thorny stems and cold storage rooms throughout the day.",
+      "ground_truth_need": "Needs lightweight work gloves that protect hands from thorns and scratches while arranging flowers. The top priority is puncture resistance without sacrificing dexterity, especially at fingertips. Gloves must be thin enough to tie ribbons and adjust arrangements precisely. Prefers breathable materials since hands get warm indoors, but some insulation helps in cold storage rooms. A snug fit is essential to avoid catching on stems. Waterproofing is not required. Target budget is $15\u2013$30, hard max $40 for a pair that balances protection and feel. Dislikes bulky gardening gloves that feel clumsy.",
+      "context_trail": [
+        "I need gloves.",
+        "My main priority is [[protection from thorns without losing fingertip control]].",
+        "I also need [[thin material for precise floral work]].",
+        "I want [[a snug fit that won\u2019t snag on stems]].",
+        "Breathability matters, so [[lightweight fabric is important]].",
+        "Some insulation helps, but [[only for brief cold-room use]].",
+        "I\u2019m trying to avoid [[bulky gardening-style gloves]].",
+        "I\u2019m targeting [[$15\u2013$30, max $40]]."
+      ]
+    },
+    {
+      "id": "glove_023",
+      "gender": "unspecified",
+      "background": "Tech worker who commutes by scooter and needs quick phone access at stops.",
+      "ground_truth_need": "Needs scooter-commuting gloves that protect from wind chill while allowing fast phone interaction. The primary requirement is touchscreen reliability for frequent navigation checks. Must also block wind effectively at speed and provide enough warmth for 20\u201340 minute rides. Gloves should be low-profile to maintain throttle control and braking feel. Prefers water resistance for light rain but avoids heavy insulation. Target budget is $40\u2013$70, hard max $95 for proven touchscreen durability. Dislikes gloves that only work on screens intermittently.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The top priority is [[reliable touchscreen use without taking them off]].",
+        "I also need [[strong wind protection while riding]].",
+        "I want [[enough warmth for short but cold commutes]].",
+        "A slim profile matters for [[good control of throttle and brakes]].",
+        "I\u2019d like [[some water resistance for light rain]].",
+        "I\u2019m trying to avoid [[screen tips that stop working quickly]].",
+        "I\u2019m aiming for [[$40\u2013$70, max $95]]."
+      ]
+    },
+    {
+      "id": "glove_024",
+      "gender": "male",
+      "background": "Weekend woodworker using hand tools in an unheated garage.",
+      "ground_truth_need": "Needs work gloves that provide hand protection while still allowing control of chisels and saws. The primary requirement is dexterity; thick gloves interfere with precision cuts. Must offer abrasion protection against splinters and rough lumber. Light insulation is useful in a cold garage, but warmth is secondary to feel. Prefers breathable materials and reinforced palms without excessive padding. Waterproofing is unnecessary. Target budget is $20\u2013$40, hard max $55 for durable construction. Dislikes loose fingertips that reduce accuracy.",
+      "context_trail": [
+        "I need gloves.",
+        "My main priority is [[high dexterity for precise woodworking]].",
+        "I also need [[protection from splinters and rough lumber]].",
+        "I want [[a close fit at the fingertips]].",
+        "Some warmth helps, but [[only light insulation is needed]].",
+        "Breathability matters, so [[materials that don\u2019t trap heat]] are important.",
+        "I\u2019m trying to avoid [[over-padded palms that kill feel]].",
+        "I\u2019m aiming for [[$20\u2013$40, max $55]]."
+      ]
+    },
+    {
+      "id": "glove_025",
+      "gender": "female",
+      "background": "Yoga instructor who bikes to class and needs versatile cold-weather gear.",
+      "ground_truth_need": "Needs lightweight winter gloves that work for biking and walking without looking overly sporty. The top priority is comfort and flexibility, since gloves are worn briefly before and after classes. Must block wind during rides and allow easy phone use. Prefers soft, non-restrictive materials and a clean, minimal look. Warmth should be moderate, not bulky. Waterproofing is optional. Target budget is $30\u2013$60, hard max $85 for versatile, stylish gloves. Dislikes stiff technical gloves with aggressive branding.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main thing is [[comfort and flexibility for short trips]].",
+        "I also need [[wind protection while biking]].",
+        "I want [[easy phone use without removing them]].",
+        "Style matters, so [[a simple, minimal look]] is important.",
+        "Warmth should be [[moderate, not bulky]].",
+        "I\u2019m trying to avoid [[overly technical or loud designs]].",
+        "I\u2019m aiming for [[$30\u2013$60, max $85]]."
+      ]
+    },
+    {
+      "id": "glove_026",
+      "gender": "male",
+      "background": "Landscaper working year-round with frequent exposure to dirt, moisture, and tools.",
+      "ground_truth_need": "Needs all-purpose work gloves that handle landscaping tasks across seasons. The primary requirement is durability against abrasion, digging, and tool use. Must provide good grip in dry and damp conditions, and fit snugly to avoid slipping off during work. Breathability is important for long days, while waterproofing is helpful but not essential. Gloves should be easy to clean and quick to dry. Target budget is $15\u2013$30 per pair, hard max $45 if longevity is significantly better. Dislikes gloves that stiffen after getting wet.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[durability for constant landscaping work]].",
+        "I also need [[reliable grip in dirt and damp conditions]].",
+        "A good fit matters, so [[they shouldn\u2019t slip or loosen]].",
+        "I want [[breathable gloves for long workdays]].",
+        "Waterproofing helps, but [[only for occasional wet tasks]].",
+        "I\u2019m trying to avoid [[gloves that get stiff after drying]].",
+        "I\u2019m aiming for [[$15\u2013$30, max $45]]."
+      ]
+    },
+    {
+      "id": "glove_027",
+      "gender": "unspecified",
+      "background": "Home barista pulling espresso shots early mornings in a chilly kitchen.",
+      "ground_truth_need": "Needs heat-resistant gloves for handling hot portafilters and steam wands safely. The primary requirement is protection from brief contact with hot metal surfaces. Gloves must allow enough dexterity to lock portafilters and adjust equipment quickly. Prefers thin, flexible materials rather than bulky oven mitts. Food-safe and easy-to-clean surfaces are important due to frequent spills. Target budget is $15\u2013$30, hard max $45 for durable, purpose-built gloves. Dislikes oversized mitts that slow workflow.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main requirement is [[heat protection for hot espresso equipment]].",
+        "I also need [[dexterity to work quickly with portafilters]].",
+        "I prefer [[thin gloves instead of bulky mitts]].",
+        "Food safety matters, so [[easy-to-clean materials]] are important.",
+        "I want [[a snug fit for precise handling]].",
+        "I\u2019m trying to avoid [[oversized gloves that slow me down]].",
+        "I\u2019m aiming for [[$15\u2013$30, max $45]]."
+      ]
+    },
+    {
+      "id": "glove_028",
+      "gender": "female",
+      "background": "Office commuter who runs cold and types outdoors while waiting for rides.",
+      "ground_truth_need": "Needs warm winter gloves that allow light typing on a laptop or tablet outdoors. The primary requirement is warmth, as hands get cold quickly even at mild temperatures. Must still provide finger mobility for basic typing and trackpad use. Wind resistance is important; waterproofing is less critical. Prefers soft linings that don\u2019t itch and a fitted silhouette. Target budget is $40\u2013$70, hard max $95 for warmer options that keep dexterity. Dislikes thick seams that interfere with typing.",
+      "context_trail": [
+        "I need gloves.",
+        "The most important thing is [[keeping my hands warm outdoors]].",
+        "I also need [[enough dexterity for light typing]].",
+        "Wind is an issue, so [[wind resistance matters]].",
+        "Comfort is key, so [[soft, non-itchy lining]] is important.",
+        "I prefer [[a fitted look rather than bulky gloves]].",
+        "I\u2019m trying to avoid [[thick seams that hit the fingertips]].",
+        "I\u2019m aiming for [[$40\u2013$70, max $95]]."
+      ]
+    },
+    {
+      "id": "glove_029",
+      "gender": "male",
+      "background": "Auto detailer working with water, soap, and brushes in cool temperatures.",
+      "ground_truth_need": "Needs waterproof work gloves for car detailing that keep hands dry while maintaining grip. The primary requirement is water resistance during constant rinsing and washing. Must allow dexterity for scrubbing wheels and handling small detailing tools. Prefers a snug fit with textured palms that work when wet. Insulation should be minimal; breathability matters more. Target budget is $20\u2013$40, hard max $60 for gloves that don\u2019t leak over time. Dislikes gloves that trap sweat and feel clammy.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[waterproof gloves for constant washing]].",
+        "I also need [[dexterity for detailing tools and brushes]].",
+        "Grip matters, so [[textured palms for wet surfaces]] are important.",
+        "I want [[a snug fit that doesn\u2019t bunch up]].",
+        "Insulation isn\u2019t needed, but [[breathability is important]].",
+        "I\u2019m trying to avoid [[clammy gloves that trap sweat]].",
+        "I\u2019m aiming for [[$20\u2013$40, max $60]]."
+      ]
+    },
+    {
+      "id": "glove_030",
+      "gender": "unspecified",
+      "background": "Casual hiker who goes out in shoulder seasons with unpredictable weather.",
+      "ground_truth_need": "Needs versatile hiking gloves for cool, windy days with occasional drizzle. The primary requirement is wind protection combined with light warmth. Must allow dexterity for trekking poles, zippers, and map handling. Prefers lightweight, packable gloves that don\u2019t take up space. Water resistance is helpful but full waterproofing isn\u2019t required. Target budget is $25\u2013$50, hard max $75 for durable, multipurpose gloves. Dislikes overly insulated gloves that cause overheating on climbs.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[wind protection with light warmth]].",
+        "I also need [[dexterity for poles and zippers]].",
+        "I prefer [[lightweight, packable gloves]].",
+        "Some water resistance helps, but [[full waterproofing isn\u2019t needed]].",
+        "Comfort matters, so [[breathable materials]] are important.",
+        "I\u2019m trying to avoid [[overly insulated gloves that overheat]].",
+        "I\u2019m aiming for [[$25\u2013$50, max $75]]."
+      ]
+    },
+    {
+      "id": "glove_031",
+      "gender": "female",
+      "background": "Retail worker standing near drafty entrances during winter shifts.",
+      "ground_truth_need": "Needs thin winter gloves suitable for indoor wear that take the edge off cold drafts. The primary requirement is comfort for all-day wear without interfering with handling merchandise. Must look presentable and neutral, not like outdoor ski gloves. Light warmth and wind blocking near doors is enough. Prefers soft fabrics and minimal seams. Waterproofing is irrelevant. Target budget is $20\u2013$40, hard max $60 for comfortable, professional-looking gloves. Dislikes bulky cuffs that get in the way.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[comfort for wearing them all day at work]].",
+        "I also need [[a professional, low-key appearance]].",
+        "Light warmth helps, especially [[near cold, drafty entrances]].",
+        "I want [[soft fabric that doesn\u2019t irritate skin]].",
+        "Bulk is an issue, so [[thin construction]] is important.",
+        "I\u2019m trying to avoid [[large cuffs that snag on clothing]].",
+        "I\u2019m aiming for [[$20\u2013$40, max $60]]."
+      ]
+    },
+    {
+      "id": "glove_032",
+      "gender": "male",
+      "background": "Ice fisher spending long periods stationary on frozen lakes.",
+      "ground_truth_need": "Needs extremely warm winter gloves for ice fishing sessions lasting several hours. The primary requirement is insulation that keeps hands warm while inactive in freezing temperatures. Must also block wind effectively and resist moisture from snow and ice. Dexterity can be limited; warmth is far more important than fine motor control. Prefers gauntlet-style cuffs to seal over jackets. Target budget is $80\u2013$130, hard max $170 for top-tier warmth. Dislikes thin gloves that lose heat quickly.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[maximum warmth for sitting still on ice]].",
+        "I also need [[wind blocking to prevent heat loss]].",
+        "Moisture matters, so [[resistance to snow and ice]] is important.",
+        "I prefer [[long gauntlet cuffs to seal in heat]].",
+        "Dexterity is secondary, but [[basic grip is still needed]].",
+        "I\u2019m trying to avoid [[thin gloves that cool off fast]].",
+        "I\u2019m aiming for [[$80\u2013$130, max $170]]."
+      ]
+    },
+    {
+      "id": "glove_033",
+      "gender": "unspecified",
+      "background": "Warehouse picker using scanners and touchscreens in a cold facility.",
+      "ground_truth_need": "Needs lightweight work gloves compatible with touchscreens for use in a refrigerated warehouse. The primary requirement is touchscreen functionality for scanners without removing gloves. Must also provide light insulation and flexibility for repetitive picking tasks. Grip is important for boxes and plastic wrap. Waterproofing is unnecessary, but breathability matters to avoid sweat buildup. Target budget is $20\u2013$40, hard max $60 for durable touchscreen performance. Dislikes gloves that interfere with scanner accuracy.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main thing is [[touchscreen compatibility for scanners]].",
+        "I also need [[flexibility for repetitive picking]].",
+        "Some warmth helps, so [[light insulation]] is important.",
+        "I want [[good grip on boxes and wrap]].",
+        "Breathability matters, so [[materials that reduce sweat]] are preferred.",
+        "I\u2019m trying to avoid [[gloves that mess with scanner accuracy]].",
+        "I\u2019m aiming for [[$20\u2013$40, max $60]]."
+      ]
+    },
+    {
+      "id": "glove_034",
+      "gender": "female",
+      "background": "Community gardener working early mornings in cool, damp soil.",
+      "ground_truth_need": "Needs gardening gloves that handle damp soil and light cold without falling apart. The primary requirement is durability against digging and pulling plants. Must resist moisture enough to keep hands from getting soaked, while remaining flexible. Prefers breathable gloves that don\u2019t get stiff when wet. Fit should be snug to maintain control. Target budget is $15\u2013$30, hard max $45 for longer-lasting pairs. Dislikes thick rubber gloves that reduce feel.",
+      "context_trail": [
+        "I need gloves.",
+        "The main priority is [[durability for digging and pulling plants]].",
+        "I also need [[some moisture resistance for damp soil]].",
+        "Flexibility matters, so [[they shouldn\u2019t stiffen when wet]].",
+        "I want [[a snug fit for better control]].",
+        "Breathability is important, so [[hands don\u2019t overheat]].",
+        "I\u2019m trying to avoid [[thick rubber gloves with no feel]].",
+        "I\u2019m aiming for [[$15\u2013$30, max $45]]."
+      ]
+    },
+    {
+      "id": "glove_035",
+      "gender": "male",
+      "background": "Night security guard patrolling outdoors for extended periods.",
+      "ground_truth_need": "Needs winter gloves for long outdoor patrols with minimal hand movement. The primary requirement is warmth during extended standing and slow walking. Must block wind and offer moderate water resistance for snow. Dexterity is less important, but gloves should still allow radio use. Prefers dark, professional appearance. Target budget is $50\u2013$80, hard max $110 for dependable warmth. Dislikes flimsy gloves that lose insulation quickly.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The top priority is [[staying warm during long outdoor patrols]].",
+        "I also need [[wind blocking to reduce chill]].",
+        "Some moisture protection helps, so [[snow resistance]] is important.",
+        "I need [[basic dexterity for radio use]].",
+        "Appearance matters, so [[a dark, professional look]] is preferred.",
+        "I\u2019m trying to avoid [[gloves that lose warmth fast]].",
+        "I\u2019m aiming for [[$50\u2013$80, max $110]]."
+      ]
+    },
+    {
+      "id": "glove_036",
+      "gender": "unspecified",
+      "background": "Potter working with clay and water in a cool studio.",
+      "ground_truth_need": "Needs thin gloves to protect hands from cold water while throwing clay. The primary requirement is dexterity; gloves must allow fine finger movements. Must be water-resistant enough to keep hands from getting soaked immediately. Prefers flexible materials that don\u2019t bunch or wrinkle when wet. Insulation should be minimal. Target budget is $15\u2013$35, hard max $50 for specialty gloves that work well with clay. Dislikes thick seams that interfere with tactile feedback.",
+      "context_trail": [
+        "I need gloves.",
+        "The most important thing is [[maximum dexterity for working clay]].",
+        "I also need [[water resistance to slow soaking]].",
+        "Flexibility matters, so [[soft, pliable materials]] are important.",
+        "Insulation should be [[very minimal]].",
+        "I want [[a smooth interior that won\u2019t bunch up]].",
+        "I\u2019m trying to avoid [[thick seams that reduce feel]].",
+        "I\u2019m aiming for [[$15\u2013$35, max $50]]."
+      ]
+    },
+    {
+      "id": "glove_037",
+      "gender": "female",
+      "background": "Commuter who frequently forgets gloves and wants an inexpensive backup pair.",
+      "ground_truth_need": "Needs an affordable, basic winter glove to keep in a bag for emergencies. The primary requirement is low cost; gloves are often misplaced. Must provide basic warmth and wind protection for short walks. Durability and advanced features are less important than price and availability. Prefers neutral colors and standard sizing. Touchscreen use is optional. Target budget is $10\u2013$20, hard max $30 if quality is better than disposable. Dislikes premium-priced gloves for this purpose.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[keeping the price low for a backup pair]].",
+        "I still need [[basic warmth for short walks]].",
+        "Some wind protection helps, so [[blocking cold air]] is useful.",
+        "I prefer [[neutral colors that go with anything]].",
+        "Touchscreen isn\u2019t required, but [[it\u2019s a bonus if included]].",
+        "I\u2019m trying to avoid [[paying premium prices for extras]].",
+        "I\u2019m aiming for [[$10\u2013$20, max $30]]."
+      ]
+    },
+    {
+      "id": "glove_038",
+      "gender": "male",
+      "background": "Snowblower owner clearing a long driveway multiple times per winter.",
+      "ground_truth_need": "Needs waterproof, insulated gloves for operating a snowblower in heavy snow. The primary requirement is waterproofing to prevent wet hands during extended clearing sessions. Must also provide warmth and wind resistance, as exposure is prolonged. Dexterity is moderate; operating controls should be comfortable. Prefers a secure wrist closure to keep snow out. Target budget is $50\u2013$90, hard max $130 for reliable waterproof warmth. Dislikes gloves that soak through after one use.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[waterproof gloves for snowblower use]].",
+        "I also need [[warmth for long clearing sessions]].",
+        "Wind is an issue, so [[wind resistance]] matters.",
+        "I want [[a secure wrist closure to keep snow out]].",
+        "Dexterity matters enough for [[easy control operation]].",
+        "I\u2019m trying to avoid [[gloves that soak through quickly]].",
+        "I\u2019m aiming for [[$50\u2013$90, max $130]]."
+      ]
+    },
+    {
+      "id": "glove_039",
+      "gender": "unspecified",
+      "background": "Artist sketching outdoors in winter markets and public spaces.",
+      "ground_truth_need": "Needs thin winter gloves that allow holding pens and pencils comfortably. The primary requirement is dexterity for drawing lines accurately. Must provide light warmth and wind protection for stationary outdoor sketching. Prefers flexible fingers and minimal seams. Touchscreen compatibility is not important. Target budget is $25\u2013$50, hard max $75 for gloves that preserve hand feel. Dislikes bulky gloves that make sketching sloppy.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[dexterity for sketching and drawing]].",
+        "I also need [[light warmth while sitting outdoors]].",
+        "Wind protection helps, so [[blocking drafts]] is useful.",
+        "I want [[flexible fingers with minimal seams]].",
+        "Bulk is an issue, so [[thin construction]] matters.",
+        "I\u2019m trying to avoid [[gloves that dull hand feel]].",
+        "I\u2019m aiming for [[$25\u2013$50, max $75]]."
+      ]
+    },
+    {
+      "id": "glove_040",
+      "gender": "female",
+      "background": "Healthcare worker walking between buildings in winter during night shifts.",
+      "ground_truth_need": "Needs reliable winter gloves for short but frequent outdoor walks between hospital buildings. The primary requirement is quick warmth when stepping outside repeatedly. Must be easy to put on and remove, with decent wind resistance. Prefers gloves that don\u2019t interfere with carrying bags or opening doors. Waterproofing is secondary. Target budget is $35\u2013$60, hard max $85 for dependable comfort. Dislikes complicated closures that slow transitions.",
+      "context_trail": [
+        "I need gloves.",
+        "The most important thing is [[quick warmth when stepping outside]].",
+        "I also need [[easy on-and-off between buildings]].",
+        "Wind protection helps, so [[blocking cold gusts]] is important.",
+        "I want [[good mobility for opening doors and carrying items]].",
+        "Waterproofing is optional, but [[light snow resistance]] is useful.",
+        "I\u2019m trying to avoid [[fussy closures that slow me down]].",
+        "I\u2019m aiming for [[$35\u2013$60, max $85]]."
+      ]
+    },
+    {
+      "id": "glove_041",
+      "gender": "male",
+      "background": "Suburban homeowner splitting firewood on weekends throughout fall and winter.",
+      "ground_truth_need": "Needs heavy-duty work gloves for chopping and stacking firewood. The top priority is durability against abrasion, splinters, and repeated impact; thin gloves wear through too fast. Must provide solid grip on logs and axe handles, even when slightly damp. Dexterity is secondary to protection, but gloves should not be excessively bulky. Prefers reinforced palms and fingers, plus a secure wrist closure. Waterproofing is not essential. Target budget is $25\u2013$45, hard max $65 if longevity is clearly better. Dislikes gloves that stiffen after a few uses.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[durable gloves that won\u2019t tear while splitting firewood]].",
+        "I also need [[strong grip on logs and tool handles]].",
+        "Protection matters, so [[reinforced palms and fingers]] are important.",
+        "I don\u2019t need extreme dexterity, but [[reasonable flexibility]] still helps.",
+        "I\u2019d prefer [[a wrist closure that keeps them secure]].",
+        "I\u2019m trying to avoid [[gloves that get stiff quickly]].",
+        "I\u2019m aiming for [[$25\u2013$45, max $65]]."
+      ]
+    },
+    {
+      "id": "glove_042",
+      "gender": "female",
+      "background": "Urban commuter who frequently pushes a stroller in cold, windy weather.",
+      "ground_truth_need": "Needs winter gloves suitable for pushing a stroller during daily walks. The primary requirement is warmth combined with wind resistance to keep hands comfortable while stationary at crossings. Must allow good grip on stroller handles and easy finger movement for phone use. Prefers soft materials and a snug fit to avoid bunching. Waterproofing is helpful for light snow but not critical. Target budget is $35\u2013$60, hard max $85 for warmer, well-fitting gloves. Dislikes bulky mittens that reduce control.",
+      "context_trail": [
+        "I need gloves.",
+        "The most important thing is [[warmth with wind protection while pushing a stroller]].",
+        "I also need [[good grip on the stroller handle]].",
+        "Finger movement matters, so [[flexibility for quick phone use]] is important.",
+        "I prefer [[soft materials that don\u2019t feel stiff]].",
+        "Some snow protection helps, but [[only light waterproofing is needed]].",
+        "I\u2019m trying to avoid [[bulky mittens that reduce control]].",
+        "I\u2019m aiming for [[$35\u2013$60, max $85]]."
+      ]
+    },
+    {
+      "id": "glove_043",
+      "gender": "unspecified",
+      "background": "Frequent traveler who wants one compact glove option for varied climates.",
+      "ground_truth_need": "Needs lightweight, packable gloves for travel that work across mild cold conditions. The primary requirement is versatility: gloves should block wind and provide light warmth without taking up space. Must be comfortable for walking, handling luggage, and quick phone use. Prefers neutral styling that works in urban settings. Waterproofing is a bonus but not required. Target budget is $25\u2013$50, hard max $70 for durable, multi-use gloves. Dislikes bulky winter gloves that dominate carry-on space.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[versatile gloves that work in different climates]].",
+        "I also need [[lightweight, packable design for travel]].",
+        "Wind protection helps, so [[blocking cold air]] is important.",
+        "I want [[easy phone use while on the go]].",
+        "Style matters, so [[neutral, city-friendly looks]] are preferred.",
+        "I\u2019m trying to avoid [[bulky gloves that take up space]].",
+        "I\u2019m aiming for [[$25\u2013$50, max $70]]."
+      ]
+    },
+    {
+      "id": "glove_044",
+      "gender": "male",
+      "background": "Small-engine repair hobbyist working outdoors in winter.",
+      "ground_truth_need": "Needs mechanic-style gloves for repairing snowblowers and lawn equipment in cold weather. The primary requirement is dexterity for small fasteners and cables. Must also provide some warmth and wind resistance during outdoor repairs. Prefers thin, durable gloves with good grip and minimal padding. Waterproofing is helpful but not critical. Target budget is $20\u2013$40, hard max $60 for gloves that balance feel and protection. Dislikes thick insulation that limits finger movement.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[dexterity for working on small engine parts]].",
+        "I also need [[some warmth for outdoor winter repairs]].",
+        "Wind matters, so [[basic wind resistance]] helps.",
+        "Grip is important, so [[non-slip palms]] are needed.",
+        "I prefer [[thin gloves over padded ones]].",
+        "I\u2019m trying to avoid [[insulation that makes fingers clumsy]].",
+        "I\u2019m aiming for [[$20\u2013$40, max $60]]."
+      ]
+    },
+    {
+      "id": "glove_045",
+      "gender": "female",
+      "background": "Urban runner who jogs outdoors year-round in cold conditions.",
+      "ground_truth_need": "Needs running gloves for winter jogging that balance warmth and breathability. The primary requirement is temperature regulation: hands shouldn\u2019t freeze at the start or overheat mid-run. Must block wind and wick moisture effectively. Prefers lightweight, stretchy gloves with reflective details for safety. Touchscreen use is a bonus. Target budget is $20\u2013$45, hard max $65 for performance-focused gloves. Dislikes heavy gloves that trap sweat.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The most important thing is [[temperature balance so my hands don\u2019t freeze or overheat]].",
+        "I also need [[breathable fabric that wicks sweat]].",
+        "Wind protection matters, so [[blocking cold air]] is important.",
+        "I prefer [[lightweight, stretchy material]].",
+        "Safety matters, so [[some reflective detail]] is helpful.",
+        "I\u2019m trying to avoid [[heavy gloves that get sweaty]].",
+        "I\u2019m aiming for [[$20\u2013$45, max $65]]."
+      ]
+    },
+    {
+      "id": "glove_046",
+      "gender": "unspecified",
+      "background": "Home renovator doing drywall and painting projects in a chilly house.",
+      "ground_truth_need": "Needs multipurpose gloves for renovation work including sanding, painting, and cleanup. The primary requirement is hand protection from abrasion and irritation. Must still allow dexterity for detailed work like taping and edging. Prefers breathable gloves that don\u2019t cause sweaty hands indoors. Light insulation is acceptable but not required. Target budget is $15\u2013$30, hard max $45 for durable, reusable gloves. Dislikes thick coatings that reduce feel.",
+      "context_trail": [
+        "I need gloves.",
+        "The main priority is [[protecting hands from abrasion and irritation]].",
+        "I also need [[dexterity for detailed renovation tasks]].",
+        "Comfort matters, so [[breathable materials]] are important.",
+        "I prefer [[reusable gloves over disposables]].",
+        "Insulation isn\u2019t key, but [[light warmth is fine]].",
+        "I\u2019m trying to avoid [[thick coatings that reduce feel]].",
+        "I\u2019m aiming for [[$15\u2013$30, max $45]]."
+      ]
+    },
+    {
+      "id": "glove_047",
+      "gender": "male",
+      "background": "Snowy-region delivery driver loading and unloading packages daily.",
+      "ground_truth_need": "Needs winter work gloves for delivery tasks in snow and cold. The primary requirement is grip and durability when handling boxes and packages. Must provide warmth and wind protection during repeated outdoor stops. Prefers gloves that remain flexible in cold temperatures and are easy to slip on and off. Waterproofing is helpful but not essential. Target budget is $25\u2013$50, hard max $70 for gloves that hold up to daily use. Dislikes gloves that harden in freezing weather.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The top priority is [[durable gloves with good grip for deliveries]].",
+        "I also need [[warmth for repeated outdoor stops]].",
+        "Wind matters, so [[wind protection]] is important.",
+        "I prefer [[flexible gloves that stay soft in the cold]].",
+        "Easy handling matters, so [[quick on-and-off]] helps.",
+        "I\u2019m trying to avoid [[gloves that stiffen when freezing]].",
+        "I\u2019m aiming for [[$25\u2013$50, max $70]]."
+      ]
+    },
+    {
+      "id": "glove_048",
+      "gender": "female",
+      "background": "Outdoor market vendor setting up booths early on cold mornings.",
+      "ground_truth_need": "Needs warm but dexterous gloves for setting up tables, tents, and displays. The primary requirement is dexterity to manage clips, cords, and cash. Must also provide warmth during early-morning cold and some wind resistance. Prefers gloves that look neutral and professional. Waterproofing is optional. Target budget is $30\u2013$55, hard max $80 for comfortable, long-lasting gloves. Dislikes bulky gloves that slow setup.",
+      "context_trail": [
+        "I need gloves.",
+        "The main priority is [[dexterity for setting up booths and handling small items]].",
+        "I also need [[warmth for cold early mornings]].",
+        "Wind can be an issue, so [[wind resistance]] helps.",
+        "Appearance matters, so [[a neutral, professional look]] is preferred.",
+        "I want [[comfortable gloves for long setup periods]].",
+        "I\u2019m trying to avoid [[bulky gloves that slow me down]].",
+        "I\u2019m aiming for [[$30\u2013$55, max $80]]."
+      ]
+    },
+    {
+      "id": "glove_049",
+      "gender": "unspecified",
+      "background": "Rural mail carrier walking long routes in mixed winter weather.",
+      "ground_truth_need": "Needs winter gloves suitable for long walking routes with frequent mail handling. The primary requirement is warmth combined with dexterity for sorting letters. Must block wind and provide moderate water resistance for snow and slush. Prefers gloves that remain comfortable for hours and don\u2019t cause hand fatigue. Target budget is $40\u2013$70, hard max $100 for reliable all-day warmth. Dislikes gloves that get soggy quickly.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The most important thing is [[warmth for long outdoor routes]].",
+        "I also need [[dexterity for handling mail]].",
+        "Wind protection matters, so [[blocking cold air]] is important.",
+        "Some moisture protection helps, so [[resistance to snow and slush]] is useful.",
+        "Comfort matters, so [[gloves that don\u2019t tire my hands]] are preferred.",
+        "I\u2019m trying to avoid [[gloves that get soggy fast]].",
+        "I\u2019m aiming for [[$40\u2013$70, max $100]]."
+      ]
+    },
+    {
+      "id": "glove_050",
+      "gender": "male",
+      "background": "Ice rink maintenance worker handling cold metal and water.",
+      "ground_truth_need": "Needs waterproof, insulated gloves for ice rink maintenance tasks. The primary requirement is keeping hands warm while handling wet, cold equipment. Must resist water penetration and block wind inside open rink areas. Dexterity is moderate; gloves should allow tool handling. Prefers durable construction that withstands daily use. Target budget is $50\u2013$90, hard max $130 for reliable waterproof warmth. Dislikes gloves that lose insulation when wet.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[staying warm while working with wet, cold equipment]].",
+        "I also need [[waterproofing that holds up during daily use]].",
+        "Wind can be an issue, so [[wind resistance]] matters.",
+        "I need [[enough dexterity for tools]].",
+        "Durability is important, so [[strong construction]] is needed.",
+        "I\u2019m trying to avoid [[gloves that lose warmth when wet]].",
+        "I\u2019m aiming for [[$50\u2013$90, max $130]]."
+      ]
+    },
+    {
+      "id": "glove_051",
+      "gender": "female",
+      "background": "Teacher supervising recess outdoors during winter months.",
+      "ground_truth_need": "Needs winter gloves for standing outside during school recess. The primary requirement is warmth while mostly stationary in cold conditions. Must block wind and be comfortable for repeated daily use. Dexterity is secondary but gloves should allow basic tasks like opening doors. Prefers neutral, professional appearance. Target budget is $30\u2013$60, hard max $85 for dependable warmth. Dislikes gloves that look too sporty.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[warmth for standing outside during recess]].",
+        "I also need [[wind protection to reduce chill]].",
+        "Comfort matters, so [[gloves suitable for daily wear]] are important.",
+        "I need [[basic dexterity for simple tasks]].",
+        "Appearance matters, so [[a professional look]] is preferred.",
+        "I\u2019m trying to avoid [[overly sporty designs]].",
+        "I\u2019m aiming for [[$30\u2013$60, max $85]]."
+      ]
+    },
+    {
+      "id": "glove_052",
+      "gender": "unspecified",
+      "background": "Amateur astronomer spending long nights outside adjusting telescopes.",
+      "ground_truth_need": "Needs winter gloves that allow fine adjustments of telescope controls while keeping hands warm. The primary requirement is dexterity for knobs and dials. Must also provide warmth during long, stationary observing sessions and block wind. Prefers gloves that can be paired with liners if needed. Waterproofing is not essential. Target budget is $50\u2013$80, hard max $110 for gloves that balance warmth and control. Dislikes stiff gloves that limit finger precision.",
+      "context_trail": [
+        "I need gloves.",
+        "The most important thing is [[dexterity for adjusting telescope controls]].",
+        "I also need [[warmth for long, stationary nights outside]].",
+        "Wind matters, so [[wind protection]] is important.",
+        "I prefer [[gloves that work with thin liners]].",
+        "Comfort matters, so [[flexible finger design]] helps.",
+        "I\u2019m trying to avoid [[stiff gloves that reduce precision]].",
+        "I\u2019m aiming for [[$50\u2013$80, max $110]]."
+      ]
+    },
+    {
+      "id": "glove_053",
+      "gender": "male",
+      "background": "Urban cyclist riding year-round through rain, snow, and traffic.",
+      "ground_truth_need": "Needs winter cycling gloves that handle wet conditions and maintain control. The primary requirement is waterproofing to keep hands dry in rain and slush. Must also block wind at speed and provide insulation without bulk. Grip and brake feel are important for safety. Prefers reflective details for visibility. Target budget is $50\u2013$90, hard max $130 for proven wet-weather performance. Dislikes gloves that get slippery when soaked.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The top priority is [[waterproof gloves for wet winter riding]].",
+        "I also need [[wind protection at cycling speeds]].",
+        "Warmth matters, so [[insulation without bulk]] is important.",
+        "Safety matters, so [[good grip and brake feel]] are required.",
+        "Visibility helps, so [[reflective details]] are preferred.",
+        "I\u2019m trying to avoid [[gloves that get slippery when wet]].",
+        "I\u2019m aiming for [[$50\u2013$90, max $130]]."
+      ]
+    },
+    {
+      "id": "glove_054",
+      "gender": "female",
+      "background": "Art teacher working with messy materials and frequent handwashing.",
+      "ground_truth_need": "Needs reusable gloves to protect hands during art projects involving paint and clay. The primary requirement is easy cleaning; gloves should withstand frequent washing. Must allow dexterity for demonstrating techniques. Prefers non-latex materials due to skin sensitivity. Light warmth is helpful in a cool classroom. Target budget is $15\u2013$30, hard max $45 for durable, washable gloves. Dislikes disposable gloves that rip easily.",
+      "context_trail": [
+        "I need gloves.",
+        "The main priority is [[gloves that are easy to wash and reuse]].",
+        "I also need [[dexterity for art demonstrations]].",
+        "Skin sensitivity matters, so [[non-latex materials]] are important.",
+        "Some warmth helps, but [[only light insulation is needed]].",
+        "Durability matters, so [[they shouldn\u2019t tear easily]].",
+        "I\u2019m trying to avoid [[single-use disposable gloves]].",
+        "I\u2019m aiming for [[$15\u2013$30, max $45]]."
+      ]
+    },
+    {
+      "id": "glove_055",
+      "gender": "unspecified",
+      "background": "Fitness bootcamp coach running outdoor classes in cold weather.",
+      "ground_truth_need": "Needs cold-weather training gloves that allow grip and flexibility during workouts. The primary requirement is dexterity for demonstrations and handling equipment. Must provide light warmth and wind protection without restricting movement. Prefers breathable, stretchy fabrics that dry quickly. Touchscreen use is optional. Target budget is $25\u2013$50, hard max $70 for performance-oriented gloves. Dislikes thick gloves that limit range of motion.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[dexterity for outdoor training and demos]].",
+        "I also need [[freedom of movement without restriction]].",
+        "Some warmth helps, so [[light insulation]] is useful.",
+        "Wind can be an issue, so [[wind resistance]] matters.",
+        "Comfort matters, so [[breathable, quick-drying fabric]] is preferred.",
+        "I\u2019m trying to avoid [[thick gloves that limit motion]].",
+        "I\u2019m aiming for [[$25\u2013$50, max $70]]."
+      ]
+    },
+    {
+      "id": "glove_056",
+      "gender": "male",
+      "background": "Hunter spending long hours waiting in cold blinds during late season.",
+      "ground_truth_need": "Needs very warm hunting gloves for late-season sits in freezing temperatures. The primary requirement is insulation to keep hands warm while inactive. Must block wind and remain quiet to avoid noise. Dexterity is secondary but gloves should allow basic trigger and safety operation. Prefers camo or muted colors. Target budget is $60\u2013$100, hard max $140 for superior warmth. Dislikes gloves that make noise when moving.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[maximum warmth for long, cold sits]].",
+        "I also need [[quiet materials that don\u2019t make noise]].",
+        "Wind matters, so [[strong wind blocking]] is important.",
+        "I need [[basic dexterity for safe firearm handling]].",
+        "Appearance matters, so [[muted or camo colors]] are preferred.",
+        "I\u2019m trying to avoid [[noisy or crinkly fabrics]].",
+        "I\u2019m aiming for [[$60\u2013$100, max $140]]."
+      ]
+    },
+    {
+      "id": "glove_057",
+      "gender": "female",
+      "background": "Food truck operator working outside with cold hands and hot equipment.",
+      "ground_truth_need": "Needs gloves that protect from cold while allowing safe handling of hot surfaces. The primary requirement is dexterity to prep food and handle utensils quickly. Must provide some insulation against cold air, but also resist brief heat contact. Prefers food-safe, easy-to-clean materials. Target budget is $25\u2013$45, hard max $65 for durable dual-purpose gloves. Dislikes bulky gloves that slow service.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[dexterity for fast food prep]].",
+        "I also need [[some insulation against cold outdoor air]].",
+        "Heat matters, so [[brief heat resistance]] is important.",
+        "Food safety matters, so [[easy-to-clean materials]] are required.",
+        "Comfort matters, so [[flexible gloves]] are preferred.",
+        "I\u2019m trying to avoid [[bulky gloves that slow me down]].",
+        "I\u2019m aiming for [[$25\u2013$45, max $65]]."
+      ]
+    },
+    {
+      "id": "glove_058",
+      "gender": "unspecified",
+      "background": "Apartment dweller shoveling shared sidewalks during winter storms.",
+      "ground_truth_need": "Needs winter work gloves for shoveling snow and clearing ice. The primary requirement is waterproofing to keep hands dry during heavy snow. Must also provide warmth and wind protection for extended shoveling sessions. Grip on shovel handles is important. Prefers gloves that remain flexible when wet. Target budget is $30\u2013$55, hard max $80 for dependable waterproof warmth. Dislikes gloves that soak through quickly.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[waterproof gloves for snow shoveling]].",
+        "I also need [[warmth for long clearing sessions]].",
+        "Wind matters, so [[wind protection]] is important.",
+        "Grip matters, so [[secure hold on shovel handles]] is needed.",
+        "Flexibility matters, so [[they shouldn\u2019t stiffen when wet]].",
+        "I\u2019m trying to avoid [[gloves that soak through fast]].",
+        "I\u2019m aiming for [[$30\u2013$55, max $80]]."
+      ]
+    },
+    {
+      "id": "glove_059",
+      "gender": "male",
+      "background": "Cold-climate photographer shooting sports events outdoors.",
+      "ground_truth_need": "Needs winter photography gloves that allow camera operation in cold weather. The primary requirement is dexterity for shutter, zoom, and settings. Must provide warmth and wind resistance during long events. Prefers gloves that can be paired with liners or have fold-back features. Waterproofing is optional. Target budget is $60\u2013$90, hard max $120 for photographer-specific designs. Dislikes gloves that restrict finger movement.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The most important thing is [[dexterity for camera controls]].",
+        "I also need [[warmth for long outdoor shoots]].",
+        "Wind protection matters, so [[blocking cold gusts]] is important.",
+        "I prefer [[gloves compatible with liners or modular use]].",
+        "Comfort matters, so [[flexible finger construction]] is helpful.",
+        "I\u2019m trying to avoid [[gloves that restrict movement]].",
+        "I\u2019m aiming for [[$60\u2013$90, max $120]]."
+      ]
+    },
+    {
+      "id": "glove_060",
+      "gender": "female",
+      "background": "City resident who values fashion but still wants warmth in winter.",
+      "ground_truth_need": "Needs stylish winter gloves suitable for everyday city wear. The primary requirement is appearance; gloves should look polished and match coats. Must still provide moderate warmth and wind protection for commuting. Prefers slim silhouettes and quality materials like leather or faux leather. Touchscreen use is a bonus. Target budget is $40\u2013$70, hard max $100 for fashionable, well-made gloves. Dislikes overly sporty or technical designs.",
+      "context_trail": [
+        "I need gloves.",
+        "The main priority is [[a stylish look suitable for city outfits]].",
+        "I also need [[enough warmth for daily commuting]].",
+        "Wind matters, so [[wind protection]] is important.",
+        "I prefer [[a slim, tailored silhouette]].",
+        "Materials matter, so [[leather or leather-like finishes]] are preferred.",
+        "I\u2019m trying to avoid [[sporty or overly technical styles]].",
+        "I\u2019m aiming for [[$40\u2013$70, max $100]]."
+      ]
+    },
+    {
+      "id": "glove_061",
+      "gender": "male",
+      "background": "Municipal worker maintaining parks and sidewalks through winter months.",
+      "ground_truth_need": "Needs reliable winter work gloves for outdoor municipal maintenance including clearing debris, light shoveling, and repairs. The top priority is durability against abrasion and repeated use; gloves must not tear easily. Must also provide warmth and wind protection during long shifts, while allowing enough dexterity for basic tool handling. Waterproofing is helpful but secondary to durability. Prefers gloves that stay flexible in cold temperatures. Target budget is $30\u2013$55, hard max $80 for gloves that last a full season. Dislikes gloves that stiffen or crack in cold.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[durable gloves that hold up to daily outdoor work]].",
+        "I also need [[warmth for long winter shifts]].",
+        "Wind protection matters, so [[blocking cold air]] is important.",
+        "I need [[enough dexterity for basic tool use]].",
+        "Waterproofing helps, but [[it\u2019s not the top concern]].",
+        "I\u2019m trying to avoid [[gloves that stiffen in the cold]].",
+        "I\u2019m aiming for [[$30\u2013$55, max $80]]."
+      ]
+    },
+    {
+      "id": "glove_062",
+      "gender": "female",
+      "background": "Graduate student walking across campus multiple times a day in winter.",
+      "ground_truth_need": "Needs everyday winter gloves for frequent short walks between campus buildings. The primary requirement is warmth without bulk, as gloves are put on and off often. Must block wind effectively and allow easy phone use for messages and navigation. Prefers lightweight gloves with a snug fit. Waterproofing is a bonus for snow but not essential. Target budget is $20\u2013$40, hard max $60 if quality and comfort are noticeably better. Dislikes overly thick gloves that feel cumbersome.",
+      "context_trail": [
+        "I need gloves.",
+        "The most important thing is [[warmth without bulky insulation]].",
+        "I also need [[wind protection for quick outdoor walks]].",
+        "I want [[easy phone use without taking them off]].",
+        "Comfort matters, so [[a lightweight, snug fit]] is preferred.",
+        "Some snow protection helps, but [[waterproofing isn\u2019t critical]].",
+        "I\u2019m trying to avoid [[thick, cumbersome gloves]].",
+        "I\u2019m aiming for [[$20\u2013$40, max $60]]."
+      ]
+    },
+    {
+      "id": "glove_063",
+      "gender": "unspecified",
+      "background": "Volunteer disaster responder assisting with cleanup after storms.",
+      "ground_truth_need": "Needs heavy-duty gloves for post-storm cleanup involving debris, broken materials, and wet conditions. The primary requirement is strong cut and puncture resistance to protect hands. Must also provide grip when handling wet or muddy items. Durability is critical; gloves should survive repeated intense use. Waterproofing is helpful but secondary to protection. Dexterity can be moderate. Target budget is $25\u2013$50, hard max $70 for gloves with certified protection. Dislikes thin gloves that offer minimal safety.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The top priority is [[cut and puncture resistance for debris cleanup]].",
+        "I also need [[strong grip in wet, muddy conditions]].",
+        "Durability matters, so [[gloves that survive repeated use]] are important.",
+        "Waterproofing helps, but [[protection comes first]].",
+        "Dexterity is secondary, but [[basic hand movement]] is still needed.",
+        "I\u2019m trying to avoid [[thin gloves with poor protection]].",
+        "I\u2019m aiming for [[$25\u2013$50, max $70]]."
+      ]
+    },
+    {
+      "id": "glove_064",
+      "gender": "male",
+      "background": "Warehouse supervisor alternating between office tasks and cold storage areas.",
+      "ground_truth_need": "Needs versatile gloves that work both indoors and briefly in cold storage. The primary requirement is flexibility and comfort, since gloves are worn intermittently. Must provide light insulation and allow dexterity for paperwork and handheld devices. Prefers gloves that are easy to put on and remove quickly. Waterproofing is not needed. Target budget is $25\u2013$45, hard max $65 for comfortable, long-lasting gloves. Dislikes gloves that feel overly insulated indoors.",
+      "context_trail": [
+        "I need gloves.",
+        "The main priority is [[comfort and flexibility for mixed indoor use]].",
+        "I also need [[light insulation for short cold-storage visits]].",
+        "Dexterity matters, so [[easy finger movement]] is important.",
+        "I want [[quick on-and-off design]].",
+        "Waterproofing isn\u2019t needed, so [[breathability matters more]].",
+        "I\u2019m trying to avoid [[overly insulated gloves indoors]].",
+        "I\u2019m aiming for [[$25\u2013$45, max $65]]."
+      ]
+    },
+    {
+      "id": "glove_065",
+      "gender": "female",
+      "background": "Home gardener pruning roses during cold but dry winter days.",
+      "ground_truth_need": "Needs pruning gloves that protect hands from thorns while working in cool weather. The primary requirement is puncture resistance around fingers and palms. Must allow dexterity for precise pruning cuts. Light warmth is helpful, but insulation should not reduce feel. Prefers breathable materials and a snug fit. Waterproofing is unnecessary. Target budget is $20\u2013$35, hard max $50 for durable thorn protection. Dislikes bulky gloves that reduce control.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[puncture resistance from thorns]].",
+        "I also need [[dexterity for precise pruning]].",
+        "Some warmth helps, but [[light insulation only]] is needed.",
+        "I want [[breathable materials for comfort]].",
+        "Fit matters, so [[a snug, controlled feel]] is preferred.",
+        "I\u2019m trying to avoid [[bulky gardening gloves]].",
+        "I\u2019m aiming for [[$20\u2013$35, max $50]]."
+      ]
+    },
+    {
+      "id": "glove_066",
+      "gender": "unspecified",
+      "background": "Night-shift rideshare driver waiting curbside between trips in winter.",
+      "ground_truth_need": "Needs winter gloves that provide quick warmth during idle periods between rides. The primary requirement is insulation combined with wind resistance, as hands get cold quickly while waiting. Must allow easy use of a phone and car controls. Prefers gloves that can be slipped on and off without hassle. Waterproofing is optional. Target budget is $30\u2013$55, hard max $80 for comfortable, warm gloves. Dislikes stiff gloves that interfere with steering wheel grip.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[quick warmth while waiting between rides]].",
+        "I also need [[wind protection to reduce chill]].",
+        "I want [[easy phone and touchscreen use]].",
+        "Easy handling matters, so [[simple on-and-off]] is preferred.",
+        "Waterproofing isn\u2019t critical, but [[light snow resistance]] helps.",
+        "I\u2019m trying to avoid [[stiff gloves that affect steering]].",
+        "I\u2019m aiming for [[$30\u2013$55, max $80]]."
+      ]
+    },
+    {
+      "id": "glove_067",
+      "gender": "male",
+      "background": "Ranch hand feeding livestock during early-morning freezes.",
+      "ground_truth_need": "Needs rugged winter work gloves for feeding animals and handling equipment outdoors. The primary requirement is warmth combined with durability, as gloves face rough use daily. Must block wind and provide good grip on metal gates and tools. Waterproofing is useful for snow and troughs but secondary. Prefers gloves that stay flexible despite cold. Target budget is $35\u2013$60, hard max $90 for gloves that last the season. Dislikes gloves that crack or tear easily.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[warm, durable gloves for daily ranch work]].",
+        "I also need [[strong grip on metal gates and tools]].",
+        "Wind protection matters, so [[blocking cold air]] is important.",
+        "Waterproofing helps, but [[it\u2019s not the main focus]].",
+        "Flexibility matters, so [[gloves that bend easily]] are preferred.",
+        "I\u2019m trying to avoid [[materials that crack or tear]].",
+        "I\u2019m aiming for [[$35\u2013$60, max $90]]."
+      ]
+    },
+    {
+      "id": "glove_068",
+      "gender": "female",
+      "background": "Office administrator with Raynaud\u2019s who struggles with cold hands indoors.",
+      "ground_truth_need": "Needs indoor gloves to manage Raynaud\u2019s symptoms while typing and handling paperwork. The primary requirement is warmth without bulk, so circulation isn\u2019t restricted. Must allow dexterity for typing and writing. Prefers soft, non-irritating materials and a snug but gentle fit. Wind and waterproofing are irrelevant. Target budget is $25\u2013$45, hard max $70 for gloves that provide noticeable warmth indoors. Dislikes tight gloves that worsen circulation.",
+      "context_trail": [
+        "I need gloves.",
+        "The most important thing is [[indoor warmth without restricting circulation]].",
+        "I also need [[dexterity for typing and writing]].",
+        "Comfort matters, so [[soft, non-irritating fabric]] is important.",
+        "Fit matters, but [[gentle snugness]] is preferred.",
+        "I don\u2019t need insulation outdoors, so [[bulk isn\u2019t necessary]].",
+        "I\u2019m trying to avoid [[tight gloves that cut off circulation]].",
+        "I\u2019m aiming for [[$25\u2013$45, max $70]]."
+      ]
+    },
+    {
+      "id": "glove_069",
+      "gender": "unspecified",
+      "background": "Urban commuter using public transit with frequent transfers and waits.",
+      "ground_truth_need": "Needs commuter gloves for frequent stop-and-go travel in winter. The primary requirement is warmth during waiting periods without overheating when walking. Must block wind and allow phone use for schedules. Prefers gloves that are lightweight and easy to stash in pockets. Waterproofing is optional. Target budget is $25\u2013$50, hard max $75 for versatile daily gloves. Dislikes bulky gloves that are inconvenient on transit.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[warmth during waits without overheating]].",
+        "I also need [[wind protection at exposed stops]].",
+        "I want [[easy phone use for transit apps]].",
+        "Convenience matters, so [[lightweight, pocket-friendly gloves]] are preferred.",
+        "Waterproofing helps, but [[it\u2019s not required]].",
+        "I\u2019m trying to avoid [[bulky gloves on crowded transit]].",
+        "I\u2019m aiming for [[$25\u2013$50, max $75]]."
+      ]
+    },
+    {
+      "id": "glove_070",
+      "gender": "male",
+      "background": "Weekend ice skater spending time coaching kids outdoors.",
+      "ground_truth_need": "Needs winter gloves suitable for skating rinks and outdoor ice. The primary requirement is warmth combined with flexibility for demonstrations. Must block wind and handle occasional contact with ice. Prefers gloves that look sporty but not bulky. Waterproofing is helpful but secondary. Target budget is $30\u2013$55, hard max $80 for comfortable, warm gloves. Dislikes stiff gloves that limit hand movement.",
+      "context_trail": [
+        "I need gloves.",
+        "The most important thing is [[warmth with flexibility for skating]].",
+        "I also need [[wind protection on open ice]].",
+        "Flexibility matters, so [[free hand movement]] is important.",
+        "Some ice contact happens, so [[light water resistance]] helps.",
+        "Appearance matters, so [[a sporty but low-bulk look]] is preferred.",
+        "I\u2019m trying to avoid [[stiff gloves that restrict motion]].",
+        "I\u2019m aiming for [[$30\u2013$55, max $80]]."
+      ]
+    },
+    {
+      "id": "glove_071",
+      "gender": "female",
+      "background": "Caf\u00e9 worker taking out trash and supplies in cold early mornings.",
+      "ground_truth_need": "Needs work gloves for short outdoor tasks in cold mornings. The primary requirement is quick warmth and ease of use, since gloves are worn briefly but often. Must allow dexterity for carrying bags and opening doors. Prefers gloves that are easy to clean and not bulky. Waterproofing is optional. Target budget is $20\u2013$35, hard max $55 for durable gloves. Dislikes complicated closures.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[quick warmth for short outdoor tasks]].",
+        "I also need [[dexterity for carrying items and opening doors]].",
+        "Convenience matters, so [[easy on-and-off design]] is important.",
+        "Cleanliness matters, so [[easy-to-clean materials]] are preferred.",
+        "Bulk isn\u2019t needed, so [[slim construction]] works best.",
+        "I\u2019m trying to avoid [[fussy straps or closures]].",
+        "I\u2019m aiming for [[$20\u2013$35, max $55]]."
+      ]
+    },
+    {
+      "id": "glove_072",
+      "gender": "unspecified",
+      "background": "Amateur metalworker doing light welding and grinding at home.",
+      "ground_truth_need": "Needs protective gloves for light welding and grinding tasks. The primary requirement is heat and spark resistance to protect hands from brief exposure. Must also be durable against abrasion and provide a secure grip on tools. Dexterity is less critical than protection. Prefers gloves that cover wrists adequately. Target budget is $25\u2013$45, hard max $65 for safety-certified gloves. Dislikes thin gloves that offer little protection.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[heat and spark resistance for metalwork]].",
+        "I also need [[durability against abrasion]].",
+        "Grip matters, so [[secure handling of tools]] is important.",
+        "Coverage matters, so [[adequate wrist protection]] is preferred.",
+        "Dexterity is secondary, but [[basic hand movement]] is needed.",
+        "I\u2019m trying to avoid [[thin gloves with minimal protection]].",
+        "I\u2019m aiming for [[$25\u2013$45, max $65]]."
+      ]
+    },
+    {
+      "id": "glove_073",
+      "gender": "male",
+      "background": "Suburban jogger walking dogs before dawn in winter.",
+      "ground_truth_need": "Needs cold-weather gloves for early-morning jogging and dog walking. The primary requirement is wind resistance to prevent numb hands. Must also provide light warmth and breathability for active movement. Prefers lightweight gloves with reflective elements for safety. Touchscreen use is optional. Target budget is $20\u2013$40, hard max $60 for performance gloves. Dislikes heavy gloves that trap sweat.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The most important thing is [[wind resistance during early-morning runs]].",
+        "I also need [[light warmth for active movement]].",
+        "Breathability matters, so [[moisture-wicking fabric]] is important.",
+        "Safety matters, so [[reflective details]] are helpful.",
+        "I prefer [[lightweight gloves that move easily]].",
+        "I\u2019m trying to avoid [[heavy gloves that trap sweat]].",
+        "I\u2019m aiming for [[$20\u2013$40, max $60]]."
+      ]
+    },
+    {
+      "id": "glove_074",
+      "gender": "female",
+      "background": "Volunteer crossing guard working short shifts in cold traffic conditions.",
+      "ground_truth_need": "Needs winter gloves for standing outdoors directing traffic. The primary requirement is warmth while stationary. Must block wind and allow enough dexterity to hold signs and signal drivers. Prefers high-visibility or bright colors for safety. Waterproofing is secondary. Target budget is $25\u2013$45, hard max $65 for warm, visible gloves. Dislikes gloves that restrict finger movement.",
+      "context_trail": [
+        "I need gloves.",
+        "The main priority is [[warmth while standing still in the cold]].",
+        "I also need [[wind protection near traffic]].",
+        "Dexterity matters, so [[easy hand signaling]] is important.",
+        "Safety matters, so [[high-visibility colors]] are preferred.",
+        "Some snow protection helps, but [[waterproofing isn\u2019t critical]].",
+        "I\u2019m trying to avoid [[gloves that restrict finger movement]].",
+        "I\u2019m aiming for [[$25\u2013$45, max $65]]."
+      ]
+    },
+    {
+      "id": "glove_075",
+      "gender": "unspecified",
+      "background": "Home hobbyist restoring old furniture in a cool garage.",
+      "ground_truth_need": "Needs work gloves for sanding, staining, and handling furniture parts. The primary requirement is hand protection from splinters and abrasives. Must allow dexterity for detailed restoration work. Prefers breathable gloves that don\u2019t overheat indoors. Waterproofing is unnecessary. Target budget is $15\u2013$30, hard max $45 for durable, comfortable gloves. Dislikes thick gloves that reduce tactile feedback.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[protecting hands from splinters and abrasives]].",
+        "I also need [[dexterity for detailed restoration work]].",
+        "Comfort matters, so [[breathable materials]] are preferred.",
+        "Fit matters, so [[good finger articulation]] is important.",
+        "Insulation isn\u2019t needed, so [[thin construction]] works best.",
+        "I\u2019m trying to avoid [[thick gloves that dull touch]].",
+        "I\u2019m aiming for [[$15\u2013$30, max $45]]."
+      ]
+    },
+    {
+      "id": "glove_076",
+      "gender": "male",
+      "background": "Outdoor event staff setting up stages and equipment in winter.",
+      "ground_truth_need": "Needs work gloves for setting up outdoor events in cold weather. The primary requirement is durability for handling heavy equipment and cables. Must also provide warmth and wind protection during setup. Prefers gloves that offer grip without excessive bulk. Waterproofing is helpful but not critical. Target budget is $25\u2013$50, hard max $75 for gloves that survive repeated events. Dislikes gloves that limit grip strength.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[durable gloves for handling heavy equipment]].",
+        "I also need [[warmth during cold outdoor setups]].",
+        "Wind protection matters, so [[blocking cold gusts]] is important.",
+        "Grip matters, so [[secure handling of cables and gear]] is needed.",
+        "Bulk is an issue, so [[moderate padding]] is preferred.",
+        "I\u2019m trying to avoid [[gloves that reduce grip strength]].",
+        "I\u2019m aiming for [[$25\u2013$50, max $75]]."
+      ]
+    },
+    {
+      "id": "glove_077",
+      "gender": "female",
+      "background": "Commuter who frequently carries groceries in winter weather.",
+      "ground_truth_need": "Needs winter gloves for carrying grocery bags in cold, windy conditions. The primary requirement is grip strength to hold heavy bags securely. Must also provide warmth and wind protection during short walks. Prefers gloves that are flexible and not bulky. Waterproofing is optional. Target budget is $30\u2013$55, hard max $80 for comfortable, grippy gloves. Dislikes slippery palms.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[strong grip for carrying heavy grocery bags]].",
+        "I also need [[warmth for short winter walks]].",
+        "Wind protection matters, so [[blocking cold air]] is important.",
+        "Flexibility matters, so [[easy hand movement]] is preferred.",
+        "Bulk isn\u2019t needed, so [[slim construction]] works best.",
+        "I\u2019m trying to avoid [[slippery palms]].",
+        "I\u2019m aiming for [[$30\u2013$55, max $80]]."
+      ]
+    },
+    {
+      "id": "glove_078",
+      "gender": "unspecified",
+      "background": "Library worker shelving books in a chilly building.",
+      "ground_truth_need": "Needs thin indoor gloves for working in a cold library environment. The primary requirement is warmth without sacrificing dexterity for shelving books. Must allow finger sensitivity and not damage book covers. Prefers soft, quiet materials. Waterproofing is irrelevant. Target budget is $20\u2013$40, hard max $60 for comfortable indoor gloves. Dislikes gloves with rough textures.",
+      "context_trail": [
+        "I need gloves.",
+        "The most important thing is [[indoor warmth while shelving books]].",
+        "I also need [[dexterity for handling books carefully]].",
+        "Comfort matters, so [[soft materials]] are important.",
+        "I want [[quiet gloves that don\u2019t make noise]].",
+        "Bulk isn\u2019t needed, so [[thin design]] is preferred.",
+        "I\u2019m trying to avoid [[rough textures that damage covers]].",
+        "I\u2019m aiming for [[$20\u2013$40, max $60]]."
+      ]
+    },
+    {
+      "id": "glove_079",
+      "gender": "male",
+      "background": "Cold-climate electrician working on outdoor wiring and fixtures.",
+      "ground_truth_need": "Needs work gloves that balance insulation and dexterity for electrical tasks outdoors. The primary requirement is finger dexterity for handling wires and connectors. Must also provide warmth and wind protection in cold conditions. Prefers gloves that fit snugly and don\u2019t bunch at fingertips. Waterproofing is helpful but secondary. Target budget is $30\u2013$60, hard max $90 for durable, task-appropriate gloves. Dislikes bulky gloves that make fine work difficult.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The top priority is [[dexterity for electrical work]].",
+        "I also need [[warmth for outdoor winter jobs]].",
+        "Wind protection matters, so [[blocking cold air]] is important.",
+        "Fit matters, so [[snug fingertips]] are preferred.",
+        "Waterproofing helps, but [[it\u2019s not essential]].",
+        "I\u2019m trying to avoid [[bulky gloves that limit precision]].",
+        "I\u2019m aiming for [[$30\u2013$60, max $90]]."
+      ]
+    },
+    {
+      "id": "glove_080",
+      "gender": "female",
+      "background": "City dog trainer running outdoor classes year-round.",
+      "ground_truth_need": "Needs versatile outdoor gloves for handling leashes, treats, and training tools in cold weather. The primary requirement is dexterity for quick hand movements. Must also provide warmth and wind protection during extended outdoor sessions. Prefers gloves with good grip and easy cleaning. Waterproofing is optional. Target budget is $30\u2013$55, hard max $80 for durable, functional gloves. Dislikes gloves that feel slippery or stiff.",
+      "context_trail": [
+        "I need gloves.",
+        "The main priority is [[dexterity for handling leashes and treats]].",
+        "I also need [[warmth for long outdoor classes]].",
+        "Wind protection matters, so [[blocking cold gusts]] is important.",
+        "Grip matters, so [[secure hold on leashes]] is needed.",
+        "Cleanliness matters, so [[easy-to-clean materials]] are preferred.",
+        "I\u2019m trying to avoid [[slippery or stiff gloves]].",
+        "I\u2019m aiming for [[$30\u2013$55, max $80]]."
+      ]
+    },
+    {
+      "id": "glove_081",
+      "gender": "male",
+      "background": "Home brewer handling cold kegs and metal fittings in an unheated garage.",
+      "ground_truth_need": "Needs work gloves for handling cold stainless-steel kegs and fittings during winter brewing. The primary requirement is insulation against cold metal contact to prevent numb hands. Must also provide grip on smooth, heavy surfaces and allow dexterity for tightening clamps. Prefers gloves that stay flexible and aren\u2019t overly bulky. Waterproofing is optional. Target budget is $25\u2013$45, hard max $65 for durable, comfortable gloves. Dislikes slippery palms on metal.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[insulation against cold metal contact]].",
+        "I also need [[strong grip on smooth stainless surfaces]].",
+        "Dexterity matters, so [[easy handling of clamps and fittings]] is important.",
+        "Bulk isn\u2019t ideal, so [[moderate insulation]] works best.",
+        "Flexibility matters, so [[gloves that bend easily]] are preferred.",
+        "I\u2019m trying to avoid [[slippery palms on metal]].",
+        "I\u2019m aiming for [[$25\u2013$45, max $65]]."
+      ]
+    },
+    {
+      "id": "glove_082",
+      "gender": "female",
+      "background": "Urban pedestrian who often slips hands into pockets between short errands.",
+      "ground_truth_need": "Needs lightweight winter gloves for quick errands around the neighborhood. The primary requirement is convenience and comfort, since gloves are worn briefly and stored often. Must provide light warmth and wind protection without bulk. Prefers soft materials and slim cuffs that fit easily into pockets. Waterproofing is unnecessary. Target budget is $20\u2013$40, hard max $60 for comfortable everyday gloves. Dislikes thick cuffs that bunch in sleeves.",
+      "context_trail": [
+        "I need gloves.",
+        "The main priority is [[lightweight comfort for short errands]].",
+        "I also need [[easy pocketability without bulk]].",
+        "Some warmth helps, so [[light insulation]] is important.",
+        "Wind protection matters, so [[blocking cold breezes]] helps.",
+        "Fit matters, so [[slim cuffs]] are preferred.",
+        "I\u2019m trying to avoid [[thick cuffs that bunch up]].",
+        "I\u2019m aiming for [[$20\u2013$40, max $60]]."
+      ]
+    },
+    {
+      "id": "glove_083",
+      "gender": "unspecified",
+      "background": "Warehouse loader moving frozen goods in a refrigerated environment.",
+      "ground_truth_need": "Needs insulated work gloves for handling frozen boxes and pallets. The primary requirement is protection from cold surfaces to prevent numbness. Must also provide grip and durability for heavy lifting. Dexterity is secondary but gloves should allow basic handling. Waterproofing is not required. Target budget is $30\u2013$55, hard max $80 for gloves that hold insulation over time. Dislikes gloves that flatten and lose warmth.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The top priority is [[insulation for handling frozen goods]].",
+        "I also need [[durable grip for heavy boxes]].",
+        "Warmth matters, so [[cold-surface protection]] is important.",
+        "Dexterity is secondary, but [[basic handling ability]] is needed.",
+        "Fit matters, so [[secure gloves that don\u2019t slip]] are preferred.",
+        "I\u2019m trying to avoid [[insulation that compresses quickly]].",
+        "I\u2019m aiming for [[$30\u2013$55, max $80]]."
+      ]
+    },
+    {
+      "id": "glove_084",
+      "gender": "male",
+      "background": "Urban handyman biking between small repair jobs in winter.",
+      "ground_truth_need": "Needs versatile winter gloves that work for biking and light repair tasks. The primary requirement is dexterity to handle tools and fasteners. Must also block wind while biking and provide moderate warmth. Prefers gloves with good grip and minimal bulk. Waterproofing is optional. Target budget is $30\u2013$60, hard max $90 for durable, flexible gloves. Dislikes gloves that feel stiff when gripping handlebars.",
+      "context_trail": [
+        "I need gloves.",
+        "The main priority is [[dexterity for small repair work]].",
+        "I also need [[wind protection while biking between jobs]].",
+        "Warmth matters, so [[moderate insulation]] is important.",
+        "Grip matters, so [[secure hold on tools and bars]] is needed.",
+        "Bulk isn\u2019t ideal, so [[low-profile design]] is preferred.",
+        "I\u2019m trying to avoid [[stiff gloves that limit grip]].",
+        "I\u2019m aiming for [[$30\u2013$60, max $90]]."
+      ]
+    },
+    {
+      "id": "glove_085",
+      "gender": "female",
+      "background": "Early-morning swimmer walking to an outdoor pool in winter.",
+      "ground_truth_need": "Needs warm gloves for short walks to and from an outdoor pool before sunrise. The primary requirement is quick warmth when stepping into cold air. Must be easy to remove and stash before swimming. Prefers soft, comfortable gloves with simple design. Waterproofing is unnecessary. Target budget is $20\u2013$35, hard max $55 for cozy, easy-to-use gloves. Dislikes complex straps or closures.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The most important thing is [[quick warmth in cold early mornings]].",
+        "I also need [[easy removal before swimming]].",
+        "Comfort matters, so [[soft materials]] are important.",
+        "Bulk isn\u2019t needed, so [[simple, slim design]] works best.",
+        "Wind protection helps, but [[only lightly]] is needed.",
+        "I\u2019m trying to avoid [[complicated straps or closures]].",
+        "I\u2019m aiming for [[$20\u2013$35, max $55]]."
+      ]
+    },
+    {
+      "id": "glove_086",
+      "gender": "unspecified",
+      "background": "Film crew assistant handling equipment outdoors during winter shoots.",
+      "ground_truth_need": "Needs winter gloves for carrying gear and adjusting equipment on set. The primary requirement is dexterity for cables, knobs, and clamps. Must also provide warmth during long outdoor shoots and block wind. Prefers gloves that can be worn all day without fatigue. Waterproofing is optional. Target budget is $35\u2013$65, hard max $95 for durable, flexible gloves. Dislikes gloves that make fine adjustments difficult.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[dexterity for handling film equipment]].",
+        "I also need [[warmth for long outdoor shoots]].",
+        "Wind protection matters, so [[blocking cold gusts]] is important.",
+        "Comfort matters, so [[all-day wearability]] is preferred.",
+        "Bulk isn\u2019t ideal, so [[flexible construction]] helps.",
+        "I\u2019m trying to avoid [[gloves that hinder fine adjustments]].",
+        "I\u2019m aiming for [[$35\u2013$65, max $95]]."
+      ]
+    },
+    {
+      "id": "glove_087",
+      "gender": "male",
+      "background": "Suburban cyclist who locks bikes outdoors overnight in winter.",
+      "ground_truth_need": "Needs winter gloves for locking and unlocking bikes in cold, windy conditions. The primary requirement is dexterity for handling small locks and keys. Must also provide warmth and wind resistance for short outdoor exposure. Prefers gloves that are not bulky and allow precise finger movement. Waterproofing is optional. Target budget is $25\u2013$50, hard max $75 for durable, flexible gloves. Dislikes gloves that feel clumsy with keys.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[dexterity for locks and keys]].",
+        "I also need [[warmth for short cold exposures]].",
+        "Wind matters, so [[wind resistance]] is important.",
+        "Precision matters, so [[good fingertip control]] is preferred.",
+        "Bulk isn\u2019t ideal, so [[slim gloves]] work best.",
+        "I\u2019m trying to avoid [[clumsy gloves for fine tasks]].",
+        "I\u2019m aiming for [[$25\u2013$50, max $75]]."
+      ]
+    },
+    {
+      "id": "glove_088",
+      "gender": "female",
+      "background": "Community volunteer setting up tents and tables for winter events.",
+      "ground_truth_need": "Needs winter work gloves for setting up and tearing down event equipment. The primary requirement is grip and durability for lifting tables and securing tent poles. Must also provide warmth and wind protection. Prefers gloves that are flexible and easy to clean. Waterproofing is optional. Target budget is $25\u2013$50, hard max $75 for reliable gloves. Dislikes gloves that lose grip when cold.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[strong grip for lifting and setup tasks]].",
+        "I also need [[durability for repeated event work]].",
+        "Warmth matters, so [[insulation for cold days]] is important.",
+        "Wind can be an issue, so [[wind protection]] helps.",
+        "Cleanliness matters, so [[easy-to-clean materials]] are preferred.",
+        "I\u2019m trying to avoid [[gloves that lose grip in cold]].",
+        "I\u2019m aiming for [[$25\u2013$50, max $75]]."
+      ]
+    },
+    {
+      "id": "glove_089",
+      "gender": "unspecified",
+      "background": "Remote worker taking frequent winter walks for breaks.",
+      "ground_truth_need": "Needs casual winter gloves for short daily walks during work breaks. The primary requirement is comfort and ease of wear. Must provide light warmth and wind protection without overheating. Prefers gloves that are soft and low-maintenance. Waterproofing is unnecessary. Target budget is $20\u2013$40, hard max $60 for comfortable everyday gloves. Dislikes rigid gloves that feel restrictive.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[comfort for frequent short walks]].",
+        "I also need [[light warmth without overheating]].",
+        "Wind protection matters, so [[blocking chilly breezes]] helps.",
+        "Ease of use matters, so [[simple, low-maintenance design]] is preferred.",
+        "Fit matters, so [[relaxed but secure feel]] works best.",
+        "I\u2019m trying to avoid [[rigid, restrictive gloves]].",
+        "I\u2019m aiming for [[$20\u2013$40, max $60]]."
+      ]
+    },
+    {
+      "id": "glove_090",
+      "gender": "male",
+      "background": "Snowboarder who spends long days riding and waiting on lifts.",
+      "ground_truth_need": "Needs snowboard gloves that keep hands warm and dry throughout full resort days. The primary requirement is waterproofing to prevent wet insulation. Must also provide warmth for long lift rides and durability for frequent use. Prefers gauntlet-style cuffs to seal snow out. Dexterity is moderate. Target budget is $80\u2013$130, hard max $170 for proven performance. Dislikes gloves that soak through by midday.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[waterproof gloves that stay dry all day]].",
+        "I also need [[warmth for long lift rides]].",
+        "Durability matters, so [[construction that lasts multiple seasons]] is important.",
+        "Snow protection matters, so [[gauntlet-style cuffs]] are preferred.",
+        "Dexterity matters enough for [[basic binding adjustments]].",
+        "I\u2019m trying to avoid [[gloves that soak through quickly]].",
+        "I\u2019m aiming for [[$80\u2013$130, max $170]]."
+      ]
+    },
+    {
+      "id": "glove_091",
+      "gender": "female",
+      "background": "Museum guide working in large, cold exhibition halls.",
+      "ground_truth_need": "Needs thin indoor gloves for guiding tours in chilly museum spaces. The primary requirement is warmth without compromising professional appearance. Must allow dexterity for gesturing and holding notes. Prefers quiet, soft materials that don\u2019t draw attention. Waterproofing is irrelevant. Target budget is $25\u2013$45, hard max $65 for comfortable, discreet gloves. Dislikes noisy or flashy designs.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The most important thing is [[indoor warmth without looking bulky]].",
+        "I also need [[dexterity for gestures and notes]].",
+        "Appearance matters, so [[discreet, professional style]] is preferred.",
+        "Comfort matters, so [[soft, non-irritating fabric]] is important.",
+        "Noise matters, so [[quiet materials]] are needed.",
+        "I\u2019m trying to avoid [[flashy or distracting designs]].",
+        "I\u2019m aiming for [[$25\u2013$45, max $65]]."
+      ]
+    },
+    {
+      "id": "glove_092",
+      "gender": "unspecified",
+      "background": "Volunteer trail maintainer clearing brush in cool weather.",
+      "ground_truth_need": "Needs protective gloves for clearing brush and maintaining trails. The primary requirement is hand protection from thorns, branches, and abrasions. Must also provide grip and durability for tool use. Light warmth is helpful, but dexterity should remain decent. Waterproofing is optional. Target budget is $20\u2013$40, hard max $60 for rugged gloves. Dislikes flimsy materials that tear easily.",
+      "context_trail": [
+        "I need gloves.",
+        "The main priority is [[protection from thorns and branches]].",
+        "I also need [[durability for tool and brush work]].",
+        "Grip matters, so [[secure handling of tools]] is important.",
+        "Some warmth helps, but [[dexterity should stay decent]].",
+        "Fit matters, so [[snug, controlled feel]] is preferred.",
+        "I\u2019m trying to avoid [[flimsy gloves that tear]].",
+        "I\u2019m aiming for [[$20\u2013$40, max $60]]."
+      ]
+    },
+    {
+      "id": "glove_093",
+      "gender": "male",
+      "background": "Cold-climate plumber working on outdoor pipes and fixtures.",
+      "ground_truth_need": "Needs work gloves that balance warmth and dexterity for plumbing jobs outdoors. The primary requirement is finger control for fittings and tools. Must also provide insulation and wind protection in cold conditions. Prefers gloves that fit snugly and remain flexible. Waterproofing is helpful but secondary. Target budget is $30\u2013$60, hard max $90 for durable trade gloves. Dislikes bulky gloves that reduce precision.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The top priority is [[dexterity for plumbing fittings and tools]].",
+        "I also need [[warmth for outdoor winter jobs]].",
+        "Wind protection matters, so [[blocking cold air]] is important.",
+        "Fit matters, so [[snug, flexible gloves]] are preferred.",
+        "Waterproofing helps, but [[it\u2019s not essential]].",
+        "I\u2019m trying to avoid [[bulky gloves that reduce precision]].",
+        "I\u2019m aiming for [[$30\u2013$60, max $90]]."
+      ]
+    },
+    {
+      "id": "glove_094",
+      "gender": "female",
+      "background": "Commuter who frequently carries coffee and small items outdoors.",
+      "ground_truth_need": "Needs winter gloves that allow gripping cups and small objects securely. The primary requirement is dexterity and grip. Must also provide warmth and wind protection for short commutes. Prefers gloves that aren\u2019t bulky and feel comfortable. Waterproofing is optional. Target budget is $25\u2013$45, hard max $65 for grippy, comfortable gloves. Dislikes slippery materials.",
+      "context_trail": [
+        "I need gloves.",
+        "The main priority is [[dexterity and grip for holding small items]].",
+        "I also need [[warmth for short outdoor walks]].",
+        "Wind matters, so [[wind protection]] is important.",
+        "Comfort matters, so [[flexible, non-bulky design]] is preferred.",
+        "Fit matters, so [[secure fingertips]] help.",
+        "I\u2019m trying to avoid [[slippery materials]].",
+        "I\u2019m aiming for [[$25\u2013$45, max $65]]."
+      ]
+    },
+    {
+      "id": "glove_095",
+      "gender": "unspecified",
+      "background": "Volunteer snowshoe guide leading groups in cold conditions.",
+      "ground_truth_need": "Needs winter gloves for leading snowshoe hikes. The primary requirement is warmth during long periods outdoors. Must also allow grip on poles and straps. Prefers gloves that block wind and handle snow exposure. Dexterity is moderate. Target budget is $50\u2013$85, hard max $120 for dependable warmth. Dislikes gloves that get wet and cold quickly.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The most important thing is [[warmth for extended outdoor hikes]].",
+        "I also need [[grip for poles and straps]].",
+        "Wind protection matters, so [[blocking cold gusts]] is important.",
+        "Snow exposure happens, so [[resistance to snow]] is useful.",
+        "Comfort matters, so [[gloves suitable for long wear]] are preferred.",
+        "I\u2019m trying to avoid [[gloves that get wet and cold]].",
+        "I\u2019m aiming for [[$50\u2013$85, max $120]]."
+      ]
+    },
+    {
+      "id": "glove_096",
+      "gender": "male",
+      "background": "Urban photographer shooting street scenes in winter evenings.",
+      "ground_truth_need": "Needs thin winter gloves that allow camera use while walking city streets. The primary requirement is dexterity for camera controls. Must provide light warmth and wind protection during evening shoots. Prefers discreet gloves that blend into city attire. Waterproofing is optional. Target budget is $40\u2013$70, hard max $100 for photographer-friendly gloves. Dislikes bulky designs that draw attention.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[dexterity for camera controls]].",
+        "I also need [[light warmth for evening shoots]].",
+        "Wind protection matters, so [[blocking cold air]] is important.",
+        "Style matters, so [[discreet, city-appropriate design]] is preferred.",
+        "Bulk isn\u2019t ideal, so [[slim gloves]] work best.",
+        "I\u2019m trying to avoid [[bulky or flashy designs]].",
+        "I\u2019m aiming for [[$40\u2013$70, max $100]]."
+      ]
+    },
+    {
+      "id": "glove_097",
+      "gender": "female",
+      "background": "Pet groomer handling animals and water in a cool workspace.",
+      "ground_truth_need": "Needs work gloves for grooming tasks involving water and animal handling. The primary requirement is grip and dexterity when holding animals and tools. Must resist moisture and dry quickly. Prefers gloves that are flexible and comfortable for long sessions. Insulation should be minimal. Target budget is $20\u2013$40, hard max $60 for durable, water-resistant gloves. Dislikes gloves that stay soggy.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[grip and dexterity for handling animals]].",
+        "I also need [[resistance to water and quick drying]].",
+        "Comfort matters, so [[flexible gloves for long sessions]] are preferred.",
+        "Insulation isn\u2019t needed, so [[thin construction]] works best.",
+        "Fit matters, so [[secure feel]] is important.",
+        "I\u2019m trying to avoid [[gloves that stay soggy]].",
+        "I\u2019m aiming for [[$20\u2013$40, max $60]]."
+      ]
+    },
+    {
+      "id": "glove_098",
+      "gender": "unspecified",
+      "background": "Senior citizen who enjoys daily winter walks at a slow pace.",
+      "ground_truth_need": "Needs warm, comfortable winter gloves for leisurely walks. The primary requirement is warmth without tightness, to avoid discomfort. Must block wind and be easy to put on. Prefers soft linings and simple closures. Waterproofing is optional. Target budget is $30\u2013$55, hard max $80 for comfortable, easy-to-use gloves. Dislikes stiff or tight gloves.",
+      "context_trail": [
+        "I need gloves.",
+        "The most important thing is [[warmth without tightness or pressure]].",
+        "I also need [[wind protection during slow walks]].",
+        "Ease of use matters, so [[easy on-and-off design]] is important.",
+        "Comfort matters, so [[soft lining]] is preferred.",
+        "Bulk isn\u2019t ideal, so [[moderate insulation]] works best.",
+        "I\u2019m trying to avoid [[stiff or restrictive gloves]].",
+        "I\u2019m aiming for [[$30\u2013$55, max $80]]."
+      ]
+    },
+    {
+      "id": "glove_099",
+      "gender": "male",
+      "background": "Cold-climate surveyor working outdoors with measuring equipment.",
+      "ground_truth_need": "Needs winter gloves that allow use of measuring tools and tablets outdoors. The primary requirement is dexterity for precise measurements. Must also provide warmth and wind protection during long outdoor sessions. Prefers gloves that allow occasional touchscreen use. Waterproofing is helpful but secondary. Target budget is $40\u2013$70, hard max $100 for professional-grade gloves. Dislikes gloves that interfere with precision work.",
+      "context_trail": [
+        "I\u2019m looking for gloves.",
+        "The main priority is [[dexterity for precise measuring tasks]].",
+        "I also need [[warmth for long outdoor sessions]].",
+        "Wind protection matters, so [[blocking cold gusts]] is important.",
+        "Tech use matters, so [[occasional touchscreen compatibility]] helps.",
+        "Fit matters, so [[snug fingertips]] are preferred.",
+        "I\u2019m trying to avoid [[gloves that reduce precision]].",
+        "I\u2019m aiming for [[$40\u2013$70, max $100]]."
+      ]
+    },
+    {
+      "id": "glove_100",
+      "gender": "female",
+      "background": "City resident clearing snow from a small car after street parking.",
+      "ground_truth_need": "Needs winter gloves for scraping ice and clearing snow from a car. The primary requirement is waterproofing to keep hands dry while brushing and scraping. Must also provide warmth and good grip on tools. Prefers gloves that are flexible and not overly bulky. Target budget is $30\u2013$55, hard max $80 for durable, waterproof gloves. Dislikes gloves that soak through quickly.",
+      "context_trail": [
+        "I need gloves.",
+        "The top priority is [[waterproof gloves for clearing snow and ice]].",
+        "I also need [[warmth for cold morning scraping]].",
+        "Grip matters, so [[secure hold on scrapers and brushes]] is important.",
+        "Flexibility matters, so [[gloves that bend easily]] are preferred.",
+        "Bulk isn\u2019t ideal, so [[moderate insulation]] works best.",
+        "I\u2019m trying to avoid [[gloves that soak through fast]].",
+        "I\u2019m aiming for [[$30\u2013$55, max $80]]."
+      ]
+    }
+  ]
+}

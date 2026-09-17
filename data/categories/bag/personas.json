@@ -1,0 +1,1604 @@
+{
+  "personas": [
+    {
+      "id": "bag_001",
+      "gender": "male",
+      "background": "Undergraduate student who bikes daily across campus and carries electronics and books between classes and part-time work.",
+      "ground_truth_need": "He needs a messenger-style bag suitable for daily biking that securely protects a 13-inch laptop and books while staying stable on his body. Weather resistance is critical due to frequent rain, and durability matters because he rides daily. His top priority is secure laptop protection, followed by water resistance, then comfort while biking. Organization is useful but secondary, and aesthetics matter very little. He targets spending around $120 and will not exceed $160. He dislikes floppy bags, weak straps, and poor closures that let water seep in.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main priority is [[a messenger bag that securely protects a 13-inch laptop while biking]].",
+        "It really needs to handle rain well since [[I ride in wet weather a lot]].",
+        "Comfort matters because [[I wear it while biking every day]].",
+        "I\u2019d like some internal pockets, but [[organization is secondary to function]].",
+        "I don\u2019t care much about looks as long as [[it\u2019s durable and practical]].",
+        "I\u2019m aiming to spend [[around $120 and absolutely under $160]].",
+        "I\u2019ve had issues before so [[I can\u2019t deal with weak straps or flimsy closures]]."
+      ]
+    },
+    {
+      "id": "bag_002",
+      "gender": "female",
+      "background": "Young professional commuting by train who carries work essentials and occasionally travels overnight for business.",
+      "ground_truth_need": "She wants a professional-looking leather or leather-like work bag that fits a 15-inch laptop, documents, and small personal items. Professional appearance is the top priority, followed closely by durability for daily commuting. Laptop padding is important but not extreme bulk. She values organization and dislikes overly rugged or student-looking designs. Her target budget is $220, with a firm maximum of $300, justified as a long-term work investment. Comfort and weight matter but are less critical than appearance and build quality.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The most important thing is [[a professional look suitable for office and travel]].",
+        "I need it to last years, so [[durability is a major concern]].",
+        "It should fit my computer, specifically [[a padded compartment for a 15-inch laptop]].",
+        "I prefer something refined, so [[I don\u2019t want a student-style or sporty design]].",
+        "Good pockets help because [[I carry documents and small accessories daily]].",
+        "I\u2019m comfortable spending [[around $220 but not more than $300]].",
+        "Comfort matters, though [[weight is less important than structure]]."
+      ]
+    },
+    {
+      "id": "bag_003",
+      "gender": "non-binary",
+      "background": "Frequent gym-goer and amateur competitor who carries bulky equipment multiple times per week.",
+      "ground_truth_need": "They need an extremely durable gym bag that can handle heavy, abrasive gear and frequent use. Durability is the absolute dealbreaker, followed by capacity for shoes, wraps, bottles, and accessories. Odor containment and water resistance are also important due to sweaty gear. Comfort is secondary since the bag is carried short distances. A rugged aesthetic is fine. They aim for about $150 and will not exceed $200, prioritizing lifespan over price. Zippers and seams must be especially tough.",
+      "context_trail": [
+        "I need a bag.",
+        "My top requirement is [[extreme durability for heavy gym gear]].",
+        "It has to fit a lot, so [[capacity for bulky equipment is essential]].",
+        "I really want [[materials that handle sweat and moisture]].",
+        "Smell control matters because [[I carry sweaty clothes for hours]].",
+        "I don\u2019t care how it looks as long as [[it\u2019s built tough]].",
+        "I\u2019m targeting [[about $150 with a hard cap at $200]].",
+        "I\u2019ve had failures before, so [[zippers and seams must be heavy-duty]]."
+      ]
+    },
+    {
+      "id": "bag_004",
+      "gender": "male",
+      "background": "Graduate student who takes short weekend trips by car and values flexible travel gear.",
+      "ground_truth_need": "He wants a weekend travel duffel that works for two- to three-day trips and can double as a casual day bag. Versatility is most important, followed by reasonable durability and moderate organization. He prefers canvas or similar materials over leather for cost and weight reasons. Style is nice but not essential. His budget target is $130, with a hard limit of $180. He dislikes oversized bags and anything too rigid or heavy.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The key thing is [[a versatile duffel for weekend trips]].",
+        "I want it usable beyond travel, so [[it should work as a casual day bag]].",
+        "I prefer lighter materials, especially [[canvas over heavy leather]].",
+        "Some pockets help, but [[organization isn\u2019t a top priority]].",
+        "I don\u2019t want something bulky since [[I travel light for short trips]].",
+        "I\u2019m aiming for [[around $130 and definitely under $180]].",
+        "Comfort matters a bit because [[I don\u2019t like stiff or rigid bags]]."
+      ]
+    },
+    {
+      "id": "bag_005",
+      "gender": "female",
+      "background": "New parent who carries baby supplies daily while juggling errands and childcare.",
+      "ground_truth_need": "She needs a large, lightweight diaper bag that can be opened easily with one hand while holding a baby. Ease of access is the top priority, followed by sufficient capacity for diapers, clothes, and food. Quiet closures are important to avoid waking a sleeping child. Durability matters but extreme ruggedness is unnecessary. Style should be neutral and not obviously a diaper bag. Her target budget is $100 with a firm cap at $150.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My biggest need is [[easy one-handed access]].",
+        "It has to hold a lot since [[I carry diapers, clothes, and food]].",
+        "I really want [[quiet closures that won\u2019t wake a baby]].",
+        "Weight matters because [[I carry it for long stretches]].",
+        "I\u2019d prefer something subtle, so [[it shouldn\u2019t look like a typical diaper bag]].",
+        "I\u2019m hoping to spend [[around $100 and not more than $150]].",
+        "It needs to last, but [[I don\u2019t need extreme ruggedness]]."
+      ]
+    },
+    {
+      "id": "bag_006",
+      "gender": "male",
+      "background": "Office worker transitioning from backpack to messenger bag for a more polished look.",
+      "ground_truth_need": "He wants a sleek messenger bag that looks professional but still carries a laptop, chargers, and daily work items. Appearance is the top priority, followed by sufficient organization to avoid clutter. Durability is important but secondary to aesthetics. Laptop padding is desired but not bulky. He dislikes excessive buckles or tactical styling. His budget target is $180, with a hard maximum of $250.",
+      "context_trail": [
+        "I want a bag.",
+        "The most important thing is [[a clean, professional appearance]].",
+        "I need better layout, so [[good internal organization matters]].",
+        "It should fit my work tech, including [[space for a laptop and chargers]].",
+        "I want it refined, so [[no tactical or overly rugged styling]].",
+        "I\u2019d like padding, but [[I don\u2019t want excessive bulk]].",
+        "My budget is [[around $180 with a ceiling of $250]].",
+        "Longevity matters, though [[looks matter more than extreme durability]]."
+      ]
+    },
+    {
+      "id": "bag_007",
+      "gender": "unspecified",
+      "background": "Outdoor traveler who backpacks internationally and values lightweight gear.",
+      "ground_truth_need": "They are looking for a backpacking travel bag that balances light weight, durability, and easy access. Weight is the top priority, followed by durability for repeated trips. Fast access to contents is important for travel efficiency. Aesthetics are irrelevant. Budget-wise, they aim for $170 and will not exceed $220. They dislike overly complex suspension systems and unnecessary compartments.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main concern is [[keeping the bag as lightweight as possible]].",
+        "It still needs to last, so [[durability for repeated travel matters]].",
+        "Quick access is key because [[I\u2019m often on the move]].",
+        "I don\u2019t need fancy features since [[simple designs work best for me]].",
+        "Looks don\u2019t matter at all as long as [[function comes first]].",
+        "I\u2019m budgeting [[around $170 and under $220]].",
+        "I dislike overbuilt packs, so [[no heavy frames or excess padding]]."
+      ]
+    },
+    {
+      "id": "bag_008",
+      "gender": "female",
+      "background": "Teacher who carries paperwork and supplies daily between home and school.",
+      "ground_truth_need": "She needs a large tote or shoulder bag that can handle heavy paper loads without straps failing. Strap strength is the top priority, followed by capacity for folders and books. Wheels are optional but not required. Style should be neutral and professional. Weight matters due to daily use. Her budget target is $90, with a hard cap at $140.",
+      "context_trail": [
+        "I need a bag.",
+        "The most important thing is [[strong straps that won\u2019t fail under weight]].",
+        "It needs room because [[I carry stacks of papers and books]].",
+        "I want it appropriate for work, so [[a professional look is important]].",
+        "Lighter is better since [[I carry it every day]].",
+        "Wheels could help, but [[they\u2019re not essential]].",
+        "I\u2019m hoping to spend [[around $90 and no more than $140]].",
+        "I\u2019ve had bags rip before, so [[reinforced seams matter]]."
+      ]
+    },
+    {
+      "id": "bag_009",
+      "gender": "male",
+      "background": "Motorcycle rider who commutes long distances carrying electronics and clothes.",
+      "ground_truth_need": "He needs a backpack that stays secure while riding and fits a large laptop plus clothing. Secure fit is the top priority, followed by durability after past strap failures. Weight matters because he wears it for long rides. Weather resistance is important but secondary. His target budget is $160, with a hard limit of $220. He dislikes loose straps and flimsy materials.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The biggest thing is [[a secure fit that stays put while riding]].",
+        "I need confidence in it, so [[durability after strap failures matters]].",
+        "It must hold my gear, including [[space for a large laptop and clothes]].",
+        "Weight matters because [[I wear it on long rides]].",
+        "Some weather protection helps since [[I ride in mixed conditions]].",
+        "I\u2019m budgeting [[around $160 with a max of $220]].",
+        "I can\u2019t deal with sloppy designs, so [[loose straps are a dealbreaker]]."
+      ]
+    },
+    {
+      "id": "bag_010",
+      "gender": "female",
+      "background": "Urban commuter who wants a compact everyday crossbody for essentials.",
+      "ground_truth_need": "She wants a small crossbody bag that stays close to the body while carrying daily essentials like a phone, wallet, and small tablet. Comfort and close fit are the top priorities, followed by durability despite the small size. Organization is minimal but necessary. Style matters moderately. Her budget target is $70, with a hard cap at $120.",
+      "context_trail": [
+        "I want a bag.",
+        "My main priority is [[a close-fitting crossbody that stays secure]].",
+        "Even though it\u2019s small, [[durability really matters]].",
+        "It needs to hold basics like [[phone, wallet, and a small tablet]].",
+        "I don\u2019t want clutter, so [[simple organization is enough]].",
+        "I\u2019d like it to look nice since [[it\u2019s an everyday bag]].",
+        "I\u2019m aiming for [[around $70 and no more than $120]].",
+        "I\u2019ve had saggy bags before, so [[the fabric must hold its shape]]."
+      ]
+    },
+    {
+      "id": "bag_011",
+      "gender": "male",
+      "background": "Photographer who walks all day in a city, carrying a camera body, one lens, and a tablet.",
+      "ground_truth_need": "He needs a lightweight shoulder or messenger bag that comfortably carries a DSLR body with a small lens, a tablet, and small accessories without feeling stiff or heavy. Comfort for all-day carry is the top priority, followed by a flexible shape that hugs the body while walking. Weight matters more than premium looks, but he prefers something not overly tactical. He targets $90 and will not exceed $130. He dislikes rigid briefcase-style bags, scratchy interiors, and thin straps that dig in.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top priority is [[comfort for carrying it all day]].",
+        "I want it to move with me, so [[a flexible bag that hugs the body matters]].",
+        "It needs to fit my kit, specifically [[space for a camera and a tablet]].",
+        "I\u2019m trying to keep things easy, so [[lightweight is important]].",
+        "I\u2019d rather avoid stiff designs since [[I dislike briefcase-like rigidity]].",
+        "I\u2019m hoping to spend [[around $90 and stay under $130]].",
+        "Strap comfort is key, so [[I can\u2019t deal with thin straps that dig in]]."
+      ]
+    },
+    {
+      "id": "bag_012",
+      "gender": "female",
+      "background": "Beach regular who brings towels, sunscreen, snacks, and wet items on weekend trips with friends.",
+      "ground_truth_need": "She wants a beach tote that won\u2019t trap sand and can handle wet swimsuits without soaking everything else. Sand-shedding is the top priority, followed by water resistance for messy, damp conditions. She wants enough room for towels and extras, with at least a small protected pocket for keys and phone. Durability matters because she uses it often in summer. She targets $45 and won\u2019t exceed $80. She dislikes fabrics that cling to sand, weak mesh seams, and totes without any secure pocket.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main thing I need is [[a beach bag that sheds sand easily]].",
+        "Wet stuff is constant for me, so [[water resistance matters]].",
+        "It has to be roomy enough for [[towels and snacks]].",
+        "I want a safe spot for valuables, so [[a protected pocket for keys and phone is important]].",
+        "I\u2019ll use it a lot, so [[durability through summer use matters]].",
+        "I\u2019m aiming for [[about $45 and under $80]].",
+        "I\u2019ve had flimsy ones fail, so [[weak seams are a dealbreaker]]."
+      ]
+    },
+    {
+      "id": "bag_013",
+      "gender": "male",
+      "background": "Weekly business traveler who wants one carry-on work bag that looks sharp at client sites.",
+      "ground_truth_need": "He needs a slim briefcase or messenger that looks truly professional with business attire and fits under an airplane seat. Professional appearance is the top priority, followed by carry-on compatibility and easy airport handling. It must hold a 15-inch laptop, chargers, a notebook, and small accessories, and he wants both a handle and a shoulder strap. He targets $260 and has a hard maximum of $350. He dislikes bulky bags, loud hardware, and overly rustic styling.",
+      "context_trail": [
+        "I need a bag.",
+        "My main priority is [[a truly professional look for client meetings]].",
+        "Travel is frequent for me, so [[it must fit under an airplane seat]].",
+        "I need versatile carry options, so [[a handle and a shoulder strap are required]].",
+        "It has to fit my setup, namely [[a 15-inch laptop plus accessories]].",
+        "I want it slim, so [[bulky thickness is a turnoff]].",
+        "I\u2019m planning to spend [[around $260 with a hard cap at $350]].",
+        "I prefer subtle styling, so [[minimal exterior hardware matters]]."
+      ]
+    },
+    {
+      "id": "bag_014",
+      "gender": "unspecified",
+      "background": "Minimalist commuter who brings lunch containers and snacks to work daily.",
+      "ground_truth_need": "They want a sturdy lunch bag that fits a medium container plus multiple small snack boxes without tipping over. The top priority is capacity for stacked containers, followed by insulation to keep food at safe temperatures through the workday. Durability matters because it\u2019s used daily, and an easy-to-clean interior is important for spills. Style is low priority but they prefer something not childish. They target $30 and will not exceed $55.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The biggest requirement is [[fitting a medium lunch container plus several snack boxes]].",
+        "Food safety matters, so [[insulation is important]].",
+        "I use it daily, so [[durability is a must]].",
+        "Spills happen, so [[an easy-to-clean interior matters]].",
+        "I prefer adult-looking gear, so [[nothing childish or flashy]].",
+        "I\u2019m aiming for [[around $30 and no more than $55]].",
+        "I hate messy carrying, so [[it should stay upright and not flop over]]."
+      ]
+    },
+    {
+      "id": "bag_015",
+      "gender": "female",
+      "background": "Apartment dweller who walks multiple blocks to a laundromat and carries laundry down stairs weekly.",
+      "ground_truth_need": "She needs a large laundry backpack bag with handles that won\u2019t rip, suitable for hauling heavy loads down several flights of stairs and across town. Handle/strap strength is the top priority, followed by capacity for a full week\u2019s laundry. Comfort matters because she carries it on her back for a distance. She prefers a durable fabric that won\u2019t snag and an opening that\u2019s easy to load. Her target budget is $35 with a hard maximum of $60. She dislikes brittle plastic hardware and thin stitching.",
+      "context_trail": [
+        "I need a bag.",
+        "My top requirement is [[straps and handles that won\u2019t rip under heavy loads]].",
+        "I need room for everything, so [[large capacity is essential]].",
+        "I carry it far, so [[backpack-style comfort matters]].",
+        "Loading should be easy, so [[a wide opening is important]].",
+        "I\u2019ve had hardware fail, so [[no brittle plastic buckles]].",
+        "I\u2019m trying to spend [[around $35 and stay under $60]].",
+        "Stitching is critical for me, so [[thin seams are a dealbreaker]]."
+      ]
+    },
+    {
+      "id": "bag_016",
+      "gender": "male",
+      "background": "Cyclist planning a multi-day tour who needs front and rear storage for gear and groceries.",
+      "ground_truth_need": "He needs a set of pannier bags for cycle touring that can handle weather and road vibration without tearing. Budget is his top priority because he needs both front and rear panniers, but water resistance is a close second. Durability matters for long rides, and he wants reliable attachment hardware that won\u2019t rattle loose. Capacity should be enough for clothing, tools, and food. He targets $90 for the set and won\u2019t exceed $120. He dislikes fiddly mounts and leaky seams.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main constraint is [[keeping the total cost under about $90 for the set]].",
+        "Weather is unpredictable, so [[water resistance matters]].",
+        "Touring is rough on gear, so [[durability against vibration is important]].",
+        "I need them to stay put, so [[secure mounting hardware is required]].",
+        "I\u2019m carrying a lot, so [[enough capacity for tools and clothes matters]].",
+        "I can stretch a bit, but [[my hard cap is $120]].",
+        "I don\u2019t want fuss, so [[fiddly attachment systems are a no-go]]."
+      ]
+    },
+    {
+      "id": "bag_017",
+      "gender": "female",
+      "background": "Person who travels often and wants a toiletry kit that won\u2019t crack or peel after repeated trips.",
+      "ground_truth_need": "She wants a durable toiletry bag that withstands moisture, soap, and frequent packing without the lining peeling or seams splitting. Longevity is the top priority, followed by water tolerance inside and out. She prefers quality zippers and reinforced stitching to avoid failures. Size should fit standard travel toiletries without being huge. A classic look is nice but secondary to function. She targets $55 and won\u2019t exceed $95. She dislikes cheap plastic linings and zippers that snag.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The most important thing is [[a toiletry bag that won\u2019t peel, crack, or fall apart]].",
+        "It\u2019ll get wet often, so [[it must handle moisture and soap]].",
+        "I\u2019ve had failures before, so [[a high-quality zipper is important]].",
+        "Stitching matters because [[seams splitting is a dealbreaker]].",
+        "I want practical sizing, so [[not too big but still travel-capable]].",
+        "I\u2019m aiming for [[about $55 and no more than $95]].",
+        "Materials matter to me, so [[I don\u2019t want a flimsy plastic lining]]."
+      ]
+    },
+    {
+      "id": "bag_018",
+      "gender": "male",
+      "background": "University student who wants an affordable messenger bag to carry a laptop and binders between lectures.",
+      "ground_truth_need": "He needs a budget-friendly messenger bag that can fit a laptop plus a binder without tearing quickly. Price is the top priority, followed by enough space for school materials. Basic durability matters, especially at stress points like straps. He prefers a simple, classic look but doesn\u2019t need premium materials. Weather resistance is a nice-to-have but not essential. He targets $35 and has a hard max of $50. He dislikes thin straps and tiny compartments that waste space.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The biggest constraint is [[spending $35 or less if possible]].",
+        "It needs to carry my school stuff, namely [[a laptop and a binder]].",
+        "I don\u2019t need luxury, but [[it has to be reasonably durable]].",
+        "I want it simple, so [[a basic classic style is fine]].",
+        "Weak carry points worry me, so [[strong straps matter]].",
+        "I can stretch slightly, but [[my hard cap is $50]].",
+        "I hate wasted space, so [[tiny fussy pockets are not ideal]]."
+      ]
+    },
+    {
+      "id": "bag_019",
+      "gender": "unspecified",
+      "background": "Outdoor enthusiast who needs a ski bag for storage and occasional flights to mountain trips.",
+      "ground_truth_need": "They need a ski bag that protects long skis and poles during car transport and occasional air travel. Protection is the top priority, followed by durable materials that won\u2019t rip from dragging and handling. Ease of carrying matters, preferably with comfortable handles or straps. They want a length that fits 178 cm skis with some extra room. Budget target is $140, with a hard max of $220. They dislike thin padding and cheap wheels that jam.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main requirement is [[good protection for skis and poles]].",
+        "It needs to survive travel, so [[durable outer material matters]].",
+        "Size has to work for me, specifically [[fitting 178 cm skis]].",
+        "Carrying ease helps, so [[comfortable handles or straps are important]].",
+        "I may fly with it, so [[reliable padding is necessary]].",
+        "I\u2019m aiming for [[around $140 and under $220]].",
+        "If it has wheels, [[I can\u2019t deal with ones that jam easily]]."
+      ]
+    },
+    {
+      "id": "bag_020",
+      "gender": "female",
+      "background": "Commuter who wants an everyday tote with a laptop sleeve that still looks polished after years of use.",
+      "ground_truth_need": "She needs a large everyday shoulder bag that fits a 13-inch laptop plus books, lunch, and small items without the straps fraying. Strap durability is the top priority, followed by adequate capacity and a secure top closure to keep items contained. She wants a polished look suitable for work, but not overly formal. Weight should be reasonable given daily carry. She targets $110 and will not exceed $180. She dislikes open-top totes, thin leather, and hardware that scratches easily.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main thing I need is [[straps that won\u2019t fray or fail under daily weight]].",
+        "It has to carry my routine load, so [[capacity for laptop, books, and lunch matters]].",
+        "I want it secure, so [[a top zip or closure is important]].",
+        "It should fit my device, namely [[a 13-inch laptop]].",
+        "I want it to look polished, so [[work-appropriate style matters]].",
+        "I\u2019m planning for [[around $110 and absolutely under $180]].",
+        "I\u2019ve had annoying wear before, so [[scratch-prone hardware is a no]]."
+      ]
+    },
+    {
+      "id": "bag_021",
+      "gender": "female",
+      "background": "Graduate student who hikes and camps on weekends and needs a rugged pack for multi-day trips with textbooks and gear.",
+      "ground_truth_need": "She needs a hiking backpack that balances rugged outdoor performance with enough space for textbooks and gear for both school and weekend trips. Capacity is most important, followed by back support and ventilation for long treks. Water resistance is required for damp trails. Organization pockets are helpful but not essential. She prefers durable materials that resist abrasion. Her target budget is $160 and she won\u2019t exceed $240. She dislikes flimsy zippers, weak padding, and bags that trap sweat.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top need is [[a hiking backpack with plenty of capacity for gear and books]].",
+        "I\u2019ll use it on long hikes, so [[back support and ventilation matter]].",
+        "Trails get wet, so [[water resistance is essential]].",
+        "I want durable material because [[abrasion resistance is important]].",
+        "Extra pockets are nice but [[organization is secondary]].",
+        "I\u2019m budgeting [[around $160 and not above $240]].",
+        "I\u2019ve had issues before so [[flimsy zippers are a no-go]]."
+      ]
+    },
+    {
+      "id": "bag_022",
+      "gender": "male",
+      "background": "Daily commuter who cycles year-round and wants a waterproof bag to protect tech and lunch.",
+      "ground_truth_need": "He needs a fully waterproof commuter backpack that keeps his laptop, lunch, and clothes dry in heavy rain. Waterproofing is the top priority and must be reliable even in downpours. Secondary preferences are a padded compartment for tech and comfort straps for daily cycling. He prefers sleek, low-profile design. Organization is helpful for cables and tools. His budget target is $140 with a hard maximum of $210. He dislikes bags that leak at seams and flimsy buckles.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The most important thing is [[a fully waterproof bag that protects contents in heavy rain]].",
+        "I need a safe spot for my devices, so [[a padded tech compartment matters]].",
+        "Daily cycling means [[comfortable straps are essential]].",
+        "I like clean looks, so [[a sleek design appeals to me]].",
+        "Some pockets help since [[I carry cables and tools]].",
+        "I\u2019m aiming for [[around $140 and no more than $210]].",
+        "I\u2019ve had leaks before so [[no seam failures are allowed]]."
+      ]
+    },
+    {
+      "id": "bag_023",
+      "gender": "non-binary",
+      "background": "Student athlete who carries sports gear and notebooks across campus daily.",
+      "ground_truth_need": "They want a bag that can hold both athletic gear and academic supplies without tearing or getting awkwardly heavy. Capacity is most important, followed by organization separate for clean and dirty items. Comfortable straps are needed for long walks across campus. A sporty but understated look is preferred. Water resistance for sweaty gear isn\u2019t essential but helpful. Their budget target is $80; they will not go above $130. They dislike low-quality mesh and weak stitching.",
+      "context_trail": [
+        "I need a bag.",
+        "My biggest need is [[enough space for sports and school gear]].",
+        "I need separate organization so [[clean and dirty stuff stay apart]].",
+        "I walk a lot so [[comfortable straps matter]].",
+        "I prefer [[a sporty but understated look]].",
+        "Some water resistance is nice because [[gear gets sweaty sometimes]].",
+        "I\u2019m hoping for [[around $80 and under $130]].",
+        "I\u2019ve had weak stitching before so [[durable seams matter]]."
+      ]
+    },
+    {
+      "id": "bag_024",
+      "gender": "female",
+      "background": "Traveler who flies monthly and needs a carry-on bag that\u2019s easy to wheel and fits under most seats.",
+      "ground_truth_need": "She needs a compact carry-on bag with spinner wheels that stays within airline size limits and fits under most seats. Airline compliance is most important, followed by easy maneuverability. A laptop compartment and organization for travel essentials follow. She prefers a stylish but professional look. Durability and wheel quality are also important. She targets $250 with a firm cap at $350. She dislikes bags that exceed size limits and wobbly wheels.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "First priority is [[airline carry-on size compliance]].",
+        "Maneuverability matters so [[easy-to-roll spinner wheels are essential]].",
+        "I want organized space since [[I carry a laptop and accessories]].",
+        "A professional look is important because [[I travel for work]].",
+        "Durability of materials matters as [[I fly monthly]].",
+        "I\u2019m okay spending [[around $250 and up to $350]].",
+        "I\u2019ve had bad wheels before so [[no wobbly wheel systems]]."
+      ]
+    },
+    {
+      "id": "bag_025",
+      "gender": "male",
+      "background": "Casual day hiker who wants a reliable daypack for short trails and weekend walks in nature.",
+      "ground_truth_need": "He needs a daypack with enough room for water, snacks, rain jacket, and small camera, with solid comfort features. Comfort for shoulder straps and back ventilation are key. Water resistance is a secondary concern. A modest capacity of around 15\u201320 liters is ideal. He prefers simple, durable build and classic outdoor design. His budget is $60 with a maximum of $100. He dislikes bags that sag or rub uncomfortably.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The most important aspect is [[comfort for shoulders and back ventilation]].",
+        "I need small gear space so [[about 15\u201320 liters capacity matters]].",
+        "Weather can change so [[water resistance helps]].",
+        "I like durability for trails because [[I use it often]].",
+        "I prefer [[simple classic outdoor looks]].",
+        "I\u2019m targeting [[around $60 and not more than $100]].",
+        "I\u2019ve had bags rub before so [[no uncomfortable contact points]]."
+      ]
+    },
+    {
+      "id": "bag_026",
+      "gender": "unspecified",
+      "background": "Parent taxiing kids to activities and errands who needs a roomy bag for snacks, gear, and kid supplies.",
+      "ground_truth_need": "They want a roomy tote or shoulder bag that can handle snacks, spare clothes, toys, and kid gear without sagging. Capacity is most important, followed by durability and easy-clean lining for spills. Multiple compartments help keep items sorted. A casual and fun style is preferred. They target $75 and won\u2019t exceed $120. They dislike flimsy fabric and bags that lose shape under load.",
+      "context_trail": [
+        "I need a bag.",
+        "My biggest requirement is [[lots of capacity for kid gear and snacks]].",
+        "Durability matters so [[it won\u2019t sag or tear easily]].",
+        "I want an easy-clean interior because [[spills happen often]].",
+        "I like [[multiple compartments to keep things sorted]].",
+        "A casual fun style matters because [[it\u2019s a family bag]].",
+        "I\u2019m hoping to spend [[around $75 and under $120]].",
+        "I\u2019ve had soft bags lose shape, so [[structure under load matters]]."
+      ]
+    },
+    {
+      "id": "bag_027",
+      "gender": "female",
+      "background": "Craft fair vendor who carries stock, payment tools, and promotional materials daily.",
+      "ground_truth_need": "She needs a sturdy tote or utility bag that holds inventory, point-of-sale materials, and personal items for daily market events. Capacity is most important, followed by internal organization for small supplies and cash. Durability for weekly use is critical. Weight distribution matters to avoid shoulder strain. Style is useful but secondary to function. Her budget target is $85 with a hard cap at $130. She dislikes flimsy bottoms and bags that slump.",
+      "context_trail": [
+        "I need a bag.",
+        "The main thing is [[capacity for stock and supplies]].",
+        "I want organized space so [[internal pockets for small items matter]].",
+        "It must last because [[I use it weekly]].",
+        "Comfort matters since [[I carry it all day at fairs]].",
+        "Style is nice but [[function matters more]].",
+        "I\u2019m planning around [[$85 and not above $130]].",
+        "I can\u2019t stand bags with [[flimsy bottoms that slump]]."
+      ]
+    },
+    {
+      "id": "bag_028",
+      "gender": "male",
+      "background": "Skateboard commuter who wants a compact bag for essentials and occasional groceries.",
+      "ground_truth_need": "He needs a compact backpack that stays snug while skateboarding, with easy access to essentials like wallet, phone, and a water bottle. Secure carry is top priority, followed by stability while moving and easy access pockets. A modest capacity for small groceries is helpful. Weather resistance is useful but not critical. He targets $65 and won\u2019t exceed $110. He dislikes bags that bounce or flail while riding.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main concern is [[a backpack that stays secure skating around]].",
+        "Stability matters because [[I ride fast and change direction]].",
+        "I need quick pockets for [[wallet, phone, and bottle access]].",
+        "Having room for small groceries helps because [[I shop sometimes]].",
+        "Some water resistance is nice because [[weather can change]].",
+        "I\u2019m budgeting [[around $65 and under $110]].",
+        "I\u2019ve had bags bounce before so [[no flailing straps]]."
+      ]
+    },
+    {
+      "id": "bag_029",
+      "gender": "female",
+      "background": "Young professional attending tech meetups who wants a modern, minimalist bag for tech essentials.",
+      "ground_truth_need": "She needs a modern, minimalist crossbody or small backpack that holds a tablet, phone, notebook, and a few accessories. Style and sleek design are most important, followed by protective padding for electronics. Organization for cables and small tools is helpful. Comfort matters for meetups and co-working sessions. Her target budget is $130 with a hard cap at $200. She dislikes bulky backpacks and garish logos.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top priority is [[a modern, minimalist design that looks sharp]].",
+        "I need protection for tech, so [[padding for tablet and gadgets matters]].",
+        "Organization helps since [[I carry accessories like cables]].",
+        "Comfort is key because [[I wear it at meetups]].",
+        "I don\u2019t want bulky bags, so [[sleek profiles matter]].",
+        "I\u2019m planning to spend [[around $130 and no more than $200]].",
+        "I can\u2019t stand loud logos, so [[no garish branding]]."
+      ]
+    },
+    {
+      "id": "bag_030",
+      "gender": "male",
+      "background": "Student who wants a rugged tote for books and laptop that fits campus lockers easily.",
+      "ground_truth_need": "He needs a sturdy tote-style bag that fits books and a 14-inch laptop while still easily fitting into narrow campus lockers. Width requirement is most important, followed by rigid structure to maintain shape in tight spaces. Comfortable shoulder straps matter for long days. A classic casual look is fine. Water resistance is a plus but not essential. His target budget is $55 with a hard cap at $90. He dislikes droopy bags that collapse awkwardly.",
+      "context_trail": [
+        "I want a bag.",
+        "The biggest requirement is [[a tote that fits easily in narrow lockers]].",
+        "It must hold my gear, so [[room for laptop and books matters]].",
+        "A rigid shape matters because [[I hate droopy, collapsing bags]].",
+        "Comfortable straps help since [[I carry it all day]].",
+        "A casual look is fine because [[it\u2019s campus gear]].",
+        "I\u2019m targeting [[around $55 and no more than $90]].",
+        "Water resistance is nice, so [[helpful but not required]]."
+      ]
+    },
+    {
+      "id": "bag_031",
+      "gender": "female",
+      "background": "Cycling courier who needs a highly visible, weatherproof bag for deliveries.",
+      "ground_truth_need": "She needs a bag with excellent visibility and waterproofing to protect parcels and electronics while cycling through the city. High-visibility reflective elements are the top priority, followed by reliable waterproofing. Capacity for parcels and internal organization for small tech items follows. Comfort for long rides matters. Her budget target is $150 with a hard cap at $230. She dislikes bags that shift while riding or leak contents.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top need is [[high-visibility and reflective elements]].",
+        "It has to stay dry in storms since [[I carry packages and tech]].",
+        "I need room, so [[capacity for parcels matters]].",
+        "Internal pockets help because [[I carry small gadgets and receipts]].",
+        "Comfort matters for long rides, so [[padded straps help]].",
+        "I\u2019m aiming for [[around $150 and up to $230]].",
+        "I\u2019ve had leaks, so [[no water seepage under pressure]]."
+      ]
+    },
+    {
+      "id": "bag_032",
+      "gender": "unspecified",
+      "background": "Weekend traveler who wants a versatile bag that doubles as an overnight bag and a gym bag.",
+      "ground_truth_need": "They need a bag that can handle weekend travel and gym use without being too large or heavy. Versatility for both use cases is most important, followed by a compartment that separates clean and dirty clothes. Durability and comfort for shoulder carry are next. A compact shape that fits overhead bins is helpful. Their budget is $120 with a hard cap at $180. They dislike bags that are awkwardly wide or too heavy when empty.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main requirement is [[a versatile bag for travel and gym use]].",
+        "I need separation for clothes, so [[clean and dirty compartments matter]].",
+        "Durability is important because [[I use it often]].",
+        "Comfortable shoulder carry helps since [[I tote it a lot]].",
+        "A compact shape is nice so [[it fits overhead bins]].",
+        "I\u2019m planning around [[$120 and no more than $180]].",
+        "I hate awkward widths, so [[no overly wide design]]."
+      ]
+    },
+    {
+      "id": "bag_033",
+      "gender": "male",
+      "background": "Commuter who brings lunch, kindle, and work documents daily and prefers a tote over a backpack.",
+      "ground_truth_need": "He needs a tote bag with a secure top closure that accommodates his lunch, Kindle, and documents without spilling. A secure zip or magnetic closure is the top priority to prevent drops. Capacity for daily essentials is next, followed by comfort for shoulder carry. A professional-casual look is preferred. His budget target is $85 with a hard cap at $130. He dislikes open totes and weak handles.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top need is [[a tote with a secure top closure]].",
+        "I need room for essentials, so [[capacity for lunch and documents matters]].",
+        "Comfort matters since [[I carry it daily]].",
+        "I want a professional but casual look, so [[style matters]].",
+        "I prefer strong handles because [[weak handles worry me]].",
+        "I\u2019m planning to spend [[around $85 and no more than $130]].",
+        "I can\u2019t deal with [[open-top tote bags]]."
+      ]
+    },
+    {
+      "id": "bag_034",
+      "gender": "female",
+      "background": "Frequent fair-weather cyclist who wants a stylish satchel for light gear and errands.",
+      "ground_truth_need": "She needs a stylish satchel that carries light gear like wallet, umbrella, and notebook for errands and fair-weather rides. Style is the top priority, followed by a lightweight design. Moderate capacity is next, enough for small items. Water resistance is low priority. Her budget is $100 with a hard cap at $150. She dislikes bags with sporty looks and bulky straps.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main thing I want is [[a stylish satchel for errands and light rides]].",
+        "Since I carry light, [[a lightweight design matters]].",
+        "It needs room for basics like [[wallet and umbrella]].",
+        "I don\u2019t care much about waterproofing, so [[low priority there]].",
+        "I\u2019d rather avoid sporty looks because [[they clash with my style]].",
+        "I\u2019m aiming for [[around $100 and under $150]].",
+        "I really dislike [[bulky straps on satchels]]."
+      ]
+    },
+    {
+      "id": "bag_035",
+      "gender": "male",
+      "background": "Student doing dual degrees who carries tech, textbooks, and gym clothes daily.",
+      "ground_truth_need": "He needs a multifunctional backpack that carries tech devices, heavy textbooks, and separate compartment for gym clothes without sagging. Compartmentalization to separate clean and dirty or sweaty items is the top priority, followed by overall capacity. Supportive back padding and robust straps matter for daily use. Water resistance is helpful but not essential. His budget target is $100 with a cap at $160. He hates bags that sag or lose shape under load.",
+      "context_trail": [
+        "I need a bag.",
+        "My biggest need is [[separate compartments for tech, books, and gym gear]].",
+        "It needs to carry a lot, so [[capacity matters]].",
+        "Comfort matters for daily carry, so [[back padding matters]].",
+        "Strong straps matter because [[I carry heavy loads]].",
+        "Some water resistance is nice because [[weather changes]].",
+        "I\u2019m aiming for [[around $100 and under $160]].",
+        "I\u2019ve had sagging bags so [[no collapsing under load]]."
+      ]
+    },
+    {
+      "id": "bag_036",
+      "gender": "female",
+      "background": "Park visitor who hikes short trails and wants a sling bag for water, snacks, and personal items.",
+      "ground_truth_need": "She wants a sling bag that stays secure while hiking short trails with water, snacks, and sunscreen. Secure fit is the top priority, followed by lightweight and compact design. Easy access to internal items like sunscreen and phone matters next. Water bottle pocket is helpful. Her budget target is $50 with a hard max of $90. She dislikes bags that swing while walking.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main priority is [[a sling that stays secure on short hikes]].",
+        "It should be lightweight and compact because [[I carry just basics]].",
+        "I want easy access since [[I reach for sunscreen and phone often]].",
+        "A water bottle pocket is helpful because [[hydration matters]].",
+        "I don\u2019t want swinging motion, so [[no loose sling design]].",
+        "I\u2019m planning to spend [[around $50 and under $90]].",
+        "Comfort matters, so [[padded strap matters]]."
+      ]
+    },
+    {
+      "id": "bag_037",
+      "gender": "male",
+      "background": "Music student who needs a bag that fits sheet music, a tablet, and small instrument accessories.",
+      "ground_truth_need": "He needs a bag that accommodates sheet music, a tablet, and small accessories like tuners and reeds without creasing papers. Protection for odd-sized flat items is most important, followed by organizational pockets for accessories. Comfortable straps for campus walking matter next. He prefers a classic black look. His budget is $75 with a hard cap at $110. He dislikes bags that fold or crease contents.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The top need is [[room for sheet music without creasing it]].",
+        "I want pockets so [[accessory organization matters]].",
+        "Comfortable straps matter because [[I walk across campus]].",
+        "I like a classic look since [[it fits my style]].",
+        "I want sturdy material because [[papers don\u2019t like bends]].",
+        "I\u2019m aiming for [[around $75 and under $110]].",
+        "I can\u2019t deal with [[bags that crease contents]]."
+      ]
+    },
+    {
+      "id": "bag_038",
+      "gender": "non-binary",
+      "background": "Remote worker who needs a work-from-cafe bag that carries laptop, notebook, and lunch.",
+      "ground_truth_need": "They want a bag that\u2019s easy to grab and go to cafes with their laptop, notebook, and lunch, with quick-access compartments. Quick-access front pocket matters most, followed by padded laptop protection. Capacity for lunch and accessories is next, followed by comfortable carry. A casual aesthetic is fine. Their target budget is $95 with a hard cap at $140. They dislike bags that require digging deep for essentials.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main priority is [[a quick-access front pocket for essentials]].",
+        "I need padded protection because [[I carry a laptop]].",
+        "Room for lunch and accessories matters since [[I go to cafes often]].",
+        "Comfort matters for carry, so [[comfortable straps matter]].",
+        "I prefer [[a casual look]].",
+        "I\u2019m planning to spend [[around $95 and not more than $140]].",
+        "I dislike [[bags you have to dig deep into]]."
+      ]
+    },
+    {
+      "id": "bag_039",
+      "gender": "female",
+      "background": "Gym-to-work commuter who carries workout clothes and work essentials daily.",
+      "ground_truth_need": "She needs a hybrid gym-to-work bag that holds workout clothes, a change of shoes, laptop, and documents without bulk. Organization to separate gym and work items is the top priority, followed by slim profile to avoid looking bulky. A padded laptop sleeve is next. Water resistance for sweaty clothes isn\u2019t essential but appreciated. Her budget target is $120 with a maximum of $180. She dislikes bags that look too sporty for work.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My biggest need is [[organization that separates gym and work items]].",
+        "I want a slim look because [[I don\u2019t want bulk at work]].",
+        "I need a padded laptop sleeve since [[I carry tech]].",
+        "Some water resistance is nice because [[workout clothes get sweaty]].",
+        "I dislike overly sporty designs because [[they don\u2019t fit work style]].",
+        "I\u2019m aiming for [[around $120 and no more than $180]].",
+        "Comfort matters, so [[adjustable straps matter]]."
+      ]
+    },
+    {
+      "id": "bag_040",
+      "gender": "male",
+      "background": "Collector who needs a specialized bag for transporting comic books and collectibles safely.",
+      "ground_truth_need": "He needs a bag that protects comic books and collectibles from bending, moisture, and dust. Protection for flat items is most important, followed by rigid structure to avoid bending. Moisture-resistant materials matter next. Organization with sleeves or dividers for individual pieces is helpful. Style is low priority but he wants subdued colors. His budget is $180 with a hard cap at $260. He dislikes bags that accidentally fold or let water seep in.",
+      "context_trail": [
+        "I need a bag.",
+        "The top thing I want is [[protection for comic books against bending]].",
+        "A rigid structure matters because [[it prevents bending]].",
+        "Moisture resistance helps since [[items must stay dry]].",
+        "I want compartments so [[organization with dividers matters]].",
+        "I prefer [[subdued colors]].",
+        "I\u2019m planning to spend [[around $180 and not more than $260]].",
+        "I dislike [[bags that let water seep inside]]."
+      ]
+    },
+    {
+      "id": "bag_041",
+      "gender": "male",
+      "background": "New hire in a corporate office who commutes by subway and wants to upgrade from a worn-out backpack.",
+      "ground_truth_need": "He needs a professional messenger or briefcase that fits a 15.6-inch laptop, charger, notebook, and small accessories while looking office-appropriate. Professional appearance is the top priority, followed by laptop fit and protection, then durability for daily commuting. He prefers minimal hardware and no big buckles, and he dislikes overly rugged heritage styling. Organization matters but is secondary to the silhouette. He targets $180 and won\u2019t exceed $260, justified as a work staple he\u2019ll use for years.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main priority is [[a professional-looking messenger or briefcase for the office]].",
+        "It must accommodate my device, so [[it needs to fit a 15.6-inch laptop]].",
+        "I want protection, so [[a padded laptop section is important]].",
+        "I prefer understated design, so [[minimal hardware and no big buckles]].",
+        "I need it to hold up, so [[durability for daily commuting matters]].",
+        "My budget is [[around $180 with a hard cap at $260]].",
+        "I don\u2019t want a cluttered interior, so [[basic organization is enough]]."
+      ]
+    },
+    {
+      "id": "bag_042",
+      "gender": "female",
+      "background": "Traveler who spends weekends visiting family and wants a compact duffel that feels nicer than a gym bag.",
+      "ground_truth_need": "She wants a weekender duffel that works for 2\u20133 day trips, packs efficiently, and still looks put-together when carried into hotels. Size for weekend travel is the top priority, followed by durable material and comfortable carry handles/strap. She prefers leather or waxed canvas but is flexible if it\u2019s lightweight. She wants at least one interior pocket for small items, but heavy organization is not required. Target budget is $140 with a strict maximum of $220, and she dislikes overly floppy bags that lose shape.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The most important thing is [[a weekender duffel sized for 2\u20133 day trips]].",
+        "I need it to last, so [[durable materials matter]].",
+        "Carry comfort matters because [[I want a good strap and handles]].",
+        "I prefer a nicer feel, so [[leather or waxed canvas is ideal]].",
+        "I don\u2019t need tons of pockets since [[organization is secondary]].",
+        "I\u2019m aiming for [[around $140 and no more than $220]].",
+        "I\u2019ve had limp bags before, so [[it should hold its shape]]."
+      ]
+    },
+    {
+      "id": "bag_043",
+      "gender": "unspecified",
+      "background": "Cyclist who commutes in a rainy city and often carries a laptop plus a change of clothes for the office.",
+      "ground_truth_need": "They need a commuter bag that is reliably weatherproof to keep electronics and clothes dry during heavy rain. Waterproofing is the top priority, followed by capacity for a laptop and one outfit, then stability while riding. They prefer a bag that compresses when not full and has a comfortable, replaceable shoulder pad if messenger-style. External quick-access is nice but secondary. They target $170 with a hard max of $240 and dislike leaky zippers, poor seam taping, and bags that swing while biking.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My number one requirement is [[reliable weatherproofing for rain]].",
+        "It needs room for my routine, so [[space for a laptop and clothes matters]].",
+        "I bike daily, so [[stability while riding is important]].",
+        "I like flexible carry, so [[a comfortable, padded strap is needed]].",
+        "I prefer a bag that shrinks down, so [[compression when not full matters]].",
+        "My budget is [[around $170 with a hard cap at $240]].",
+        "I\u2019ve had water failures, so [[no leaky zippers or seams]]."
+      ]
+    },
+    {
+      "id": "bag_044",
+      "gender": "female",
+      "background": "Person who travels for weddings and conferences and wants clothes to arrive unwrinkled with minimal fuss.",
+      "ground_truth_need": "She needs a garment bag that protects suits and dresses during flights and prevents wrinkles, ideally with a shoe pocket. Wrinkle prevention is the top priority, followed by durable construction because prior garment bags wore out too quickly. It must be airline-friendly and easy to carry through airports. She wants strong zippers and reinforced handles. Budget target is $120 with a firm max of $190, and she dislikes flimsy fabric, tearing at folds, and cramped interiors.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top need is [[keeping suits and dresses from wrinkling]].",
+        "I need it to hold up, so [[durability is very important]].",
+        "Travel features matter, so [[airline-friendly carry is required]].",
+        "I\u2019d love convenience, so [[a shoe pocket is a strong preference]].",
+        "Hardware matters because [[strong zippers and handles are important]].",
+        "I\u2019m targeting [[about $120 and no more than $190]].",
+        "I\u2019ve had bad ones fail, so [[no flimsy fabric at fold points]]."
+      ]
+    },
+    {
+      "id": "bag_045",
+      "gender": "male",
+      "background": "Ocean fisherman who keeps gear on a boat and needs a bag that survives spray, salt, and rough handling.",
+      "ground_truth_need": "He needs a fishing gear bag that tolerates saltwater exposure and can be rinsed clean, with compartments for tackle trays, tools, snacks, and electronics. Saltwater resistance is the top priority, followed by easy washability, then practical compartmentation for quick access on a rocking boat. It should be water-resistant enough to handle spray and sudden rain. Portability is secondary since it mostly stays on-board. Target budget is $90 with a hard max of $150, and he dislikes zippers that corrode and interiors that trap sand and salt.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main requirement is [[resistance to saltwater and ocean spray]].",
+        "I need it easy to maintain, so [[it should rinse clean without damage]].",
+        "Access matters on a boat, so [[good compartmentation is important]].",
+        "Weather happens, so [[water resistance is a must]].",
+        "It\u2019ll live on the boat, so [[portability is lower priority]].",
+        "I\u2019m aiming for [[around $90 and under $150]].",
+        "Corrosion is a problem, so [[no zippers that rust or seize]]."
+      ]
+    },
+    {
+      "id": "bag_046",
+      "gender": "female",
+      "background": "Busy city resident who wants a durable everyday purse that keeps small items organized and easy to find.",
+      "ground_truth_need": "She wants a crossbody purse with real compartmentation so she can separate phone, keys, wallet, and small essentials without digging. Organization is the top priority, followed by comfortable crossbody wear and durable straps for daily use. She prefers a secure closure and a classic look that works with casual and office outfits. She targets $80 with a hard max of $140 and dislikes giant open cavities, fussy clasps, and straps that fray quickly.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top priority is [[multiple compartments so I can stay organized]].",
+        "I wear it constantly, so [[comfortable crossbody carry matters]].",
+        "It needs to be secure, so [[a reliable closure is important]].",
+        "I need it to last, so [[durable straps are required]].",
+        "I prefer a timeless look, so [[classic styling matters]].",
+        "I\u2019m aiming for [[around $80 and no more than $140]].",
+        "I hate rummaging, so [[no big open single compartment]]."
+      ]
+    },
+    {
+      "id": "bag_047",
+      "gender": "male",
+      "background": "Paramedic student who carries very heavy textbooks daily and needs rolling support for long corridors.",
+      "ground_truth_need": "He needs a heavy-duty wheeled backpack that can handle oversized textbooks and daily use without wheel or handle failure. Wheel-and-handle durability is the top priority, followed by capacity for heavy books and decent ergonomics when lifting. He wants reinforced corners and tough fabric. Organization is secondary to strength. He\u2019s willing to pay for quality: target budget $170 with a hard max of $260. He dislikes tiny wheels, telescoping handles that wobble, and zippers that blow out under load.",
+      "context_trail": [
+        "I need a bag.",
+        "The most important thing is [[a wheeled backpack with durable wheels and handle]].",
+        "It must hold my load, so [[capacity for heavy textbooks matters]].",
+        "I need strength, so [[reinforced corners and tough fabric are important]].",
+        "Lifting happens, so [[comfortable grab points matter]].",
+        "I don\u2019t need fancy pockets since [[organization is secondary]].",
+        "I\u2019m prepared to spend [[around $170 and up to $260]].",
+        "I\u2019ve seen failures, so [[no wobbling handles or tiny wheels]]."
+      ]
+    },
+    {
+      "id": "bag_048",
+      "gender": "unspecified",
+      "background": "Martial arts practitioner who wants a home punching bag setup for stress relief and regular practice.",
+      "ground_truth_need": "They want a heavy punching bag that can be safely hung at home and withstand frequent sessions without tearing or bursting. Durability is the top priority, followed by safe mounting compatibility with home hardware. They prefer a bag that feels solid on impact and doesn\u2019t swing wildly. Budget target is $160 with a firm max of $240. They dislike cheap stitching, thin outer shells, and bags that come underfilled or lumpy.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top requirement is [[a punching bag that\u2019s durable for frequent use]].",
+        "It has to work at home, so [[safe hanging compatibility matters]].",
+        "Training feel matters, so [[solid, consistent impact is important]].",
+        "I want stability, so [[not swinging wildly is a preference]].",
+        "I\u2019ve had cheap gear fail, so [[strong stitching matters]].",
+        "I\u2019m aiming for [[around $160 and no more than $240]].",
+        "I hate bad fill, so [[no lumpy or underfilled bags]]."
+      ]
+    },
+    {
+      "id": "bag_049",
+      "gender": "female",
+      "background": "Design student who carries a laptop and sketchbooks and wants a leather-look satchel that doesn\u2019t feel flimsy.",
+      "ground_truth_need": "She wants a small satchel or sling with a leather or leather-look finish that feels sturdy and keeps its shape with daily use. Shape retention is the top priority, followed by material quality and strap durability. It must fit a small laptop or tablet plus a sketchbook and essentials. She prefers minimal exterior hardware and a classic silhouette. Target budget is $110 with a hard max of $180. She dislikes saggy bodies, thin faux leather that cracks, and uncomfortable straps.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main priority is [[a satchel that holds its shape and doesn\u2019t sag]].",
+        "Material matters to me, so [[a durable leather or leather-look finish is important]].",
+        "It needs to fit my routine, so [[space for a small laptop or tablet is required]].",
+        "I want it to last, so [[strap durability matters]].",
+        "I prefer subtle styling, so [[minimal exterior hardware is ideal]].",
+        "I\u2019m aiming for [[around $110 and no more than $180]].",
+        "Comfort matters, so [[no strap that digs into my shoulder]]."
+      ]
+    },
+    {
+      "id": "bag_050",
+      "gender": "male",
+      "background": "Office commuter who carries two devices and wants a shoulder bag that doesn\u2019t look like tactical gear.",
+      "ground_truth_need": "He needs a shoulder or messenger bag that fits a 14-inch laptop and a small tablet plus cables and headphones, while looking professional and low-key. Professional appearance is the top priority, followed by capacity for two devices, then organization for accessories. Comfort is important for daily carry, and he prefers a top handle option. Target budget is $150 with a firm max of $230. He dislikes loud branding, tactical aesthetics, and bags with one giant open compartment.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top requirement is [[a professional, low-key look for work]].",
+        "It must carry my setup, so [[space for a laptop and a tablet matters]].",
+        "I need it tidy, so [[organization for cables and accessories is important]].",
+        "Carry options matter, so [[a top handle plus shoulder strap is preferred]].",
+        "Daily use means [[comfort is important]].",
+        "I\u2019m targeting [[around $150 and no more than $230]].",
+        "I don\u2019t want a dump pouch, so [[no single huge open compartment]]."
+      ]
+    },
+    {
+      "id": "bag_051",
+      "gender": "unspecified",
+      "background": "Winter sports enthusiast who travels with skis and wants a bag that survives both car trips and occasional flights.",
+      "ground_truth_need": "They need a ski bag that provides solid protection for skis and poles and withstands rough handling. Padding and protection are the top priority, followed by durability of the exterior fabric and stress points. They prefer smooth, reliable zippers and optional wheels for airports, but weight shouldn\u2019t be extreme. It must fit 180 cm class skis comfortably. Target budget is $170 with a hard max of $260, and they dislike thin padding, tearing around seams, and wheels that jam.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main requirement is [[thick padding and protection for skis and poles]].",
+        "It needs to handle abuse, so [[durable exterior fabric matters]].",
+        "Sizing is important, so [[it must fit around 180 cm skis]].",
+        "Travel ease helps, so [[reliable zippers are important]].",
+        "Wheels would be useful, so [[optional rolling capability is a plus]].",
+        "I\u2019m aiming for [[around $170 and no more than $260]].",
+        "I\u2019ve had travel issues, so [[no wheels that jam or break]]."
+      ]
+    },
+    {
+      "id": "bag_052",
+      "gender": "female",
+      "background": "Minimalist traveler who wants one toiletry bag that looks nice and can handle frequent wet bathrooms.",
+      "ground_truth_need": "She needs a toiletry bag that can tolerate wet countertops and occasional leaks without degrading, while still looking refined. Water tolerance is the top priority, followed by high-quality zipper and lining that won\u2019t peel. She prefers a compact footprint that still holds standard toiletries. Aesthetic matters moderately, leaning classic rather than flashy. Target budget is $65 with a hard cap of $110. She dislikes vinyl that cracks, sticky linings, and bags that flop open.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top priority is [[a toiletry bag that handles wet environments without damage]].",
+        "I need it to last, so [[a lining that won\u2019t peel is important]].",
+        "Zippers are often the failure point, so [[a smooth durable zipper matters]].",
+        "I want it practical, so [[a compact size that still fits basics is ideal]].",
+        "I prefer a refined look, so [[classic aesthetics matter]].",
+        "I\u2019m aiming for [[around $65 and no more than $110]].",
+        "I hate messy kits, so [[it shouldn\u2019t flop open easily]]."
+      ]
+    },
+    {
+      "id": "bag_053",
+      "gender": "male",
+      "background": "City resident who does laundry in a shared basement and needs a tough bag that won\u2019t tear on stairs or doorways.",
+      "ground_truth_need": "He needs a laundry bag/hamper hybrid that\u2019s flexible for a small apartment but rugged enough for frequent hauling up and down stairs. Handle durability is the top priority, followed by capacity for a full load and abrasion resistance to avoid rips. He prefers a backpack-style carry but also wants grab handles. Ease of loading matters. Target budget is $40 with a hard max of $75. He dislikes cheap stitching and plastic hardware that snaps.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main requirement is [[handles and straps that won\u2019t rip on stairs]].",
+        "I need it to hold a lot, so [[full-load capacity matters]].",
+        "It gets scraped up, so [[abrasion resistance is important]].",
+        "Carry style matters, so [[backpack carry is preferred]].",
+        "Loading should be easy, so [[a wide opening helps]].",
+        "I\u2019m aiming for [[around $40 and no more than $75]].",
+        "I\u2019ve had parts snap, so [[no brittle plastic hardware]]."
+      ]
+    },
+    {
+      "id": "bag_054",
+      "gender": "female",
+      "background": "Office worker who wants a sleek black leather messenger that avoids loud buckles and looks polished at meetings.",
+      "ground_truth_need": "She needs a sleek black leather messenger that looks polished and minimal, with discreet hardware and no front buckle closures. Clean aesthetic is the top priority, followed by leather quality and durability. A laptop sleeve is preferred but not essential, as she sometimes carries just a tablet and notebook. She values a comfortable shoulder strap and a secure closure. Target budget is $240 with a hard max of $320. She dislikes rustic, chunky designs and noisy metal hardware.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main priority is [[a sleek black leather messenger with a polished look]].",
+        "I dislike certain styling, so [[no front buckle closures]].",
+        "Quality matters, so [[good leather that holds up is important]].",
+        "Carry comfort matters, so [[a comfortable shoulder strap is needed]].",
+        "I like security, so [[a reliable closure is important]].",
+        "I\u2019m aiming for [[around $240 and no more than $320]].",
+        "A laptop sleeve is optional, so [[preferred but not essential]]."
+      ]
+    },
+    {
+      "id": "bag_055",
+      "gender": "unspecified",
+      "background": "Traveler who wants a rugged duffel that can be checked sometimes but still carried like a traditional bag.",
+      "ground_truth_need": "They need a rolling duffel that still feels like a classic duffel when carried, with strong handles and durable wheels. Durability is the top priority, followed by wheel reliability and large capacity. They prefer rugged materials like heavy canvas or reinforced nylon, and they want a stable frame that doesn\u2019t collapse. Weight should be reasonable given the wheels. Target budget is $180 with a hard max of $280. They dislike weak wheel housings and handles that tear.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top requirement is [[a rolling duffel that\u2019s truly durable]].",
+        "Wheels are critical for me, so [[reliable wheel housings matter]].",
+        "I carry a lot, so [[large capacity is important]].",
+        "I still want duffel carry, so [[strong grab handles are needed]].",
+        "I prefer rugged build, so [[heavy-duty fabric matters]].",
+        "I\u2019m targeting [[around $180 and no more than $280]].",
+        "I hate floppy luggage, so [[it shouldn\u2019t collapse awkwardly]]."
+      ]
+    },
+    {
+      "id": "bag_056",
+      "gender": "male",
+      "background": "College student who wants a messenger bag that carries a laptop and textbooks but stays comfortable on a bike commute.",
+      "ground_truth_need": "He needs a messenger bag that carries a 13-inch laptop and 1\u20132 textbooks while remaining comfortable during a bike commute. Comfort and stability while biking are the top priority, followed by adequate capacity, then basic durability. He prefers a lighter bag that doesn\u2019t feel bulky and wants at least one pocket for small items. Target budget is $85 with a hard max of $130. He dislikes bags that slide forward, heavy stiff materials, and straps that chafe.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main thing is [[comfort and stability while biking]].",
+        "It needs to hold my load, so [[space for a laptop and textbooks matters]].",
+        "I want it manageable, so [[a lightweight feel is important]].",
+        "I don\u2019t want a giant bag, so [[not overly bulky is preferred]].",
+        "Pockets help a bit, so [[basic organization is useful]].",
+        "I\u2019m aiming for [[around $85 and no more than $130]].",
+        "I\u2019ve had strap issues, so [[no chafing or slipping straps]]."
+      ]
+    },
+    {
+      "id": "bag_057",
+      "gender": "female",
+      "background": "Traveler who wants a simple wash bag for international trips and prefers materials that age well.",
+      "ground_truth_need": "She wants a compact wash bag that can handle travel wear and bathroom moisture while aging gracefully. Long-term durability is the top priority, followed by material that tolerates getting damp and dries quickly. She wants a structured shape that stands on a counter and a zipper that won\u2019t snag. Style is secondary but she prefers something classic. Target budget is $70 with a hard max of $120. She dislikes thin linings, collapsing bags, and hardware that feels cheap.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top priority is [[a wash bag that lasts through years of travel]].",
+        "It\u2019ll be in wet bathrooms, so [[material that handles moisture matters]].",
+        "Counter use matters, so [[a structured shape that stands up is important]].",
+        "Zipper quality matters because [[snagging drives me crazy]].",
+        "I prefer classic style, so [[a timeless look is nice]].",
+        "I\u2019m aiming for [[around $70 and no more than $120]].",
+        "I\u2019ve had cheap ones fail, so [[no thin lining or flimsy hardware]]."
+      ]
+    },
+    {
+      "id": "bag_058",
+      "gender": "non-binary",
+      "background": "Apartment resident who needs an indoor bean bag chair that won\u2019t rip and is comfortable for gaming sessions.",
+      "ground_truth_need": "They want a large bean bag chair that\u2019s comfortable for long sitting sessions and built with a cover that won\u2019t tear at seams. Durability of the outer cover is the top priority, followed by comfort and adequate size for an adult. They prefer a removable, washable cover and a fabric that resists pilling. Style is low priority but they want neutral colors. Target budget is $140 with a hard max of $220. They dislike scratchy fabric, leaking seams, and sagging fill that flattens quickly.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main requirement is [[a bean bag chair cover that won\u2019t tear or leak seams]].",
+        "I\u2019ll sit for hours, so [[comfort for long sessions matters]].",
+        "Size matters because [[it should fit an adult comfortably]].",
+        "Maintenance matters, so [[a removable washable cover is preferred]].",
+        "I want it to stay nice, so [[fabric that resists pilling matters]].",
+        "I\u2019m aiming for [[around $140 and no more than $220]].",
+        "I hate flat seats, so [[fill that doesn\u2019t collapse quickly is important]]."
+      ]
+    },
+    {
+      "id": "bag_059",
+      "gender": "male",
+      "background": "International student in the UK who needs a laptop bag quickly and wants reasonable shipping and availability.",
+      "ground_truth_need": "He needs a reliable university bag available in the UK that fits a 15.6-inch laptop and books, and he wants it to last at least three academic years. UK availability is the top priority, followed by laptop fit and basic durability. He prefers a comfortable carry and doesn\u2019t need a lifetime product, just something dependable. Style is secondary. Target budget is \u00a370 (about $90) with a hard max of \u00a3110 (about $140). He dislikes expensive international shipping and bags that fail at straps.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main constraint is [[it must be readily available in the UK]].",
+        "It has to fit my device, so [[space for a 15.6-inch laptop matters]].",
+        "I need it to hold up, so [[it should last at least three years]].",
+        "Comfort matters since [[I carry it around campus]].",
+        "I don\u2019t need premium style, so [[function over fashion is fine]].",
+        "I\u2019m aiming for [[around \u00a370 and no more than \u00a3110]].",
+        "Shipping is a concern, so [[no outrageous overseas delivery costs]]."
+      ]
+    },
+    {
+      "id": "bag_060",
+      "gender": "female",
+      "background": "Parent who wants an everyday beach and pool tote that survives summer use and keeps damp items separate.",
+      "ground_truth_need": "She needs a durable beach/pool tote that can handle sand, wet towels, and sunscreen spills without falling apart, ideally with a wet compartment. Durability through summer abuse is the top priority, followed by sand management (easy shake-out) and water resistance. She wants enough space for family items and at least one secure pocket for valuables. She targets $55 with a hard max of $95. She dislikes bags that trap sand, seams that split, and interiors that become grimy and hard to clean.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top priority is [[durability that survives constant beach and pool use]].",
+        "Sand is a nightmare, so [[easy shake-out and not trapping sand matters]].",
+        "Wet stuff is constant, so [[water resistance is important]].",
+        "I\u2019d love separation, so [[a wet compartment is a strong preference]].",
+        "Family trips need space, so [[roomy capacity matters]].",
+        "I\u2019m aiming for [[around $55 and no more than $95]].",
+        "I need security, so [[a secure pocket for valuables is important]]."
+      ]
+    },
+    {
+      "id": "bag_061",
+      "gender": "male",
+      "background": "Commuter who cycles daily and needs a backpack that keeps his electronics dry and straps secure.",
+      "ground_truth_need": "He needs a waterproof commuter backpack that fits a 15-inch laptop, charger, and lunch. Waterproofing is the top priority, followed by stable, adjustable straps that don\u2019t slip during rides. Comfort for daily cycling and moderate capacity for books or clothing are secondary. He prefers a sleek, professional look suitable for office use. Target budget is $160 with a hard cap of $230. He dislikes thin, flimsy material, leaky seams, and straps that loosen while riding.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top priority is [[waterproofing to keep electronics dry]].",
+        "Straps are critical, so [[adjustable, non-slip straps matter]].",
+        "Comfort matters because [[I cycle daily]].",
+        "I need moderate capacity for [[books or clothing]].",
+        "Style matters, so [[a sleek professional look is preferred]].",
+        "I\u2019m aiming for [[around $160 and under $230]].",
+        "I\u2019ve had failures before, so [[no flimsy material or leaky seams]]."
+      ]
+    },
+    {
+      "id": "bag_062",
+      "gender": "female",
+      "background": "Parent who wants a sturdy, large diaper bag for errands and outings with twins.",
+      "ground_truth_need": "She needs a large, durable diaper bag with separate compartments for two sets of baby gear, easy access for quick diaper changes, and a wipeable interior. Capacity and organization are top priorities, followed by lightweight comfort. She wants a neutral, professional look for versatility. Target budget is $120 with a hard max of $180. She dislikes flimsy straps, thin linings, and bags that tip over easily.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main requirement is [[enough compartments for two sets of baby gear]].",
+        "Quick access is important, so [[easy one-handed access for diaper changes]].",
+        "Durability matters because [[I use it daily for errands]].",
+        "Comfort matters, so [[lightweight straps are preferred]].",
+        "I like a versatile look, so [[neutral professional style]].",
+        "I\u2019m aiming for [[around $120 and no more than $180]].",
+        "Stability is key, so [[no bags that tip over easily]]."
+      ]
+    },
+    {
+      "id": "bag_063",
+      "gender": "male",
+      "background": "Student athlete who carries books, laptop, and sports gear across campus.",
+      "ground_truth_need": "He needs a hybrid backpack that separates athletic gear from textbooks and electronics. Organization and compartmentalization are top priorities, followed by durability and comfort during daily walks. Water resistance is secondary. Style is low priority. Target budget is $90 with a hard max of $140. He dislikes flimsy mesh pockets, weak zippers, and bags that sag when loaded.",
+      "context_trail": [
+        "I need a bag.",
+        "The top need is [[compartments to separate athletic and academic gear]].",
+        "Durability matters, so [[strong materials and stitching are important]].",
+        "Comfort is critical, so [[padded straps and back support]].",
+        "Some water resistance is nice because [[gear can get damp]].",
+        "I prefer a basic style, so [[appearance is secondary]].",
+        "I\u2019m targeting [[around $90 and under $140]].",
+        "I\u2019ve had sagging bags, so [[no collapse under weight]]."
+      ]
+    },
+    {
+      "id": "bag_064",
+      "gender": "female",
+      "background": "Office worker who cycles to work and wants a slim bag that protects a laptop and fits under a desk.",
+      "ground_truth_need": "She needs a slim, waterproof messenger that fits her 13-inch laptop, charger, and a small notebook while looking professional. Waterproofing is the top priority, followed by laptop protection and compact dimensions. She prefers minimal hardware and comfortable shoulder straps. Organization is secondary. Target budget is $150 with a hard cap of $230. She dislikes bulky or floppy bags and leaky seams.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The top requirement is [[waterproofing to protect my laptop]].",
+        "Protection matters, so [[padded laptop compartment is needed]].",
+        "Size matters because [[it must fit under my desk]].",
+        "Comfort is important, so [[adjustable shoulder strap]].",
+        "I prefer minimal hardware, so [[no oversized buckles]].",
+        "I\u2019m aiming for [[around $150 and no more than $230]].",
+        "I can\u2019t deal with [[bulky or floppy bags]]."
+      ]
+    },
+    {
+      "id": "bag_065",
+      "gender": "male",
+      "background": "Weekend hiker who wants a small daypack that fits water, snacks, and a camera without swinging while walking.",
+      "ground_truth_need": "He needs a lightweight daypack that provides secure fit and stability, with padded straps and a small internal organizer. Stability on the shoulders is top priority, followed by compact capacity for essentials. Comfort is important for long hikes. Water resistance is secondary. Target budget is $70 with a hard cap of $120. He dislikes bags that swing, straps that rub, or flimsy fabric.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main requirement is [[stability and secure fit on the shoulders]].",
+        "Comfort matters, so [[padded straps for long walks]].",
+        "It should hold essentials like [[water, snacks, and a camera]].",
+        "Some internal pockets are nice because [[organization matters]].",
+        "I prefer a compact design, so [[not too large]].",
+        "I\u2019m aiming for [[around $70 and under $120]].",
+        "I\u2019ve had swinging straps, so [[no side-to-side movement]]."
+      ]
+    },
+    {
+      "id": "bag_066",
+      "gender": "female",
+      "background": "Beach-goer who wants a tote that handles wet towels and sand without deteriorating.",
+      "ground_truth_need": "She needs a beach tote that is sand-resistant, water-resistant, and durable for frequent summer use. Sand and moisture management is the top priority, followed by capacity for towels, sunscreen, and snacks. She prefers a wipeable interior and a durable exterior. Style is secondary. Target budget is $50 with a hard max of $90. She dislikes bags that tear, sag, or retain sand.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main requirement is [[resistance to sand and water]].",
+        "Capacity matters because [[I carry towels, sunscreen, and snacks]].",
+        "I need durability, so [[strong exterior and wipeable interior]].",
+        "Comfort matters since [[I carry it all day at the beach]].",
+        "Style is secondary, so [[I prefer functional design]].",
+        "I\u2019m aiming for [[around $50 and no more than $90]].",
+        "I\u2019ve had saggy bags, so [[it must hold shape]]."
+      ]
+    },
+    {
+      "id": "bag_067",
+      "gender": "male",
+      "background": "Photography student who carries a DSLR, lenses, and a laptop across campus daily.",
+      "ground_truth_need": "He needs a backpack with padded compartments for a camera, lenses, and a laptop, with durable, scratch-resistant materials. Protection for electronics is top priority, followed by compartmentalization and easy access. Comfort for daily campus walks is important. Style is secondary. Target budget is $130 with a hard max of $200. He dislikes bags with thin padding, sagging, or flimsy zippers.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The top priority is [[padded compartments for camera and lenses]].",
+        "Organization matters, so [[separate spaces for tech and accessories]].",
+        "Comfort matters because [[I walk across campus daily]].",
+        "Durable, scratch-resistant material is key, so [[strong exterior fabric]].",
+        "Style is secondary, so [[appearance is flexible]].",
+        "I\u2019m aiming for [[around $130 and under $200]].",
+        "I\u2019ve had flimsy zippers, so [[no weak closures]]."
+      ]
+    },
+    {
+      "id": "bag_068",
+      "gender": "female",
+      "background": "Traveler who wants a toiletry bag that keeps items dry and organized during flights.",
+      "ground_truth_need": "She needs a compact, structured toiletry bag with water-resistant materials, internal compartments, and a secure closure. Protection against leaks is the top priority, followed by compartmentalization for organization. Durability and easy-clean fabric matter next. Target budget is $60 with a hard max of $110. She dislikes flimsy linings, collapsing shapes, and snag-prone zippers.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main requirement is [[water-resistant material to prevent leaks]].",
+        "Organization matters, so [[internal compartments for toiletries]].",
+        "Durability is important, so [[strong stitching and fabric]].",
+        "Shape matters, so [[structured form to avoid collapse]].",
+        "Easy maintenance is nice, so [[wipeable interior]].",
+        "I\u2019m aiming for [[around $60 and no more than $110]].",
+        "I\u2019ve had snaggy zippers, so [[smooth zipper action is essential]]."
+      ]
+    },
+    {
+      "id": "bag_069",
+      "gender": "male",
+      "background": "Student who wants a durable backpack that can carry textbooks, laptop, and sports gear without tearing.",
+      "ground_truth_need": "He needs a hybrid backpack that separates textbooks, laptop, and sports gear. Durability and reinforced stitching is the top priority, followed by capacity and padded back support. Organization for small items is secondary. Style is optional. Target budget is $90 with a hard cap of $150. He dislikes weak fabric, sagging bags, and flimsy straps.",
+      "context_trail": [
+        "I need a bag.",
+        "The top requirement is [[reinforced stitching and durable fabric]].",
+        "It must hold everything, so [[capacity for textbooks, laptop, and gear]].",
+        "Comfort matters, so [[padded back support]].",
+        "Organization helps, so [[pockets for small items]].",
+        "Style is flexible, so [[appearance is secondary]].",
+        "I\u2019m targeting [[around $90 and no more than $150]].",
+        "I\u2019ve had sagging bags before, so [[no collapsing under load]]."
+      ]
+    },
+    {
+      "id": "bag_070",
+      "gender": "female",
+      "background": "Office worker who commutes via bus and wants a stylish, protective bag for laptop and documents.",
+      "ground_truth_need": "She needs a shoulder bag that looks professional, protects a 14-inch laptop and documents, and handles daily commuting. Laptop protection is the top priority, followed by a professional appearance. Durable material and comfortable shoulder strap are next. Organization for small items is helpful. Target budget is $150 with a hard cap of $220. She dislikes bags that flap open, weak zippers, and heavy, stiff designs.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main priority is [[laptop protection for my 14-inch device]].",
+        "Appearance matters, so [[professional look is important]].",
+        "Comfort matters, so [[shoulder strap support is needed]].",
+        "Durable material is essential because [[I use it daily]].",
+        "Organization helps, so [[small pockets for accessories]].",
+        "I\u2019m aiming for [[around $150 and no more than $220]].",
+        "I\u2019ve had bad zippers, so [[no flimsy closures]]."
+      ]
+    },
+    {
+      "id": "bag_071",
+      "gender": "male",
+      "background": "Cyclist who carries lunch, laptop, and gym clothes to work and wants a waterproof, stable bag.",
+      "ground_truth_need": "He needs a waterproof commuter bag with stable straps for cycling, with room for laptop, lunch, and gym clothes. Waterproofing is the top priority, followed by strap stability and comfort. Capacity for small extras is next. Target budget is $160 with a hard max of $230. He dislikes flimsy seams, poor padding, and bags that swing while biking.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top priority is [[waterproofing to protect my laptop and lunch]].",
+        "Stability matters, so [[straps that stay put while cycling]].",
+        "Comfort matters because [[I bike daily]].",
+        "Capacity is needed for [[gym clothes and accessories]].",
+        "I prefer compact design, so [[not oversized]].",
+        "I\u2019m aiming for [[around $160 and no more than $230]].",
+        "I\u2019ve had swinging bags, so [[no side-to-side motion]]."
+      ]
+    },
+    {
+      "id": "bag_072",
+      "gender": "female",
+      "background": "Parent who carries snacks, diapers, and toys for two children and wants a highly organized, durable tote.",
+      "ground_truth_need": "She needs a large tote or backpack with multiple compartments for two children's items, durable material, and easy-clean interior. Compartmentalization is top priority, followed by durability and comfort while carrying. Water resistance is secondary. Target budget is $120 with a hard cap of $180. She dislikes flimsy straps, thin lining, and bags that lose shape.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main requirement is [[multiple compartments for two kids\u2019 gear]].",
+        "Durability matters so [[strong fabric and straps]].",
+        "Comfort is important because [[I carry it often]].",
+        "Easy-clean interior helps, so [[wipeable lining]].",
+        "Some water resistance is nice, so [[waterproofing matters]].",
+        "I\u2019m aiming for [[around $120 and no more than $180]].",
+        "I\u2019ve had floppy bags, so [[maintaining shape is critical]]."
+      ]
+    },
+    {
+      "id": "bag_073",
+      "gender": "male",
+      "background": "Traveler who needs a robust weekender bag for short trips and weekend sports activities.",
+      "ground_truth_need": "He needs a durable weekender bag with sufficient capacity for sports gear and clothes, reinforced handles, and a lightweight design. Capacity is the top priority, followed by reinforced handles for heavy loads. Comfort and portability are next, then durable exterior material. Target budget is $140 with a hard max of $220. He dislikes flimsy zippers, tearing seams, and overly heavy bags.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top priority is [[enough capacity for sports gear and clothes]].",
+        "Reinforced handles matter, so [[they should hold heavy loads]].",
+        "Portability is important, so [[lightweight design]].",
+        "Durability matters, so [[strong exterior fabric]].",
+        "I don\u2019t need fancy pockets, so [[simple interior is fine]].",
+        "I\u2019m aiming for [[around $140 and no more than $220]].",
+        "I\u2019ve had zippers fail before, so [[no flimsy zippers]]."
+      ]
+    },
+    {
+      "id": "bag_074",
+      "gender": "female",
+      "background": "Gym-goer who wants a bag that separates shoes and clothes and is easy to carry for daily workouts.",
+      "ground_truth_need": "She needs a gym bag with separate compartments for shoes and sweaty clothes, a lightweight design, and sturdy straps for daily use. Compartmentalization is the top priority, followed by durability and comfort for shoulder carry. Water resistance is secondary. Target budget is $90 with a hard cap of $140. She dislikes bags that crush items together, flimsy zippers, and thin straps.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main requirement is [[separate compartments for shoes and clothes]].",
+        "Durability matters so [[strong materials and stitching]].",
+        "Comfort matters, so [[padded straps for daily use]].",
+        "Water resistance is nice, so [[protects clothes from sweat or rain]].",
+        "I want easy access, so [[zippers or openings are well-placed]].",
+        "I\u2019m aiming for [[around $90 and no more than $140]].",
+        "I\u2019ve had bags crush items, so [[no merging compartments]]."
+      ]
+    },
+    {
+      "id": "bag_075",
+      "gender": "male",
+      "background": "College student who wants a lightweight messenger for carrying a laptop and books across campus.",
+      "ground_truth_need": "He needs a lightweight messenger bag that comfortably carries a 13-inch laptop, a couple of books, and small accessories without feeling bulky. Weight is the top priority, followed by enough structure to protect the laptop. Weather resistance is useful but not critical. Comfort for shoulder carry matters because he walks a lot. Style is secondary as long as it looks reasonable. His target budget is $70 with a hard cap at $110. He dislikes stiff, heavy materials and straps that dig into his shoulder.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main priority is [[keeping the bag lightweight for daily carry]].",
+        "It still needs protection, so [[structure for a 13-inch laptop matters]].",
+        "Comfort is important because [[I walk across campus a lot]].",
+        "Some weather resistance helps since [[I get caught in rain sometimes]].",
+        "I don\u2019t need anything fancy, so [[simple styling is fine]].",
+        "I\u2019m aiming for [[around $70 and no more than $110]].",
+        "I\u2019ve had bad straps before, so [[no digging or chafing straps]]."
+      ]
+    },
+    {
+      "id": "bag_076",
+      "gender": "female",
+      "background": "Freelancer who works from cafes and carries a laptop, notebook, charger, and lunch.",
+      "ground_truth_need": "She wants a tote-style work bag that fits a 14-inch laptop, notebook, charger, and a small lunch container while staying organized. Organization is the top priority, followed by laptop protection and comfortable shoulder carry. She prefers a structured bag that stands up on its own. A polished but casual look is ideal. Her target budget is $130 with a hard cap at $200. She dislikes deep, unstructured totes where items disappear and straps that slip off the shoulder.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The most important thing is [[good organization so items are easy to find]].",
+        "I need to protect my device, so [[a padded laptop section matters]].",
+        "Comfort matters since [[I carry it between cafes]].",
+        "I like structure, so [[a bag that stands up is preferred]].",
+        "Style matters to me, so [[polished but casual design is ideal]].",
+        "I\u2019m aiming for [[around $130 and no more than $200]].",
+        "I hate losing things, so [[no deep unstructured interiors]]."
+      ]
+    },
+    {
+      "id": "bag_077",
+      "gender": "unspecified",
+      "background": "Commuter who takes crowded trains daily and wants a compact backpack that\u2019s easy to maneuver.",
+      "ground_truth_need": "They need a compact backpack that stays close to the body on crowded trains and still fits a laptop and daily essentials. Compact size is the top priority, followed by comfortable straps and a slim profile. Laptop protection is necessary but should not add bulk. Durability for daily use matters. Target budget is $120 with a hard max at $190. They dislike oversized backpacks, dangling straps, and bags that bump into people in tight spaces.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top requirement is [[a compact backpack that stays close to my body]].",
+        "Comfort matters because [[I wear it on packed trains]].",
+        "It still needs to fit work gear, so [[space for a laptop is required]].",
+        "I want it streamlined, so [[a slim profile is important]].",
+        "Durability matters since [[I use it every day]].",
+        "I\u2019m aiming for [[around $120 and no more than $190]].",
+        "I hate snagging people, so [[no dangling straps or bulky shape]]."
+      ]
+    },
+    {
+      "id": "bag_078",
+      "gender": "male",
+      "background": "Weekend traveler who packs light and wants a small personal-item bag for flights.",
+      "ground_truth_need": "He wants a small personal-item travel bag that fits under airline seats and holds essentials like headphones, tablet, charger, and a light jacket. Airline size compliance is the top priority, followed by smart internal organization. Lightweight construction is important to avoid carry fatigue. Durability matters for frequent trips. His target budget is $90 with a hard cap at $150. He dislikes overly rigid bags and wasted space from excessive padding.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The most important thing is [[meeting personal-item size limits for flights]].",
+        "I need it organized, so [[internal pockets for travel essentials matter]].",
+        "Weight matters because [[I carry it through airports]].",
+        "It should fit basics like [[a tablet, charger, and jacket]].",
+        "I don\u2019t want stiff luggage, so [[some flexibility is preferred]].",
+        "I\u2019m aiming for [[around $90 and no more than $150]].",
+        "I hate wasted space, so [[no overly thick padding]]."
+      ]
+    },
+    {
+      "id": "bag_079",
+      "gender": "female",
+      "background": "Daily dog walker who carries water, treats, keys, and phone during long neighborhood walks.",
+      "ground_truth_need": "She needs a small crossbody or waist bag that stays secure while walking and keeps essentials easily accessible. Secure fit is the top priority, followed by quick access to treats and phone. Lightweight comfort matters for long walks. Durability is important due to daily use and outdoor exposure. Her target budget is $45 with a hard cap at $80. She dislikes bags that bounce, swing, or require two hands to open.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main priority is [[a secure fit that doesn\u2019t bounce while walking]].",
+        "Quick access matters since [[I grab treats and my phone often]].",
+        "Comfort is important because [[I\u2019m out for long walks]].",
+        "It should be light since [[I wear it every day]].",
+        "Durability matters due to [[daily outdoor use]].",
+        "I\u2019m aiming for [[around $45 and no more than $80]].",
+        "I hate fumbling, so [[no two-handed closures]]."
+      ]
+    },
+    {
+      "id": "bag_080",
+      "gender": "male",
+      "background": "Office worker who travels occasionally and wants a versatile backpack that works for commuting and short trips.",
+      "ground_truth_need": "He needs a versatile backpack that functions for daily commuting and occasional overnight travel, fitting a laptop, clothes, and toiletries. Versatility is the top priority, followed by capacity without looking bulky. Laptop protection and comfortable carry are important for daily use. Organization is helpful but not excessive. His target budget is $140 with a hard cap at $210. He dislikes bags that look overly technical or feel awkwardly large when lightly packed.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The most important thing is [[versatility for both commuting and short trips]].",
+        "It needs to carry enough, so [[capacity for laptop and clothes matters]].",
+        "Daily use means [[comfortable carry is important]].",
+        "I want protection, so [[a padded laptop section is needed]].",
+        "I don\u2019t want overkill, so [[moderate organization is preferred]].",
+        "I\u2019m aiming for [[around $140 and no more than $210]].",
+        "I dislike awkward designs, so [[not too bulky when half-empty]]."
+      ]
+    },
+    {
+      "id": "bag_081",
+      "gender": "female",
+      "background": "Urban commuter who walks to work and wants a stylish backpack that doesn\u2019t feel like hiking gear.",
+      "ground_truth_need": "She needs a city-appropriate backpack that fits a 13-inch laptop, notebook, and daily essentials while looking stylish and refined. Aesthetic is the top priority, followed by laptop protection and comfortable carry for walking commutes. She prefers slim profiles and minimal branding. Durability matters but extreme ruggedness is unnecessary. Her target budget is $140 with a hard cap at $210. She dislikes bulky silhouettes, sporty designs, and stiff materials that feel uncomfortable against the back.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main priority is [[a stylish backpack that fits city life]].",
+        "It still needs to be functional, so [[protection for a 13-inch laptop matters]].",
+        "Comfort is important because [[I walk to work every day]].",
+        "I prefer a clean look, so [[a slim profile is ideal]].",
+        "I don\u2019t like loud designs, so [[minimal branding matters]].",
+        "I\u2019m aiming for [[around $140 and no more than $210]].",
+        "I\u2019ve avoided some bags because [[I hate bulky or sporty styles]]."
+      ]
+    },
+    {
+      "id": "bag_082",
+      "gender": "male",
+      "background": "Weekend photographer who wants a casual bag that doesn\u2019t scream camera gear.",
+      "ground_truth_need": "He needs a discreet camera bag that fits a mirrorless camera, one extra lens, and small accessories without looking like a camera bag. Discreet appearance is the top priority, followed by adequate padding for gear protection. Comfort for shoulder carry is important. He prefers flexible interiors over rigid dividers. His target budget is $120 with a hard cap at $180. He dislikes boxy camera bags, excessive padding, and loud logos.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The most important thing is [[a discreet look that doesn\u2019t scream camera gear]].",
+        "I still need safety, so [[padding for camera and lens matters]].",
+        "Comfort matters because [[I carry it for hours]].",
+        "I like flexibility, so [[adjustable or soft dividers are preferred]].",
+        "I avoid attention, so [[no loud logos or branding]].",
+        "I\u2019m aiming for [[around $120 and no more than $180]].",
+        "I dislike rigid designs, so [[no stiff, boxy shape]]."
+      ]
+    },
+    {
+      "id": "bag_083",
+      "gender": "unspecified",
+      "background": "Remote worker who alternates between home, coworking spaces, and short train trips.",
+      "ground_truth_need": "They want a versatile work bag that carries a laptop, keyboard, mouse, and notebook while remaining easy to move with. Versatility across settings is the top priority, followed by organization for tech accessories. Comfortable carry and moderate padding for electronics are important. Style should be neutral. Target budget is $130 with a hard cap at $200. They dislike cluttered interiors, overly rigid shells, and bags that feel awkward in transit.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top priority is [[versatility between home, coworking, and travel]].",
+        "I need order, so [[organization for tech accessories matters]].",
+        "Protection matters because [[I carry electronics daily]].",
+        "Comfort is important since [[I\u2019m moving around a lot]].",
+        "I prefer a neutral look, so [[nothing too flashy]].",
+        "I\u2019m aiming for [[around $130 and no more than $200]].",
+        "I hate messy bags, so [[no cluttered interiors]]."
+      ]
+    },
+    {
+      "id": "bag_084",
+      "gender": "female",
+      "background": "Yoga practitioner who carries a mat, towel, and change of clothes to classes several times a week.",
+      "ground_truth_need": "She needs a yoga bag that securely carries a full-size mat plus towel, water bottle, and clothes. Mat carry compatibility is the top priority, followed by durability and comfortable shoulder carry. Breathable or moisture-resistant materials are important for sweaty gear. Style matters moderately. Her target budget is $75 with a hard cap at $120. She dislikes bags that let mats slide out or trap moisture inside.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main requirement is [[secure carry for a full-size yoga mat]].",
+        "I need it to last, so [[durable construction matters]].",
+        "Sweat is involved, so [[moisture-resistant or breathable material is important]].",
+        "Comfort matters because [[I carry it to class often]].",
+        "I like it to look nice, so [[moderate style appeal matters]].",
+        "I\u2019m aiming for [[around $75 and no more than $120]].",
+        "I\u2019ve had issues before, so [[no slipping or loose mat straps]]."
+      ]
+    },
+    {
+      "id": "bag_085",
+      "gender": "male",
+      "background": "Business traveler who wants one backpack that works as a personal item and daily work bag.",
+      "ground_truth_need": "He needs a travel-ready backpack that fits under airline seats and transitions smoothly into daily work use. Airline personal-item compliance is the top priority, followed by organization for laptop, documents, and chargers. Comfort during travel days is important. He prefers a professional appearance over sporty design. Target budget is $170 with a hard cap at $260. He dislikes bulky travel packs, excessive straps, and casual aesthetics.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main priority is [[meeting airline personal-item size limits]].",
+        "I need work functionality, so [[organization for laptop and documents matters]].",
+        "Travel days are long, so [[comfortable carry is important]].",
+        "I want it work-appropriate, so [[professional styling matters]].",
+        "I dislike clutter, so [[minimal external straps are preferred]].",
+        "I\u2019m aiming for [[around $170 and no more than $260]].",
+        "I\u2019ve ruled out some bags because [[bulky travel designs don\u2019t work]]."
+      ]
+    },
+    {
+      "id": "bag_086",
+      "gender": "female",
+      "background": "Student who carries art supplies, sketchbooks, and a tablet between classes.",
+      "ground_truth_need": "She needs a tote or backpack that fits sketchbooks without bending, plus art supplies and a tablet. Flat-item protection is the top priority, followed by internal organization for tools. Comfortable carry matters due to frequent walking. Durability is important but extreme ruggedness is unnecessary. Her target budget is $85 with a hard cap at $140. She dislikes bags that crease paper, collapse inward, or have tiny unusable pockets.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The biggest requirement is [[keeping sketchbooks flat and unbent]].",
+        "I need space for tools, so [[organization for art supplies matters]].",
+        "Comfort matters because [[I carry it between classes]].",
+        "It should hold tech too, so [[room for a tablet is needed]].",
+        "I don\u2019t want flimsy bags, so [[decent durability matters]].",
+        "I\u2019m aiming for [[around $85 and no more than $140]].",
+        "I hate wasted space, so [[no tiny useless pockets]]."
+      ]
+    },
+    {
+      "id": "bag_087",
+      "gender": "male",
+      "background": "Gym commuter who showers at work and needs a bag that handles wet clothes discreetly.",
+      "ground_truth_need": "He needs a gym-to-work bag that separates wet workout clothes from clean work items without odor transfer. Compartment separation is the top priority, followed by odor and moisture containment. A professional exterior is important so it doesn\u2019t look like a gym bag at the office. Comfort and durability matter for daily use. Target budget is $130 with a hard cap at $200. He dislikes mesh compartments, lingering smells, and overly sporty designs.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main priority is [[separating wet gym clothes from work items]].",
+        "Smell matters to me, so [[odor containment is important]].",
+        "Moisture control helps, so [[water-resistant lining matters]].",
+        "I want it office-safe, so [[professional exterior design is needed]].",
+        "Daily use means [[durable materials matter]].",
+        "I\u2019m aiming for [[around $130 and no more than $200]].",
+        "I\u2019ve ruled out options because [[sporty gym-only looks don\u2019t work]]."
+      ]
+    },
+    {
+      "id": "bag_088",
+      "gender": "unspecified",
+      "background": "Hobbyist cyclist who rides recreationally and wants a small saddle or handlebar bag.",
+      "ground_truth_need": "They need a compact bike-mounted bag that carries tools, phone, and keys securely during rides. Secure attachment is the top priority, followed by compact size that doesn\u2019t interfere with pedaling or steering. Weather resistance is important for unexpected rain. Ease of access matters while stopped. Target budget is $35 with a hard cap at $65. They dislike bags that sway, rattle, or require tools to remove.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The most important thing is [[secure attachment to the bike]].",
+        "It needs to stay small, so [[compact size is essential]].",
+        "Weather can change, so [[water resistance matters]].",
+        "I want convenience, so [[easy access while stopped]].",
+        "I like simplicity, so [[tool-free removal is preferred]].",
+        "I\u2019m aiming for [[around $35 and no more than $65]].",
+        "I\u2019ve had bad ones before, so [[no swaying or rattling]]."
+      ]
+    },
+    {
+      "id": "bag_089",
+      "gender": "female",
+      "background": "Teacher who carries a laptop, notebooks, and personal items between classrooms all day.",
+      "ground_truth_need": "She needs a durable shoulder bag or tote that fits a laptop, notebooks, and teaching materials while remaining comfortable all day. Strap comfort is the top priority, followed by capacity and durability. Organization helps but doesn\u2019t need to be complex. She prefers a professional but warm aesthetic. Her target budget is $100 with a hard cap at $160. She dislikes thin straps, bags that dig into the shoulder, and interiors that are hard to navigate.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top priority is [[comfortable straps for all-day carrying]].",
+        "It needs to fit my work load, so [[capacity for laptop and notebooks matters]].",
+        "I need reliability, so [[durable construction is important]].",
+        "Organization helps, so [[some internal pockets are useful]].",
+        "I want it work-appropriate, so [[professional but friendly style matters]].",
+        "I\u2019m aiming for [[around $100 and no more than $160]].",
+        "I\u2019ve had painful bags before, so [[no thin or cutting straps]]."
+      ]
+    },
+    {
+      "id": "bag_090",
+      "gender": "male",
+      "background": "Minimalist traveler who wants a single sling bag for city sightseeing.",
+      "ground_truth_need": "He needs a compact sling bag that carries phone, wallet, passport, and a small camera while staying close to the body. Compactness is the top priority, followed by secure zippers for travel safety. Comfort for long walks is important. Style should be understated. His target budget is $60 with a hard cap at $100. He dislikes bulky slings, flashy designs, and bags that require frequent adjustment.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main priority is [[a compact sling that stays close to my body]].",
+        "Security matters when traveling, so [[secure zippers are important]].",
+        "Comfort matters because [[I walk all day sightseeing]].",
+        "It needs to fit basics like [[phone, wallet, and passport]].",
+        "I prefer subtle design, so [[understated style matters]].",
+        "I\u2019m aiming for [[around $60 and no more than $100]].",
+        "I dislike fussing, so [[no constant strap readjustment]]."
+      ]
+    },
+    {
+      "id": "bag_091",
+      "gender": "female",
+      "background": "Runner who wants a hydration waist pack for long training runs.",
+      "ground_truth_need": "She needs a lightweight running waist pack that holds water, phone, and keys without bouncing. Bounce-free fit is the top priority, followed by lightweight construction and easy-access pockets. Sweat resistance matters for electronics. Comfort over long distances is essential. Her target budget is $40 with a hard cap at $75. She dislikes bulky packs, hard edges that rub, and zippers that are hard to open while moving.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The most important thing is [[a bounce-free fit while running]].",
+        "Weight matters, so [[lightweight design is critical]].",
+        "I need access on the move, so [[easy-open pockets matter]].",
+        "Sweat is constant, so [[sweat-resistant materials are important]].",
+        "Comfort matters because [[I run long distances]].",
+        "I\u2019m aiming for [[around $40 and no more than $75]].",
+        "I\u2019ve had bad packs, so [[no rubbing or hard edges]]."
+      ]
+    },
+    {
+      "id": "bag_092",
+      "gender": "male",
+      "background": "Warehouse worker who carries tools, gloves, and lunch between shifts.",
+      "ground_truth_need": "He needs a tough utility bag that handles heavy items like tools and gloves without tearing. Durability is the top priority, followed by capacity and reinforced handles. Organization is basic but useful for separating lunch from tools. Comfort is secondary. His target budget is $60 with a hard cap at $100. He dislikes thin fabric, weak stitching, and bags that collapse under weight.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main priority is [[durability for carrying heavy tools]].",
+        "It needs to fit everything, so [[ample capacity matters]].",
+        "Handles matter because [[I lift it often]].",
+        "Some separation helps, so [[basic internal organization is useful]].",
+        "Comfort is less important, so [[ruggedness comes first]].",
+        "I\u2019m aiming for [[around $60 and no more than $100]].",
+        "I\u2019ve had failures, so [[no thin fabric or weak stitching]]."
+      ]
+    },
+    {
+      "id": "bag_093",
+      "gender": "female",
+      "background": "Event planner who carries binders, laptop, and supplies between venues.",
+      "ground_truth_need": "She needs a large, organized work bag that fits binders, a laptop, and event supplies without feeling chaotic. Organization is the top priority, followed by capacity and professional appearance. Durable straps and materials are important for frequent transport. Weight should be manageable. Her target budget is $150 with a hard cap at $230. She dislikes bags with one huge cavity, weak straps, and designs that look too casual.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The most important thing is [[strong organization for binders and supplies]].",
+        "It needs to hold a lot, so [[large capacity matters]].",
+        "I want it work-ready, so [[professional appearance is important]].",
+        "Durability matters because [[I move between venues often]].",
+        "Weight matters, so [[it shouldn\u2019t feel overly heavy]].",
+        "I\u2019m aiming for [[around $150 and no more than $230]].",
+        "I\u2019ve ruled out some options because [[single huge compartments don\u2019t work]]."
+      ]
+    },
+    {
+      "id": "bag_094",
+      "gender": "male",
+      "background": "Frequent flyer who wants a small tech pouch to organize cables and chargers in carry-on luggage.",
+      "ground_truth_need": "He needs a compact tech organizer pouch that keeps cables, chargers, and adapters neatly separated. Organization is the top priority, followed by compact size that fits easily into a carry-on. Durable zippers and fabric matter for frequent travel. Water resistance is a bonus. His target budget is $35 with a hard cap at $70. He dislikes floppy pouches, weak zippers, and layouts that tangle cables.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main priority is [[organized storage for cables and chargers]].",
+        "It needs to be small, so [[compact size is important]].",
+        "Travel is frequent, so [[durable zippers matter]].",
+        "Materials matter because [[it gets used a lot]].",
+        "Water resistance helps, so [[light spill protection is nice]].",
+        "I\u2019m aiming for [[around $35 and no more than $70]].",
+        "I hate messy gear, so [[no tangled cable layouts]]."
+      ]
+    },
+    {
+      "id": "bag_095",
+      "gender": "female",
+      "background": "Outdoor festival attendee who wants a clear bag that meets venue security rules.",
+      "ground_truth_need": "She needs a clear bag that meets event security requirements while still being comfortable to carry all day. Compliance with clear-bag rules is the top priority, followed by comfort and sufficient space for phone, wallet, and sunscreen. Durable seams are important because clear materials can tear. Style is low priority. Her target budget is $25 with a hard cap at $50. She dislikes stiff plastic, sharp edges, and uncomfortable straps.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The main requirement is [[meeting clear-bag security rules]].",
+        "Comfort matters because [[I carry it all day at events]].",
+        "It needs to hold basics like [[phone, wallet, and sunscreen]].",
+        "Durability matters since [[clear materials can tear]].",
+        "I prefer softer material, so [[not stiff plastic]].",
+        "I\u2019m aiming for [[around $25 and no more than $50]].",
+        "I\u2019ve had bad ones before, so [[no sharp edges or rough seams]]."
+      ]
+    },
+    {
+      "id": "bag_096",
+      "gender": "male",
+      "background": "Musician who carries pedals, cables, and small gear to rehearsals.",
+      "ground_truth_need": "He needs a gear bag that fits pedals, cables, and accessories with padding and organization. Protection for gear is the top priority, followed by organization to avoid tangling. Durability matters for frequent transport. Comfort is secondary. His target budget is $90 with a hard cap at $150. He dislikes bags with loose interiors, weak padding, and zippers that catch on cables.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My top priority is [[protecting pedals and music gear]].",
+        "Organization matters, so [[separate sections for cables are important]].",
+        "Durability matters because [[I transport it often]].",
+        "Padding helps, so [[cushioned interior is needed]].",
+        "Comfort is secondary, so [[function comes first]].",
+        "I\u2019m aiming for [[around $90 and no more than $150]].",
+        "I\u2019ve had cable messes, so [[no loose unstructured interiors]]."
+      ]
+    },
+    {
+      "id": "bag_097",
+      "gender": "female",
+      "background": "Office worker who wants a laptop sleeve to protect her device inside a larger tote.",
+      "ground_truth_need": "She needs a padded laptop sleeve that fits a 14-inch laptop snugly and slides easily into a tote. Protection is the top priority, followed by slim profile so it doesn\u2019t add bulk. A soft interior lining matters to prevent scratches. Durability is important for daily use. Her target budget is $30 with a hard cap at $60. She dislikes overly thick sleeves, rough interiors, and poor zipper alignment.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main priority is [[protecting my 14-inch laptop]].",
+        "I want it low-profile, so [[a slim sleeve matters]].",
+        "Interior feel matters, so [[soft lining is important]].",
+        "It needs to last, so [[durable stitching matters]].",
+        "I prefer simple design, so [[minimal exterior features]].",
+        "I\u2019m aiming for [[around $30 and no more than $60]].",
+        "I\u2019ve had annoying ones before, so [[no misaligned or snaggy zippers]]."
+      ]
+    },
+    {
+      "id": "bag_098",
+      "gender": "male",
+      "background": "Road tripper who wants a soft cooler bag for drinks and snacks.",
+      "ground_truth_need": "He needs a soft cooler bag that keeps drinks cold for several hours and fits easily in a car. Insulation performance is the top priority, followed by leak resistance and easy cleaning. Capacity should handle several cans and snacks. Portability matters but wheels aren\u2019t needed. His target budget is $55 with a hard cap at $95. He dislikes coolers that leak, collapse, or are hard to wipe clean.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The most important thing is [[good insulation to keep drinks cold]].",
+        "Leaks are a dealbreaker, so [[leak-resistant lining matters]].",
+        "It needs space for [[drinks and snacks]].",
+        "Cleaning matters, so [[easy-to-wipe interior is important]].",
+        "I like simple carry, so [[lightweight portability is preferred]].",
+        "I\u2019m aiming for [[around $55 and no more than $95]].",
+        "I\u2019ve had bad ones before, so [[no collapsing or floppy structure]]."
+      ]
+    },
+    {
+      "id": "bag_099",
+      "gender": "female",
+      "background": "Frequent shopper who wants reusable grocery bags that are sturdy and easy to store.",
+      "ground_truth_need": "She needs reusable grocery bags that hold heavy loads without tearing and fold flat for storage at home or in the car. Load capacity is the top priority, followed by durability of seams and handles. Easy storage is important. Style is low priority. Her target budget is $20 per bag with a hard cap at $35. She dislikes thin fabric, short handles, and bags that don\u2019t stand upright.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "My main priority is [[holding heavy groceries without tearing]].",
+        "Durability matters, so [[strong seams and handles are important]].",
+        "Storage matters, so [[folding flat is useful]].",
+        "I like convenience, so [[bags that stand upright help]].",
+        "Style isn\u2019t key, so [[function over looks is fine]].",
+        "I\u2019m aiming for [[around $20 per bag and no more than $35]].",
+        "I\u2019ve had bad ones, so [[no thin fabric or short handles]]."
+      ]
+    },
+    {
+      "id": "bag_100",
+      "gender": "unspecified",
+      "background": "Tech enthusiast who wants a protective sleeve for a tablet and accessories during daily commuting.",
+      "ground_truth_need": "They need a compact tablet sleeve that protects a tablet and stylus during daily commuting, with room for a charging cable. Device protection is the top priority, followed by slim size for easy packing. A soft interior lining and durable zipper are important. Style is minimal. Their target budget is $35 with a hard cap at $65. They dislike bulky sleeves, scratchy interiors, and weak closures.",
+      "context_trail": [
+        "I\u2019m looking for a bag.",
+        "The most important thing is [[protecting my tablet during commuting]].",
+        "I want it easy to pack, so [[a slim profile matters]].",
+        "Interior feel matters, so [[soft lining is important]].",
+        "I need space for extras, so [[room for a cable and stylus helps]].",
+        "I prefer clean design, so [[minimal styling is ideal]].",
+        "I\u2019m aiming for [[around $35 and no more than $65]].",
+        "I\u2019ve had bad cases before, so [[no weak or flimsy zippers]]."
+      ]
+    }
+  ]
+}

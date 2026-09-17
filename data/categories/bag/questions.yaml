@@ -1,0 +1,76 @@
+# Bag question bank.
+#
+# Controlled ATR policies ask questions in the YAML order below: openers first,
+# then followups. In adaptive conversations, openers retain their fixed order;
+# after all openers are asked, the agent may select a followup by topic. Questions
+# sharing a topic retain their YAML order.
+
+openers:
+  - id: use_case
+    topic: use_case
+    text: "What do you expect to use this bag for most?"
+
+  - id: budget
+    topic: budget
+    text: "Do you have a budget range?"
+
+  - id: contents
+    topic: capacity
+    text: "What do you need to carry, including any laptop or other bulky items?"
+
+followups:
+  - id: carry_style
+    topic: form_factor
+    text: "How would you prefer to carry it — backpack, shoulder, crossbody, handheld, or rolling?"
+
+  - id: size_capacity
+    topic: capacity
+    text: "Do you want something compact, an everyday size, or as much capacity as practical?"
+
+  - id: weather_protection
+    topic: protection
+    text: "Will it need to handle rain, splashes, sand, or other rough conditions?"
+
+  - id: organization
+    topic: organization
+    text: "How much internal organization do you want — a simple open space or dedicated compartments?"
+
+  - id: other_requirements
+    topic: other
+    text: "Anything else we haven't covered that's a must-have or dealbreaker?"
+
+  - id: laptop_protection
+    topic: protection
+    text: "If you're carrying electronics, do you need a padded laptop or tablet compartment?"
+
+  - id: comfort
+    topic: comfort
+    text: "How important are padded straps, back ventilation, and comfort over longer carries?"
+
+  - id: material
+    topic: material
+    text: "Do you have a material preference — leather, canvas, nylon, recycled fabric, or something else?"
+
+  - id: closure_security
+    topic: security
+    text: "Do you need secure zippers, anti-theft features, or quick open access?"
+
+  - id: travel_features
+    topic: travel
+    text: "Will you fly with it, and does it need to fit under a seat, meet carry-on limits, or attach to luggage?"
+
+  - id: durability
+    topic: durability
+    text: "How hard will you use it, and how important are reinforced seams and heavy-duty hardware?"
+
+  - id: style
+    topic: style
+    text: "What look would fit best — professional, casual, sporty, discreet, or something else?"
+
+  - id: cleaning
+    topic: maintenance
+    text: "Does it need to be easy to wipe clean or machine washable?"
+
+  - id: brand
+    topic: brand
+    text: "Do you have any brand preferences, or brands you'd rather avoid?"

@@ -1,0 +1,57 @@
+category: glove
+display_name: Pair of Gloves
+
+catalog_path: data/categories/glove/products.jsonl
+questions_path: data/categories/glove/questions.yaml
+index_dir: data/categories/glove/index
+
+# Popular, high-review defaults spanning winter, work, and cut-resistant uses.
+default_slate:
+  - B07JYMHWPP
+  - B00004XOH8
+  - B00W5DMX3C
+
+scrape:
+  # US-only volume crawl: broad terms supply volume; niche terms stay capped.
+  products_per_query: 8
+  max_search_pages: 12
+  query_caps:
+    gloves: 70
+    winter gloves: 45
+    work gloves: 40
+    touchscreen winter gloves: 18
+    ski snowboard gloves mittens: 15
+    gardening gloves thorn resistant: 12
+    leather winter dress gloves: 12
+  # Broad categories first; specialized persona needs follow.
+  seed_queries:
+    - "gloves"  # Explicit title filtering excludes disposable/costume/sports mismatches.
+    - "winter gloves"
+    - "work gloves"
+    # - "winter gloves"  # Covered by the more specific winter segments below.
+    - "waterproof insulated work gloves"
+    - "touchscreen winter gloves"
+    - "ski snowboard gloves mittens"
+    - "gardening gloves thorn resistant"
+    - "dishwashing gloves"
+    - "mechanic gloves"
+    - "thin thermal glove liners"
+    - "winter cycling gloves"
+    - "leather motorcycle gloves"
+    - "heat resistant oven gloves"
+    - "cut resistant kitchen gloves"
+    - "welding gloves"
+    - "winter running gloves"
+    - "winter photography gloves"
+    - "extreme cold hunting ice fishing gloves"
+    - "kids snow gloves"
+    - "freezer warehouse gloves"
+    - "leather winter dress gloves"
+    # Follow-up gaps: non-latex reusable cleaning, established mechanic model,
+    # and an insulated technical option (listing claims are not safety validation).
+    - "latex free reusable nitrile dishwashing gloves"
+    - "Mechanix Wear Original work gloves"
+    - "Black Diamond Guide gloves"
+    - "leather motorcycle gloves reinforced knuckle summer"
+  target_products: 250
+  reviews_per_product: 8

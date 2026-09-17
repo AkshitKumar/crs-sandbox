@@ -34,6 +34,9 @@ __pycache__/
 # Result artifacts (keep summary JSONs, ignore raw transcripts to keep repo light)
 results/*/raw/
 
+# Local figure-generation scripts and generated analysis artifacts
+/figures/
+
 # Eval outputs — generated locally per collaborator
 results/
 !results/.gitkeep

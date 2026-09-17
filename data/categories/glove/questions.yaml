@@ -1,0 +1,76 @@
+# Glove question bank.
+#
+# Controlled ATR policies ask questions in the YAML order below: openers first,
+# then followups. In adaptive conversations, openers retain their fixed order;
+# after all openers are asked, the agent may select a followup by topic. Questions
+# sharing a topic retain their YAML order.
+
+openers:
+  - id: use_case
+    topic: use_case
+    text: "What will you mainly use these gloves for?"
+
+  - id: budget
+    topic: budget
+    text: "Do you have a budget range?"
+
+  - id: conditions
+    topic: conditions
+    text: "What temperatures, weather, or work conditions do they need to handle?"
+
+followups:
+  - id: protection
+    topic: protection
+    text: "What protection matters most — cold, water, heat, cuts, impact, chemicals, or something else?"
+
+  - id: fit_dexterity
+    topic: fit
+    text: "Do you prioritize a close, dexterous fit or more room for warmth and layering?"
+
+  - id: material_sensitivity
+    topic: material
+    text: "Any material preferences or sensitivities, such as latex, leather, or wool?"
+
+  - id: grip_control
+    topic: grip
+    text: "How much grip and fine control do you need while wearing them?"
+
+  - id: other_requirements
+    topic: other
+    text: "Anything else we haven't covered that's a must-have or dealbreaker?"
+
+  - id: sizing
+    topic: fit
+    text: "Do you know your glove size, or have any fit issues such as short or long fingers?"
+
+  - id: waterproofing
+    topic: weather
+    text: "Do they need to be fully waterproof, or is light water resistance enough?"
+
+  - id: warmth_breathability
+    topic: insulation
+    text: "How would you balance insulation against breathability and overheating?"
+
+  - id: cuff
+    topic: coverage
+    text: "Do you want a short cuff, a snug wrist closure, or a longer gauntlet?"
+
+  - id: touchscreen
+    topic: touchscreen
+    text: "Do you need reliable touchscreen use without taking the gloves off?"
+
+  - id: durability
+    topic: durability
+    text: "How important are abrasion resistance, reinforced wear areas, and long service life?"
+
+  - id: certification
+    topic: safety
+    text: "Does your work require a specific safety rating or certification?"
+
+  - id: cleaning
+    topic: maintenance
+    text: "Do they need to be machine washable or especially easy to clean?"
+
+  - id: brand
+    topic: brand
+    text: "Do you have any brand preferences, or brands you'd rather avoid?"

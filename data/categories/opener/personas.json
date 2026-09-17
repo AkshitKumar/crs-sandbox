@@ -1,0 +1,1604 @@
+{
+  "personas": [
+    {
+      "id": "opener_001",
+      "gender": "female",
+      "background": "Home cook who meal-preps most nights and is tired of replacing small kitchen tools that fail mid-task. :contentReference[oaicite:0]{index=0}",
+      "ground_truth_need": "Needs a manual can opener for frequent use (5\u20138 cans/week) that reliably bites and turns smoothly without slipping. The top priority is long-term durability\u2014no plastic handle joints, no gear teeth warping, and no gradual \u201cstarts to spin but won\u2019t cut\u201d failure. Corrosion resistance matters because it\u2019s hand-washed and dried but still lives near a sink. Comfortable grip is important to avoid hand fatigue, but function comes first. Target budget is $25; hard max is $40 if it truly lasts years. Prefers readily available replacements/parts, dislikes gimmicky designs that jam.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[durability that won\u2019t fail after months of regular use]].",
+        "I also need [[a metal build without brittle plastic at the handle or gear joint]].",
+        "It should have [[gears that keep biting instead of slipping or turning uselessly]].",
+        "I want [[good rust resistance for a kitchen that\u2019s often humid]].",
+        "I\u2019d like [[a comfortable grip that won\u2019t hurt my hands when opening several cans]].",
+        "I\u2019m aiming for [[around $25 with a hard cap of $40]].",
+        "If possible, I prefer [[a common model with easy-to-find parts or replacements]]."
+      ]
+    },
+    {
+      "id": "opener_002",
+      "gender": "male",
+      "background": "Lives with an older parent and handles most grocery unpacking and cooking, including many canned staples each week.",
+      "ground_truth_need": "Wants an electric can opener for a household where wrist pain and limited dexterity make manual cranking difficult. The dealbreaker is ease of use: the can should lock in securely and open with minimal force or fiddling. Reliability is next\u2014no stalling on thick cans, no components loosening after months, and consistent cutting without leaving jagged edges. Must handle both small and large cans. Noise is a mild preference but not critical. Target budget is $40; hard max is $70 if durability and usability are clearly better. Prefers stable countertop footprint and easy-to-wipe surfaces.",
+      "context_trail": [
+        "I need an electric can opener.",
+        "The most important thing is [[easy use for someone with wrist pain and limited grip strength]].",
+        "I also need [[reliable performance that doesn\u2019t stall or fall apart after months]].",
+        "It must handle [[both small and large cans consistently]].",
+        "I want [[a secure clamp or hold so the can doesn\u2019t wobble during opening]].",
+        "I\u2019d prefer [[a clean cut that doesn\u2019t leave sharp, jagged edges]].",
+        "My budget is [[about $40, with a hard max of $70]].",
+        "If possible, I\u2019d like [[a stable base that doesn\u2019t slide around on the counter]]."
+      ]
+    },
+    {
+      "id": "opener_003",
+      "gender": "unspecified",
+      "background": "Apartment dweller with limited counter space who keeps a small bar setup for casual hosting on weekends.",
+      "ground_truth_need": "Looking for a durable wine opener/corkscrew that feels sturdy and won\u2019t strip or bend with frequent use (2\u20133 bottles/week). The primary requirement is reliability on different cork types, including tighter natural corks, without excessive force. Prefers a waiter-style or lever design that\u2019s compact for a drawer. Build quality matters: strong hinge, solid worm, and minimal plastic. Comfort and a non-slip grip are secondary. Target budget is $20; hard max is $45 for a clearly premium build. Dislikes novelty gadgets that break or get loose over time, and wants something that stays aligned and smooth.",
+      "context_trail": [
+        "I\u2019m looking for a wine opener.",
+        "My top priority is [[reliably pulling corks without bending or stripping]].",
+        "I want [[a sturdy hinge and worm that won\u2019t loosen over time]].",
+        "I prefer [[a compact style that fits in a drawer or travel bag]].",
+        "I\u2019d like [[minimal plastic and a solid, durable feel]].",
+        "It should have [[a comfortable grip that doesn\u2019t slip when hands are wet]].",
+        "I\u2019m aiming for [[around $20, max $45 if it\u2019s truly better]].",
+        "Bonus if it works well with [[both synthetic and natural corks]]."
+      ]
+    },
+    {
+      "id": "opener_004",
+      "gender": "male",
+      "background": "Preps emergency food kits and cooks from bulk pantry items, opening multiple cans daily during busy weeks.",
+      "ground_truth_need": "Needs a handheld manual can opener that can survive heavy daily use (multiple cans/day) without warping gear teeth, dulling quickly, or rusting. The main driver is longevity under high load, even on thick metal lids (coffee, large bulk cans). Must be portable and not dependent on power for emergency situations. Ergonomics matters because of repetitive use, but it must cut consistently first. Target budget is $60; hard max is $120 if it demonstrably lasts many years and has replaceable parts. Prefers straightforward designs that can be cleaned easily and won\u2019t jam.",
+      "context_trail": [
+        "I\u2019m looking for a handheld can opener.",
+        "The key requirement is [[lasting through heavy daily use without the gears deforming]].",
+        "I need [[consistent cutting on thicker cans without jamming]].",
+        "It has to be [[portable and not dependent on electricity]].",
+        "I want [[strong rust resistance for long-term storage and kitchen moisture]].",
+        "I\u2019d like [[an ergonomic handle to reduce fatigue when opening many cans]].",
+        "My budget is [[target $60 with a hard max of $120]].",
+        "Ideally it offers [[replaceable parts or a design that\u2019s serviceable]]."
+      ]
+    },
+    {
+      "id": "opener_005",
+      "gender": "female",
+      "background": "Busy parent who cooks quick weeknight meals and wants tools that work smoothly without requiring lots of hand strength.",
+      "ground_truth_need": "Wants a manual can opener that\u2019s genuinely easy to turn and doesn\u2019t pinch or strain hands, while still being reliable. The dealbreaker is smooth operation: minimal resistance, no slipping, and a stable bite on the lid from the first turn. Durability matters\u2014previous openers developed misaligned handles or dull cutting wheels within a year. Prefers a comfortable grip and a design that doesn\u2019t leave sharp edges. Target budget is $18; hard max is $35 if it noticeably reduces effort and lasts. Dislikes overly bulky models that are hard to store.",
+      "context_trail": [
+        "I need a can opener.",
+        "My biggest need is [[easy turning that doesn\u2019t require much hand strength]].",
+        "It also has to [[bite securely without slipping on the rim]].",
+        "I want [[a design that stays aligned instead of wobbling over time]].",
+        "I\u2019d prefer [[handles that feel comfortable and don\u2019t pinch my palm]].",
+        "It should make [[a cleaner edge so I\u2019m not dealing with sharp metal]].",
+        "I\u2019m looking to spend [[around $18 and no more than $35]].",
+        "If possible, I\u2019d like [[something compact that stores easily in a drawer]]."
+      ]
+    },
+    {
+      "id": "opener_006",
+      "gender": "non-binary",
+      "background": "Lives in a small shared house where kitchen tools get used hard and sometimes left damp after washing.",
+      "ground_truth_need": "Needs a manual can opener that resists rust and keeps working even with less-than-perfect household habits. The top priority is corrosion resistance and durability: no flaking, seized gears, or stiff turning after exposure to moisture. Must reliably open standard soup/bean cans with minimal slipping. Comfortable grip is helpful but secondary. Target budget is $15; hard max is $30, with willingness to pay for stainless components. Prefers simple cleaning and a design that doesn\u2019t trap gunk. Dislikes soft metal parts that bend and models with decorative coatings that chip.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[strong rust resistance since our tools sometimes stay damp]].",
+        "It also needs [[durability so the mechanism doesn\u2019t seize or loosen over time]].",
+        "I want [[smooth operation that doesn\u2019t get stiff after washing]].",
+        "It should [[open everyday cans without slipping or tearing the lid]].",
+        "I\u2019d like [[a design that\u2019s easy to clean and doesn\u2019t trap gunk]].",
+        "My budget is [[about $15, max $30 for better materials]].",
+        "I prefer [[a straightforward build without fragile coatings or flimsy parts]]."
+      ]
+    },
+    {
+      "id": "opener_007",
+      "gender": "male",
+      "background": "Student in a dorm-style apartment who cooks on a tight budget and buys lots of canned food for convenience.",
+      "ground_truth_need": "Wants a cheap but functional manual can opener that works reliably for light-to-moderate use (3\u20135 cans/week). The key driver is price: needs something that won\u2019t feel disposable immediately, but affordability comes first. Still wants acceptable durability\u2014no handle snapping or instant dulling\u2014and it should be easy enough to use without shredding hands. Doesn\u2019t care about brand prestige, just practical value. Target budget is $10; hard max is $18 if it\u2019s clearly sturdier. Prefers a model that doesn\u2019t jam and can be rinsed clean quickly.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "The most important thing is [[keeping it inexpensive since I\u2019m on a tight budget]].",
+        "I still need [[it to last longer than a few months of normal use]].",
+        "I want [[a handle that won\u2019t snap or crack under pressure]].",
+        "It should [[turn without constant jamming or slipping]].",
+        "I\u2019d like [[a grip that doesn\u2019t hurt my hand when I\u2019m opening a few cans]].",
+        "My budget is [[around $10, with a hard cap of $18]].",
+        "Bonus if it\u2019s [[easy to rinse clean without food getting stuck inside]]."
+      ]
+    },
+    {
+      "id": "opener_008",
+      "gender": "female",
+      "background": "Cooks for a large family and often opens big #10-style cans for batch sauces and soups.",
+      "ground_truth_need": "Needs a can opener that can handle large cans and tougher lids without slipping, stalling, or deforming. Primary requirement is torque and bite: it must clamp firmly and cut smoothly through thicker metal without requiring excessive force. Durability is next because current openers lose alignment or the cutting wheel dulls fast. Prefers a manual handheld model but is open to electric if it\u2019s truly robust. Target budget is $35; hard max is $80 if it solves the large-can problem. Secondary preferences include easy cleaning and a comfortable handle for longer sessions.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top need is [[working reliably on large cans and thick lids]].",
+        "It also has to [[clamp and bite firmly instead of slipping under load]].",
+        "I want [[durability so it doesn\u2019t lose alignment after repeated use]].",
+        "I\u2019d prefer [[a design that gives good leverage without straining my wrist]].",
+        "It should be [[easy to clean after opening messy canned foods]].",
+        "My budget is [[around $35, with a hard max of $80]].",
+        "I\u2019m open to [[either manual or electric if it truly handles big cans well]]."
+      ]
+    },
+    {
+      "id": "opener_009",
+      "gender": "unspecified",
+      "background": "Rents a place with minimal kitchen gear and wants a single dependable tool rather than replacing cheap versions repeatedly.",
+      "ground_truth_need": "Looking for a straightforward manual can opener that \u201cjust works\u201d every time without requiring special technique. The dealbreaker is reliability: it must cut continuously around the lid without skipping, jamming, or suddenly failing after a short lifespan. Wants a sturdy construction that doesn\u2019t bend and handles staying aligned even after months. Rust resistance is important but secondary to function. Target budget is $20; hard max is $30. Prefers commonly available models that don\u2019t feel counterfeit or inconsistent in quality. Dislikes overly complex gadgets and anything that\u2019s hard to clean or store.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My biggest priority is [[reliability so it opens cans smoothly without skipping]].",
+        "I also need [[a solid build that won\u2019t bend or feel flimsy]].",
+        "It should [[stay aligned so the cutting wheel keeps proper pressure]].",
+        "I\u2019d like [[reasonable rust resistance for everyday kitchen storage]].",
+        "I prefer [[a simple design without gimmicks]].",
+        "My budget is [[about $20, max $30]].",
+        "Ideally it\u2019s [[easy to clean and doesn\u2019t trap food in the mechanism]]."
+      ]
+    },
+    {
+      "id": "opener_010",
+      "gender": "male",
+      "background": "Outdoor-oriented and keeps a small camping kit, but also uses the same tools at home for quick meals.",
+      "ground_truth_need": "Needs a compact can opener solution that works both in the kitchen and as a backup for camping/emergencies. Primary need is portability and simplicity\u2014something that can live in a kit without breaking. Reliability comes next: it must open standard cans without excessive fiddling. Prefers a manual, power-free option; comfortable use is secondary since it\u2019s not for opening dozens of cans daily. Target budget is $12; hard max is $25 for a better-built compact opener. Dislikes tools that rust quickly or have moving parts that seize after exposure to moisture and dirt.",
+      "context_trail": [
+        "I\u2019m looking for an opener for cans.",
+        "The most important thing is [[being compact and portable for a small kit]].",
+        "It also needs [[reliable can opening without needing electricity]].",
+        "I want [[a simple design that won\u2019t break from being tossed in a bag]].",
+        "It should have [[decent rust resistance for outdoor storage]].",
+        "I\u2019d like [[operation that doesn\u2019t require a lot of force or tricky technique]].",
+        "My budget is [[around $12, with a hard max of $25]].",
+        "Bonus if it can [[handle occasional use on tougher lids without bending]]."
+      ]
+    },
+    {
+      "id": "opener_011",
+      "gender": "female",
+      "background": "Bakes and cooks often and wants kitchen tools that feel premium and consistent, not random quality from store shelves.",
+      "ground_truth_need": "Wants a manual can opener with consistent build quality and smooth performance\u2014no \u201cone good unit, one bad unit\u201d variability. Dealbreaker is mechanism quality: the cutting wheel and gears must stay sharp and engaged for years, not degrade after a few months. Prefers a comfortable handle and a stable turning action that doesn\u2019t wobble. Would like a reputable manufacturer and predictable sourcing. Target budget is $28; hard max is $50 if it\u2019s demonstrably better and comes with a strong warranty. Dislikes models with cheap plastic grips that loosen or crack and anything that\u2019s difficult to clean.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My top priority is [[consistent quality so it doesn\u2019t degrade after a few months]].",
+        "I want [[gears and a cutting wheel that stay sharp and engaged for years]].",
+        "I\u2019d prefer [[a reputable maker with predictable sourcing]].",
+        "It should have [[a smooth, stable turning action without wobble]].",
+        "I want [[a comfortable handle that won\u2019t loosen or crack]].",
+        "My budget is [[about $28, max $50 for clearly better quality]].",
+        "Ideally it\u2019s [[easy to clean and doesn\u2019t trap residue]]."
+      ]
+    },
+    {
+      "id": "opener_012",
+      "gender": "unspecified",
+      "background": "Cooks in a shared office kitchenette and needs a dependable tool that multiple people can use without babying it.",
+      "ground_truth_need": "Needs a manual can opener for communal use that tolerates misuse and still works: rough handling, quick rinses, and frequent use. The main requirement is robustness\u2014handles shouldn\u2019t loosen, gears shouldn\u2019t strip, and the cutter shouldn\u2019t dull quickly. Must reliably open common soup and sauce cans without slipping. Hygiene matters: it should clean easily and not trap food. Target budget is $22; hard max is $40 if it truly holds up in a shared environment. Prefers simple, sturdy designs and dislikes overly complicated mechanisms that break or jam.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "The most important thing is [[robustness for shared use where people are hard on tools]].",
+        "I need [[a mechanism that won\u2019t strip gears or loosen with frequent use]].",
+        "It should [[open soup and sauce cans reliably without slipping]].",
+        "I\u2019d like [[easy cleaning so it doesn\u2019t trap food residue]].",
+        "I prefer [[a simple design that won\u2019t jam from minor misuse]].",
+        "My budget is [[around $22, max $40]].",
+        "Ideally it has [[handles that feel secure even if someone applies awkward force]]."
+      ]
+    },
+    {
+      "id": "opener_013",
+      "gender": "male",
+      "background": "Lives in the UK and regularly orders specialty kitchen items online when local stores only stock flimsy versions.",
+      "ground_truth_need": "Wants a high-quality manual can opener that is available to ship internationally and doesn\u2019t rely on low-grade plastic. The primary driver is durability and performance: it must keep pressure on the lid, avoid handle misalignment, and cut cleanly without slipping even after years. Prefers something with a track record rather than whatever the supermarket carries. Budget is flexible if it truly lasts\u2014target \u00a325 equivalent; hard max \u00a345 equivalent including shipping. Secondary preferences include comfortable handles and decent corrosion resistance. Dislikes openers that feel \u201ccheap\u201d and quickly become ineffective.",
+      "context_trail": [
+        "I\u2019m looking for a manual can opener.",
+        "My main priority is [[durability so it stays effective for years, not months]].",
+        "I also need [[a design that keeps proper pressure without the handles misaligning]].",
+        "It should [[cut cleanly without slipping or skipping around the rim]].",
+        "I prefer [[something easy to order online with reliable availability]].",
+        "I\u2019d like [[comfortable grips for regular kitchen use]].",
+        "My budget is [[around \u00a325 equivalent, hard max \u00a345 including shipping]].",
+        "I want [[materials that resist rust better than typical supermarket models]]."
+      ]
+    },
+    {
+      "id": "opener_014",
+      "gender": "female",
+      "background": "Cares for a parent who insists on an electric appliance and wants a gift that won\u2019t be replaced every year.",
+      "ground_truth_need": "Seeking an electric can opener as a gift for an older adult with wrist discomfort. The dealbreaker is effortless operation: minimal setup, easy alignment, and a predictable start every time. Next priority is longevity\u2014previous inexpensive electrics failed within months, so a sturdier motor and stable cutting assembly are important. Must open small and large cans and ideally handle occasional heavy lids. Target budget is $50; hard max is $90 if it\u2019s clearly better-built and more reliable. Prefers a model that\u2019s easy to wipe down and doesn\u2019t feel overly loud or shaky.",
+      "context_trail": [
+        "I\u2019m looking for an electric can opener.",
+        "The most important thing is [[effortless operation for someone with wrist discomfort]].",
+        "I need [[better long-term reliability than the cheap ones that die in months]].",
+        "It should [[open both small and large cans consistently]].",
+        "I want [[a stable cutting assembly that doesn\u2019t wobble or shake]].",
+        "I\u2019d prefer [[a design that\u2019s easy to wipe clean after use]].",
+        "My budget is [[target $50 with a hard max of $90]].",
+        "If possible, I\u2019d like [[reasonable noise and a smooth, non-jarring feel]]."
+      ]
+    },
+    {
+      "id": "opener_015",
+      "gender": "unspecified",
+      "background": "Cook who frequently opens canned tomatoes and beans and dislikes tools that leave sharp edges or metal shavings.",
+      "ground_truth_need": "Needs a manual can opener that produces a safer, cleaner result: minimal jagged edges and no metal burrs that can end up in food. The primary requirement is cutting quality and consistency, followed by durability\u2014shouldn\u2019t dull quickly or start slipping after a year. Comfort is a secondary preference since it\u2019s used several times a week. Target budget is $22; hard max is $45 if it demonstrably improves safety and lasts. Prefers an opener that\u2019s easy to clean and doesn\u2019t rust readily. Dislikes flimsy handles and cutters that chatter or tear the lid.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My top priority is [[a cleaner, safer cut without jagged edges or burrs]].",
+        "It also needs [[consistent cutting that doesn\u2019t tear or chatter on the lid]].",
+        "I want [[durability so the cutter doesn\u2019t dull quickly]].",
+        "It should [[avoid slipping once it\u2019s engaged on the rim]].",
+        "I\u2019d like [[easy cleaning so residue doesn\u2019t build up]].",
+        "My budget is [[around $22, max $45 for a safer, longer-lasting option]].",
+        "I prefer [[materials that won\u2019t rust easily with normal hand-washing]]."
+      ]
+    },
+    {
+      "id": "opener_016",
+      "gender": "male",
+      "background": "Minimalist who wants one solid kitchen tool and hates the cycle of buying replacements from big-box stores.",
+      "ground_truth_need": "Wants a dependable manual can opener that won\u2019t become useless after a short period. The dealbreaker is long-term mechanical integrity: gears must not strip, handles must not flex or snap, and the cutting wheel must keep engaging properly. Prefers an all-metal or mostly metal build and a design known for consistent performance. Budget is moderate: target $30 with a hard max of $55 if it truly ends the replacement cycle. Secondary preferences include comfortable turning and basic rust resistance. Dislikes flashy \u201cpremium-looking\u201d openers that still use weak plastic internals.",
+      "context_trail": [
+        "I need a can opener.",
+        "My main priority is [[ending the replacement cycle with something that lasts]].",
+        "I want [[gears that don\u2019t strip and a cutter that keeps engaging properly]].",
+        "I prefer [[a mostly metal build rather than fragile plastic parts]].",
+        "It should [[turn smoothly without excessive force]].",
+        "I\u2019d like [[basic rust resistance for normal kitchen storage]].",
+        "My budget is [[target $30 with a hard max of $55]].",
+        "I\u2019d rather avoid [[models that look premium but use weak internals]]."
+      ]
+    },
+    {
+      "id": "opener_017",
+      "gender": "female",
+      "background": "Hosts small gatherings and keeps a mix of beer and soda on hand, wanting a simple tool that won\u2019t disappear or break.",
+      "ground_truth_need": "Looking for a durable bottle opener for crown caps that feels sturdy and won\u2019t bend or chip with frequent hosting. The primary need is reliability and leverage: it should pop caps cleanly without slipping, even when hands are wet. Build quality matters\u2014prefer stainless steel or a thick cast metal piece that can survive dishwasher use or being tossed in a drawer. Target budget is $12; hard max is $25 for a nicer, heavy-duty option. Secondary preference is a form factor that\u2019s easy to find (bright or distinctive) and comfortable to hold.",
+      "context_trail": [
+        "I\u2019m looking for a bottle opener.",
+        "The most important thing is [[solid leverage that pops caps cleanly without slipping]].",
+        "I want [[a durable build that won\u2019t bend or chip over time]].",
+        "It should [[work well even if my hands are wet]].",
+        "I\u2019d prefer [[materials that handle dishwashing without rusting]].",
+        "I\u2019d like [[a comfortable shape that\u2019s easy to grip]].",
+        "My budget is [[around $12, max $25]].",
+        "Bonus if it\u2019s [[distinctive enough that it doesn\u2019t get lost in a drawer]]."
+      ]
+    },
+    {
+      "id": "opener_018",
+      "gender": "non-binary",
+      "background": "Lives in a tiny studio with a micro-kitchen and prioritizes compact, multi-use tools over single-purpose gadgets.",
+      "ground_truth_need": "Needs a compact opener solution primarily for cans but with minimal storage footprint. The dealbreaker is space efficiency: it should be small, easy to store, and not require a bulky countertop appliance. Still must be reliable\u2014no constant slipping, no immediate dulling, and it should handle common can sizes. Comfort is a secondary consideration, but it shouldn\u2019t be a painful \u201chand destroyer.\u201d Target budget is $15; hard max is $30 if the design is compact yet sturdy. Prefers easy cleaning and corrosion resistance, and dislikes gimmicky mechanisms that are finicky to use.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My top priority is [[a compact option that doesn\u2019t take up much space]].",
+        "I still need [[reliable opening without slipping all over the rim]].",
+        "I want [[a design that doesn\u2019t get dull or useless quickly]].",
+        "It should [[not be painful to use even if I open a few cans in a row]].",
+        "I\u2019d like [[easy cleaning so it\u2019s not gross in a small kitchen]].",
+        "My budget is [[around $15, max $30]].",
+        "I prefer [[materials that resist rust without needing special care]]."
+      ]
+    },
+    {
+      "id": "opener_019",
+      "gender": "male",
+      "background": "Cooks occasionally but gets frustrated by tools that jam, making quick meals feel like a chore.",
+      "ground_truth_need": "Wants a manual can opener that is smooth and frustration-free: no jamming, no repeated re-clamping, and no slipping halfway through. The primary requirement is consistent performance, especially on standard grocery-store cans. Durability is second\u2014previous openers became useless after a few months even at different price points. Budget-conscious but willing to pay for value: target $18, hard max $35 if it reliably avoids the usual failures. Secondary preferences include comfortable handles and a mechanism that doesn\u2019t trap residue. Dislikes cheap-feeling plastic and cutters that quickly lose their edge.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[a frustration-free opener that doesn\u2019t jam or need constant re-gripping]].",
+        "I need [[consistent cutting all the way around without slipping midway]].",
+        "It should [[stay functional for more than a few months of normal use]].",
+        "I\u2019d prefer [[minimal plastic so it doesn\u2019t feel flimsy]].",
+        "I want [[handles that are comfortable and don\u2019t dig into my hand]].",
+        "My budget is [[target $18 with a hard max of $35]].",
+        "Bonus if it\u2019s [[easy to clean and doesn\u2019t collect gunk in the gears]]."
+      ]
+    },
+    {
+      "id": "opener_020",
+      "gender": "female",
+      "background": "Gives practical gifts and wants something dependable for an older relative who cooks simple pantry meals.",
+      "ground_truth_need": "Needs a can opener to gift that will be dependable and easy for an older user, without requiring high hand strength. The dealbreaker is dependable operation: it should bite immediately and not slip, even after years. Comfort and ease-of-turning are next because the recipient has mild hand discomfort. Prefers a manual model to avoid appliance clutter, but it must feel sturdy and resist rust. Target budget is $25; hard max is $45 for a truly durable, comfortable opener. Dislikes sharp, jagged results and anything that feels fragile or inconsistent out of the box.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "The most important thing is [[dependable opening that keeps working for years]].",
+        "I also need [[easy turning for someone with mild hand discomfort]].",
+        "It should [[bite right away and not slip on the rim]].",
+        "I prefer [[a sturdy manual model rather than a bulky appliance]].",
+        "I\u2019d like [[good rust resistance for normal kitchen storage]].",
+        "My budget is [[around $25 with a hard max of $45]].",
+        "Ideally it leaves [[a safer edge so the lid isn\u2019t razor sharp]]."
+      ]
+    },
+    {
+      "id": "opener_021",
+      "gender": "male",
+      "background": "Works long shifts and cooks quick meals late at night, valuing tools that work smoothly without hassle.",
+      "ground_truth_need": "Needs a manual can opener that works reliably every time with minimal effort after a long day. The top priority is smooth engagement from the first turn\u2014no slipping or re-clamping. Durability is next; past openers lost alignment within months. Comfort matters but is secondary to function. Target budget is $20; hard max is $35 if it noticeably reduces frustration and lasts longer. Prefers compact storage and easy rinsing. Dislikes flimsy plastic gears and cutters that dull quickly.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[smooth engagement without slipping from the first turn]].",
+        "I also need [[durability so it doesn\u2019t lose alignment after a few months]].",
+        "It should [[cut consistently without needing to re-clamp mid-can]].",
+        "I\u2019d like [[a comfortable handle that doesn\u2019t strain my hand late at night]].",
+        "I prefer [[a compact size that stores easily]].",
+        "My budget is [[around $20, with a hard cap of $35]].",
+        "Bonus if it\u2019s [[easy to rinse clean after quick meals]]."
+      ]
+    },
+    {
+      "id": "opener_022",
+      "gender": "female",
+      "background": "Lives alone and cooks small portions, opening only a few cans weekly but wants dependable tools.",
+      "ground_truth_need": "Wants a simple manual can opener that works predictably without fuss. The dealbreaker is reliability\u2014no skipping, jamming, or sudden failure. Prefers a lightweight feel but not flimsy materials. Comfort is a mild preference since usage is light. Target budget is $15; hard max is $25 for something clearly sturdier. Values rust resistance and easy cleaning. Dislikes novelty designs that look clever but work poorly.",
+      "context_trail": [
+        "I need a can opener.",
+        "The most important thing is [[reliable opening without jamming or skipping]].",
+        "I want [[a lightweight feel that\u2019s still sturdy]].",
+        "It should [[work predictably without special technique]].",
+        "I\u2019d like [[basic rust resistance for everyday storage]].",
+        "I prefer [[easy cleaning without food getting trapped]].",
+        "My budget is [[about $15, max $25]].",
+        "I want to avoid [[novelty designs that sacrifice function]]."
+      ]
+    },
+    {
+      "id": "opener_023",
+      "gender": "unspecified",
+      "background": "Cooks for a meal delivery prep side business and opens many identical cans in batches.",
+      "ground_truth_need": "Needs a manual can opener that maintains speed and consistency across repetitive batch work. Primary requirement is consistent bite and cutting speed\u2014no slowdown or slippage over dozens of cans. Durability under repetition is next, followed by ergonomic comfort. Target budget is $45; hard max is $80 if it truly holds up to batch use. Prefers stainless components and easy sanitation. Dislikes cutters that heat up hands or develop play in the mechanism.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My top priority is [[consistent bite and speed across many cans]].",
+        "I need [[durability for repetitive batch opening]].",
+        "It should [[avoid slippage even late in long prep sessions]].",
+        "I\u2019d like [[ergonomic handles to reduce fatigue]].",
+        "I prefer [[stainless materials for easier sanitation]].",
+        "My budget is [[target $45 with a hard max of $80]].",
+        "I want [[a mechanism that doesn\u2019t loosen with repetition]]."
+      ]
+    },
+    {
+      "id": "opener_024",
+      "gender": "female",
+      "background": "Keeps a minimalist kitchen and dislikes clutter from single-use appliances.",
+      "ground_truth_need": "Looking for a compact manual can opener that replaces bulky electric options. The dealbreaker is space efficiency without sacrificing function. Reliability comes next; it must cut cleanly and smoothly. Comfort is secondary but should be adequate. Target budget is $18; hard max is $30. Prefers simple aesthetics and corrosion resistance. Dislikes oversized handles and complex assemblies.",
+      "context_trail": [
+        "I need a can opener.",
+        "My main priority is [[a compact design that saves kitchen space]].",
+        "I still need [[reliable cutting without slipping]].",
+        "It should [[replace bulky electric models functionally]].",
+        "I\u2019d like [[a clean, simple look without clutter]].",
+        "I want [[basic comfort for regular use]].",
+        "My budget is [[around $18, max $30]].",
+        "I prefer [[materials that resist rust]]."
+      ]
+    },
+    {
+      "id": "opener_025",
+      "gender": "male",
+      "background": "Lives in a coastal area where kitchen tools corrode quickly if not well made.",
+      "ground_truth_need": "Needs a manual can opener with excellent corrosion resistance due to salty air and humidity. The top priority is rust-proof performance; previous tools seized within months. Reliability and smooth cutting are next. Comfort is secondary. Target budget is $22; hard max is $40 for marine-grade materials. Prefers stainless steel and simple cleaning. Dislikes coated finishes that chip.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My top priority is [[strong corrosion resistance in humid, salty air]].",
+        "I also need [[reliable cutting that doesn\u2019t seize over time]].",
+        "It should [[turn smoothly without grinding]].",
+        "I prefer [[stainless steel over coated finishes]].",
+        "I\u2019d like [[easy cleaning after use]].",
+        "My budget is [[about $22, with a hard max of $40]].",
+        "I want to avoid [[finishes that chip or peel]]."
+      ]
+    },
+    {
+      "id": "opener_026",
+      "gender": "female",
+      "background": "Cooks occasionally but has arthritis flare-ups that make gripping painful.",
+      "ground_truth_need": "Wants a manual can opener that minimizes strain during flare-ups. The dealbreaker is low-effort turning with a secure bite. Comfort-focused handles are next, followed by reliability. Target budget is $30; hard max is $55 if it significantly reduces pain. Prefers stable alignment and clean cutting. Dislikes narrow handles and jerky mechanisms.",
+      "context_trail": [
+        "I need a can opener.",
+        "The most important thing is [[low-effort turning during arthritis flare-ups]].",
+        "I need [[handles designed for comfort and grip]].",
+        "It should [[bite securely without jerky motion]].",
+        "I want [[reliable alignment so it doesn\u2019t fight me]].",
+        "I\u2019d like [[a clean cut without sharp edges]].",
+        "My budget is [[target $30, hard max $55]].",
+        "I prefer [[a sturdy feel that inspires confidence]]."
+      ]
+    },
+    {
+      "id": "opener_027",
+      "gender": "unspecified",
+      "background": "Runs a small food pantry and needs tools that volunteers can use easily.",
+      "ground_truth_need": "Needs a manual can opener that works for many users with different skill levels. The primary requirement is foolproof operation\u2014easy alignment and consistent cutting. Durability is next due to shared use. Target budget is $25; hard max is $45. Prefers easy cleaning and sturdy handles. Dislikes finicky mechanisms.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[foolproof operation for many different users]].",
+        "I also need [[durability for shared, frequent use]].",
+        "It should [[align easily without instruction]].",
+        "I\u2019d like [[handles that feel sturdy and intuitive]].",
+        "I prefer [[easy cleaning between uses]].",
+        "My budget is [[around $25, max $45]].",
+        "I want to avoid [[finicky or delicate mechanisms]]."
+      ]
+    },
+    {
+      "id": "opener_028",
+      "gender": "male",
+      "background": "Enjoys cooking gadgets but wants at least one tool that is purely functional.",
+      "ground_truth_need": "Looking for a no-nonsense manual can opener focused on performance. The dealbreaker is consistent cutting without gimmicks. Durability is next, then comfort. Target budget is $20; hard max is $40. Prefers all-metal internals. Dislikes flashy features.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[pure functionality without gimmicks]].",
+        "I want [[consistent cutting performance every time]].",
+        "It should [[hold up without loosening over time]].",
+        "I prefer [[mostly metal internals]].",
+        "I\u2019d like [[decent comfort for regular cooking]].",
+        "My budget is [[about $20, max $40]].",
+        "I want to avoid [[flashy but unreliable designs]]."
+      ]
+    },
+    {
+      "id": "opener_029",
+      "gender": "female",
+      "background": "Cooks with children and prioritizes safety around sharp edges.",
+      "ground_truth_need": "Needs a can opener that minimizes sharp edges and accidental cuts. The primary requirement is safer lid removal, followed by reliability. Comfort is secondary. Target budget is $25; hard max is $45. Prefers smooth-cut designs and easy cleaning. Dislikes jagged lids.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[safer lid removal with fewer sharp edges]].",
+        "I need [[reliable cutting that doesn\u2019t tear metal]].",
+        "It should [[stay consistent over time]].",
+        "I\u2019d like [[easy cleaning after messy cans]].",
+        "I want [[comfortable use without slipping]].",
+        "My budget is [[around $25, max $45]].",
+        "I want to avoid [[jagged or razor-sharp results]]."
+      ]
+    },
+    {
+      "id": "opener_030",
+      "gender": "male",
+      "background": "Lives in a camper van and cooks with limited tools and power.",
+      "ground_truth_need": "Needs a manual can opener suitable for mobile living. The dealbreaker is reliability without electricity. Compact size and durability come next. Target budget is $15; hard max is $30. Prefers rust resistance and simple cleaning. Dislikes bulky tools.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[working reliably without electricity]].",
+        "I also need [[a compact size for van storage]].",
+        "It should [[hold up to bumps and movement]].",
+        "I prefer [[rust resistance for varied climates]].",
+        "I\u2019d like [[easy cleaning with limited water]].",
+        "My budget is [[about $15, max $30]].",
+        "I want to avoid [[bulky or fragile designs]]."
+      ]
+    },
+    {
+      "id": "opener_031",
+      "gender": "female",
+      "background": "Shops primarily online and is wary of inconsistent quality between listings.",
+      "ground_truth_need": "Wants a can opener with predictable quality and good reviews. The dealbreaker is consistency\u2014no random defects. Durability and reliability follow. Target budget is $22; hard max is $40. Prefers known designs and easy returns. Dislikes misleading listings.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[consistent quality without random defects]].",
+        "I need [[reliable cutting performance]].",
+        "It should [[hold up over regular use]].",
+        "I prefer [[well-reviewed, proven designs]].",
+        "I\u2019d like [[easy cleaning and storage]].",
+        "My budget is [[around $22, max $40]].",
+        "I want to avoid [[misleading or poorly described products]]."
+      ]
+    },
+    {
+      "id": "opener_032",
+      "gender": "unspecified",
+      "background": "Keeps a rental property stocked with basic kitchen tools for guests.",
+      "ground_truth_need": "Needs a can opener that survives guest misuse. The primary requirement is toughness and simplicity. Reliability is next. Target budget is $18; hard max is $35. Prefers easy replacement availability. Dislikes delicate designs.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[toughness for guest misuse]].",
+        "I also need [[simple, reliable operation]].",
+        "It should [[avoid loosening or bending]].",
+        "I prefer [[easy-to-clean construction]].",
+        "I want [[widely available replacements]].",
+        "My budget is [[about $18, max $35]].",
+        "I want to avoid [[delicate or fussy designs]]."
+      ]
+    },
+    {
+      "id": "opener_033",
+      "gender": "male",
+      "background": "Enjoys cooking but has limited hand strength after an injury.",
+      "ground_truth_need": "Needs a can opener that minimizes required grip and torque. The dealbreaker is ease of turning. Reliability is next. Target budget is $28; hard max is $50. Prefers ergonomic handles. Dislikes stiff mechanisms.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[easy turning with minimal grip strength]].",
+        "I need [[a mechanism that doesn\u2019t fight back]].",
+        "It should [[stay aligned without slipping]].",
+        "I\u2019d like [[ergonomic handles]].",
+        "I prefer [[smooth, quiet operation]].",
+        "My budget is [[around $28, max $50]].",
+        "I want to avoid [[stiff or jerky designs]]."
+      ]
+    },
+    {
+      "id": "opener_034",
+      "gender": "female",
+      "background": "Cooks infrequently and wants something that still works after long periods in a drawer.",
+      "ground_truth_need": "Needs a can opener that won\u2019t seize or rust when unused for months. The primary requirement is readiness after storage. Reliability is next. Target budget is $15; hard max is $30. Prefers rust resistance. Dislikes maintenance-heavy tools.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[working properly even after months in storage]].",
+        "I need [[rust resistance for long-term drawer storage]].",
+        "It should [[cut reliably on first use]].",
+        "I prefer [[minimal maintenance requirements]].",
+        "I\u2019d like [[simple cleaning when I do use it]].",
+        "My budget is [[around $15, max $30]].",
+        "I want to avoid [[tools that seize when unused]]."
+      ]
+    },
+    {
+      "id": "opener_035",
+      "gender": "unspecified",
+      "background": "Buys bulk canned goods and opens multiple cans at once for freezing.",
+      "ground_truth_need": "Needs a can opener that performs well in short bursts of heavy use. The dealbreaker is consistent cutting across many cans in one session. Durability is next. Target budget is $25; hard max is $50. Prefers comfortable grip. Dislikes overheating hands.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[consistent cutting during batch opening sessions]].",
+        "I also need [[durability for repeated use]].",
+        "It should [[avoid slipping as my hands get tired]].",
+        "I\u2019d like [[comfortable grips for longer sessions]].",
+        "I prefer [[smooth operation without heat buildup]].",
+        "My budget is [[around $25, max $50]].",
+        "I want to avoid [[tools that feel rough over time]]."
+      ]
+    },
+    {
+      "id": "opener_036",
+      "gender": "male",
+      "background": "Prefers American-made or clearly sourced kitchen tools.",
+      "ground_truth_need": "Wants a can opener with clear manufacturing standards. The dealbreaker is trustworthy build quality. Performance and durability follow. Target budget is $30; hard max is $60. Prefers transparency in sourcing. Dislikes vague branding.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[trustworthy build quality with clear sourcing]].",
+        "I also need [[reliable cutting performance]].",
+        "It should [[last without internal failures]].",
+        "I prefer [[transparent manufacturing information]].",
+        "I\u2019d like [[comfortable everyday use]].",
+        "My budget is [[around $30, max $60]].",
+        "I want to avoid [[vague or misleading branding]]."
+      ]
+    },
+    {
+      "id": "opener_037",
+      "gender": "female",
+      "background": "Uses adaptive kitchen tools and values inclusive design.",
+      "ground_truth_need": "Needs a can opener compatible with adaptive use. The dealbreaker is easy alignment and leverage. Reliability follows. Target budget is $35; hard max is $65. Prefers non-slip materials. Dislikes narrow handles.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[easy alignment and leverage for adaptive use]].",
+        "I need [[reliable cutting without fine motor control]].",
+        "It should [[avoid slipping once engaged]].",
+        "I\u2019d like [[non-slip handle materials]].",
+        "I prefer [[smooth, predictable operation]].",
+        "My budget is [[around $35, max $65]].",
+        "I want to avoid [[narrow or sharp-edged handles]]."
+      ]
+    },
+    {
+      "id": "opener_038",
+      "gender": "male",
+      "background": "Cooks outdoors frequently and cleans tools with minimal water.",
+      "ground_truth_need": "Needs a can opener that cleans easily in outdoor settings. The dealbreaker is simple cleaning. Reliability and rust resistance follow. Target budget is $18; hard max is $35. Prefers simple construction. Dislikes trapped residue.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[easy cleaning with limited water]].",
+        "I also need [[reliable cutting outdoors]].",
+        "It should [[resist rust and dirt]].",
+        "I prefer [[simple construction without crevices]].",
+        "I\u2019d like [[compact storage for camping gear]].",
+        "My budget is [[around $18, max $35]].",
+        "I want to avoid [[designs that trap food residue]]."
+      ]
+    },
+    {
+      "id": "opener_039",
+      "gender": "female",
+      "background": "Prefers aesthetically pleasing tools but won\u2019t compromise core function.",
+      "ground_truth_need": "Wants a can opener that looks decent but primarily works well. The dealbreaker is functional reliability. Durability follows, then aesthetics. Target budget is $25; hard max is $45. Prefers neutral colors. Dislikes purely decorative tools.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[reliable function over looks]].",
+        "I also need [[durability so it doesn\u2019t fail early]].",
+        "It should [[cut smoothly without slipping]].",
+        "I\u2019d like [[a clean, neutral appearance]].",
+        "I prefer [[comfortable everyday handling]].",
+        "My budget is [[around $25, max $45]].",
+        "I want to avoid [[purely decorative designs]]."
+      ]
+    },
+    {
+      "id": "opener_040",
+      "gender": "unspecified",
+      "background": "Buys once and expects tools to last a decade or more.",
+      "ground_truth_need": "Needs a can opener built for long-term ownership. The dealbreaker is longevity\u2014no planned obsolescence. Reliability and serviceability follow. Target budget is $40; hard max is $75 if it truly lasts. Prefers solid materials and simple mechanics. Dislikes disposable-feeling tools.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[long-term longevity without planned obsolescence]].",
+        "I also need [[reliable performance year after year]].",
+        "It should [[avoid parts that wear out quickly]].",
+        "I prefer [[solid, durable materials]].",
+        "I\u2019d like [[simple mechanics that can be serviced]].",
+        "My budget is [[target $40 with a hard max of $75]].",
+        "I want to avoid [[tools that feel disposable]]."
+      ]
+    },
+    {
+      "id": "opener_041",
+      "gender": "female",
+      "background": "Meal-preps on Sundays and opens many cans back-to-back while juggling limited counter space.",
+      "ground_truth_need": "Needs a manual can opener that maintains consistent performance during back-to-back use without slipping or fatiguing the hand. The top priority is steady cutting engagement across multiple cans in one session. Durability under repetition is next, followed by comfort. Target budget is $22; hard max is $40 if it clearly reduces effort and lasts longer. Prefers compact storage and easy cleaning. Dislikes cutters that lose bite mid-session.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[consistent cutting across multiple cans in one session]].",
+        "I also need [[durability that holds up to repeated use]].",
+        "It should [[maintain a firm bite without slipping mid-can]].",
+        "I\u2019d like [[comfortable handles to reduce fatigue]].",
+        "I prefer [[compact storage for limited counter space]].",
+        "My budget is [[around $22, max $40]].",
+        "Bonus if it\u2019s [[easy to clean between batches]]."
+      ]
+    },
+    {
+      "id": "opener_042",
+      "gender": "male",
+      "background": "Lives in a shared apartment where tools are often dropped or handled roughly.",
+      "ground_truth_need": "Needs a manual can opener that can take abuse and still function. The dealbreaker is toughness\u2014no bending handles, stripped gears, or misalignment after drops. Reliability is next, then ease of cleaning. Target budget is $20; hard max is $35. Prefers simple, sturdy designs. Dislikes delicate finishes.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[toughness that survives rough handling]].",
+        "I also need [[reliable cutting even after being dropped]].",
+        "It should [[keep alignment instead of wobbling]].",
+        "I prefer [[simple construction without delicate finishes]].",
+        "I\u2019d like [[easy cleaning after shared use]].",
+        "My budget is [[around $20, max $35]].",
+        "I want to avoid [[tools that bend or deform easily]]."
+      ]
+    },
+    {
+      "id": "opener_043",
+      "gender": "unspecified",
+      "background": "Cooks sporadically and dislikes relearning finicky tools each time.",
+      "ground_truth_need": "Wants a manual can opener that is intuitive every time it\u2019s picked up. The primary requirement is predictable operation without technique sensitivity. Reliability follows, then comfort. Target budget is $18; hard max is $30. Prefers straightforward designs. Dislikes finicky alignment.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[intuitive use without relearning technique]].",
+        "I need [[predictable cutting every time]].",
+        "It should [[engage easily on the first try]].",
+        "I\u2019d like [[basic comfort for occasional use]].",
+        "I prefer [[simple, straightforward designs]].",
+        "My budget is [[around $18, max $30]].",
+        "I want to avoid [[finicky alignment requirements]]."
+      ]
+    },
+    {
+      "id": "opener_044",
+      "gender": "female",
+      "background": "Cooks with gloves occasionally and needs tools that still grip well.",
+      "ground_truth_need": "Needs a can opener that maintains grip and control even with gloves. The dealbreaker is secure engagement and traction. Reliability is next, then comfort. Target budget is $25; hard max is $45. Prefers textured handles. Dislikes slick surfaces.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[secure grip and engagement even with gloves]].",
+        "I also need [[reliable cutting without slipping]].",
+        "It should [[maintain control through the full cut]].",
+        "I prefer [[textured or non-slip handles]].",
+        "I\u2019d like [[a sturdy, confidence-inspiring feel]].",
+        "My budget is [[around $25, max $45]].",
+        "I want to avoid [[slick, hard-to-hold surfaces]]."
+      ]
+    },
+    {
+      "id": "opener_045",
+      "gender": "male",
+      "background": "Cooks late and prefers quiet tools that don\u2019t make grinding noises.",
+      "ground_truth_need": "Wants a manual can opener with smooth, quiet operation. The dealbreaker is low-noise, low-friction cutting. Reliability follows, then comfort. Target budget is $20; hard max is $35. Prefers well-machined parts. Dislikes grinding sounds.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[smooth, quiet operation without grinding noises]].",
+        "I also need [[reliable cutting that doesn\u2019t chatter]].",
+        "It should [[turn smoothly with minimal resistance]].",
+        "I\u2019d like [[comfortable handles for late-night use]].",
+        "I prefer [[well-machined, precise parts]].",
+        "My budget is [[around $20, max $35]].",
+        "I want to avoid [[rough or noisy mechanisms]]."
+      ]
+    },
+    {
+      "id": "opener_046",
+      "gender": "female",
+      "background": "Uses adaptive grips occasionally and wants compatibility with attachments.",
+      "ground_truth_need": "Needs a can opener that can work with adaptive grips or extensions. The dealbreaker is compatibility and stable geometry. Reliability follows. Target budget is $30; hard max is $55. Prefers standard handle shapes. Dislikes unusual forms.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[compatibility with adaptive grips or extensions]].",
+        "I also need [[stable geometry that doesn\u2019t twist]].",
+        "It should [[cut reliably without extra force]].",
+        "I prefer [[standard handle shapes]].",
+        "I\u2019d like [[predictable, smooth operation]].",
+        "My budget is [[around $30, max $55]].",
+        "I want to avoid [[odd or unconventional forms]]."
+      ]
+    },
+    {
+      "id": "opener_047",
+      "gender": "unspecified",
+      "background": "Runs a small caf\u00e9 and needs a backup opener that always works.",
+      "ground_truth_need": "Needs a reliable backup manual can opener for caf\u00e9 use. The dealbreaker is immediate reliability when needed. Durability follows, then cleaning ease. Target budget is $25; hard max is $45. Prefers stainless components. Dislikes surprise failures.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[immediate reliability when needed]].",
+        "I also need [[durability for occasional commercial use]].",
+        "It should [[cut cleanly without setup time]].",
+        "I prefer [[stainless components]].",
+        "I\u2019d like [[easy cleaning between uses]].",
+        "My budget is [[around $25, max $45]].",
+        "I want to avoid [[surprise failures during service]]."
+      ]
+    },
+    {
+      "id": "opener_048",
+      "gender": "male",
+      "background": "Keeps tools in a drawer that sometimes floods slightly from a leaky sink.",
+      "ground_truth_need": "Needs a can opener that tolerates occasional water exposure. The dealbreaker is rust resistance and continued function. Reliability follows. Target budget is $18; hard max is $35. Prefers stainless steel. Dislikes seized gears.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[tolerating occasional water exposure without rusting]].",
+        "I also need [[continued smooth operation afterward]].",
+        "It should [[avoid seizing in the gears]].",
+        "I prefer [[stainless steel components]].",
+        "I\u2019d like [[easy drying and cleaning]].",
+        "My budget is [[around $18, max $35]].",
+        "I want to avoid [[tools that corrode quickly]]."
+      ]
+    },
+    {
+      "id": "opener_049",
+      "gender": "female",
+      "background": "Cooks with limited hand mobility and prioritizes leverage.",
+      "ground_truth_need": "Needs a can opener that provides strong leverage with minimal wrist motion. The dealbreaker is mechanical advantage. Reliability follows. Target budget is $32; hard max is $60. Prefers longer handles. Dislikes short cranks.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[strong leverage with minimal wrist motion]].",
+        "I also need [[reliable cutting without extra force]].",
+        "It should [[maintain alignment under load]].",
+        "I prefer [[longer handles for leverage]].",
+        "I\u2019d like [[smooth, steady turning]].",
+        "My budget is [[around $32, max $60]].",
+        "I want to avoid [[short or stubby cranks]]."
+      ]
+    },
+    {
+      "id": "opener_050",
+      "gender": "unspecified",
+      "background": "Values tools that feel satisfying and well-built in daily use.",
+      "ground_truth_need": "Wants a can opener that feels solid and precise. The dealbreaker is build quality and tactile feedback. Reliability follows, then comfort. Target budget is $28; hard max is $50. Prefers metal construction. Dislikes rattly parts.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[solid, precise build quality you can feel]].",
+        "I also need [[reliable cutting performance]].",
+        "It should [[turn smoothly without rattling]].",
+        "I prefer [[mostly metal construction]].",
+        "I\u2019d like [[comfortable everyday handling]].",
+        "My budget is [[around $28, max $50]].",
+        "I want to avoid [[loose or flimsy-feeling parts]]."
+      ]
+    },
+    {
+      "id": "opener_051",
+      "gender": "male",
+      "background": "Lives off-grid part of the year and stocks canned food.",
+      "ground_truth_need": "Needs a dependable manual can opener for off-grid living. The dealbreaker is reliability without power. Durability follows. Target budget is $20; hard max is $40. Prefers simple mechanics. Dislikes anything fragile.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[reliable operation without any power source]].",
+        "I also need [[durability for long-term off-grid use]].",
+        "It should [[open cans consistently without fuss]].",
+        "I prefer [[simple, rugged mechanics]].",
+        "I\u2019d like [[easy maintenance]].",
+        "My budget is [[around $20, max $40]].",
+        "I want to avoid [[fragile or complex designs]]."
+      ]
+    },
+    {
+      "id": "opener_052",
+      "gender": "female",
+      "background": "Cooks daily and replaces worn tools proactively.",
+      "ground_truth_need": "Wants a can opener that maintains performance until replacement is truly necessary. The dealbreaker is consistent sharpness and bite. Durability follows. Target budget is $25; hard max is $45. Prefers known wear patterns. Dislikes sudden failures.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[maintaining sharpness and bite over time]].",
+        "I also need [[predictable wear rather than sudden failure]].",
+        "It should [[cut smoothly without slipping]].",
+        "I prefer [[durable materials]].",
+        "I\u2019d like [[comfortable daily use]].",
+        "My budget is [[around $25, max $45]].",
+        "I want to avoid [[openers that suddenly stop working]]."
+      ]
+    },
+    {
+      "id": "opener_053",
+      "gender": "unspecified",
+      "background": "Keeps a compact emergency kit in a car trunk.",
+      "ground_truth_need": "Needs a compact, reliable can opener for emergencies. The dealbreaker is small size with dependable function. Reliability follows. Target budget is $12; hard max is $25. Prefers rust resistance. Dislikes bulky tools.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[compact size for an emergency kit]].",
+        "I also need [[dependable function when rarely used]].",
+        "It should [[open standard cans without effort]].",
+        "I prefer [[rust-resistant materials]].",
+        "I\u2019d like [[simple, foolproof operation]].",
+        "My budget is [[around $12, max $25]].",
+        "I want to avoid [[bulky or heavy tools]]."
+      ]
+    },
+    {
+      "id": "opener_054",
+      "gender": "male",
+      "background": "Cooks quickly before work and values speed.",
+      "ground_truth_need": "Needs a can opener that works fast without adjustments. The dealbreaker is speed and immediate engagement. Reliability follows. Target budget is $18; hard max is $35. Prefers smooth turning. Dislikes slow starts.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[fast, immediate engagement]].",
+        "I also need [[reliable cutting without retries]].",
+        "It should [[maintain speed through the full cut]].",
+        "I prefer [[smooth turning action]].",
+        "I\u2019d like [[minimal resistance]].",
+        "My budget is [[around $18, max $35]].",
+        "I want to avoid [[slow or finicky starters]]."
+      ]
+    },
+    {
+      "id": "opener_055",
+      "gender": "female",
+      "background": "Cooks for elderly relatives and prioritizes safety and ease.",
+      "ground_truth_need": "Needs a can opener that is safe and easy for elderly users. The dealbreaker is low effort and safe edges. Reliability follows. Target budget is $30; hard max is $55. Prefers comfortable grips. Dislikes sharp lids.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[low-effort, safe operation for elderly users]].",
+        "I also need [[reliable cutting every time]].",
+        "It should [[leave safer edges]].",
+        "I prefer [[comfortable, easy-to-hold grips]].",
+        "I\u2019d like [[predictable, smooth turning]].",
+        "My budget is [[around $30, max $55]].",
+        "I want to avoid [[tools that require strength]]."
+      ]
+    },
+    {
+      "id": "opener_056",
+      "gender": "unspecified",
+      "background": "Lives in a dorm with limited dishwashing facilities.",
+      "ground_truth_need": "Needs a can opener that cleans easily without a dishwasher. The dealbreaker is simple cleaning. Reliability follows. Target budget is $15; hard max is $30. Prefers minimal crevices. Dislikes trapped food.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[easy cleaning without a dishwasher]].",
+        "I also need [[reliable cutting performance]].",
+        "It should [[avoid trapping food in crevices]].",
+        "I prefer [[simple construction]].",
+        "I\u2019d like [[compact storage]].",
+        "My budget is [[around $15, max $30]].",
+        "I want to avoid [[hard-to-clean designs]]."
+      ]
+    },
+    {
+      "id": "opener_057",
+      "gender": "male",
+      "background": "Prefers heavy tools that don\u2019t shift during use.",
+      "ground_truth_need": "Wants a can opener with heft and stability. The dealbreaker is stable operation without flex. Reliability follows. Target budget is $25; hard max is $45. Prefers metal weight. Dislikes lightweight flimsy tools.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[stable, solid operation without flex]].",
+        "I also need [[reliable cutting without wobble]].",
+        "It should [[feel substantial in hand]].",
+        "I prefer [[metal weight for stability]].",
+        "I\u2019d like [[smooth turning action]].",
+        "My budget is [[around $25, max $45]].",
+        "I want to avoid [[lightweight, flimsy designs]]."
+      ]
+    },
+    {
+      "id": "opener_058",
+      "gender": "female",
+      "background": "Cooks occasionally and wants a low-maintenance tool.",
+      "ground_truth_need": "Needs a can opener that requires minimal upkeep. The dealbreaker is low maintenance with consistent function. Reliability follows. Target budget is $18; hard max is $30. Prefers corrosion resistance. Dislikes oiling or adjustments.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[low maintenance with consistent performance]].",
+        "I also need [[reliable cutting without adjustments]].",
+        "It should [[resist rust without special care]].",
+        "I prefer [[simple mechanics]].",
+        "I\u2019d like [[easy cleaning]].",
+        "My budget is [[around $18, max $30]].",
+        "I want to avoid [[tools needing regular upkeep]]."
+      ]
+    },
+    {
+      "id": "opener_059",
+      "gender": "unspecified",
+      "background": "Buys tools as gifts and wants broad appeal.",
+      "ground_truth_need": "Needs a can opener that works well for most people. The dealbreaker is universal ease of use. Reliability follows. Target budget is $25; hard max is $45. Prefers neutral design. Dislikes niche features.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[easy use for a wide range of people]].",
+        "I also need [[reliable cutting performance]].",
+        "It should [[work without explanation]].",
+        "I prefer [[neutral, inoffensive design]].",
+        "I\u2019d like [[comfortable handling]].",
+        "My budget is [[around $25, max $45]].",
+        "I want to avoid [[overly niche features]]."
+      ]
+    },
+    {
+      "id": "opener_060",
+      "gender": "male",
+      "background": "Replaces tools only when they completely fail.",
+      "ground_truth_need": "Needs a can opener that keeps working until the end of its lifespan. The dealbreaker is consistent performance over years. Durability follows. Target budget is $30; hard max is $55. Prefers proven designs. Dislikes premature failure.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[consistent performance over many years]].",
+        "I also need [[durability that prevents early failure]].",
+        "It should [[maintain proper cutting alignment]].",
+        "I prefer [[proven, long-running designs]].",
+        "I\u2019d like [[comfortable everyday use]].",
+        "My budget is [[around $30, max $55]].",
+        "I want to avoid [[tools that degrade quickly]]."
+      ]
+    },
+    {
+      "id": "opener_061",
+      "gender": "female",
+      "background": "Cooks daily in a small kitchen and replaces tools only after clear failures.",
+      "ground_truth_need": "Needs a manual can opener that stays reliable with daily use and doesn\u2019t gradually become harder to use. The primary requirement is consistent cutting engagement over time, without slipping or dulling. Durability is next, followed by comfort for frequent handling. Target budget is $24; hard max is $45 if it clearly lasts longer. Prefers compact storage and easy cleaning. Dislikes cutters that slowly lose bite and require extra force.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[consistent cutting that doesn\u2019t degrade with daily use]].",
+        "I also need [[durability so it doesn\u2019t wear out quickly]].",
+        "It should [[maintain a firm bite without slipping]].",
+        "I\u2019d like [[comfortable handling for everyday cooking]].",
+        "I prefer [[easy cleaning after frequent use]].",
+        "My budget is [[around $24, max $45]].",
+        "I want to avoid [[models that slowly become harder to turn]]."
+      ]
+    },
+    {
+      "id": "opener_062",
+      "gender": "male",
+      "background": "Cooks occasionally and wants tools that feel sturdy when used.",
+      "ground_truth_need": "Wants a manual can opener that feels solid and dependable during occasional use. The dealbreaker is sturdy construction without flex or wobble. Reliability follows, then comfort. Target budget is $20; hard max is $35. Prefers metal components and simple design. Dislikes flimsy handles.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[a sturdy feel without flex or wobble]].",
+        "I also need [[reliable cutting performance]].",
+        "It should [[hold alignment while turning]].",
+        "I prefer [[metal components over plastic]].",
+        "I\u2019d like [[comfortable grip for occasional use]].",
+        "My budget is [[around $20, max $35]].",
+        "I want to avoid [[flimsy or bendy handles]]."
+      ]
+    },
+    {
+      "id": "opener_063",
+      "gender": "unspecified",
+      "background": "Lives in a humid climate and stores tools in open shelving.",
+      "ground_truth_need": "Needs a can opener that resists corrosion in constant humidity. The primary requirement is rust resistance, followed by reliable cutting. Comfort is secondary. Target budget is $22; hard max is $40. Prefers stainless steel and simple cleaning. Dislikes coatings that peel.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[strong rust resistance in a humid environment]].",
+        "I also need [[reliable cutting without seizing]].",
+        "It should [[stay smooth even after exposure to moisture]].",
+        "I prefer [[stainless steel construction]].",
+        "I\u2019d like [[easy cleaning and drying]].",
+        "My budget is [[around $22, max $40]].",
+        "I want to avoid [[painted or coated finishes that peel]]."
+      ]
+    },
+    {
+      "id": "opener_064",
+      "gender": "female",
+      "background": "Cooks with kids and wants predictable, safe kitchen tools.",
+      "ground_truth_need": "Needs a can opener that produces safer results around children. The dealbreaker is reduced sharp edges and predictable cutting. Reliability follows, then comfort. Target budget is $28; hard max is $50. Prefers smooth-cut designs and easy cleaning. Dislikes jagged lids.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[safer cutting with fewer sharp edges]].",
+        "I also need [[reliable cutting every time]].",
+        "It should [[avoid tearing or jagged metal]].",
+        "I\u2019d like [[comfortable grips for steady control]].",
+        "I prefer [[easy cleanup after use]].",
+        "My budget is [[around $28, max $50]].",
+        "I want to avoid [[designs that leave razor-sharp lids]]."
+      ]
+    },
+    {
+      "id": "opener_065",
+      "gender": "male",
+      "background": "Keeps a minimal toolset and values multi-year durability.",
+      "ground_truth_need": "Wants a manual can opener that lasts for years without needing replacement. The dealbreaker is long-term durability of gears and cutter. Reliability follows, then comfort. Target budget is $30; hard max is $60. Prefers proven designs. Dislikes novelty tools.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[long-term durability without frequent replacement]].",
+        "I also need [[gears and cutters that don\u2019t wear out quickly]].",
+        "It should [[maintain consistent performance over time]].",
+        "I prefer [[simple, proven designs]].",
+        "I\u2019d like [[comfortable everyday use]].",
+        "My budget is [[around $30, max $60]].",
+        "I want to avoid [[novelty or gimmicky tools]]."
+      ]
+    },
+    {
+      "id": "opener_066",
+      "gender": "female",
+      "background": "Lives in a shared household where tools are frequently misplaced.",
+      "ground_truth_need": "Needs a can opener that is reliable and easy for anyone to use. The primary requirement is foolproof operation. Durability follows. Target budget is $20; hard max is $35. Prefers straightforward design. Dislikes complicated mechanisms.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[foolproof operation for anyone who picks it up]].",
+        "I also need [[durability for shared household use]].",
+        "It should [[work without explanation]].",
+        "I prefer [[simple, intuitive design]].",
+        "I\u2019d like [[easy cleaning]].",
+        "My budget is [[around $20, max $35]].",
+        "I want to avoid [[complicated or finicky mechanisms]]."
+      ]
+    },
+    {
+      "id": "opener_067",
+      "gender": "unspecified",
+      "background": "Cooks infrequently but dislikes tools that fail when needed.",
+      "ground_truth_need": "Needs a can opener that works reliably even after long gaps between uses. The dealbreaker is readiness without maintenance. Reliability follows. Target budget is $18; hard max is $30. Prefers rust resistance. Dislikes seized gears.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[working reliably after long periods of non-use]].",
+        "I also need [[rust resistance to prevent seizing]].",
+        "It should [[cut smoothly on first use]].",
+        "I prefer [[low-maintenance design]].",
+        "I\u2019d like [[easy cleaning]].",
+        "My budget is [[around $18, max $30]].",
+        "I want to avoid [[tools that seize up when unused]]."
+      ]
+    },
+    {
+      "id": "opener_068",
+      "gender": "male",
+      "background": "Cooks quickly and values efficiency over comfort.",
+      "ground_truth_need": "Wants a can opener that opens cans quickly and efficiently. The dealbreaker is fast engagement and smooth cutting. Reliability follows. Target budget is $20; hard max is $35. Prefers minimal resistance. Dislikes slow-start designs.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[fast engagement and efficient cutting]].",
+        "I also need [[reliable performance without retries]].",
+        "It should [[maintain speed throughout the cut]].",
+        "I prefer [[low resistance while turning]].",
+        "I\u2019d like [[simple handling]].",
+        "My budget is [[around $20, max $35]].",
+        "I want to avoid [[slow or hesitant starters]]."
+      ]
+    },
+    {
+      "id": "opener_069",
+      "gender": "female",
+      "background": "Buys kitchen tools as gifts and wants something universally liked.",
+      "ground_truth_need": "Needs a can opener that works well for most people. The dealbreaker is universal ease of use. Reliability follows. Target budget is $25; hard max is $45. Prefers neutral appearance. Dislikes niche designs.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[easy use for a wide range of people]].",
+        "I also need [[reliable cutting performance]].",
+        "It should [[work intuitively without instruction]].",
+        "I prefer [[neutral, inoffensive design]].",
+        "I\u2019d like [[comfortable grip]].",
+        "My budget is [[around $25, max $45]].",
+        "I want to avoid [[overly specialized features]]."
+      ]
+    },
+    {
+      "id": "opener_070",
+      "gender": "unspecified",
+      "background": "Cooks daily and dislikes cleaning complicated tools.",
+      "ground_truth_need": "Needs a can opener that cleans easily and doesn\u2019t trap residue. The primary requirement is simple cleaning. Reliability follows. Target budget is $18; hard max is $35. Prefers minimal crevices. Dislikes food buildup.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[easy cleaning without trapped residue]].",
+        "I also need [[reliable cutting every time]].",
+        "It should [[avoid food getting stuck in gears]].",
+        "I prefer [[simple construction]].",
+        "I\u2019d like [[quick rinsing after use]].",
+        "My budget is [[around $18, max $35]].",
+        "I want to avoid [[hard-to-clean designs]]."
+      ]
+    },
+    {
+      "id": "opener_071",
+      "gender": "male",
+      "background": "Cooks in a garage kitchenette with limited amenities.",
+      "ground_truth_need": "Needs a manual can opener that works reliably in a rough environment. The dealbreaker is durability under less-than-ideal conditions. Reliability follows. Target budget is $20; hard max is $40. Prefers rugged design. Dislikes delicate parts.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[durability in a rough, garage setup]].",
+        "I also need [[reliable cutting despite dirt or dust]].",
+        "It should [[maintain alignment under abuse]].",
+        "I prefer [[rugged construction]].",
+        "I\u2019d like [[easy cleaning]].",
+        "My budget is [[around $20, max $40]].",
+        "I want to avoid [[delicate or precision-only designs]]."
+      ]
+    },
+    {
+      "id": "opener_072",
+      "gender": "female",
+      "background": "Prefers tools that feel comfortable during extended prep sessions.",
+      "ground_truth_need": "Needs a can opener that remains comfortable during longer cooking sessions. The dealbreaker is ergonomic comfort. Reliability follows. Target budget is $28; hard max is $50. Prefers cushioned handles. Dislikes sharp edges.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[ergonomic comfort during extended use]].",
+        "I also need [[reliable cutting performance]].",
+        "It should [[avoid pressure points on my hand]].",
+        "I prefer [[cushioned or contoured handles]].",
+        "I\u2019d like [[smooth turning action]].",
+        "My budget is [[around $28, max $50]].",
+        "I want to avoid [[handles with sharp edges]]."
+      ]
+    },
+    {
+      "id": "opener_073",
+      "gender": "unspecified",
+      "background": "Cooks with limited storage and values compact tools.",
+      "ground_truth_need": "Needs a compact can opener that still performs well. The dealbreaker is space-saving design without sacrificing reliability. Reliability follows. Target budget is $15; hard max is $30. Prefers simple mechanics. Dislikes bulky handles.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[compact size for limited storage]].",
+        "I also need [[reliable cutting despite the small form]].",
+        "It should [[open standard cans easily]].",
+        "I prefer [[simple mechanics]].",
+        "I\u2019d like [[easy cleaning]].",
+        "My budget is [[around $15, max $30]].",
+        "I want to avoid [[bulky or oversized designs]]."
+      ]
+    },
+    {
+      "id": "opener_074",
+      "gender": "male",
+      "background": "Cooks quickly and dislikes tools that require adjustments.",
+      "ground_truth_need": "Wants a can opener that works immediately without adjustment. The dealbreaker is immediate engagement. Reliability follows. Target budget is $18; hard max is $35. Prefers smooth action. Dislikes fiddling.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[immediate engagement without adjustments]].",
+        "I also need [[reliable cutting performance]].",
+        "It should [[work right away on the first try]].",
+        "I prefer [[smooth turning action]].",
+        "I\u2019d like [[simple handling]].",
+        "My budget is [[around $18, max $35]].",
+        "I want to avoid [[tools that need fiddling]]."
+      ]
+    },
+    {
+      "id": "opener_075",
+      "gender": "female",
+      "background": "Cooks daily and values predictability in tools.",
+      "ground_truth_need": "Needs a can opener that behaves predictably every time. The dealbreaker is consistent performance. Reliability follows. Target budget is $22; hard max is $40. Prefers proven designs. Dislikes surprises.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[predictable performance every time]].",
+        "I also need [[reliable cutting without surprises]].",
+        "It should [[maintain alignment during use]].",
+        "I prefer [[proven, well-known designs]].",
+        "I\u2019d like [[comfortable everyday handling]].",
+        "My budget is [[around $22, max $40]].",
+        "I want to avoid [[inconsistent or quirky tools]]."
+      ]
+    },
+    {
+      "id": "opener_076",
+      "gender": "unspecified",
+      "background": "Lives in a tiny house and minimizes possessions.",
+      "ground_truth_need": "Needs a single can opener that covers all basic needs reliably. The dealbreaker is versatility and reliability. Durability follows. Target budget is $25; hard max is $45. Prefers compact design. Dislikes redundancy.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[one reliable tool that covers all basic needs]].",
+        "I also need [[durability for long-term ownership]].",
+        "It should [[handle standard cans consistently]].",
+        "I prefer [[compact, space-saving design]].",
+        "I\u2019d like [[easy maintenance]].",
+        "My budget is [[around $25, max $45]].",
+        "I want to avoid [[needing multiple specialized tools]]."
+      ]
+    },
+    {
+      "id": "opener_077",
+      "gender": "male",
+      "background": "Cooks occasionally and values ease over speed.",
+      "ground_truth_need": "Needs a can opener that is easy and stress-free to use. The dealbreaker is ease of operation. Reliability follows. Target budget is $18; hard max is $30. Prefers comfortable grip. Dislikes stiff turning.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[easy, stress-free operation]].",
+        "I also need [[reliable cutting every time]].",
+        "It should [[require minimal force]].",
+        "I prefer [[comfortable handles]].",
+        "I\u2019d like [[smooth turning]].",
+        "My budget is [[around $18, max $30]].",
+        "I want to avoid [[stiff or awkward designs]]."
+      ]
+    },
+    {
+      "id": "opener_078",
+      "gender": "female",
+      "background": "Cooks large batches occasionally and dislikes fatigue.",
+      "ground_truth_need": "Needs a can opener that reduces fatigue during batch cooking. The dealbreaker is ergonomic efficiency. Reliability follows. Target budget is $30; hard max is $55. Prefers good leverage. Dislikes hand strain.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[reducing hand fatigue during batch cooking]].",
+        "I also need [[reliable cutting performance]].",
+        "It should [[provide good leverage]].",
+        "I prefer [[ergonomic handle design]].",
+        "I\u2019d like [[smooth turning action]].",
+        "My budget is [[around $30, max $55]].",
+        "I want to avoid [[tools that strain my hands]]."
+      ]
+    },
+    {
+      "id": "opener_079",
+      "gender": "unspecified",
+      "background": "Buys tools online and values clear product descriptions.",
+      "ground_truth_need": "Needs a can opener that matches its description and works as expected. The dealbreaker is honest, predictable performance. Reliability follows. Target budget is $22; hard max is $40. Prefers established models. Dislikes misleading claims.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[performance that matches the description]].",
+        "I also need [[reliable cutting without surprises]].",
+        "It should [[work as advertised]].",
+        "I prefer [[established, well-reviewed models]].",
+        "I\u2019d like [[easy everyday use]].",
+        "My budget is [[around $22, max $40]].",
+        "I want to avoid [[misleading product claims]]."
+      ]
+    },
+    {
+      "id": "opener_080",
+      "gender": "male",
+      "background": "Prefers tools that feel durable and slightly overbuilt.",
+      "ground_truth_need": "Wants a can opener that feels overbuilt and durable. The dealbreaker is heavy-duty construction. Reliability follows. Target budget is $28; hard max is $55. Prefers metal weight. Dislikes lightweight tools.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[heavy-duty, overbuilt construction]].",
+        "I also need [[reliable cutting performance]].",
+        "It should [[feel solid and substantial]].",
+        "I prefer [[metal weight for durability]].",
+        "I\u2019d like [[smooth turning action]].",
+        "My budget is [[around $28, max $55]].",
+        "I want to avoid [[lightweight or flimsy tools]]."
+      ]
+    },
+    {
+      "id": "opener_081",
+      "gender": "female",
+      "background": "Cooks most meals at home and values tools that stay dependable without frequent replacements.",
+      "ground_truth_need": "Needs a manual can opener that maintains reliable performance over years of routine home cooking. The top priority is mechanical longevity: the cutting wheel must stay sharp and the gears must not slip or loosen. Reliability under normal weekly use matters more than aesthetics. Comfort is secondary but important for repeated handling. Target budget is $26; hard max is $45 if durability is clearly superior. Prefers metal components and easy cleaning. Dislikes tools that slowly degrade until they barely work.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[long-term reliability without gradual performance loss]].",
+        "I also need [[gears and cutters that don\u2019t loosen over time]].",
+        "It should [[maintain a strong bite without slipping]].",
+        "I\u2019d like [[comfortable handling for regular cooking]].",
+        "I prefer [[mostly metal construction]].",
+        "My budget is [[around $26, max $45]].",
+        "I want to avoid [[tools that slowly become ineffective]]."
+      ]
+    },
+    {
+      "id": "opener_082",
+      "gender": "male",
+      "background": "Lives alone and cooks quickly, preferring tools that never interrupt his routine.",
+      "ground_truth_need": "Wants a manual can opener that works instantly every time with no adjustment or re-positioning. The dealbreaker is immediate engagement on the first turn. Reliability follows, then durability. Comfort is minor but not irrelevant. Target budget is $18; hard max is $35. Prefers simple mechanics and smooth turning. Dislikes tools that need trial-and-error to start cutting.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[instant engagement on the first turn]].",
+        "I also need [[reliable cutting without retries]].",
+        "It should [[maintain smooth turning throughout]].",
+        "I prefer [[simple, no-fuss mechanics]].",
+        "I\u2019d like [[reasonable comfort during use]].",
+        "My budget is [[around $18, max $35]].",
+        "I want to avoid [[tools that require repositioning to work]]."
+      ]
+    },
+    {
+      "id": "opener_083",
+      "gender": "unspecified",
+      "background": "Cooks for a household with varying hand strengths and preferences.",
+      "ground_truth_need": "Needs a can opener that performs consistently for different users without technique sensitivity. The dealbreaker is universal usability\u2014easy alignment and steady cutting regardless of grip strength. Durability under shared use follows. Target budget is $24; hard max is $45. Prefers intuitive design and sturdy handles. Dislikes finicky mechanisms that only work for some people.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[easy use for people with different hand strengths]].",
+        "I also need [[consistent cutting regardless of technique]].",
+        "It should [[align easily without explanation]].",
+        "I prefer [[sturdy handles that feel secure]].",
+        "I\u2019d like [[reliable performance under shared use]].",
+        "My budget is [[around $24, max $45]].",
+        "I want to avoid [[finicky or technique-sensitive designs]]."
+      ]
+    },
+    {
+      "id": "opener_084",
+      "gender": "female",
+      "background": "Cooks occasionally and dislikes dealing with rust or stuck mechanisms.",
+      "ground_truth_need": "Needs a can opener that stays smooth and functional even with infrequent use. The primary requirement is resistance to rust and seizing. Reliability follows, then comfort. Target budget is $16; hard max is $30. Prefers stainless materials and simple cleaning. Dislikes tools that feel stiff after sitting unused.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[not rusting or seizing when unused]].",
+        "I also need [[smooth cutting when I do use it]].",
+        "It should [[turn easily without stiffness]].",
+        "I prefer [[stainless or corrosion-resistant materials]].",
+        "I\u2019d like [[simple cleaning and drying]].",
+        "My budget is [[around $16, max $30]].",
+        "I want to avoid [[tools that get stiff over time]]."
+      ]
+    },
+    {
+      "id": "opener_085",
+      "gender": "male",
+      "background": "Cooks bulk meals and freezes portions for later use.",
+      "ground_truth_need": "Needs a can opener that performs well during short bursts of heavy use. The dealbreaker is consistent cutting across many cans in one session. Durability under batch use follows, then comfort. Target budget is $28; hard max is $50. Prefers good leverage and steady bite. Dislikes hand fatigue and slippage.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[consistent cutting during batch opening]].",
+        "I also need [[durability for opening many cans in a row]].",
+        "It should [[avoid slipping as my hands get tired]].",
+        "I prefer [[good leverage to reduce effort]].",
+        "I\u2019d like [[comfortable grip for longer sessions]].",
+        "My budget is [[around $28, max $50]].",
+        "I want to avoid [[tools that cause hand fatigue]]."
+      ]
+    },
+    {
+      "id": "opener_086",
+      "gender": "female",
+      "background": "Values tools that feel smooth and refined in everyday use.",
+      "ground_truth_need": "Wants a can opener with refined, smooth operation and no grinding or chatter. The dealbreaker is smooth mechanical action. Reliability follows, then durability. Target budget is $25; hard max is $45. Prefers well-machined parts and solid feel. Dislikes noisy or rough mechanisms.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[smooth, refined turning without grinding]].",
+        "I also need [[reliable cutting performance]].",
+        "It should [[feel precise and controlled]].",
+        "I prefer [[well-machined components]].",
+        "I\u2019d like [[solid, quality feel in hand]].",
+        "My budget is [[around $25, max $45]].",
+        "I want to avoid [[noisy or rough designs]]."
+      ]
+    },
+    {
+      "id": "opener_087",
+      "gender": "unspecified",
+      "background": "Keeps a small emergency pantry and checks tools infrequently.",
+      "ground_truth_need": "Needs a can opener that works reliably in emergency situations after long storage. The dealbreaker is dependable function after sitting unused. Reliability follows. Target budget is $14; hard max is $25. Prefers rust resistance and simple operation. Dislikes fragile designs.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[reliable function after long-term storage]].",
+        "I also need [[rust resistance to prevent seizing]].",
+        "It should [[work immediately when needed]].",
+        "I prefer [[simple, foolproof operation]].",
+        "I\u2019d like [[compact storage]].",
+        "My budget is [[around $14, max $25]].",
+        "I want to avoid [[fragile or delicate tools]]."
+      ]
+    },
+    {
+      "id": "opener_088",
+      "gender": "male",
+      "background": "Cooks daily and wants a single dependable tool without backups.",
+      "ground_truth_need": "Needs a can opener that can be trusted as the only opener in the kitchen. The dealbreaker is all-around reliability with no weak points. Durability follows, then comfort. Target budget is $30; hard max is $55. Prefers proven designs and solid materials. Dislikes needing backups.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[being dependable enough to be my only opener]].",
+        "I also need [[durability without weak points]].",
+        "It should [[cut consistently every time]].",
+        "I prefer [[solid, proven construction]].",
+        "I\u2019d like [[comfortable everyday use]].",
+        "My budget is [[around $30, max $55]].",
+        "I want to avoid [[tools that require a backup]]."
+      ]
+    },
+    {
+      "id": "opener_089",
+      "gender": "female",
+      "background": "Cooks occasionally and prefers tools that feel intuitive immediately.",
+      "ground_truth_need": "Wants a can opener that feels obvious and intuitive on first use. The dealbreaker is immediate understanding\u2014no learning curve. Reliability follows. Target budget is $18; hard max is $30. Prefers simple form factor. Dislikes awkward alignment.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[intuitive use with no learning curve]].",
+        "I also need [[reliable cutting performance]].",
+        "It should [[align naturally on the can]].",
+        "I prefer [[simple, familiar form]].",
+        "I\u2019d like [[comfortable grip]].",
+        "My budget is [[around $18, max $30]].",
+        "I want to avoid [[awkward or confusing designs]]."
+      ]
+    },
+    {
+      "id": "opener_090",
+      "gender": "unspecified",
+      "background": "Lives in a humid apartment and washes tools by hand.",
+      "ground_truth_need": "Needs a can opener that resists rust and stays smooth with hand washing. The primary requirement is corrosion resistance. Reliability follows, then ease of cleaning. Target budget is $20; hard max is $38. Prefers stainless components. Dislikes tools that discolor.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[resisting rust with frequent hand washing]].",
+        "I also need [[smooth operation over time]].",
+        "It should [[dry easily without corrosion]].",
+        "I prefer [[stainless steel parts]].",
+        "I\u2019d like [[easy cleaning]].",
+        "My budget is [[around $20, max $38]].",
+        "I want to avoid [[tools that discolor or corrode]]."
+      ]
+    },
+    {
+      "id": "opener_091",
+      "gender": "male",
+      "background": "Cooks in short bursts and values efficiency over comfort.",
+      "ground_truth_need": "Wants a can opener that gets the job done quickly and predictably. The dealbreaker is speed and efficiency. Reliability follows. Target budget is $17; hard max is $30. Prefers smooth cutting. Dislikes slow engagement.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[fast, efficient can opening]].",
+        "I also need [[reliable cutting without retries]].",
+        "It should [[maintain speed throughout the cut]].",
+        "I prefer [[smooth turning]].",
+        "I\u2019d like [[simple handling]].",
+        "My budget is [[around $17, max $30]].",
+        "I want to avoid [[slow-start designs]]."
+      ]
+    },
+    {
+      "id": "opener_092",
+      "gender": "female",
+      "background": "Cooks for family members with limited hand strength.",
+      "ground_truth_need": "Needs a can opener that requires minimal force to operate. The dealbreaker is low-effort turning. Reliability follows, then safety. Target budget is $32; hard max is $60. Prefers ergonomic handles and smooth cutting. Dislikes stiff mechanisms.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[low-effort turning for weak hands]].",
+        "I also need [[reliable cutting without slipping]].",
+        "It should [[maintain smooth motion throughout]].",
+        "I prefer [[ergonomic handle shapes]].",
+        "I\u2019d like [[safer edges after opening]].",
+        "My budget is [[around $32, max $60]].",
+        "I want to avoid [[stiff or jerky designs]]."
+      ]
+    },
+    {
+      "id": "opener_093",
+      "gender": "unspecified",
+      "background": "Prefers tools that require zero maintenance over time.",
+      "ground_truth_need": "Needs a can opener that works consistently without oiling, tightening, or adjustments. The dealbreaker is zero-maintenance reliability. Durability follows. Target budget is $22; hard max is $40. Prefers simple mechanics. Dislikes upkeep.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[working reliably with no maintenance]].",
+        "I also need [[durable parts that don\u2019t loosen]].",
+        "It should [[stay smooth without lubrication]].",
+        "I prefer [[simple mechanical design]].",
+        "I\u2019d like [[easy cleaning]].",
+        "My budget is [[around $22, max $40]].",
+        "I want to avoid [[tools that need adjustments]]."
+      ]
+    },
+    {
+      "id": "opener_094",
+      "gender": "male",
+      "background": "Buys quality tools and expects them to outlast trends.",
+      "ground_truth_need": "Wants a can opener that feels timeless and durable. The dealbreaker is long-term usefulness without design-driven compromises. Reliability follows. Target budget is $35; hard max is $65. Prefers classic designs. Dislikes trend-driven gadgets.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[long-term usefulness without trend gimmicks]].",
+        "I also need [[reliable cutting performance]].",
+        "It should [[maintain function year after year]].",
+        "I prefer [[classic, proven designs]].",
+        "I\u2019d like [[solid, durable materials]].",
+        "My budget is [[around $35, max $65]].",
+        "I want to avoid [[trend-driven gadgets]]."
+      ]
+    },
+    {
+      "id": "opener_095",
+      "gender": "female",
+      "background": "Cooks occasionally and values predictable results.",
+      "ground_truth_need": "Needs a can opener that behaves the same way every time it\u2019s used. The dealbreaker is predictability. Reliability follows. Target budget is $19; hard max is $35. Prefers straightforward operation. Dislikes surprises.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[predictable results every time]].",
+        "I also need [[reliable cutting performance]].",
+        "It should [[maintain alignment consistently]].",
+        "I prefer [[simple, straightforward use]].",
+        "I\u2019d like [[comfortable handling]].",
+        "My budget is [[around $19, max $35]].",
+        "I want to avoid [[quirky or inconsistent tools]]."
+      ]
+    },
+    {
+      "id": "opener_096",
+      "gender": "unspecified",
+      "background": "Lives in a small space and minimizes clutter.",
+      "ground_truth_need": "Needs a compact can opener that still works reliably. The dealbreaker is small size without functional compromise. Reliability follows. Target budget is $15; hard max is $28. Prefers simple storage. Dislikes bulky designs.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[compact size without losing reliability]].",
+        "I also need [[consistent cutting performance]].",
+        "It should [[open standard cans easily]].",
+        "I prefer [[simple storage]].",
+        "I\u2019d like [[easy cleaning]].",
+        "My budget is [[around $15, max $28]].",
+        "I want to avoid [[bulky designs]]."
+      ]
+    },
+    {
+      "id": "opener_097",
+      "gender": "male",
+      "background": "Cooks for himself and dislikes replacing tools often.",
+      "ground_truth_need": "Wants a can opener that lasts for years with minimal wear. The dealbreaker is durability. Reliability follows. Target budget is $27; hard max is $50. Prefers solid materials. Dislikes flimsy parts.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[durability that avoids frequent replacement]].",
+        "I also need [[reliable cutting over time]].",
+        "It should [[maintain mechanical integrity]].",
+        "I prefer [[solid material construction]].",
+        "I\u2019d like [[comfortable handling]].",
+        "My budget is [[around $27, max $50]].",
+        "I want to avoid [[flimsy components]]."
+      ]
+    },
+    {
+      "id": "opener_098",
+      "gender": "female",
+      "background": "Cooks with arthritis and values ease above all else.",
+      "ground_truth_need": "Needs a can opener that minimizes strain and discomfort. The dealbreaker is extremely easy turning. Reliability follows, then safety. Target budget is $34; hard max is $65. Prefers ergonomic handles and smooth motion. Dislikes resistance.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[extremely easy turning with minimal strain]].",
+        "I also need [[reliable cutting without slipping]].",
+        "It should [[move smoothly without resistance]].",
+        "I prefer [[ergonomic handle shapes]].",
+        "I\u2019d like [[safer edges after opening]].",
+        "My budget is [[around $34, max $65]].",
+        "I want to avoid [[stiff mechanisms]]."
+      ]
+    },
+    {
+      "id": "opener_099",
+      "gender": "unspecified",
+      "background": "Buys tools carefully and expects accurate product claims.",
+      "ground_truth_need": "Needs a can opener that performs exactly as described. The dealbreaker is honest, predictable performance. Reliability follows. Target budget is $23; hard max is $42. Prefers established designs. Dislikes misleading claims.",
+      "context_trail": [
+        "I\u2019m looking for a can opener.",
+        "My main priority is [[performance that matches product claims]].",
+        "I also need [[reliable cutting every time]].",
+        "It should [[work exactly as expected]].",
+        "I prefer [[well-established designs]].",
+        "I\u2019d like [[easy everyday use]].",
+        "My budget is [[around $23, max $42]].",
+        "I want to avoid [[misleading marketing]]."
+      ]
+    },
+    {
+      "id": "opener_100",
+      "gender": "male",
+      "background": "Values simple, dependable tools that never draw attention to themselves.",
+      "ground_truth_need": "Wants a can opener that quietly does its job without issues. The dealbreaker is boring reliability\u2014no surprises, no failures. Durability follows. Target budget is $25; hard max is $45. Prefers understated design and solid build. Dislikes gimmicks.",
+      "context_trail": [
+        "I need a can opener.",
+        "My top priority is [[boring, rock-solid reliability]].",
+        "I also need [[durability that holds up over years]].",
+        "It should [[cut smoothly without drama]].",
+        "I prefer [[understated, no-frills design]].",
+        "I\u2019d like [[solid, dependable materials]].",
+        "My budget is [[around $25, max $45]].",
+        "I want to avoid [[gimmicky or flashy tools]]."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+category: bag
+display_name: Bag
+
+catalog_path: data/categories/bag/products.jsonl
+questions_path: data/categories/bag/questions.yaml
+index_dir: data/categories/bag/index
+
+# Popular, high-review defaults spanning backpack, sling, and insulated-bag uses.
+default_slate:
+  - B06XZTZ7GB
+  - B07T5D98RW
+  - B0B56CHMSC
+
+scrape:
+  # US ONLY: Amazon.com, USD. Do not scrape regional storefronts.
+  # Persona bag_059's UK-specific availability is out of scope by user direction.
+  # Fill missing persona needs. Broad searches already dominate the saved catalog.
+  # Cap NEW candidate ASINs per term per run; existing ASINs do not use the quota.
+  products_per_query: 2
+  seed_queries:
+    # - "bag"
+    # - "backpack"
+    # - "tote bag"
+    # - "messenger bag"
+    # - "duffel bag"
+    # - "crossbody bag"
+    # - "laptop work bag"
+    # Temporarily paused: these segments already have catalog candidates.
+    # - "insulated lunch bag"
+    # - "soft insulated cooler bag"
+    # - "bicycle pannier bag"
+    # - "bicycle frame bag"
+    # - "padded ski bag 180cm"
+    # - "underseat spinner rolling travel bag"
+    # - "heavy duty rolling backpack"
+    # - "rolling duffel bag"
+    # - "garment travel bag"
+    # - "padded camera backpack laptop compartment"
+    # - "discreet padded camera shoulder bag"
+    # - "running hydration waist pack"
+    # - "14 inch padded laptop sleeve"
+    # - "padded tablet sleeve accessory pocket"
+    # - "heavy punching bag"
+    # - "adult bean bag chair washable cover"
+    # - "waterproof commuter backpack"
+    # - "waterproof cycling messenger bag reflective"
+    # - "gym bag shoe compartment"
+    # - "weekender travel bag"
+    # - "hiking daypack"
+    # - "diaper bag"
+    # - "black leather laptop messenger bag"
+    # - "sand proof beach bag wet compartment"
+    # - "toiletry bag"
+    # - "laundry backpack bag"
+    # - "saltwater fishing tackle bag"
+    # - "heavy duty tool bag"
+    # - "yoga mat bag"
+    # - "tech organizer pouch"
+    # - "clear stadium bag"
+    # - "reusable grocery bags"
+    # - "padded guitar pedal gear bag"
+    # - "rigid art portfolio bag"
+    # Paused after the niche pass; front bags and work/gym options now represented.
+    # - "front rack touring pannier small waterproof"
+    # - "OverBoard waterproof messenger bag"
+    # - "black leather zip messenger tablet bag"
+    # - "work gym laptop bag wet compartment"
+    # Balanced gap/popular-model pass: at most two NEW products per term.
+    # Review counts are a popularity proxy, not sales rank or quality proof.
+    - "RAINS messenger laptop bag"
+    - "Timbuk2 Classic messenger bag"
+    - "Osprey Daylite hiking backpack"
+    - "MATEIN laptop travel backpack"
+    - "Lowepro camera shoulder bag"
+    - "Travelon anti theft crossbody bag"
+    - "Samsonite leather slim briefcase"
+    - "OGIO gym laptop bag"
+    - "Bogg beach tote bag"
+    - "Herschel laptop backpack"
+  # Previous target_products: 300. This pass caps discovery, not catalog size.
+  target_products: 20
+  reviews_per_product: 8
