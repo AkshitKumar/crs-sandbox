@@ -21,23 +21,23 @@ openers:
 followups:
   - id: protection
     topic: protection
-    text: "What protection matters most — cold, water, heat, cuts, impact, chemicals, or something else?"
+    text: "What type of protection matters most?"
 
   - id: fit_dexterity
     topic: fit
-    text: "Do you prioritize a close, dexterous fit or more room for warmth and layering?"
+    text: "Do you prioritize dexterity or additional room for warmth and layering?"
 
   - id: material_sensitivity
     topic: material
-    text: "Any material preferences or sensitivities, such as latex, leather, or wool?"
+    text: "Do you have any material preferences or sensitivities?"
+
+  - id: other_requirements
+    topic: other
+    text: "Is there any other must-have or dealbreaker?"
 
   - id: grip_control
     topic: grip
     text: "How much grip and fine control do you need while wearing them?"
-
-  - id: other_requirements
-    topic: other
-    text: "Anything else we haven't covered that's a must-have or dealbreaker?"
 
   - id: sizing
     topic: fit

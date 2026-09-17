@@ -8,24 +8,36 @@
 openers:
   - id: use_case
     topic: use_case
-    text: "What do you primarily need to open — food cans, wine bottles, or capped bottles?"
+    text: "What do you primarily need to open?"
 
   - id: budget
     topic: budget
     text: "Do you have a budget range?"
 
-  - id: frequency_size
-    topic: capacity
-    text: "How often will you use it, and what sizes or types of containers does it need to handle?"
-
-followups:
   - id: operation
     topic: operation
     text: "Would you prefer a manual opener, an electric one, or either?"
 
+followups:
   - id: accessibility
     topic: accessibility
-    text: "Do hand strength, wrist pain, grip, or one-handed operation affect what will be comfortable?"
+    text: "Do hand strength, wrist pain, grip, or one-handed use affect your choice?"
+
+  - id: frequency
+    topic: frequency
+    text: "How often do you expect to use it?"
+
+  - id: portability
+    topic: portability
+    text: "Will it stay on a counter, fit in a drawer, or travel with you?"
+
+  - id: other_requirements
+    topic: other
+    text: "Is there any other must-have or dealbreaker?"
+
+  - id: container_size
+    topic: capacity
+    text: "Does it need to handle any unusual container sizes or formats?"
 
   - id: edge_safety
     topic: safety
@@ -33,15 +45,7 @@ followups:
 
   - id: heavy_use
     topic: durability
-    text: "Does it need to withstand heavy daily use or unusually large or thick cans?"
-
-  - id: other_requirements
-    topic: other
-    text: "Anything else we haven't covered that's a must-have or dealbreaker?"
-
-  - id: portability
-    topic: portability
-    text: "Will it stay on a counter, fit in a drawer, or travel in a camping or emergency kit?"
+    text: "Does it need to withstand especially heavy use?"
 
   - id: cleaning
     topic: maintenance

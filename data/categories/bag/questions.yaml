@@ -16,16 +16,12 @@ openers:
 
   - id: contents
     topic: capacity
-    text: "What do you need to carry, including any laptop or other bulky items?"
+    text: "What do you need to carry?"
 
 followups:
   - id: carry_style
     topic: form_factor
     text: "How would you prefer to carry it — backpack, shoulder, crossbody, handheld, or rolling?"
-
-  - id: size_capacity
-    topic: capacity
-    text: "Do you want something compact, an everyday size, or as much capacity as practical?"
 
   - id: weather_protection
     topic: protection
@@ -33,11 +29,15 @@ followups:
 
   - id: organization
     topic: organization
-    text: "How much internal organization do you want — a simple open space or dedicated compartments?"
+    text: "Do you prefer an open interior or dedicated compartments?"
 
   - id: other_requirements
     topic: other
-    text: "Anything else we haven't covered that's a must-have or dealbreaker?"
+    text: "Is there any other must-have or dealbreaker?"
+
+  - id: size_capacity
+    topic: capacity
+    text: "Do you want something compact, an everyday size, or as much capacity as practical?"
 
   - id: laptop_protection
     topic: protection

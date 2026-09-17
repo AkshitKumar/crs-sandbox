@@ -8,7 +8,7 @@
 openers:
   - id: use_case
     topic: use_case
-    text: "What do you expect to carry in the briefcase most days?"
+    text: "What will you mainly use the briefcase for?"
 
   - id: budget
     topic: budget
@@ -19,25 +19,29 @@ openers:
     text: "What laptop or tablet size does it need to fit?"
 
 followups:
+  - id: material_style
+    topic: material
+    text: "What material do you prefer — leather, vegan leather, canvas, nylon, or hard-sided?"
+
+  - id: capacity_profile
+    topic: capacity
+    text: "Would you prefer a slim briefcase or additional carrying capacity?"
+
+  - id: expected_longevity
+    topic: durability
+    text: "How long do you expect the briefcase to last?"
+
+  - id: other_requirements
+    topic: other
+    text: "Is there any other must-have or dealbreaker?"
+
   - id: carry_style
     topic: form_factor
     text: "How would you prefer to carry it — handles, shoulder strap, crossbody, or rolling?"
 
-  - id: material_style
-    topic: material
-    text: "What look and material do you prefer — leather, vegan leather, canvas, nylon, or hard-sided?"
-
-  - id: capacity_profile
-    topic: capacity
-    text: "Would you rather have a slim profile or extra room for files, chargers, and travel items?"
-
   - id: weather_protection
     topic: protection
     text: "How much rain resistance and device protection do you need?"
-
-  - id: other_requirements
-    topic: other
-    text: "Anything else we haven't covered that's a must-have or dealbreaker?"
 
   - id: organization
     topic: organization

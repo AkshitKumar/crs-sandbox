@@ -5,10 +5,10 @@ catalog_path: data/categories/bag/products.jsonl
 questions_path: data/categories/bag/questions.yaml
 index_dir: data/categories/bag/index
 
-# Popular, high-review defaults spanning backpack, sling, and insulated-bag uses.
+# Popular, high-review defaults spanning backpack, messenger, and insulated-bag uses.
 default_slate:
   - B06XZTZ7GB
-  - B07T5D98RW
+  - B075Y6Y9H5
   - B0B56CHMSC
 
 scrape:

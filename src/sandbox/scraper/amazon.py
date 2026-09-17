@@ -211,7 +211,10 @@ async def discover_asins(
             await _polite_sleep(delay_min, delay_max)
             if len(collected) >= target_count:
                 break
-    return [(asin, sp, q) for asin, (sp, q) in collected.items()]
+    return [
+        (asin, sp, q)
+        for asin, (sp, q) in list(collected.items())[:target_count]
+    ]
 
 
 # ---------------------------------------------------------------------------
