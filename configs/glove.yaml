@@ -5,9 +5,9 @@ catalog_path: data/categories/glove/products.jsonl
 questions_path: data/categories/glove/questions.yaml
 index_dir: data/categories/glove/index
 
-# Popular, high-review defaults spanning winter, work, and cut-resistant uses.
+# Fixed turn-zero assortment shown before any preferences are elicited.
 default_slate:
-  - B07JYMHWPP
+  - B07VHQHJPL  # FanVince: wind- and water-resistant touchscreen winter glove
   - B00004XOH8
   - B00W5DMX3C
 

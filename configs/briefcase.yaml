@@ -5,11 +5,11 @@ catalog_path: data/categories/briefcase/products.jsonl
 questions_path: data/categories/briefcase/questions.yaml
 index_dir: data/categories/briefcase/index
 
-# Popular, high-review defaults spanning basic, rolling, and mid-market leather styles.
+# Fixed turn-zero assortment shown before any preferences are elicited.
 default_slate:
-  - B00DUGZFWY
-  - B00VIM9VQ8
   - B004CK5QQM
+  - B093T4QTH6
+  - B07Z4RSZ53
 
 scrape:
   # US-only; geographic persona constraints do not trigger regional scraping.

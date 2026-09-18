@@ -5,7 +5,7 @@ catalog_path: data/categories/opener/products.jsonl
 questions_path: data/categories/opener/questions.yaml
 index_dir: data/categories/opener/index
 
-# Popular, high-review defaults spanning manual, electric, and multifunction designs.
+# Fixed turn-zero assortment shown before any preferences are elicited.
 default_slate:
   - B07YP2VH4B
   - B00T4RH8E6
