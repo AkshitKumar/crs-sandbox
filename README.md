@@ -6,7 +6,7 @@ an adaptive agent and controlled ask-then-recommend (ATR) policies that measure
 how recommendations change as more buyer answers become available.
 
 No evaluation outcome is generated locally or deterministically. Buyer answers,
-recommendations, purchases, and willingness to pay require a valid OpenAI API
+recommendations and purchase decisions require a valid OpenAI API
 key. Local code only controls the conversation, catalog retrieval, validation,
 and aggregation.
 
@@ -92,6 +92,19 @@ streaming, or compare saved run summaries.
 
 ## Recommendation behavior
 
+Choose `--recommendation-objective conversion` (default) for the existing best-fit
+ranking, or `--recommendation-objective revenue` for expected transaction revenue:
+
+```bash
+uv run python scripts/run_eval.py laptop --policy branching_atr --numquestions 7 \
+  --n-personas 100 --recommendation-objective revenue
+```
+
+The revenue prompt considers purchase likelihood and price, prioritizes suitable
+products near the upper end of the shopper’s budget, and respects an explicitly
+stated budget. This changes final ranking only; retrieval and the fixed turn-zero
+slate are shared. The chosen objective is recorded in the run summary.
+
 The adaptive agent has five tools:
 
 - `catalog_overview`
@@ -109,7 +122,7 @@ pool is deduplicated, and prior products that violate a newly revealed hard pric
 ceiling are omitted. Eligible prior recommendations are identified to the
 reranker so that it retains one when it remains among the best overall fits and
 replaces it when newly revealed information makes another product meaningfully
-better. No hidden purchase or willingness-to-pay information is used. An API
+better. No hidden purchase information is used. An API
 model then selects and explains the configured assortment (three products by
 default).
 

@@ -47,6 +47,19 @@ Briefly explain the chosen decision. Do not answer the shopping question.
 Choose exactly one action: CONTINUE or ABANDON."""
 
 
+PURCHASE_PROMPT = """The recommender has offered these products:
+
+<offered_products>
+{products}
+</offered_products>
+
+Predict the shopper's most likely purchase decision at this point. Determine the shopper's priorities and tolerances from this complete description of their preferences, and ground their decision in the offered products and their listed prices. First, evaluate if any product is a sufficiently good fit at the current price. If no product is clearly a good fit or products are too expensive at listed prices, do not purchase. If there is at least one sufficiently good overall fit, then the shopper would purchase the best of these options; detail the reason why the product is a good fit.
+
+Choose PURCHASE when this shopper would actually buy one of the offered products now; otherwise choose NO_PURCHASE. Briefly explain the chosen decision. Identify a purchased product only by product_number.
+
+This shopper's permissiveness is STRICT"""
+
+
 def _parse_abandonment_decision(raw: str) -> dict[str, str]:
     try:
         decision = json.loads(raw)
@@ -73,23 +86,26 @@ def _parse_decision(raw: str, count: int) -> dict[str, Any]:
         decision = json.loads(raw)
     except json.JSONDecodeError as exc:
         raise ValueError("buyer returned malformed decision JSON") from exc
-    expected = {"decision", "product_number", "willingness_to_pay", "reasoning"}
+    expected = {"reason", "decision", "product_number"}
     if not isinstance(decision, dict) or set(decision) != expected:
         raise ValueError("buyer decision JSON has invalid keys")
     if decision["decision"] not in {"PURCHASE", "NO_PURCHASE"}:
         raise ValueError("buyer decision label is invalid")
-    if not isinstance(decision["reasoning"], str) or not decision["reasoning"].strip():
-        raise ValueError("buyer decision reasoning is empty")
+    if not isinstance(decision["reason"], str) or not decision["reason"].strip():
+        raise ValueError("buyer decision reason is empty")
     if decision["decision"] == "PURCHASE":
         number = decision["product_number"]
-        wtp = decision["willingness_to_pay"]
         if type(number) is not int or not 1 <= number <= count:
             raise ValueError("buyer purchase product_number is invalid")
-        if not isinstance(wtp, (int, float)) or isinstance(wtp, bool):
-            raise ValueError("buyer purchase WTP is not numeric")
-    elif decision["product_number"] is not None or decision["willingness_to_pay"] is not None:
-        raise ValueError("buyer non-purchase must use null product_number and WTP")
-    return decision
+    elif decision["product_number"] is not None:
+        raise ValueError("buyer non-purchase must use null product_number")
+    return {
+        "reasoning": decision["reason"].strip(),
+        "decision": decision["decision"],
+        "product_number": decision["product_number"],
+        # Retain the legacy output field while no longer eliciting WTP.
+        "willingness_to_pay": None,
+    }
 
 
 @dataclass
@@ -183,22 +199,20 @@ Private needs and preferences:
         history: list[dict[str, str]] | None = None,
     ) -> dict[str, Any]:
         count = len(recommendations)
-        prompt = f"""The recommender has offered these products:
-
-{render_products(recommendations)}
-
-Purchase one only if it is a good overall fit for your complete preferences and compatible with your needs,
-otherwise do not purchase. In judging overall fit, weigh each aspect according to its importance to you.
-If purchasing, report the most you would be willing to pay based on how well it fits your needs. Identify a
-product only by product_number.
-Explain the decision in one to three sentences before reporting the decision."""
+        prompt = PURCHASE_PROMPT.format(products=render_products(recommendations))
+        instructions = (
+            "Determine this shopper's most likely purchase decision.\n\n"
+            f"Background:\n{self.persona.get('background', '')}\n\n"
+            "Private needs and preferences:\n"
+            f"{self.persona.get('ground_truth_need', '')}"
+        )
         response = create_response(
             self.client,
             self.tracker,
             kind="buyer_decision",
             model=self.model,
             service_tier="flex",
-            instructions=self._instructions(),
+            instructions=instructions,
             input=[*(history if history is not None else self.history), {"role": "user", "content": prompt}],
             reasoning={"effort": "medium"},
             text={
@@ -209,16 +223,14 @@ Explain the decision in one to three sentences before reporting the decision."""
                     "schema": {
                         "type": "object",
                         "properties": {
-                            "reasoning": {"type": "string"},
+                            "reason": {"type": "string"},
                             "decision": {"type": "string", "enum": ["PURCHASE", "NO_PURCHASE"]},
                             "product_number": {"type": ["integer", "null"]},
-                            "willingness_to_pay": {"type": ["number", "null"]},
                         },
                         "required": [
-                            "reasoning",
+                            "reason",
                             "decision",
                             "product_number",
-                            "willingness_to_pay",
                         ],
                         "additionalProperties": False,
                     },

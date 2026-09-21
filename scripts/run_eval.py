@@ -73,6 +73,7 @@ def _run_one(
         recommender_model=args.recommender_model,
         retrieval_limit=args.retrieval_k,
         assortment_size=args.assortment_size,
+        recommendation_objective=args.recommendation_objective,
     ).run()
 
 
@@ -129,9 +130,22 @@ def _checkpoint_metrics(outcomes: list[Outcome]) -> dict[str, Any]:
         scored = [checkpoint for _, checkpoint in entries if checkpoint.get("evaluation_status") == "scored"]
         purchases = [checkpoint for checkpoint in scored if checkpoint.get("outcome") == "PURCHASE"]
         revenue = [float(checkpoint.get("revenue") or 0) for checkpoint in scored]
-        surplus = [float(checkpoint.get("consumer_surplus") or 0) for checkpoint in scored]
-        purchase_surplus = [float(checkpoint["consumer_surplus"]) for checkpoint in purchases]
-        wtp = [float(checkpoint["wtp"]) for checkpoint in purchases]
+        surplus = [
+            float(checkpoint["consumer_surplus"])
+            for checkpoint in scored
+            if isinstance(checkpoint.get("consumer_surplus"), (int, float))
+        ]
+        purchase_surplus = [
+            float(checkpoint["consumer_surplus"])
+            for checkpoint in purchases
+            if isinstance(checkpoint.get("consumer_surplus"), (int, float))
+        ]
+        wtp = [
+            float(checkpoint["wtp"])
+            for checkpoint in purchases
+            if isinstance(checkpoint.get("wtp"), (int, float))
+        ]
+        has_purchase_surplus = bool(purchase_surplus) or not purchases
 
         gains = losses = same = 0
         slate_turnover: list[float] = []
@@ -185,7 +199,9 @@ def _checkpoint_metrics(outcomes: list[Outcome]) -> dict[str, Any]:
                 [float(checkpoint["actual_price"]) for checkpoint in purchases]
             ),
             "mean_consumer_surplus_all_personas": (
-                round(sum(surplus) / expected_n, 4) if expected_n else None
+                round(sum(surplus) / expected_n, 4)
+                if expected_n and has_purchase_surplus
+                else None
             ),
             "mean_consumer_surplus_among_purchases": _mean(purchase_surplus),
             "stepwise_purchase_gains": gains,
@@ -203,6 +219,12 @@ def _summarize(outcomes: list[Outcome]) -> dict[str, Any]:
     purchases = [outcome for outcome in outcomes if outcome.outcome == "PURCHASE"]
     revenue = [outcome.revenue for outcome in outcomes]
     surplus = [outcome.consumer_surplus for outcome in outcomes]
+    purchase_surplus = [
+        outcome.consumer_surplus
+        for outcome in purchases
+        if isinstance(outcome.consumer_surplus, (int, float))
+    ]
+    has_purchase_surplus = bool(purchase_surplus) or not purchases
     engagement_decisions = [
         decision
         for outcome in outcomes
@@ -226,10 +248,12 @@ def _summarize(outcomes: list[Outcome]) -> dict[str, Any]:
         "average_order_value": _mean(
             [outcome.actual_price for outcome in purchases if outcome.actual_price is not None]
         ),
-        "mean_consumer_surplus_all_personas": _mean(surplus),
-        "mean_consumer_surplus_among_purchases": _mean(
-            [outcome.consumer_surplus for outcome in purchases]
+        "mean_consumer_surplus_all_personas": (
+            _mean([value for value in surplus if isinstance(value, (int, float))])
+            if has_purchase_surplus
+            else None
         ),
+        "mean_consumer_surplus_among_purchases": _mean(purchase_surplus),
         "mean_turns": _mean([float(outcome.turns_used) for outcome in outcomes]),
         "mean_questions": _mean([float(outcome.asks) for outcome in outcomes]),
         "question_topics": dict(topics),
@@ -266,11 +290,16 @@ def main() -> int:
     parser.add_argument("--max-turns", type=int, default=16)
     parser.add_argument("--retrieval-k", type=int, default=15)
     parser.add_argument("--assortment-size", type=int, default=3)
+    parser.add_argument(
+        "--recommendation-objective", choices=["conversion", "revenue"],
+        default="conversion", help="Best fit (conversion) or expected transaction revenue",
+    )
     parser.add_argument("--buyer-model", default="gpt-5.6-luna")
     parser.add_argument("--recommender-model", default="gpt-5.6-luna")
     parser.add_argument("--endogenous-abandonment", action="store_true")
     parser.add_argument("--out-dir", type=Path)
     parser.add_argument("--fail-on-protocol-error", action="store_true")
+    parser.add_argument("--fail-on-infrastructure-error", action="store_true")
     args = parser.parse_args()
 
     load_env()
@@ -377,6 +406,7 @@ def main() -> int:
             "max_turns": args.max_turns,
             "retrieval_k": args.retrieval_k,
             "assortment_size": args.assortment_size,
+            "recommendation_objective": args.recommendation_objective,
             "carry_forward_recommendations": policy.name == "branching_atr",
             "maximum_reranker_candidates": (
                 args.retrieval_k
@@ -408,6 +438,26 @@ def main() -> int:
     print(json.dumps(summary["metrics"], indent=2))
     print(f"wrote {transcripts_path}")
     print(f"wrote {summary_path}")
+    infrastructure_error_codes = {
+        "APICONNECTIONERROR",
+        "APIERROR",
+        "APISTATUSERROR",
+        "APITIMEOUTERROR",
+        "INTERNALSERVERERROR",
+        "RATELIMITERROR",
+    }
+    infrastructure_errors = [
+        outcome
+        for outcome in outcomes
+        if outcome.error_code in infrastructure_error_codes
+    ]
+    if args.fail_on_infrastructure_error and infrastructure_errors:
+        affected = ", ".join(
+            f"{outcome.persona_id}:{outcome.error_code}"
+            for outcome in infrastructure_errors
+        )
+        print(f"fatal infrastructure errors: {affected}", file=sys.stderr)
+        return 1
     if args.fail_on_protocol_error and summary["metrics"]["protocol_error_rate"]:
         return 1
     return 0

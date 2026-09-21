@@ -56,7 +56,7 @@ class Outcome:
     wtp: float | None = None
     actual_price: float | None = None
     revenue: float = 0.0
-    consumer_surplus: float = 0.0
+    consumer_surplus: float | None = 0.0
     decision: dict[str, Any] | None = None
     dialogue: list[dict[str, str]] = field(default_factory=list)
     recommendation_result: dict[str, Any] | None = None
@@ -118,15 +118,14 @@ def _resolve_decision(
     price = product.get("price")
     if not isinstance(price, (int, float)):
         raise RecommendationError("PURCHASE_PRICE_MISSING", f"product {number} has no price")
-    wtp = float(decision["willingness_to_pay"])
     actual_price = float(price)
     return {
         "outcome": "PURCHASE",
         "purchased_asin": product.get("asin"),
-        "wtp": wtp,
+        "wtp": None,
         "actual_price": actual_price,
         "revenue": actual_price,
-        "consumer_surplus": wtp - actual_price,
+        "consumer_surplus": None,
     }
 
 
@@ -141,6 +140,7 @@ class Simulation:
     recommender_model: str = "gpt-5.6-luna"
     retrieval_limit: int = 15
     assortment_size: int = 3
+    recommendation_objective: str = field(default="conversion", kw_only=True)
     tracker: UsageTracker = field(default_factory=UsageTracker)
     client: OpenAI | None = None
     buyer: BuyerAgent | None = None
@@ -162,6 +162,7 @@ class Simulation:
                 model=self.recommender_model,
                 retrieval_limit=self.retrieval_limit,
                 assortment_size=self.assortment_size,
+                recommendation_objective=self.recommendation_objective,
                 tracker=self.tracker,
                 client=self.client,
             )
@@ -173,6 +174,7 @@ class Simulation:
                 model=self.recommender_model,
                 retrieval_limit=self.retrieval_limit,
                 assortment_size=self.assortment_size,
+                recommendation_objective=self.recommendation_objective,
                 tracker=self.tracker,
                 client=self.client,
             )
@@ -222,7 +224,7 @@ class Simulation:
             yield from self._run_adaptive(opener)
             return
         if self.policy.name == "rec":
-            yield from self._finish_with_recommendation(self.service.recommend(self.dialogue))
+            yield from self._finish_with_recommendation(self.service.default_recommendation())
             return
         if self.policy.name == "single_atr":
             for _ in range(self.policy.numquestions):
@@ -403,12 +405,15 @@ class Simulation:
             json.dumps(self.dialogue, sort_keys=True).encode()
         ).hexdigest()
         try:
-            result = self.service.recommend(
-                list(self.dialogue),
-                prior_recommendations=self.prior_recommendations,
-            )
-            # Carry recommendation identity only. Hidden purchase decisions and WTP
-            # never affect the next checkpoint's candidate pool.
+            if depth == 0:
+                result = self.service.default_recommendation()
+            else:
+                result = self.service.recommend(
+                    list(self.dialogue),
+                    prior_recommendations=self.prior_recommendations,
+                )
+            # Carry recommendation identity only. Hidden purchase decisions never
+            # affect the next checkpoint's candidate pool.
             self.prior_recommendations = [
                 {"asin": product.get("asin")} for product in result.recommendations
             ]
@@ -484,7 +489,7 @@ class Simulation:
         wtp: float | None = None,
         actual_price: float | None = None,
         revenue: float = 0.0,
-        consumer_surplus: float = 0.0,
+        consumer_surplus: float | None = 0.0,
         abandonment_reason: str | None = None,
         error_code: str | None = None,
         error: str | None = None,
