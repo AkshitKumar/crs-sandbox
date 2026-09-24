@@ -25,6 +25,7 @@ from sandbox.catalog import (  # noqa: E402
     validate_category,
     warm_dense_model,
 )
+from sandbox import catalog  # noqa: E402
 from sandbox.env import load_env  # noqa: E402
 from sandbox.simulation import Outcome, Policy, Simulation  # noqa: E402
 from sandbox.questions import QuestionBank  # noqa: E402
@@ -296,6 +297,7 @@ def main() -> int:
     )
     parser.add_argument("--buyer-model", default="gpt-5.6-luna")
     parser.add_argument("--recommender-model", default="gpt-5.6-luna")
+    parser.add_argument("--dense-device", choices=["auto", "cpu"], default="auto")
     parser.add_argument("--endogenous-abandonment", action="store_true")
     parser.add_argument("--out-dir", type=Path)
     parser.add_argument("--fail-on-protocol-error", action="store_true")
@@ -343,6 +345,8 @@ def main() -> int:
     if not personas:
         parser.error("no personas selected")
     warm_dense_model()
+    if args.dense_device == "cpu":
+        catalog._dense_model().to("cpu")
 
     timestamp = time.strftime("%Y%m%d_%H%M%S")
     output_dir = args.out_dir or (

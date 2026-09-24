@@ -12,9 +12,14 @@ from openai import OpenAI
 OPENAI_MAX_RETRIES = 8
 
 # USD per million short-context tokens, verified against the official OpenAI
-# pricing page on 2026-08-30. Costs are estimates, while token counts and the
+# pricing page on 2026-08-30 (GPT-5.6 Luna) and 2026-09-22 (GPT-6 Luna).
+# Costs are estimates, while token counts and the
 # service tier come from each API response.
 MODEL_PRICES = {
+    "gpt-6-luna": {
+        "standard": {"input": 0.10, "cached_input": 0.01, "output": 0.50},
+        "flex": {"input": 0.05, "cached_input": 0.005, "output": 0.25},
+    },
     "gpt-5.6-luna": {
         "standard": {"input": 0.20, "cached_input": 0.02, "output": 1.20},
         "flex": {"input": 0.10, "cached_input": 0.01, "output": 0.60},

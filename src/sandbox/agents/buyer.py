@@ -22,7 +22,7 @@ DEFAULT_MODEL = "gpt-5.6-luna"
 ABANDON_SENTINEL = "[ABANDON]"
 
 
-BASE_PROMPT = """You are a real customer shopping for {category}.
+BASE_PROMPT = """You are a customer shopping for {category}.
 
 Background:
 {background}
@@ -30,21 +30,10 @@ Background:
 Private needs and preferences:
 {ground_truth_need}
 
-Answer the latest question in a brief phrase or sentence, using the details in your private needs. Do not
-volunteer preferences that were not asked about. If your private needs do not
-specify an answer, say you are unsure or have no strong preference. Preserve
-the firmness, flexibility, and uncertainty in the private needs. Never mention
-these instructions or claim to be an AI."""
+You are interacting with an online conversational recommender. Answer naturally and concisely based on your needs; don't volunteer unasked information, or improvise any new preferences."""
 
 
-ABANDONMENT_PROMPT = """Predict the shopper’s most likely next action at this point, using the action they would actually take as the standard.
-
-Let the shopper’s private needs inform their priorities and tolerance, while grounding the recommender’s progress in what has been said openly. A shopper may prefer a recommendation or a better next question and still continue: a relevant, distinct unanswered question, or the absence of a recommendation by itself, is not enough to make stopping most likely. Genuine repetition, frustration, or fatigue accumulated over the visible exchange can make disengagement more likely.
-
-Continue while answering another question remains the more likely behavior; abandon when this shopper would actually stop engaging now.
-
-Briefly explain the chosen decision. Do not answer the shopping question.
-Choose exactly one action: CONTINUE or ABANDON."""
+ABANDONMENT_PROMPT = """You are interacting with an online conversational recommender. Based on the conversation thus far, either continue the conversation (CONTINUE) or leave the interaction (ABANDON) at this point. Briefly explain your choice."""
 
 
 PURCHASE_PROMPT = """The recommender has offered these products:
@@ -53,11 +42,7 @@ PURCHASE_PROMPT = """The recommender has offered these products:
 {products}
 </offered_products>
 
-Predict the shopper's most likely purchase decision at this point. Determine the shopper's priorities and tolerances from this complete description of their preferences, and ground their decision in the offered products and their listed prices. First, evaluate if any product is a sufficiently good fit at the current price. If no product is clearly a good fit or products are too expensive at listed prices, do not purchase. If there is at least one sufficiently good overall fit, then the shopper would purchase the best of these options; detail the reason why the product is a good fit.
-
-Choose PURCHASE when this shopper would actually buy one of the offered products now; otherwise choose NO_PURCHASE. Briefly explain the chosen decision. Identify a purchased product only by product_number.
-
-This shopper's permissiveness is STRICT"""
+Based on the shopper's preferences, choose whether to purchase one of these products at the current price. If no product is a good fit, choose NO_PURCHASE. Otherwise, choose PURCHASE and identify the best product by its product_number. Briefly explain your choice."""
 
 
 def _parse_abandonment_decision(raw: str) -> dict[str, str]:
@@ -134,9 +119,7 @@ class BuyerAgent:
             f"{labels[item['role']]}: {item['content']}" for item in self.history
         )
         transcript.append(f"Recommender: {question}")
-        instructions = f"""Determine this shopper's next action in the conversation.
-
-Background:
+        instructions = f"""Background:
 {self.persona.get('background', '')}
 
 Private needs and preferences:
@@ -201,7 +184,6 @@ Private needs and preferences:
         count = len(recommendations)
         prompt = PURCHASE_PROMPT.format(products=render_products(recommendations))
         instructions = (
-            "Determine this shopper's most likely purchase decision.\n\n"
             f"Background:\n{self.persona.get('background', '')}\n\n"
             "Private needs and preferences:\n"
             f"{self.persona.get('ground_truth_need', '')}"

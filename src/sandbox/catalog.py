@@ -251,17 +251,24 @@ def retrieve_catalog(
     *,
     focus_query: str | None = None,
     max_price: float | None = None,
+    target_price: float | None = None,
+    min_price: float | None = None,
     limit: int = 15,
 ) -> RetrievalResult:
-    """Round-robin dense, BM25, and focused-dense recall over the full catalog."""
+    """Hybrid recall with a small focus-and-target-price reserve when available."""
     if limit < 1:
         raise ValueError("retrieval limit must be positive")
+    if target_price is not None and target_price <= 0:
+        raise ValueError("target_price must be positive")
+    if min_price is not None and min_price <= 0:
+        raise ValueError("min_price must be positive")
     eligible = [
         product
         for product in load_catalog(category)
         if product.get("asin")
         and isinstance(product.get("price"), (int, float))
         and (max_price is None or float(product["price"]) <= max_price)
+        and (min_price is None or float(product["price"]) >= min_price)
     ]
     dense = _dense_scores(category, query)
     lexical = _bm25_scores(category, query)
@@ -272,6 +279,7 @@ def retrieve_catalog(
     focused_query = (focus_query or "").strip()
     if focused_query and focused_query.casefold() != query.strip().casefold():
         lane_specs.append(("focused_dense", _dense_scores(category, focused_query)))
+        lane_specs.append(("focused_bm25", _bm25_scores(category, focused_query)))
     lanes = [
         sorted(
             eligible,
@@ -282,8 +290,10 @@ def retrieve_catalog(
     selected: list[dict[str, Any]] = []
     sources: dict[str, list[str]] = {}
     seen: set[str] = set()
+    reserve = min(5, limit // 3) if target_price is not None and focused_query else 0
+    baseline_limit = limit - reserve
     position = 0
-    while len(selected) < limit and any(position < len(lane) for lane in lanes):
+    while len(selected) < baseline_limit and any(position < len(lane) for lane in lanes):
         for (name, _), lane in zip(lane_specs, lanes):
             if position >= len(lane):
                 continue
@@ -293,9 +303,38 @@ def retrieve_catalog(
             if asin not in seen:
                 selected.append(product)
                 seen.add(asin)
-                if len(selected) == limit:
+                if len(selected) == baseline_limit:
                     break
         position += 1
+    if reserve:
+        focus_scores = _bm25_scores(category, focused_query)
+        focus_ranked = sorted(
+            eligible, key=lambda product: (-focus_scores[product["asin"]], product["asin"])
+        )
+        price_ranked = sorted(
+            eligible, key=lambda product: (abs(float(product["price"]) - target_price), product["asin"])
+        )
+        focus_ranks = {product["asin"]: rank for rank, product in enumerate(focus_ranked, 1)}
+        price_ranks = {product["asin"]: rank for rank, product in enumerate(price_ranked, 1)}
+        fused = sorted(
+            eligible,
+            key=lambda product: (
+                -(
+                    1 / (60 + focus_ranks[product["asin"]])
+                    + 1 / (60 + price_ranks[product["asin"]])
+                ),
+                product["asin"],
+            ),
+        )
+        for product in fused:
+            asin = product["asin"]
+            if asin in seen:
+                continue
+            selected.append(product)
+            seen.add(asin)
+            sources[asin] = ["focus_price_rrf"]
+            if len(selected) == limit:
+                break
     return RetrievalResult(
         products=selected,
         dense_scores={product["asin"]: dense[product["asin"]] for product in selected},
