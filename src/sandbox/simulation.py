@@ -136,8 +136,8 @@ class Simulation:
     policy: Policy = field(default_factory=Policy)
     max_turns: int = 16
     endogenous_abandonment: bool = False
-    buyer_model: str = "gpt-5.6-luna"
-    recommender_model: str = "gpt-5.6-luna"
+    buyer_model: str = "gpt-6-luna"
+    recommender_model: str = "gpt-6-luna"
     retrieval_limit: int = 15
     assortment_size: int = 3
     recommendation_objective: str = field(default="conversion", kw_only=True)

@@ -27,7 +27,7 @@ from sandbox.openai_responses import (
 from sandbox.questions import QuestionBank
 
 
-DEFAULT_MODEL = "gpt-5.6-luna"
+DEFAULT_MODEL = "gpt-6-luna"
 REVENUE_SELECTION_OBJECTIVE = (
     "Maximize expected transaction revenue, considering both whether this shopper "
     "would purchase and the price paid. Among products that fit the shopper’s "
@@ -276,7 +276,11 @@ class RecommendationService:
             model=self.model,
             service_tier="flex",
             instructions=(
-                "Choose a 2-4 word focused query for the buyer's main use. "
+                "Choose a 2-4 word product search query. Keep the buyer's named "
+                "specialized activity, adding its stated problem or demanding workload "
+                "only when useful. If the activity is routine, use the distinctive "
+                "stated problem or most differentiating stated feature. Use familiar "
+                "listing terms. "
                 "Set max_price only when the buyer has explicitly stated a numeric ceiling; "
                 "otherwise use null. Set target_price only when the buyer has explicitly "
                 "stated a numeric target; otherwise use null. Set min_price to half of "

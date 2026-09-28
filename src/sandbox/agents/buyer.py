@@ -18,7 +18,7 @@ from sandbox.openai_responses import (
 )
 
 
-DEFAULT_MODEL = "gpt-5.6-luna"
+DEFAULT_MODEL = "gpt-6-luna"
 ABANDON_SENTINEL = "[ABANDON]"
 
 
@@ -30,7 +30,7 @@ Background:
 Private needs and preferences:
 {ground_truth_need}
 
-You are interacting with an online conversational recommender. Answer naturally and concisely based on your needs; don't volunteer unasked information, or improvise any new preferences."""
+You are interacting with an online conversational recommender. Answer naturally and concisely as this shopper based on the given persona; don't volunteer unasked information, or improvise any new preferences."""
 
 
 ABANDONMENT_PROMPT = """You are interacting with an online conversational recommender. Based on the conversation thus far, either continue the conversation (CONTINUE) or leave the interaction (ABANDON) at this point. Briefly explain your choice."""
@@ -42,7 +42,7 @@ PURCHASE_PROMPT = """The recommender has offered these products:
 {products}
 </offered_products>
 
-Based on the shopper's preferences, choose whether to purchase one of these products at the current price. If no product is a good fit, choose NO_PURCHASE. Otherwise, choose PURCHASE and identify the best product by its product_number. Briefly explain your choice."""
+Based on your preferences, buy the best good fit at its current price or choose NO_PURCHASE. Use ordinary category expectations for missing details, respect dealbreakers, and weigh other preferences. Briefly explain your choice."""
 
 
 def _parse_abandonment_decision(raw: str) -> dict[str, str]:

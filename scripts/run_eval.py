@@ -295,8 +295,8 @@ def main() -> int:
         "--recommendation-objective", choices=["conversion", "revenue"],
         default="conversion", help="Best fit (conversion) or expected transaction revenue",
     )
-    parser.add_argument("--buyer-model", default="gpt-5.6-luna")
-    parser.add_argument("--recommender-model", default="gpt-5.6-luna")
+    parser.add_argument("--buyer-model", default="gpt-6-luna")
+    parser.add_argument("--recommender-model", default="gpt-6-luna")
     parser.add_argument("--dense-device", choices=["auto", "cpu"], default="auto")
     parser.add_argument("--endogenous-abandonment", action="store_true")
     parser.add_argument("--out-dir", type=Path)
