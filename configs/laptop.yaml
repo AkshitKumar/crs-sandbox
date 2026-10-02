@@ -8,7 +8,7 @@ index_dir: data/categories/laptop/index
 # Fixed turn-zero assortment shown before any preferences are elicited.
 default_slate:
   - B0CLHCWNV8  # ASUS Vivobook 14: portable/general option
-  - B0H1QTGLKX  # NIMO Ryzen 7: 32GB RAM / 1TB SSD productivity option
+  - B0F167PYK7  # Dell 15: everyday productivity / onsite service option
   - B0F5KTGDS9  # Acer Nitro V: gaming/performance option
 
 scrape:
