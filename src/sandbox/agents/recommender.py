@@ -283,8 +283,7 @@ class RecommendationService:
                 "listing terms. "
                 "Set max_price only when the buyer has explicitly stated a numeric ceiling; "
                 "otherwise use null. Set target_price only when the buyer has explicitly "
-                "stated a numeric target; otherwise use null. Set min_price to half of "
-                "target_price when it is set; otherwise use null."
+                "stated a numeric target; otherwise use null."
             ),
             input=transcript,
             reasoning={"effort": "low"},
@@ -299,9 +298,8 @@ class RecommendationService:
                             "focus_query": {"type": "string"},
                             "max_price": {"type": ["number", "null"]},
                             "target_price": {"type": ["number", "null"]},
-                            "min_price": {"type": ["number", "null"]},
                         },
-                        "required": ["focus_query", "max_price", "target_price", "min_price"],
+                        "required": ["focus_query", "max_price", "target_price"],
                         "additionalProperties": False,
                     },
                 }
@@ -315,7 +313,6 @@ class RecommendationService:
         focus = payload.get("focus_query")
         maximum = payload.get("max_price")
         target = payload.get("target_price")
-        minimum = payload.get("min_price")
         if not isinstance(focus, str) or not focus.strip():
             raise RecommendationError("INVALID_RECOMMENDATION_PLAN", "focus_query is empty")
         if maximum is not None and (
@@ -326,15 +323,11 @@ class RecommendationService:
             not isinstance(target, (int, float)) or isinstance(target, bool) or target <= 0
         ):
             raise RecommendationError("INVALID_RECOMMENDATION_PLAN", "target_price is invalid")
-        if minimum is not None and (
-            not isinstance(minimum, (int, float)) or isinstance(minimum, bool) or minimum <= 0
-        ):
-            raise RecommendationError("INVALID_RECOMMENDATION_PLAN", "min_price is invalid")
         return RecommendationPlan(
             focus_query=focus.strip(),
             max_price=float(maximum) if maximum is not None else None,
             target_price=float(target) if target is not None else None,
-            min_price=float(target) / 2 if target is not None else None,
+            min_price=float(target) * 0.4 if target is not None else None,
         )
 
     def _select(
