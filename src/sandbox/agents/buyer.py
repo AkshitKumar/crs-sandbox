@@ -30,7 +30,7 @@ Background:
 Private needs and preferences:
 {ground_truth_need}
 
-You are interacting with an online conversational recommender. Answer naturally and concisely as this shopper based on the given persona; don't volunteer unasked information, or improvise any new preferences."""
+You're chatting with an online recommender. Look at what your notes say about the question you were just asked, and answer in a sentence or two. Keep the meaning of your needs as written in your notes. Don't reshape them to fit the question. If your notes say nothing about it, say you have no preference. If it's a fact you don't know, say you're not sure and share what you do know. Don't rank or label your needs. Don't make up preferences, reasons, or details."""
 
 
 ABANDONMENT_PROMPT = """You are interacting with an online conversational recommender. Based on the conversation thus far, either continue the conversation (CONTINUE) or leave the interaction (ABANDON) at this point. Briefly explain your choice."""

@@ -37,9 +37,9 @@ REVENUE_SELECTION_OBJECTIVE = (
 RECOMMENDATION_OBJECTIVES = ("conversion", "revenue")
 PREVIOUS_RECOMMENDATION_LABEL = "[PREVIOUSLY RECOMMENDED]"
 CONTINUITY_NOTE = (
-    "Products labelled [PREVIOUSLY RECOMMENDED] were leading choices before the "
-    "shopper's latest answer. Retain one if it remains among the best fits; "
-    "otherwise replace it."
+    "Keep a [PREVIOUSLY RECOMMENDED] product if it is still among the best fits "
+    "for what the shopper has said, and when the shopper's answers don't "
+    "distinguish products, keep the earlier ones."
 )
 
 

@@ -8,7 +8,7 @@
 openers:
   - id: budget
     topic: budget
-    text: "Do you have a budget range?"
+    text: "Roughly what were you hoping to spend?"
 
   - id: use_case
     topic: use_case
@@ -33,7 +33,7 @@ followups:
 
   - id: other_requirements
     topic: other
-    text: "Anything else we haven't covered that's a must-have or dealbreaker?"
+    text: "What's the most important thing we haven't covered yet?"
 
   - id: display_quality
     topic: display

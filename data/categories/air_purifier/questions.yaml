@@ -31,6 +31,10 @@ followups:
     topic: durability
     text: "How much does long-term durability matter to you?"
 
+  - id: other_requirements
+    topic: other
+    text: "What's the most important thing we haven't covered yet?"
+
   - id: filter_cost
     topic: filtration
     text: "What priority would you give to ongoing filter and maintenance costs?"
