@@ -6,13 +6,13 @@
 # sharing a topic retain their YAML order.
 
 openers:
-  - id: budget
-    topic: budget
-    text: "Roughly what were you hoping to spend?"
-
   - id: use_case
     topic: use_case
     text: "What do you expect to use this laptop for most?"
+
+  - id: budget
+    topic: budget
+    text: "Roughly what were you hoping to spend?"
 
 followups:
   - id: screen_size
