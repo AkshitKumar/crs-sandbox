@@ -22,6 +22,24 @@ DEFAULT_MODEL = "gpt-6-luna"
 ABANDON_SENTINEL = "[ABANDON]"
 
 
+# Experimental latent-state alternative (not active):
+# You are a customer shopping for {category}.
+#
+# Background:
+# {background}
+#
+# Underlying needs and preferences:
+# {ground_truth_need}
+#
+# The profile describes your underlying preferences. You know your situation,
+# requirements and budget as firmly as written, including minimums. Other
+# preferred details are not conscious choices yet, even where specified: describe
+# what you need for your use case and keep those details unresolved when asked
+# again. If no preference is given, you have none; say when you don’t know a fact.
+# Answer briefly and naturally, adding nothing and stating relevant minimums as
+# written.
+
+
 BASE_PROMPT = """You are a customer shopping for {category}.
 
 Background:
