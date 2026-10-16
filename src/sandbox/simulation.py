@@ -140,7 +140,6 @@ class Simulation:
     recommender_model: str = "gpt-6-luna"
     retrieval_limit: int = 15
     assortment_size: int = 3
-    recommendation_objective: str = field(default="conversion", kw_only=True)
     tracker: UsageTracker = field(default_factory=UsageTracker)
     client: OpenAI | None = None
     buyer: BuyerAgent | None = None
@@ -162,7 +161,6 @@ class Simulation:
                 model=self.recommender_model,
                 retrieval_limit=self.retrieval_limit,
                 assortment_size=self.assortment_size,
-                recommendation_objective=self.recommendation_objective,
                 tracker=self.tracker,
                 client=self.client,
             )
@@ -174,7 +172,6 @@ class Simulation:
                 model=self.recommender_model,
                 retrieval_limit=self.retrieval_limit,
                 assortment_size=self.assortment_size,
-                recommendation_objective=self.recommendation_objective,
                 tracker=self.tracker,
                 client=self.client,
             )

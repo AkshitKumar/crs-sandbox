@@ -42,13 +42,7 @@ PURCHASE_PROMPT = """The recommender has offered these products:
 {products}
 </offered_products>
 
-Decide as this shopper would, using their private needs and conversation. Set aside products above a hard budget. Judge the rest by the shopper's dealbreakers and priorities, in that order.
-
-Take a listed specification that directly addresses a need at face value: if it plausibly covers the shopper's use, the need is met. Don't discount it, and don't reject a product over minor gaps the shopper never made essential.
-
-A demanding need is different. Identify the component that determines that performance and ask whether its class is what that use normally requires, not whether it can technically run it. If the card shows a general-purpose or entry-level part, the need is unmet, whatever the product's name or the seller's claims say.
-
-Choose PURCHASE with the best product_number, or NO_PURCHASE if none is a good fit at its listed price. Briefly explain why."""
+Decide as this shopper using their private needs and conversation. Ignore products above a hard budget. A product qualifies when its listing plausibly covers each top need; ordinary uses don't require strong evidence of ordinary features. Preferences and small misses can be traded off. Choose PURCHASE with the best qualifying product_number, or NO_PURCHASE if none qualifies."""
 
 
 def _parse_abandonment_decision(raw: str) -> dict[str, str]:

@@ -74,7 +74,6 @@ def _run_one(
         recommender_model=args.recommender_model,
         retrieval_limit=args.retrieval_k,
         assortment_size=args.assortment_size,
-        recommendation_objective=args.recommendation_objective,
     ).run()
 
 
@@ -291,10 +290,6 @@ def main() -> int:
     parser.add_argument("--max-turns", type=int, default=16)
     parser.add_argument("--retrieval-k", type=int, default=15)
     parser.add_argument("--assortment-size", type=int, default=3)
-    parser.add_argument(
-        "--recommendation-objective", choices=["conversion", "revenue"],
-        default="conversion", help="Best fit (conversion) or expected transaction revenue",
-    )
     parser.add_argument("--buyer-model", default="gpt-6-luna")
     parser.add_argument("--recommender-model", default="gpt-6-luna")
     parser.add_argument("--dense-device", choices=["auto", "cpu"], default="auto")
@@ -410,7 +405,6 @@ def main() -> int:
             "max_turns": args.max_turns,
             "retrieval_k": args.retrieval_k,
             "assortment_size": args.assortment_size,
-            "recommendation_objective": args.recommendation_objective,
             "carry_forward_recommendations": policy.name == "branching_atr",
             "maximum_reranker_candidates": (
                 args.retrieval_k

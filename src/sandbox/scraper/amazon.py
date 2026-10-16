@@ -316,7 +316,12 @@ def parse_pdp(html: str, asin: str) -> ScrapeResult:
     seen_review_texts: set[str] = set()
     for sel in ["[data-hook='reviewText']", "[data-hook='review-body']"]:
         for body in soup.select(sel):
+            # Video controls are accessibility UI, not customer review text.
+            for widget in body.select("video, script, style, .video-block, .video-player, .vjs-control-bar, .vjs-modal-dialog"):
+                widget.decompose()
             text = body.get_text(" ", strip=True)
+            if any(marker in text for marker in ("Video Player is loading", "This is a modal window", "Playback Rate", "Font Size")):
+                continue
             # Strip Amazon's accessibility prefix and trailing expand/collapse UI.
             text = re.sub(
                 r"^(Brief content visible[^.]*\.\s*)?"

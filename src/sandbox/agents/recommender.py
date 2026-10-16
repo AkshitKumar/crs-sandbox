@@ -28,13 +28,6 @@ from sandbox.questions import QuestionBank
 
 
 DEFAULT_MODEL = "gpt-6-luna"
-REVENUE_SELECTION_OBJECTIVE = (
-    "Maximize expected transaction revenue, considering both whether this shopper "
-    "would purchase and the price paid. Among products that fit the shopper’s "
-    "important needs, concentrate the recommendations near the upper end of their "
-    "budget. Do not exceed an explicitly stated budget."
-)
-RECOMMENDATION_OBJECTIVES = ("conversion", "revenue")
 PREVIOUS_RECOMMENDATION_LABEL = "[PREVIOUSLY RECOMMENDED]"
 CONTINUITY_NOTE = (
     "Keep a [PREVIOUSLY RECOMMENDED] product if it is still among the best fits "
@@ -71,7 +64,9 @@ def render_product_cards(products: list[dict[str, Any]]) -> str:
             for item in (product.get("bullets") or [])[:PRODUCT_CARD_BULLET_LIMIT]
         )[:PRODUCT_CARD_BULLET_CHAR_LIMIT]
         reviews = " | ".join(
-            str(item)[:350] for item in (product.get("review_excerpts") or [])[:3]
+            text[:500] + ("..." if len(text) > 500 else "")
+            for item in (product.get("review_excerpts") or [])[:3]
+            for text in [str(item)]
         )
         cards.append(
             f"{number}. {product.get('title', '')}\n"
@@ -131,13 +126,10 @@ class RecommendationService:
     model: str = DEFAULT_MODEL
     retrieval_limit: int = 15
     assortment_size: int = 3
-    recommendation_objective: str = field(default="conversion", kw_only=True)
     tracker: UsageTracker = field(default_factory=UsageTracker)
     client: OpenAI = field(default_factory=make_client)
 
     def __post_init__(self) -> None:
-        if self.recommendation_objective not in RECOMMENDATION_OBJECTIVES:
-            raise ValueError("recommendation_objective must be conversion or revenue")
         if self.assortment_size < 1:
             raise ValueError("assortment_size must be positive")
 
@@ -348,8 +340,6 @@ class RecommendationService:
             f"Transcript:\n{transcript}\n\n"
             f"Products (indexed 1-{len(candidates)}):\n{render_product_cards(candidates)}"
         )
-        if self.recommendation_objective == "revenue":
-            selection_instructions += "\n\nSelection objective: " + REVENUE_SELECTION_OBJECTIVE
         response = create_response(
             self.client,
             self.tracker,
@@ -444,7 +434,6 @@ class RecommenderAgent:
     model: str = DEFAULT_MODEL
     retrieval_limit: int = 15
     assortment_size: int = 3
-    recommendation_objective: str = field(default="conversion", kw_only=True)
     tracker: UsageTracker = field(default_factory=UsageTracker)
     client: OpenAI = field(default_factory=make_client)
     dialogue: list[dict[str, str]] = field(default_factory=list)
@@ -458,7 +447,6 @@ class RecommenderAgent:
             model=self.model,
             retrieval_limit=self.retrieval_limit,
             assortment_size=self.assortment_size,
-            recommendation_objective=self.recommendation_objective,
             tracker=self.tracker,
             client=self.client,
         )
