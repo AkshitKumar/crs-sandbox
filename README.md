@@ -67,8 +67,15 @@ available for selecting specific IDs instead of a contiguous range.
 Successful ordinary runs contain only `transcripts.jsonl` and `summary.json`. An
 incomplete run may retain `transcripts.partial.jsonl` for recovery.
 
-Both buyer and recommender models default to `gpt-6-luna`. Abandonment is off by
-default; raw runs do not apply an abandonment overlay.
+Both buyer and recommender models default to `gpt-6-luna`.
+Buyer and recommender calls request Flex by default; the shared Responses helper
+also defaults to Flex when a caller omits a tier. Set `OPENAI_SERVICE_TIER=flex`
+to force Flex, `OPENAI_SERVICE_TIER=default` for standard processing, or
+`OPENAI_SERVICE_TIER=auto` for automatic selection. A nonempty environment
+override takes precedence over the caller's tier, including abandonment replays.
+Usage accounting records the tier returned by the API.
+The Slurm example below explicitly requests Flex. Abandonment is off by default;
+raw runs do not apply an abandonment overlay.
 
 The default local concurrency is four. Increase `--parallel` deliberately when
 the host and API rate limits allow it; Bouchet's evaluation wrapper defaults to
@@ -184,7 +191,7 @@ for repetition in 1 2 3; do
     submitted=$(sbatch --parsable \
       "${dependency_args[@]}" \
       --job-name="${category}_100_r${repetition}" \
-      --export="ALL,CATEGORY=${category},POLICY=branching_atr,NUMQUESTIONS=7,N_PERSONAS=100,PERSONA_RANGE=1-100,PERSONA_IDS=,PARALLEL=20,RETRIEVAL_K=15,ASSORTMENT_SIZE=3,MAX_TURNS=16,ENDOGENOUS_ABANDONMENT=0,FAIL_ON_PROTOCOL_ERROR=0,RUN_ROOT=${run_root}" \
+      --export="ALL,OPENAI_SERVICE_TIER=flex,CATEGORY=${category},POLICY=branching_atr,NUMQUESTIONS=7,N_PERSONAS=100,PERSONA_RANGE=1-100,PERSONA_IDS=,PARALLEL=20,RETRIEVAL_K=15,ASSORTMENT_SIZE=3,MAX_TURNS=16,ENDOGENOUS_ABANDONMENT=0,FAIL_ON_PROTOCOL_ERROR=0,RUN_ROOT=${run_root}" \
       runs/bouchet_day/run_eval.sbatch)
     job_id="${submitted%%;*}"
     [[ "$job_id" =~ ^[0-9]+$ ]]

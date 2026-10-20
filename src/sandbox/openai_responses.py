@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import time
 from dataclasses import dataclass, field
 from typing import Any
@@ -150,6 +151,13 @@ def create_response(
     kind: str,
     **kwargs: Any,
 ) -> Any:
+    tier_override = os.environ.get("OPENAI_SERVICE_TIER", "").strip()
+    if tier_override:
+        if tier_override not in {"auto", "default", "flex"}:
+            raise ValueError("OPENAI_SERVICE_TIER must be auto, default, or flex")
+        kwargs["service_tier"] = tier_override
+    else:
+        kwargs.setdefault("service_tier", "flex")
     started = time.perf_counter()
     response = client.responses.create(**kwargs)
     tracker.record(response, kind=kind, latency_s=time.perf_counter() - started)
