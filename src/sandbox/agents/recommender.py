@@ -65,7 +65,7 @@ def render_product_cards(products: list[dict[str, Any]]) -> str:
         )[:PRODUCT_CARD_BULLET_CHAR_LIMIT]
         reviews = " | ".join(
             text[:500] + ("..." if len(text) > 500 else "")
-            for item in (product.get("review_excerpts") or [])[:3]
+            for item in (product.get("review_excerpts") or [])[:5]
             for text in [str(item)]
         )
         cards.append(
@@ -179,13 +179,13 @@ class RecommendationService:
             for product in (prior_recommendations or [])
             if product.get("asin")
         ]
+        # Keep earlier recommendations available below the retrieval price
+        # floor, while still enforcing the shopper's stated hard maximum.
         for product in get_products(self.category, prior_asins):
             price = product.get("price")
             if not isinstance(price, (int, float)):
                 continue
             if plan.max_price is not None and float(price) > plan.max_price:
-                continue
-            if plan.min_price is not None and float(price) < plan.min_price:
                 continue
             asin = product["asin"]
             carried_forward_asins.append(asin)

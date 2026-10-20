@@ -111,9 +111,11 @@ After elicitation, `recommend()` reads the visible dialogue and generates a
 2–4 word product search query, plus a numeric target and ceiling only when
 explicitly stated. The price floor is computed as `0.4 * target_price`; there is
 no floor without a target. Fresh full-catalog hybrid retrieval returns up to
-15 products by default. Eligible default-slate products and, for branching ATR,
-the immediately preceding recommendations are added to the candidate pool.
-All candidates must satisfy the current price floor and ceiling. The pool is
+15 products by default. Default-slate products that satisfy the price bounds
+are added to the candidate pool. For branching ATR, the immediately preceding
+recommendations are also added, bypassing the retrieval price floor but still
+respecting the hard maximum. The selector judges their fit using the visible
+conversation. The pool is
 deduplicated before API selection of three products by default.
 
 The continuity instruction is:
@@ -133,7 +135,7 @@ specifications, up to six feature bullets, and description; it does not contain
 rating counts or review excerpts. Final selection and purchase calls share a
 richer product-card renderer with rating count, up to ten feature bullets
 (bounded to 5,500 characters), specifications bounded to 2,200 characters, and
-up to three review excerpts of 500 characters each. Truncated review excerpts
+up to five review excerpts of 500 characters each. Truncated review excerpts
 end in `...`. The scraper removes video-player controls and skips review text
 that still contains video-player interface markers.
 
