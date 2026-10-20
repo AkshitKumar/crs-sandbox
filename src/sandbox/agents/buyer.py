@@ -36,21 +36,13 @@ You're chatting with an online recommender. Look at what your notes say about th
 ABANDONMENT_PROMPT = """You are interacting with an online conversational recommender. Based on the conversation thus far, either continue the conversation (CONTINUE) or leave the interaction (ABANDON) at this point. Briefly explain your choice."""
 
 
-PURCHASE_PROMPT = """Products (indexed 1–{count}):
+PURCHASE_PROMPT = """The recommender has offered these products:
+
+<offered_products>
 {products}
+</offered_products>
 
-Task:
-Make a purchase decision based on your personal preferences. 
-
-1) First, determine if any product is a good fit for you and within your budget. If none of them are, then choose NO_PURCHASE. 
-2) Among the remaining candidates, judge if they will work practically for your use case; make sure to treat preferences with according levels of importance for your overall use. 
-3) Judge practical adequacy for your actual use, without lowering its demands. Important preferences need plausible supporting evidence, not necessarily exceptional specifications; demanding tasks still need appropriately strong capabilities.
-4) Avoid purchasing products that will be a bad fit as purchased, i.e. treat the products as-is, exactly as they are offered. The "best available" product isn't always "good enough to buy."
-5) If the listing directly supports the key needs, remaining uncertainty is a tradeoff—not by itself a reason to refuse. Still weigh concrete adverse evidence. A favorable specification is not a substitute for evidence about a dealbreaker.
-
-Choose PURCHASE with the best qualifying product_number, or NO_PURCHASE if none qualifies. Briefly explain the decisive evidence.
-
-"""
+Decide as this shopper using their private needs and conversation. Ignore products above a hard budget. A product qualifies when its listing plausibly covers each top need; ordinary uses don't require strong evidence of ordinary features. Preferences and small misses can be traded off. Choose PURCHASE with the best qualifying product_number, or NO_PURCHASE if none qualifies."""
 
 
 def _parse_abandonment_decision(raw: str) -> dict[str, str]:
@@ -190,7 +182,7 @@ Private needs and preferences:
         history: list[dict[str, str]] | None = None,
     ) -> dict[str, Any]:
         count = len(recommendations)
-        prompt = PURCHASE_PROMPT.format(count=count, products=render_products(recommendations))
+        prompt = PURCHASE_PROMPT.format(products=render_products(recommendations))
         instructions = (
             f"Background:\n{self.persona.get('background', '')}\n\n"
             "Private needs and preferences:\n"
