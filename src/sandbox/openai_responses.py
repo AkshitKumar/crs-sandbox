@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import random
 import time
 from dataclasses import dataclass, field
 from typing import Any
@@ -10,7 +11,7 @@ from typing import Any
 from openai import OpenAI
 
 
-OPENAI_MAX_RETRIES = 8
+OPENAI_MAX_RETRIES = 7
 
 # USD per million short-context tokens, verified against the official OpenAI
 # pricing page on 2026-08-30 (GPT-5.6 Luna) and 2026-09-22 (GPT-6 Luna).
@@ -29,8 +30,24 @@ MODEL_PRICES = {
 LONG_CONTEXT_THRESHOLD = 272_000
 
 
+class _EvaluationOpenAI(OpenAI):
+    """Use uncapped fourfold backoff for SDK-retryable requests."""
+
+    def _calculate_retry_timeout(
+        self,
+        remaining_retries: int,
+        options: Any,
+        response_headers: Any = None,
+    ) -> float:
+        retry_after = self._parse_retry_after_header(response_headers)
+        if retry_after is not None and retry_after > 0:
+            return retry_after
+        retry_number = options.get_max_retries(self.max_retries) - remaining_retries
+        return 0.5 * (4 ** retry_number) * (1 - 0.25 * random.random())
+
+
 def make_client() -> OpenAI:
-    return OpenAI(max_retries=OPENAI_MAX_RETRIES)
+    return _EvaluationOpenAI(max_retries=OPENAI_MAX_RETRIES)
 
 
 def content_to_text(content: Any) -> str:

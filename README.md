@@ -70,6 +70,12 @@ to force Flex, `OPENAI_SERVICE_TIER=default` for standard processing, or
 `OPENAI_SERVICE_TIER=auto` for automatic selection. A nonempty environment
 override takes precedence over the caller's tier, including abandonment replays.
 Usage accounting records the tier returned by the API.
+Retryable API failures receive up to seven retries after the initial attempt.
+Retry delays start at 0.5 seconds and grow fourfold without a delay cap, with
+random jitter reducing each delay by up to 25%. A positive server-provided
+`Retry-After` takes precedence. The seven scheduled delays end at 2,048 seconds
+and total about 45.5 minutes before jitter, excluding request execution time. Retries retain the
+requested service tier.
 Abandonment is off by default; enable it with `--endogenous-abandonment`.
 
 The default local concurrency is four. Increase `--parallel` when the host and
