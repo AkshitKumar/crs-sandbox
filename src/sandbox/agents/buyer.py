@@ -42,7 +42,7 @@ PURCHASE_PROMPT = """The recommender has offered these products:
 {products}
 </offered_products>
 
-Decide as this shopper using their private needs and conversation. Ignore products above a hard budget. A product qualifies when its listing plausibly covers each top need; ordinary uses don't require strong evidence of ordinary features. Preferences and small misses can be traded off. Choose PURCHASE with the best qualifying product_number, or NO_PURCHASE if none qualifies."""
+Decide as this shopper using their private needs. Ignore products above a hard budget. A product qualifies when its listing plausibly covers each top need; ordinary uses don't require strong evidence of ordinary features. Preferences and small misses can be traded off. Choose PURCHASE with the best qualifying product_number, or NO_PURCHASE if none qualifies."""
 
 
 def _parse_abandonment_decision(raw: str) -> dict[str, str]:
@@ -178,8 +178,6 @@ Private needs and preferences:
     def decide(
         self,
         recommendations: list[dict[str, Any]],
-        *,
-        history: list[dict[str, str]] | None = None,
     ) -> dict[str, Any]:
         count = len(recommendations)
         prompt = PURCHASE_PROMPT.format(products=render_products(recommendations))
@@ -195,7 +193,7 @@ Private needs and preferences:
             model=self.model,
             service_tier="flex",
             instructions=instructions,
-            input=[*(history if history is not None else self.history), {"role": "user", "content": prompt}],
+            input=[{"role": "user", "content": prompt}],
             reasoning={"effort": "medium"},
             text={
                 "format": {
@@ -222,4 +220,4 @@ Private needs and preferences:
         return _parse_decision(response_to_text(response) or "{}", count)
 
     def evaluate_snapshot(self, recommendations: list[dict[str, Any]]) -> dict[str, Any]:
-        return self.decide(recommendations, history=list(self.history))
+        return self.decide(recommendations)

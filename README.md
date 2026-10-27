@@ -142,14 +142,14 @@ that still contains video-player interface markers.
 ## Purchase evaluation
 
 Each checkpoint is an independent purchase decision using the shopper's full
-private needs, background, visible conversation, and offered product cards.
+private needs, background, and offered product cards.
 Earlier purchase decisions are not supplied to later checkpoints, and hidden
 recommendations do not appear in the continuing buyer conversation.
 
 After the offered product cards, the purchase instruction is:
 
 ```text
-Decide as this shopper using their private needs and conversation. Ignore products above a hard budget. A product qualifies when its listing plausibly covers each top need; ordinary uses don't require strong evidence of ordinary features. Preferences and small misses can be traded off. Choose PURCHASE with the best qualifying product_number, or NO_PURCHASE if none qualifies.
+Decide as this shopper using their private needs. Ignore products above a hard budget. A product qualifies when its listing plausibly covers each top need; ordinary uses don't require strong evidence of ordinary features. Preferences and small misses can be traded off. Choose PURCHASE with the best qualifying product_number, or NO_PURCHASE if none qualifies.
 ```
 
 ## Counterfactual endogenous abandonment
