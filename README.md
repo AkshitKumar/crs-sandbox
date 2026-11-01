@@ -89,8 +89,9 @@ a final catch-all for remaining must-haves or dealbreakers.
 The seven-question air-purifier sequence is primary concern, budget, room size,
 filtration requirements, noise, durability, and the same final catch-all.
 Filter/maintenance cost is question eight. Fixed ATR policies use this exact
-YAML order. Adaptive conversations use the fixed openers before selecting
-follow-up questions from the same bank.
+YAML order. Adaptive conversations choose each question from the same bank;
+`--fixed-order` makes them follow the YAML order too, so only the decision to
+stop adapts.
 
 ## Demo
 
@@ -106,13 +107,24 @@ streaming, or compare saved run summaries.
 The recommender selects the three best fits for the shopper's expressed preferences.
 It keeps earlier recommendations when new answers do not distinguish the options.
 
-The adaptive agent has five tools:
+The adaptive policy (`src/sandbox/agents/adaptive.py`) runs a fixed sequence of
+stateless structured calls each turn, rebuilt from the visible dialogue:
 
-- `catalog_overview`
-- `search_catalog`
-- `get_products`
-- `ask_question`
-- `recommend`
+- `candidate_preview`: before any question, the default slate; afterwards, the
+  same plan call and retrieval that `recommend()` uses, without final selection.
+- `decide_next_action`: names the products it would recommend now and, for each
+  relevant question, the probability that the answer would swap one of them.
+  The code asks when any estimate reaches `ask_threshold` (default 0.25), always
+  asks at least one question, and recommends when no questions remain or only
+  the final turn is left. `--stop-rule` selects other numeric rules
+  (`semantic_entropy`, `confidence`, `entropy`, `retrieval_swap`).
+- `choose_question`: on ASK, picks among the questions above the threshold
+  (skipped with `--fixed-order`, which takes the next YAML question, and when
+  only one qualifies).
+- `recommend`: the shared `recommend()` below, or the default slate when no
+  question has been asked. ATR policies use the same service.
+
+Each step is logged in `tool_calls_per_turn` and shown in the demo.
 
 After elicitation, `recommend()` reads the visible dialogue and generates a
 2–4 word product search query, plus a numeric target and ceiling only when

@@ -9,13 +9,13 @@ from typing import Any, Iterator, Literal
 
 from openai import OpenAI
 
+from sandbox.agents.adaptive import AdaptiveController
 from sandbox.agents.buyer import ABANDON_SENTINEL, BuyerAgent
 from sandbox.catalog import category_with_article
 from sandbox.agents.recommender import (
     RecommendationError,
     RecommendationResult,
     RecommendationService,
-    RecommenderAgent,
     render_recommendations,
 )
 from sandbox.openai_responses import UsageTracker, make_client
@@ -140,10 +140,14 @@ class Simulation:
     recommender_model: str = "gpt-6-luna"
     retrieval_limit: int = 15
     assortment_size: int = 3
+    fixed_order: bool = False
+    ask_threshold: float = 0.25
+    stop_rule: str = "swap_probability"
+    stop_threshold: float | None = None
     tracker: UsageTracker = field(default_factory=UsageTracker)
     client: OpenAI | None = None
     buyer: BuyerAgent | None = None
-    recommender: RecommenderAgent | None = None
+    recommender: AdaptiveController | None = None
 
     def __post_init__(self) -> None:
         self.client = self.client or make_client()
@@ -156,11 +160,17 @@ class Simulation:
             client=self.client,
         )
         if self.policy.name == "adaptive":
-            self.recommender = self.recommender or RecommenderAgent(
+            self.recommender = self.recommender or AdaptiveController(
                 category=self.category,
                 model=self.recommender_model,
                 retrieval_limit=self.retrieval_limit,
                 assortment_size=self.assortment_size,
+                fixed_order=self.fixed_order,
+                ask_threshold=self.ask_threshold,
+                stop_rule=self.stop_rule,
+                stop_threshold=self.stop_threshold,
+                # Leave the last turn for the recommendation.
+                max_questions=self.max_turns - 1,
                 tracker=self.tracker,
                 client=self.client,
             )
@@ -264,7 +274,7 @@ class Simulation:
         )
 
     def _adopt_adaptive_step(self, step: Any) -> None:
-        # RecommenderAgent owns the canonical adaptive transcript.
+        # AdaptiveController owns the canonical adaptive transcript.
         self.dialogue = list(self.recommender.dialogue)
         self.tool_calls.append(step.tool_calls)
         if step.question_id:

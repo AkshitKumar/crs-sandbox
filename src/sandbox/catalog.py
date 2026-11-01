@@ -69,44 +69,6 @@ def get_products(category: str, asins: list[str]) -> list[dict[str, Any]]:
     return [by_asin[asin] for asin in asins if asin in by_asin]
 
 
-def product_details(category: str, asins: list[str]) -> list[dict[str, Any]]:
-    return [
-        {
-            "asin": product.get("asin"),
-            "title": product.get("title"),
-            "brand": product.get("brand"),
-            "price": product.get("price"),
-            "avg_rating": product.get("avg_rating"),
-            "num_reviews": product.get("num_reviews"),
-            "bullets": (product.get("bullets") or [])[:PRODUCT_CARD_BULLET_LIMIT],
-            "description": str(product.get("description") or "")[:1200],
-            "spec_table": product.get("spec_table") or {},
-            "review_excerpts": [
-                str(review)[:500] for review in (product.get("review_excerpts") or [])[:5]
-            ],
-        }
-        for product in get_products(category, asins)
-    ]
-
-
-def catalog_overview(category: str) -> dict[str, Any]:
-    products = list(load_catalog(category))
-    prices = sorted(
-        float(product["price"])
-        for product in products
-        if isinstance(product.get("price"), (int, float))
-    )
-    brands = Counter(product.get("brand") for product in products if product.get("brand"))
-    return {
-        "category": category,
-        "products": len(products),
-        "price_min": prices[0] if prices else None,
-        "price_median": prices[len(prices) // 2] if prices else None,
-        "price_max": prices[-1] if prices else None,
-        "top_brands": [brand for brand, _ in brands.most_common(10)],
-    }
-
-
 def default_slate(category: str) -> list[dict[str, Any]]:
     asins = list(load_config(category).get("default_slate") or [])
     products = get_products(category, asins)

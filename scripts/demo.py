@@ -43,8 +43,57 @@ def _personas(category: str) -> list[dict[str, Any]]:
     return list(payload.get("personas", payload))
 
 
+def _md(text: Any) -> str:
+    """Escape dollar signs so Streamlit does not render prices as LaTeX."""
+    return str(text or "").replace("$", "\\$")
+
+
 def _money(value: Any) -> str:
     return "—" if value is None else f"${float(value):,.2f}"
+
+
+def _rating(value: Any) -> str:
+    return "no rating" if value in (None, "", "None") else f"{value} stars"
+
+
+def _adaptive_step(call: dict[str, Any]) -> str | None:
+    """One readable line (or short block) per adaptive controller step."""
+    tool, args, result = call.get("tool"), call.get("args") or {}, call.get("result") or {}
+    if tool == "recommend":
+        # ATR logs recommend without a source; leave its display unchanged.
+        return f"**Recommend:** from {args['source']}" if "source" in args else None
+    if not isinstance(result, dict):
+        return None
+    if tool == "candidate_preview":
+        plan = result.get("plan") or {}
+        if result.get("source") == "default_slate":
+            return "**Preview:** default slate (nothing asked yet)"
+        price = ""
+        if plan.get("max_price") or plan.get("target_price"):
+            price = f" · target {_money(plan.get('target_price'))}, max {_money(plan.get('max_price'))}"
+        return (
+            f"**Preview:** query “{plan.get('focus_query', '')}”{price} · "
+            f"{len(result.get('asins') or [])} candidates of {result.get('eligible_count')} eligible"
+        )
+    if tool == "decide_next_action":
+        threshold = result.get("threshold")
+        lines = [
+            f"**Decide:** {result.get('action')}"
+            + (" (forced)" if args.get("forced") else "")
+            + (f" · threshold {threshold}" if threshold is not None else "")
+            + f" — {result.get('reason', '')}"
+        ]
+        metrics = result.get("metrics") or {}
+        if metrics:
+            lines.append("metrics: " + ", ".join(f"{key} {value}" for key, value in metrics.items()))
+        for item in result.get("assessments") or []:
+            probability = item.get("swap_probability")
+            marker = "▲" if threshold is not None and probability is not None and probability >= threshold else "·"
+            lines.append(f"{marker} `{item.get('question_id')}` {probability} — {item.get('how', '')}")
+        return "  \n".join(lines)
+    if tool == "choose_question":
+        return f"**Ask:** `{result.get('question_id')}` — {result.get('reason', '')}"
+    return None
 
 
 def _render_tools(calls: list[dict[str, Any]]) -> None:
@@ -52,6 +101,10 @@ def _render_tools(calls: list[dict[str, Any]]) -> None:
         return
     with st.expander(f"{len(calls)} tool call(s)"):
         for call in calls:
+            step = _adaptive_step(call)
+            if step is not None:
+                st.markdown(_md(step))
+                continue
             st.code(
                 f"{call.get('tool')}({json.dumps(call.get('args') or {})})\n"
                 f"→ {str(call.get('result') or '')[:600]}"
@@ -65,9 +118,11 @@ def _render_recommendations(recommendations: list[dict[str, Any]]) -> None:
     for product in recommendations:
         with st.container(border=True):
             st.markdown(
-                f"**{product.get('rank', '?')}. {product.get('title', '')}**  \n"
-                f"{_money(product.get('price'))} · {product.get('avg_rating', '—')} stars  \n"
-                f"{product.get('recommendation_explanation', '')}"
+                _md(
+                    f"**{product.get('rank', '?')}. {product.get('title', '')}**  \n"
+                    f"{_money(product.get('price'))} · {_rating(product.get('avg_rating'))}  \n"
+                    f"{product.get('recommendation_explanation', '')}"
+                )
             )
 
 
@@ -91,13 +146,15 @@ def _render_decision(record: dict[str, Any]) -> None:
     decision = record.get("decision") or record.get("buyer_decision_raw") or {}
     outcome = record.get("outcome") or decision.get("decision")
     st.subheader("Buyer decision")
-    st.write(
-        f"**{outcome}** · WTP {_money(record.get('wtp'))} · "
-        f"revenue {_money(record.get('revenue', record.get('actual_price') or 0))} · "
-        f"consumer surplus {_money(record.get('consumer_surplus'))}"
-    )
+    parts = [f"**{outcome}**"]
+    if record.get("wtp") is not None:
+        parts.append(f"WTP {_money(record.get('wtp'))}")
+    parts.append(f"revenue {_money(record.get('revenue', record.get('actual_price') or 0))}")
+    if record.get("consumer_surplus") is not None:
+        parts.append(f"consumer surplus {_money(record.get('consumer_surplus'))}")
+    st.write(_md(" · ".join(parts)))
     if decision.get("reasoning"):
-        st.info(decision["reasoning"])
+        st.info(_md(decision["reasoning"]))
 
 
 def _replay(record: dict[str, Any], delay: float) -> None:
@@ -107,7 +164,7 @@ def _replay(record: dict[str, Any], delay: float) -> None:
     for message in dialogue:
         role = "assistant" if message.get("role") == "assistant" else "user"
         with st.chat_message(role):
-            st.markdown(message.get("content") or "")
+            st.markdown(_md(message.get("content")))
             if role == "assistant":
                 calls = tool_turns[assistant_index] if assistant_index < len(tool_turns) else []
                 _render_tools(calls)
@@ -132,8 +189,10 @@ def _replay(record: dict[str, Any], delay: float) -> None:
                 depth = checkpoint.get("depth", checkpoint.get("index"))
                 outcome = checkpoint.get("outcome", checkpoint.get("counterfactual_outcome"))
                 st.write(
-                    f"depth {depth}: {checkpoint.get('evaluation_status')} · {outcome} · "
-                    f"revenue {_money(checkpoint.get('revenue', checkpoint.get('counterfactual_actual_price') or 0))}"
+                    _md(
+                        f"depth {depth}: {checkpoint.get('evaluation_status')} · {outcome} · "
+                        f"revenue {_money(checkpoint.get('revenue', checkpoint.get('counterfactual_actual_price') or 0))}"
+                    )
                 )
 
 
@@ -142,7 +201,7 @@ def _render_live_event(event: dict[str, Any]) -> None:
     if event_type in {"buyer_message", "recommender_message"}:
         role = "user" if event_type == "buyer_message" else "assistant"
         with st.chat_message(role):
-            st.markdown(event.get("content") or "")
+            st.markdown(_md(event.get("content")))
             _render_tools(event.get("tool_calls") or [])
     elif event_type == "checkpoint":
         checkpoint = event["checkpoint"]
@@ -155,9 +214,9 @@ def _render_live_event(event: dict[str, Any]) -> None:
     elif event_type == "decision":
         _render_decision(event)
     elif event_type == "abandoned":
-        st.warning(f"Buyer abandoned: {event.get('reason') or 'no reason given'}")
+        st.warning(_md(f"Buyer abandoned: {event.get('reason') or 'no reason given'}"))
     elif event_type == "error":
-        st.error(f"{event.get('error_code')}: {event.get('error')}")
+        st.error(_md(f"{event.get('error_code')}: {event.get('error')}"))
 
 
 mode = st.sidebar.radio("Mode", ["Live simulation", "Replay result", "Compare runs"])
@@ -173,6 +232,9 @@ if mode == "Live simulation":
     numquestions = 0
     if policy_name in {"single_atr", "branching_atr"}:
         numquestions = st.sidebar.number_input("Questions", 0, 20, 4)
+    fixed_order = False
+    if policy_name == "adaptive":
+        fixed_order = st.sidebar.checkbox("Fixed question order (as in ATR)", value=False)
     endogenous = st.sidebar.checkbox("Endogenous abandonment", value=False)
     if st.sidebar.button("Run simulation", type="primary"):
         simulation = Simulation(
@@ -180,6 +242,7 @@ if mode == "Live simulation":
             category=category,
             policy=Policy.make(policy_name, int(numquestions)),
             endogenous_abandonment=endogenous,
+            fixed_order=fixed_order,
         )
         for event in simulation.run_iter():
             _render_live_event(event)

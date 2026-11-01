@@ -74,6 +74,10 @@ def _run_one(
         recommender_model=args.recommender_model,
         retrieval_limit=args.retrieval_k,
         assortment_size=args.assortment_size,
+        fixed_order=args.fixed_order,
+        ask_threshold=args.ask_threshold,
+        stop_rule=args.stop_rule,
+        stop_threshold=args.stop_threshold,
     ).run()
 
 
@@ -294,6 +298,28 @@ def main() -> int:
     parser.add_argument("--recommender-model", default="gpt-6-luna")
     parser.add_argument("--dense-device", choices=["auto", "cpu"], default="auto")
     parser.add_argument("--endogenous-abandonment", action="store_true")
+    parser.add_argument(
+        "--fixed-order",
+        action="store_true",
+        help="adaptive only: ask questions in bank (YAML) order, as ATR does; only stopping adapts",
+    )
+    parser.add_argument(
+        "--ask-threshold",
+        type=float,
+        default=0.25,
+        help="adaptive only: ask when a question's estimated chance of swapping a pick reaches this",
+    )
+    parser.add_argument(
+        "--stop-rule",
+        choices=["swap_probability", "retrieval_swap", "confidence", "entropy", "semantic_entropy"],
+        default="swap_probability",
+        help="adaptive only: how to decide between asking and recommending",
+    )
+    parser.add_argument(
+        "--stop-threshold",
+        type=float,
+        help="adaptive only: threshold for retrieval_swap, confidence, or entropy",
+    )
     parser.add_argument("--out-dir", type=Path)
     parser.add_argument("--fail-on-protocol-error", action="store_true")
     parser.add_argument("--fail-on-infrastructure-error", action="store_true")
@@ -323,6 +349,12 @@ def main() -> int:
         parser.error("policy requests more questions than the category defines")
     if policy.name != "adaptive" and args.max_turns < policy.numquestions + 1:
         parser.error("--max-turns must include all questions plus the recommendation")
+    if args.fixed_order and policy.name != "adaptive":
+        parser.error("--fixed-order applies only to the adaptive policy")
+    if args.stop_rule != "swap_probability" and policy.name != "adaptive":
+        parser.error("--stop-rule applies only to the adaptive policy")
+    if not 0 <= args.ask_threshold <= 1:
+        parser.error("--ask-threshold must be between 0 and 1")
 
     if args.persona_range:
         try:
@@ -413,6 +445,10 @@ def main() -> int:
             ),
             "default_slate": [product["asin"] for product in default_slate(args.category)],
             "endogenous_abandonment": args.endogenous_abandonment,
+            "fixed_order": args.fixed_order if policy.name == "adaptive" else None,
+            "ask_threshold": args.ask_threshold if policy.name == "adaptive" else None,
+            "stop_rule": args.stop_rule if policy.name == "adaptive" else None,
+            "stop_threshold": args.stop_threshold if policy.name == "adaptive" else None,
             "buyer_model": args.buyer_model,
             "recommender_model": args.recommender_model,
             "catalog_sha256": _sha256(catalog_path),
@@ -423,6 +459,9 @@ def main() -> int:
             ),
             "recommender_source_sha256": _sha256(
                 REPO_ROOT / "src" / "sandbox" / "agents" / "recommender.py"
+            ),
+            "adaptive_source_sha256": _sha256(
+                REPO_ROOT / "src" / "sandbox" / "agents" / "adaptive.py"
             ),
             "simulation_source_sha256": _sha256(
                 REPO_ROOT / "src" / "sandbox" / "simulation.py"

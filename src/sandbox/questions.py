@@ -49,5 +49,18 @@ class QuestionBank:
         self.asked_ids.add(selected.id)
         return selected
 
+    def remaining(self) -> list[Question]:
+        return [question for question in self.questions if question.id not in self.asked_ids]
+
+    def take(self, question_id: str) -> Question:
+        """Mark a specific unasked question as asked (adaptive question choice)."""
+        question = next(
+            (question for question in self.remaining() if question.id == question_id), None
+        )
+        if question is None:
+            raise ValueError(f"question {question_id!r} is unknown or already asked")
+        self.asked_ids.add(question.id)
+        return question
+
     def topics(self) -> list[str]:
         return list(dict.fromkeys(question.topic for question in self.questions))
