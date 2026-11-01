@@ -344,11 +344,76 @@ def _connector(outcome: str | None) -> str:
     )
 
 
+TIMELINE_CSS = """
+<style>
+.tl-row { display: flex; align-items: stretch; gap: 0.3rem; margin: 0.5rem 0 1rem; }
+.tl-arrow { align-self: center; opacity: 0.5; font-size: 1.1rem; }
+.tl-card { flex: 1 1 0; min-width: 0; border: 2px solid rgba(128,128,128,0.4); border-radius: 0.6rem;
+  padding: 0.55rem 0.6rem; display: flex; flex-direction: column; gap: 0.25rem; }
+.tl-card.buy { border-color: #22c55e; background: rgba(34,197,94,0.10); }
+.tl-card.no { border-color: #ef4444; background: rgba(239,68,68,0.08); }
+.tl-step { font-size: 0.72rem; opacity: 0.75; text-transform: uppercase; letter-spacing: 0.03em; }
+.tl-verdict { font-weight: 700; font-size: 0.85rem; }
+.tl-card.buy .tl-verdict { color: #22c55e; }
+.tl-card.no .tl-verdict { color: #ef4444; }
+.tl-title { font-size: 0.78rem; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; overflow: hidden; }
+.tl-note { font-size: 0.7rem; opacity: 0.7; }
+</style>
+"""
+
+
+def _timeline_html(checkpoints: list[dict[str, Any]], steps: dict[int, str], category: str) -> str:
+    """One tile per checkpoint: what the buyer would have done at that depth."""
+    tiles, previous = [], None
+    for checkpoint in sorted(checkpoints, key=lambda item: item.get("depth", 0)):
+        depth = int(checkpoint.get("depth") or 0)
+        step = "Start" if depth == 0 else f"After Q{depth}" + (f": {steps[depth]}" if steps.get(depth) else "")
+        if checkpoint.get("evaluation_status") != "scored":
+            tiles.append(f'<div class="tl-card"><div class="tl-step">{_html(step)}</div>'
+                         f'<div class="tl-verdict">not scored</div></div>')
+            continue
+        asin = checkpoint.get("purchased_asin")
+        if checkpoint.get("outcome") == "PURCHASE":
+            product = next(iter(_hydrate_recommendations(category, [{"asin": asin}])), {})
+            title = product.get("title") or f"{asin} (no longer in catalog)"
+            note = "same pick" if asin == previous else ("new pick" if previous else "")
+            tiles.append(
+                f'<div class="tl-card buy"><div class="tl-step">{_html(step)}</div>'
+                f'<div class="tl-verdict">PURCHASE · {_html(_money(checkpoint.get("actual_price")))}</div>'
+                f'<div class="tl-title" title="{_html(title)}">{_html(title)}</div>'
+                + (f'<div class="tl-note">{note}</div>' if note else "")
+                + "</div>"
+            )
+        else:
+            tiles.append(f'<div class="tl-card no"><div class="tl-step">{_html(step)}</div>'
+                         f'<div class="tl-verdict">NO PURCHASE</div></div>')
+        previous = asin or previous
+    return TIMELINE_CSS + '<div class="tl-row">' + '<div class="tl-arrow">→</div>'.join(tiles) + "</div>"
+
+
+def _render_timeline(state: dict[str, Any]) -> None:
+    checkpoints = state.get("checkpoints") or []
+    if not checkpoints:
+        return
+    st.markdown("##### Purchase decision after each answer")
+    st.caption("Each checkpoint is an independent decision on that depth's recommendations.")
+    st.markdown(
+        _timeline_html(checkpoints, state.get("steps") or {}, state.get("category", "")),
+        unsafe_allow_html=True,
+    )
+
+
 def _render_event(event: dict[str, Any], state: dict[str, Any]) -> None:
     event_type = event.get("type")
     if event_type in {"buyer_message", "recommender_message"}:
         role = "user" if event_type == "buyer_message" else "assistant"
         calls = event.get("tool_calls") or []
+        if state.get("branching") and role == "assistant":
+            if _is_recommendation(calls):
+                return  # identical to the last checkpoint; the timeline replaces it
+            asked = next((call.get("result") for call in calls if call.get("tool") == "ask_question"), None)
+            state.setdefault("steps", {})[len(state.get("steps") or {}) + 1] = str(asked or "").replace("_", " ")
         with _left(state), st.chat_message(role):
             if role == "assistant" and _is_recommendation(calls):
                 # Cards arrive with the next event; fill this slot then.
@@ -360,6 +425,7 @@ def _render_event(event: dict[str, Any], state: dict[str, Any]) -> None:
     elif event_type == "checkpoint":
         checkpoint = event["checkpoint"]
         if state.get("branching"):
+            state.setdefault("checkpoints", []).append(checkpoint)
             # Fill the row of the answer this checkpoint followed.
             if state.get("row") is None:
                 _left(state)
@@ -375,8 +441,13 @@ def _render_event(event: dict[str, Any], state: dict[str, Any]) -> None:
             )
     elif event_type == "recommendations":
         state["items"] = event.get("items") or []
+        if state.get("branching"):
+            return
         _render_cards(state.get("slot") or _left(state).empty(), state["items"])
     elif event_type == "decision":
+        if state.get("branching"):
+            _render_timeline(state)
+            return
         if state.get("slot") is not None:
             _render_cards(state["slot"], state.get("items") or [], event)
         with _left(state):
