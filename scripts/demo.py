@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import html
 import json
 import sys
 import time
@@ -111,19 +112,68 @@ def _render_tools(calls: list[dict[str, Any]]) -> None:
             )
 
 
-def _render_recommendations(recommendations: list[dict[str, Any]]) -> None:
-    if not recommendations:
-        return
-    st.subheader("Recommendations")
-    for product in recommendations:
-        with st.container(border=True):
-            st.markdown(
-                _md(
-                    f"**{product.get('rank', '?')}. {product.get('title', '')}**  \n"
-                    f"{_money(product.get('price'))} · {_rating(product.get('avg_rating'))}  \n"
-                    f"{product.get('recommendation_explanation', '')}"
-                )
-            )
+CARD_CSS = """
+<style>
+.rec-row { display: flex; gap: 0.75rem; align-items: stretch; margin: 0.25rem 0 0.5rem; }
+.rec-card { flex: 1 1 0; min-width: 0; border: 2px solid rgba(128,128,128,0.35);
+  border-radius: 0.6rem; padding: 0.7rem 0.8rem; display: flex; flex-direction: column; gap: 0.35rem; }
+.rec-card.bought { border-color: #22c55e; background: rgba(34,197,94,0.10); }
+.rec-card.passed { border-color: rgba(128,128,128,0.6); opacity: 0.6; }
+.rec-card.declined { border-color: #ef4444; background: rgba(239,68,68,0.08); }
+.rec-badge.none { color: #ef4444; }
+.rec-head { display: flex; justify-content: space-between; font-size: 0.8rem; opacity: 0.8; }
+.rec-badge { color: #22c55e; font-weight: 700; }
+.rec-title { font-weight: 600; font-size: 0.95rem; line-height: 1.3; display: -webkit-box;
+  -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.rec-price { font-weight: 700; }
+.rec-why { font-size: 0.85rem; line-height: 1.35; opacity: 0.85; display: -webkit-box;
+  -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+</style>
+"""
+
+
+def _html(text: Any) -> str:
+    """Escape for raw HTML; &#36; keeps Streamlit from reading prices as LaTeX."""
+    return html.escape(str(text or "")).replace("$", "&#36;")
+
+
+def _cards_html(recommendations: list[dict[str, Any]], decision: dict[str, Any] | None) -> str:
+    """Horizontal product cards: green on the purchase (others grey), all red on no purchase."""
+    bought = (decision or {}).get("purchased_asin")
+    outcome = (decision or {}).get("outcome")
+    cards = []
+    for index, product in enumerate(recommendations, start=1):
+        if outcome == "PURCHASE":
+            state = "bought" if product.get("asin") == bought else "passed"
+        elif outcome == "NO_PURCHASE":
+            state = "declined"
+        else:
+            state = ""
+        badge = {
+            "bought": '<span class="rec-badge">PURCHASED</span>',
+            "declined": '<span class="rec-badge none">NO PURCHASE</span>',
+        }.get(state, "")
+        cards.append(
+            f'<div class="rec-card {state}">'
+            f'<div class="rec-head"><span>Option {index}</span>{badge}</div>'
+            f'<div class="rec-title" title="{_html(product.get("title"))}">{_html(product.get("title"))}</div>'
+            f'<div><span class="rec-price">{_html(_money(product.get("price")))}</span> · '
+            f'{_html(_rating(product.get("avg_rating")))}</div>'
+            f'<div class="rec-why">{_html(product.get("recommendation_explanation"))}</div>'
+            "</div>"
+        )
+    return CARD_CSS + f'<div class="rec-row">{"".join(cards)}</div>'
+
+
+def _render_cards(
+    slot: Any, recommendations: list[dict[str, Any]], decision: dict[str, Any] | None = None
+) -> None:
+    if recommendations:
+        slot.markdown(_cards_html(recommendations, decision), unsafe_allow_html=True)
+
+
+def _is_recommendation(calls: list[dict[str, Any]]) -> bool:
+    return any(call.get("tool") == "recommend" for call in calls or [])
 
 
 def _hydrate_recommendations(
@@ -142,46 +192,61 @@ def _hydrate_recommendations(
     ]
 
 
-def _render_decision(record: dict[str, Any]) -> None:
+def _render_decision(record: dict[str, Any], recommendations: list[dict[str, Any]]) -> None:
+    """The buyer's purchase decision as their final chat message."""
     decision = record.get("decision") or record.get("buyer_decision_raw") or {}
     outcome = record.get("outcome") or decision.get("decision")
-    st.subheader("Buyer decision")
-    parts = [f"**{outcome}**"]
-    if record.get("wtp") is not None:
-        parts.append(f"WTP {_money(record.get('wtp'))}")
-    parts.append(f"revenue {_money(record.get('revenue', record.get('actual_price') or 0))}")
-    if record.get("consumer_surplus") is not None:
-        parts.append(f"consumer surplus {_money(record.get('consumer_surplus'))}")
-    st.write(_md(" · ".join(parts)))
-    if decision.get("reasoning"):
-        st.info(_md(decision["reasoning"]))
+    with st.chat_message("user"):
+        if outcome == "PURCHASE":
+            bought = record.get("purchased_asin")
+            index, product = next(
+                ((i, p) for i, p in enumerate(recommendations, start=1) if p.get("asin") == bought),
+                (decision.get("product_number"), {}),
+            )
+            st.markdown(
+                _md(
+                    f":green[**PURCHASE**] · option {index}: {product.get('title') or bought} "
+                    f"({_money(record.get('actual_price') or product.get('price'))})"
+                )
+            )
+        else:
+            st.markdown(f":red[**{outcome or 'NO_PURCHASE'}**]".replace("_", " "))
+        if decision.get("reasoning"):
+            st.markdown(_md(decision["reasoning"]))
 
 
 def _replay(record: dict[str, Any], delay: float) -> None:
     dialogue = record.get("dialogue") or []
     tool_turns = record.get("tool_calls_per_turn") or record.get("crs_tool_calls_per_turn") or []
-    assistant_index = 0
-    for message in dialogue:
-        role = "assistant" if message.get("role") == "assistant" else "user"
-        with st.chat_message(role):
-            st.markdown(_md(message.get("content")))
-            if role == "assistant":
-                calls = tool_turns[assistant_index] if assistant_index < len(tool_turns) else []
-                _render_tools(calls)
-                assistant_index += 1
-        if delay:
-            time.sleep(delay)
     recommendation_result = record.get("recommendation_result") or {}
-    recommendations = (
+    recommendations = _hydrate_recommendations(
+        str(record.get("category") or ""),
         recommendation_result.get("recommendations")
         or record.get("recommendations")
         or record.get("crs_recommendations")
-        or []
+        or [],
     )
-    _render_recommendations(
-        _hydrate_recommendations(str(record.get("category") or ""), recommendations)
+    last_assistant = max(
+        (i for i, message in enumerate(dialogue) if message.get("role") == "assistant"), default=-1
     )
-    _render_decision(record)
+    assistant_index = 0
+    for position, message in enumerate(dialogue):
+        role = "assistant" if message.get("role") == "assistant" else "user"
+        with st.chat_message(role):
+            calls = []
+            if role == "assistant":
+                calls = tool_turns[assistant_index] if assistant_index < len(tool_turns) else []
+                assistant_index += 1
+            if role == "assistant" and recommendations and position == last_assistant:
+                st.markdown(_md(str(message.get("content") or "").split("\n")[0]))
+                _render_cards(st.empty(), recommendations, record)
+            else:
+                st.markdown(_md(message.get("content")))
+            _render_tools(calls)
+        if delay:
+            time.sleep(delay)
+    if record.get("outcome") in {"PURCHASE", "NO_PURCHASE"}:
+        _render_decision(record, recommendations)
     checkpoints = record.get("checkpoints") or record.get("recommendation_checkpoints") or []
     if checkpoints:
         with st.expander("Branching checkpoints"):
@@ -196,13 +261,19 @@ def _replay(record: dict[str, Any], delay: float) -> None:
                 )
 
 
-def _render_live_event(event: dict[str, Any]) -> None:
+def _render_live_event(event: dict[str, Any], state: dict[str, Any]) -> None:
     event_type = event.get("type")
     if event_type in {"buyer_message", "recommender_message"}:
         role = "user" if event_type == "buyer_message" else "assistant"
+        calls = event.get("tool_calls") or []
         with st.chat_message(role):
-            st.markdown(_md(event.get("content")))
-            _render_tools(event.get("tool_calls") or [])
+            if role == "assistant" and _is_recommendation(calls):
+                # Cards arrive with the next event; fill this slot then.
+                st.markdown(_md(str(event.get("content") or "").split("\n")[0]))
+                state["slot"] = st.empty()
+            else:
+                st.markdown(_md(event.get("content")))
+            _render_tools(calls)
     elif event_type == "checkpoint":
         checkpoint = event["checkpoint"]
         st.caption(
@@ -210,9 +281,12 @@ def _render_live_event(event: dict[str, Any]) -> None:
             f"{checkpoint.get('evaluation_status')} · {checkpoint.get('outcome', '')}"
         )
     elif event_type == "recommendations":
-        _render_recommendations(event.get("items") or [])
+        state["items"] = event.get("items") or []
+        _render_cards(state.get("slot") or st.empty(), state["items"])
     elif event_type == "decision":
-        _render_decision(event)
+        if state.get("slot") is not None:
+            _render_cards(state["slot"], state.get("items") or [], event)
+        _render_decision(event, state.get("items") or [])
     elif event_type == "abandoned":
         st.warning(_md(f"Buyer abandoned: {event.get('reason') or 'no reason given'}"))
     elif event_type == "error":
@@ -244,8 +318,9 @@ if mode == "Live simulation":
             endogenous_abandonment=endogenous,
             fixed_order=fixed_order,
         )
+        live_state: dict[str, Any] = {}
         for event in simulation.run_iter():
-            _render_live_event(event)
+            _render_live_event(event, live_state)
 
 elif mode == "Replay result":
     runs = _runs()

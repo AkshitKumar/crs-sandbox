@@ -1,0 +1,4 @@
+[server]
+# The watcher imports every loaded module, including transformers' optional
+# vision models, and logs a torchvision traceback for each. Restart to reload.
+fileWatcherType = "none"
