@@ -102,6 +102,13 @@ uv run streamlit run scripts/demo.py --server.port=8501
 The demo can run a simulation live, replay a saved conversation with timed
 streaming, or compare saved run summaries.
 
+- Run it from the repository root so `.streamlit/config.toml` applies (it
+  turns off the file watcher; restart the demo after editing code).
+- Live simulation offers laptops and air purifiers, so build both indices
+  first (see Setup).
+- Replay and Compare read `results/`, which is not in git; they stay empty
+  until you run `scripts/run_eval.py`.
+
 ## Recommendation behavior
 
 The recommender selects the three best fits for the shopper's expressed preferences.
