@@ -24,6 +24,64 @@ load_env()
 st.set_page_config(page_title="Conversational recommender demo", layout="wide")
 st.title("Conversational recommender demo")
 
+# Follow new messages: when the reader is near the bottom and content grows,
+# scroll smoothly to it. Scrolling up to read pauses this until they return.
+# The script is installed once in the parent page so it survives reruns.
+AUTOSCROLL_JS = """
+<script>
+const doc = window.parent.document;
+if (!window.parent.__crsAutoscroll) {
+  window.parent.__crsAutoscroll = true;
+  const script = doc.createElement("script");
+  script.textContent = `
+    (() => {
+      const NEAR = 300;          // px from the bottom that still counts as "following"
+      const DURATION = 1000;     // ms per scroll animation
+      const scroller = () =>
+        document.querySelector('[data-testid="stMain"]') ||
+        document.querySelector('[data-testid="stAppViewContainer"]') ||
+        document.scrollingElement;
+      const distance = (el) => el.scrollHeight - el.scrollTop - el.clientHeight;
+      const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+      let follow = true, pending = false, frame = null;
+      const stop = () => { if (frame) cancelAnimationFrame(frame); frame = null; };
+      const glide = () => {
+        stop();
+        const el = scroller(), from = el.scrollTop, started = performance.now();
+        const step = (now) => {
+          const t = Math.min(1, (now - started) / DURATION);
+          // Re-read the target each frame so content that keeps growing is reached.
+          el.scrollTop = from + (el.scrollHeight - el.clientHeight - from) * ease(t);
+          frame = t < 1 ? requestAnimationFrame(step) : null;
+        };
+        frame = requestAnimationFrame(step);
+      };
+      // The reader taking over cancels the animation; their position decides following.
+      for (const kind of ["wheel", "touchstart", "keydown", "mousedown"]) {
+        document.addEventListener(kind, () => { stop(); }, { capture: true, passive: true });
+      }
+      document.addEventListener("scroll", (event) => {
+        const el = scroller();
+        if (frame) return;  // our own animation
+        if (event.target === el || event.target === document) follow = distance(el) < NEAR;
+      }, true);
+      new MutationObserver(() => {
+        // A running animation already re-targets the growing bottom each frame.
+        if (!follow || pending || frame) return;
+        pending = true;
+        requestAnimationFrame(() => {
+          pending = false;
+          if (distance(scroller()) > 1) glide();
+        });
+      }).observe(document.body, { childList: true, subtree: true });
+    })();
+  `;
+  doc.head.appendChild(script);
+}
+</script>
+"""
+st.iframe(AUTOSCROLL_JS.strip(), height=1)
+
 
 def _runs() -> list[Path]:
     root = REPO_ROOT / "results"
@@ -128,6 +186,12 @@ CARD_CSS = """
 .rec-price { font-weight: 700; }
 .rec-why { font-size: 0.85rem; line-height: 1.35; opacity: 0.85; display: -webkit-box;
   -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.rec-row.mini { gap: 0.4rem; margin: 0.1rem 0 0.3rem; }
+.rec-row.mini .rec-card { padding: 0.4rem 0.5rem; gap: 0.15rem; border-radius: 0.45rem; }
+.rec-row.mini .rec-head { font-size: 0.68rem; }
+.rec-row.mini .rec-title { font-size: 0.75rem; -webkit-line-clamp: 2; }
+.rec-row.mini .rec-meta { font-size: 0.72rem; }
+.rec-row.mini .rec-why { display: none; }
 </style>
 """
 
@@ -137,7 +201,9 @@ def _html(text: Any) -> str:
     return html.escape(str(text or "")).replace("$", "&#36;")
 
 
-def _cards_html(recommendations: list[dict[str, Any]], decision: dict[str, Any] | None) -> str:
+def _cards_html(
+    recommendations: list[dict[str, Any]], decision: dict[str, Any] | None, *, mini: bool = False
+) -> str:
     """Horizontal product cards: green on the purchase (others grey), all red on no purchase."""
     bought = (decision or {}).get("purchased_asin")
     outcome = (decision or {}).get("outcome")
@@ -150,19 +216,21 @@ def _cards_html(recommendations: list[dict[str, Any]], decision: dict[str, Any] 
         else:
             state = ""
         badge = {
-            "bought": '<span class="rec-badge">PURCHASED</span>',
-            "declined": '<span class="rec-badge none">NO PURCHASE</span>',
+            "bought": f'<span class="rec-badge">{"BOUGHT" if mini else "PURCHASED"}</span>',
+            "declined": f'<span class="rec-badge none">{"NO" if mini else "NO PURCHASE"}</span>',
         }.get(state, "")
+        # Older runs can name products that have since left the catalog.
+        title = product.get("title") or f"{product.get('asin')} (no longer in catalog)"
         cards.append(
             f'<div class="rec-card {state}">'
-            f'<div class="rec-head"><span>Option {index}</span>{badge}</div>'
-            f'<div class="rec-title" title="{_html(product.get("title"))}">{_html(product.get("title"))}</div>'
-            f'<div><span class="rec-price">{_html(_money(product.get("price")))}</span> · '
+            f'<div class="rec-head"><span>{"" if mini else "Option "}{index}</span>{badge}</div>'
+            f'<div class="rec-title" title="{_html(title)}">{_html(title)}</div>'
+            f'<div class="rec-meta"><span class="rec-price">{_html(_money(product.get("price")))}</span> · '
             f'{_html(_rating(product.get("avg_rating")))}</div>'
             f'<div class="rec-why">{_html(product.get("recommendation_explanation"))}</div>'
             "</div>"
         )
-    return CARD_CSS + f'<div class="rec-row">{"".join(cards)}</div>'
+    return CARD_CSS + f'<div class="rec-row{" mini" if mini else ""}">{"".join(cards)}</div>'
 
 
 def _render_cards(
@@ -215,58 +283,73 @@ def _render_decision(record: dict[str, Any], recommendations: list[dict[str, Any
             st.markdown(_md(decision["reasoning"]))
 
 
-def _replay(record: dict[str, Any], delay: float) -> None:
-    dialogue = record.get("dialogue") or []
-    tool_turns = record.get("tool_calls_per_turn") or record.get("crs_tool_calls_per_turn") or []
-    recommendation_result = record.get("recommendation_result") or {}
+def _render_checkpoint(checkpoint: dict[str, Any], category: str) -> None:
+    """A hidden branching-ATR checkpoint: mini cards plus the buyer's decision."""
+    depth = int(checkpoint.get("depth") or 0)
+    label = (
+        "Before any question (default slate)"
+        if depth == 0
+        else f"After {depth} answer{'' if depth == 1 else 's'}"
+    )
+    if checkpoint.get("evaluation_status") != "scored":
+        st.caption(_md(f"**{label}** · {checkpoint.get('error_code') or 'not scored'}"))
+        return
     recommendations = _hydrate_recommendations(
-        str(record.get("category") or ""),
-        recommendation_result.get("recommendations")
-        or record.get("recommendations")
-        or record.get("crs_recommendations")
-        or [],
+        category, (checkpoint.get("recommendation_result") or {}).get("recommendations") or []
     )
-    last_assistant = max(
-        (i for i, message in enumerate(dialogue) if message.get("role") == "assistant"), default=-1
-    )
-    assistant_index = 0
-    for position, message in enumerate(dialogue):
-        role = "assistant" if message.get("role") == "assistant" else "user"
-        with st.chat_message(role):
-            calls = []
-            if role == "assistant":
-                calls = tool_turns[assistant_index] if assistant_index < len(tool_turns) else []
-                assistant_index += 1
-            if role == "assistant" and recommendations and position == last_assistant:
-                st.markdown(_md(str(message.get("content") or "").split("\n")[0]))
-                _render_cards(st.empty(), recommendations, record)
-            else:
-                st.markdown(_md(message.get("content")))
-            _render_tools(calls)
-        if delay:
-            time.sleep(delay)
-    if record.get("outcome") in {"PURCHASE", "NO_PURCHASE"}:
-        _render_decision(record, recommendations)
-    checkpoints = record.get("checkpoints") or record.get("recommendation_checkpoints") or []
-    if checkpoints:
-        with st.expander("Branching checkpoints"):
-            for checkpoint in checkpoints:
-                depth = checkpoint.get("depth", checkpoint.get("index"))
-                outcome = checkpoint.get("outcome", checkpoint.get("counterfactual_outcome"))
-                st.write(
-                    _md(
-                        f"depth {depth}: {checkpoint.get('evaluation_status')} · {outcome} · "
-                        f"revenue {_money(checkpoint.get('revenue', checkpoint.get('counterfactual_actual_price') or 0))}"
-                    )
-                )
+    if checkpoint.get("outcome") == "PURCHASE":
+        index = next(
+            (i for i, p in enumerate(recommendations, start=1)
+             if p.get("asin") == checkpoint.get("purchased_asin")),
+            "?",
+        )
+        verdict = f":green[**PURCHASE**] option {index} ({_money(checkpoint.get('actual_price'))})"
+    else:
+        verdict = ":red[**NO PURCHASE**]"
+    st.markdown(_md(f"**{label}** · ") + verdict)
+    st.markdown(_cards_html(recommendations, checkpoint, mini=True), unsafe_allow_html=True)
+    reasoning = (checkpoint.get("decision") or {}).get("reasoning")
+    if reasoning:
+        with st.expander("Buyer reasoning"):
+            st.markdown(_md(reasoning))
 
 
-def _render_live_event(event: dict[str, Any], state: dict[str, Any]) -> None:
+ROW_WIDTHS = [12, 1.3, 8]
+
+
+def _left(state: dict[str, Any]) -> Any:
+    """Where the next conversation item goes.
+
+    Branching runs give every message its own row so a checkpoint can sit level
+    with the answer it followed: [message | connector | checkpoint].
+    """
+    if not state.get("branching"):
+        return state.setdefault("main", st.container())
+    if not state.get("headed"):
+        left, _, right = st.columns(ROW_WIDTHS, gap="small")
+        left.markdown("##### Conversation")
+        right.markdown("##### Hidden checkpoints")
+        right.caption("What the buyer would do if recommended to after each answer.")
+        state["headed"] = True
+    state["row"] = st.columns(ROW_WIDTHS, gap="small", vertical_alignment="center")
+    return state["row"][0]
+
+
+def _connector(outcome: str | None) -> str:
+    color = {"PURCHASE": "#22c55e", "NO_PURCHASE": "#ef4444"}.get(outcome or "", "rgba(128,128,128,0.6)")
+    return (
+        f'<div style="display:flex;align-items:center;width:100%">'
+        f'<div style="flex:1;border-top:2px dotted {color}"></div>'
+        f'<div style="width:7px;height:7px;border-radius:50%;background:{color}"></div></div>'
+    )
+
+
+def _render_event(event: dict[str, Any], state: dict[str, Any]) -> None:
     event_type = event.get("type")
     if event_type in {"buyer_message", "recommender_message"}:
         role = "user" if event_type == "buyer_message" else "assistant"
         calls = event.get("tool_calls") or []
-        with st.chat_message(role):
+        with _left(state), st.chat_message(role):
             if role == "assistant" and _is_recommendation(calls):
                 # Cards arrive with the next event; fill this slot then.
                 st.markdown(_md(str(event.get("content") or "").split("\n")[0]))
@@ -276,21 +359,87 @@ def _render_live_event(event: dict[str, Any], state: dict[str, Any]) -> None:
             _render_tools(calls)
     elif event_type == "checkpoint":
         checkpoint = event["checkpoint"]
-        st.caption(
-            f"hidden depth {checkpoint.get('depth')}: "
-            f"{checkpoint.get('evaluation_status')} · {checkpoint.get('outcome', '')}"
-        )
+        if state.get("branching"):
+            # Fill the row of the answer this checkpoint followed.
+            if state.get("row") is None:
+                _left(state)
+            _, line, right = state["row"]
+            line.markdown(_connector(checkpoint.get("outcome")), unsafe_allow_html=True)
+            with right:
+                _render_checkpoint(checkpoint, state.get("category", ""))
+            state["row"] = None
+        else:
+            st.caption(
+                f"hidden depth {checkpoint.get('depth')}: "
+                f"{checkpoint.get('evaluation_status')} · {checkpoint.get('outcome', '')}"
+            )
     elif event_type == "recommendations":
         state["items"] = event.get("items") or []
-        _render_cards(state.get("slot") or st.empty(), state["items"])
+        _render_cards(state.get("slot") or _left(state).empty(), state["items"])
     elif event_type == "decision":
         if state.get("slot") is not None:
             _render_cards(state["slot"], state.get("items") or [], event)
-        _render_decision(event, state.get("items") or [])
+        with _left(state):
+            _render_decision(event, state.get("items") or [])
     elif event_type == "abandoned":
-        st.warning(_md(f"Buyer abandoned: {event.get('reason') or 'no reason given'}"))
+        with _left(state):
+            st.warning(_md(f"Buyer abandoned: {event.get('reason') or 'no reason given'}"))
     elif event_type == "error":
-        st.error(_md(f"{event.get('error_code')}: {event.get('error')}"))
+        with _left(state):
+            st.error(_md(f"{event.get('error_code')}: {event.get('error')}"))
+
+
+# Events that put something new on screen; pacing applies between these.
+PACED_EVENTS = {"buyer_message", "recommender_message", "checkpoint", "decision", "abandoned"}
+
+
+def _record_events(record: dict[str, Any]) -> list[dict[str, Any]]:
+    """Rebuild the live event stream from a saved transcript."""
+    dialogue = record.get("dialogue") or []
+    tool_turns = record.get("tool_calls_per_turn") or record.get("crs_tool_calls_per_turn") or []
+    checkpoints = sorted(
+        record.get("checkpoints") or [], key=lambda checkpoint: checkpoint.get("depth", 0)
+    )
+    recommendation_result = record.get("recommendation_result") or {}
+    recommendations = _hydrate_recommendations(
+        str(record.get("category") or ""),
+        recommendation_result.get("recommendations")
+        or record.get("recommendations")
+        or record.get("crs_recommendations")
+        or [],
+    )
+    events: list[dict[str, Any]] = []
+    assistant_index = 0
+    for position, message in enumerate(dialogue + [None]):
+        events += [
+            {"type": "checkpoint", "checkpoint": checkpoint}
+            for checkpoint in checkpoints
+            if checkpoint.get("dialogue_message_count") == position
+        ]
+        if message is None:
+            break
+        if message.get("role") == "assistant":
+            calls = tool_turns[assistant_index] if assistant_index < len(tool_turns) else []
+            assistant_index += 1
+            events.append({"type": "recommender_message", "content": message.get("content"), "tool_calls": calls})
+        else:
+            events.append({"type": "buyer_message", "content": message.get("content")})
+    if recommendations:
+        events.append({"type": "recommendations", "items": recommendations})
+    if record.get("outcome") in {"PURCHASE", "NO_PURCHASE"}:
+        events.append({"type": "decision", **record})
+    return events
+
+
+def _replay(record: dict[str, Any], delay: float) -> None:
+    state = {
+        "branching": bool(record.get("checkpoints")),
+        "category": str(record.get("category") or ""),
+    }
+    for event in _record_events(record):
+        _render_event(event, state)
+        if delay and event["type"] != "recommendations":
+            time.sleep(delay)
 
 
 mode = st.sidebar.radio("Mode", ["Live simulation", "Replay result", "Compare runs"])
@@ -310,6 +459,14 @@ if mode == "Live simulation":
     if policy_name == "adaptive":
         fixed_order = st.sidebar.checkbox("Fixed question order (as in ATR)", value=False)
     endogenous = st.sidebar.checkbox("Endogenous abandonment", value=False)
+    min_gap = st.sidebar.slider(
+        "Minimum seconds between messages",
+        0.0,
+        5.0,
+        2.0,
+        0.25,
+        help="Fast steps wait this long before appearing; slow API calls are not delayed further.",
+    )
     if st.sidebar.button("Run simulation", type="primary"):
         simulation = Simulation(
             persona=persona,
@@ -318,9 +475,17 @@ if mode == "Live simulation":
             endogenous_abandonment=endogenous,
             fixed_order=fixed_order,
         )
-        live_state: dict[str, Any] = {}
+        live_state: dict[str, Any] = {
+            "branching": policy_name == "branching_atr",
+            "category": category,
+        }
+        shown_at = None
         for event in simulation.run_iter():
-            _render_live_event(event, live_state)
+            if event.get("type") in PACED_EVENTS:
+                if shown_at is not None:
+                    time.sleep(max(0.0, min_gap - (time.monotonic() - shown_at)))
+                shown_at = time.monotonic()
+            _render_event(event, live_state)
 
 elif mode == "Replay result":
     runs = _runs()
