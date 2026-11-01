@@ -64,8 +64,8 @@ Successful ordinary runs contain only `transcripts.jsonl` and `summary.json`. An
 incomplete run may retain `transcripts.partial.jsonl` for recovery.
 
 Both buyer and recommender models default to `gpt-6-luna`.
-Buyer and recommender calls request Flex by default; the shared Responses helper
-also defaults to Flex when a caller omits a tier. Set `OPENAI_SERVICE_TIER=flex`
+Buyer and recommender calls request standard processing by default; the shared
+Responses helper also defaults to standard when a caller omits a tier. Set `OPENAI_SERVICE_TIER=flex`
 to force Flex, `OPENAI_SERVICE_TIER=default` for standard processing, or
 `OPENAI_SERVICE_TIER=auto` for automatic selection. A nonempty environment
 override takes precedence over the caller's tier, including abandonment replays.

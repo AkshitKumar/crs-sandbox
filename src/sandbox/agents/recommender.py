@@ -266,7 +266,7 @@ class RecommendationService:
             self.tracker,
             kind="recommendation_plan",
             model=self.model,
-            service_tier="flex",
+            service_tier="default",
             instructions=(
                 "Choose a 2-4 word product search query. Keep the buyer's named "
                 "specialized activity, adding its stated problem or demanding workload "
@@ -345,7 +345,7 @@ class RecommendationService:
             self.tracker,
             kind="recommendation_selection",
             model=self.model,
-            service_tier="flex",
+            service_tier="default",
             instructions=selection_instructions,
             input=selection_input,
             reasoning={"effort": "medium"},
@@ -462,7 +462,7 @@ class RecommenderAgent:
                 self.tracker,
                 kind="adaptive_recommender",
                 model=self.model,
-                service_tier="flex",
+                service_tier="default",
                 instructions=self._instructions(),
                 input=self.api_history,
                 tools=self._tool_schemas(),
